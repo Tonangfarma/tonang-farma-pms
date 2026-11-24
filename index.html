@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tonang Farma Management System (PMS)</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#059669">
+
+  <!-- Apple iOS / iPadOS PWA Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tonang Farma">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Self-Healing & Automatic Cache Purge for iPad & Android (Build 39) -->
+  <script>
+    (function() {
+      try {
+        var BUILD_ID = 'tf-build-v44';
+        if (localStorage.getItem('TF_BUILD_KEY') !== BUILD_ID) {
+          localStorage.setItem('TF_BUILD_KEY', BUILD_ID);
+          if ('caches' in window) {
+            caches.keys().then(function(keys) {
+              keys.forEach(function(k) { caches.delete(k); });
+            });
+          }
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              regs.forEach(function(r) { r.update(); });
+            });
+          }
+          var raw = localStorage.getItem('TONANG_FARMA_STATE_V1');
+          if (raw) {
+            var st = JSON.parse(raw);
+            st.deletedMedicineCodes = [];
+            if (!st.medicines || st.medicines.length === 0) {
+              delete st.medicines;
+            }
+            localStorage.setItem('TONANG_FARMA_STATE_V1', JSON.stringify(st));
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- Windows & Android App Meta -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Tonang Farma">
+  <meta name="msapplication-TileColor" content="#059669">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css?v=3">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            },
+            slate: {
+              850: '#151f32',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for Dashboards -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+  <!-- TOPBAR / HEADER 5S SYSTEM (SEIRI, SEITON, SEISO, SEIKETSU, SHITSUKE) -->
+  <header class="bg-slate-900/95 backdrop-blur-md text-white border-b border-slate-800 sticky top-0 z-40 shadow-xl">
+    
+    <!-- LEVEL 1: System Command & Telemetry Bar -->
+    <div class="w-full max-w-[1600px] mx-auto px-3 sm:px-6">
+      <div class="flex items-center justify-between h-16 gap-2 sm:gap-4">
+        
+        <!-- 5S SEIRI (Cluster 1: Identitas Apotek & Pemilihan Cabang) -->
+        <div class="flex items-center space-x-3 shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-emerald-900/40 border border-emerald-400/30 shrink-0">
+            TF
+          </div>
+          <div class="shrink-0">
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-base sm:text-lg tracking-tight text-white">TONANG FARMA</span>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-500/30 flex items-center space-x-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>PMS v1.0</span>
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-400 hidden md:block">Sistem Apotek Multi-Cabang & POS Hybrid Cloud</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="h-8 w-px bg-slate-800 hidden lg:block"></div>
+
+          <!-- 5S SEITON: Konteks Cabang Kerja (Talaud / Kembang Janggut / Konsolidasi) -->
+          <div class="hidden sm:flex items-center bg-slate-800/90 hover:bg-slate-800 rounded-xl p-1.5 border border-slate-700/80 shadow-inner transition shrink-0">
+            <div class="flex items-center pl-1.5 pr-1 text-emerald-400">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </div>
+            <div class="flex flex-col pr-1">
+              <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold px-0.5">Cabang Aktif</span>
+              <select id="branch-select" class="bg-transparent text-xs text-white font-bold focus:outline-none pr-1 cursor-pointer">
+                <option value="ALL" class="bg-slate-900 text-white">🌐 Semua Cabang (Konsolidasi)</option>
+                <option value="TLD" class="bg-slate-900 text-white">🏝️ Cabang Kepulauan Talaud</option>
+                <option value="KBJ" class="bg-slate-900 text-white">🌲 Cabang Kembang Janggut</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5S SEIRI & SEITON (Cluster 2: Instrumen Pusat Sistem - Online, Sync, Multi-Device) -->
+        <div class="hidden md:flex items-center space-x-2 telemetry-group shrink-0">
+          
+          <!-- Indikator Jaringan Online / Offline -->
+          <button id="toggle-network-btn" class="flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border transition-all bg-emerald-500/15 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25" title="Klik untuk simulasi mode Online / Offline">
+            <span id="network-indicator-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400"></span>
+            <span id="network-status-text">ONLINE</span>
+          </button>
+
+          <!-- Indikator & Pemicu Sinkronisasi (Sync Engine) -->
+          <button id="sync-now-btn" class="flex items-center space-x-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition" title="Sinkronisasi data lokal ke server pusat real-time">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-400 transition-transform" id="sync-icon"></i>
+            <span>Sync: <b id="outbox-pending-count" class="text-emerald-400 font-extrabold">0</b></span>
+          </button>
+
+          <!-- Jam Resmi Operasional Apotek (WITA / UTC+8: Talaud & Kembang Janggut) -->
+          <div class="hidden lg:flex items-center space-x-1.5 text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-800/90 text-amber-300 border border-slate-700 shadow-inner" title="Zona Waktu Operasional Apotek Tonang Farma (WITA / UTC+8)">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span id="live-wita-clock" class="mono font-bold tracking-tight">--:--:-- WITA</span>
+          </div>
+
+          <div class="h-5 w-px bg-slate-800"></div>
+
+          <!-- Tombol Download APK & Multi-Platform App -->
+          <button id="btn-open-download-modal" class="flex items-center space-x-1.5 bg-gradient-to-r from-emerald-600/25 to-teal-600/25 hover:from-emerald-600/35 hover:to-teal-600/35 text-emerald-300 hover:text-white border border-emerald-500/40 rounded-lg px-2.5 py-1.5 text-xs font-bold transition shadow-xs" title="Download APK Android, Windows, Mac, iPad">
+            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Download APK / App</span>
+          </button>
+
+          <!-- Tombol Akses Buka di HP / Tablet -->
+          <button id="btn-open-mobile-modal" class="flex items-center space-x-1.5 bg-blue-500/15 hover:bg-blue-500/25 text-blue-300 hover:text-white border border-blue-500/30 rounded-lg px-2.5 py-1.5 text-xs font-bold transition shadow-xs" title="Buka di HP atau Tablet (Jaringan Wi-Fi / Barcode)">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>Buka di HP</span>
+          </button>
+        </div>
+
+        <!-- 5S SEIRI (Cluster 3: Profil Pengguna, Keamanan & Window Control) -->
+        <div class="flex items-center space-x-2 shrink-0">
+          
+          <!-- Tombol Cepat Download di Mobile Screen -->
+          <div class="flex md:hidden items-center space-x-1">
+            <button id="btn-open-download-modal-m" class="p-2 bg-emerald-500/20 text-emerald-300 rounded-lg border border-emerald-500/30" title="Download App">
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Current User Profile & Switch Account Button -->
+          <button id="btn-user-profile" class="flex items-center space-x-2.5 bg-slate-800/90 hover:bg-slate-700/90 rounded-xl py-1 px-3 border border-slate-700/80 transition shadow-sm" title="Klik untuk Ganti Akun / Info Pengguna">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-sm" id="user-avatar-initials">OW</div>
+            <div class="text-left hidden sm:block">
+              <div class="text-xs font-bold text-white flex items-center space-x-1.5">
+                <span id="user-display-name">Bpk. Tonang</span>
+                <span class="text-[9px] bg-amber-500/20 text-amber-300 font-extrabold px-1.5 py-0.5 rounded border border-amber-500/40" id="user-role-badge">👑 OWNER</span>
+              </div>
+              <div class="text-[10px] text-slate-400 flex items-center space-x-1">
+                <span id="user-branch-badge">🏝️ Cabang Talaud</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 ml-0.5"></i>
+          </button>
+
+          <!-- Dedicated Header Logout Button -->
+          <button id="btn-header-logout" class="flex items-center space-x-1.5 bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 hover:text-rose-200 border border-rose-500/30 rounded-xl px-3 py-2 text-xs font-bold transition shadow-xs" title="Keluar / Logout dari Sistem">
+            <i data-lucide="log-out" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span class="hidden md:inline">Keluar</span>
+          </button>
+
+          <!-- Desktop App Window Mode Button -->
+          <button id="btn-fullscreen" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition border border-transparent hover:border-slate-700" title="Layar Penuh / Tampilan Fullscreen">
+            <i data-lucide="maximize" class="w-4 h-4"></i>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 2: 5S NAVIGATION COMMAND BAR (SEITON, SEISO, SEIKETSU) -->
+    <nav class="bg-slate-950/95 border-t border-slate-800/80 px-3 sm:px-6 overflow-x-auto nav-tabs-scroll shadow-inner">
+      <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between py-2 min-w-max gap-3" id="nav-tabs-container">
+        
+        <!-- Grup 1: Operasional Apotek (Inti Penjualan & Pergudangan) -->
+        <div class="flex items-center space-x-1.5 shrink-0">
+          <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider hidden 2xl:inline px-1">Operasional:</span>
+          
+          <button class="nav-tab active" data-tab="dashboard" data-roles="OWNER,ADMIN" title="Dashboard Pemantauan & Analitik Utama">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Dashboard Owner</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="pos" data-roles="KASIR,OWNER,ADMIN" title="Point of Sale / Kasir Penjualan Obat">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+            <span>Kasir POS</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="medicines" data-roles="OWNER,ADMIN,APOTEKER" title="Katalog & Master Data Obat">
+            <i data-lucide="pill" class="w-4 h-4"></i>
+            <span>Master Obat</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="inventory" data-roles="OWNER,ADMIN,APOTEKER,GUDANG" title="Manajemen Stok & Batch FEFO">
+            <i data-lucide="boxes" class="w-4 h-4"></i>
+            <span>Persediaan (FEFO)</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="purchases" data-roles="OWNER,ADMIN,GUDANG" title="Penerimaan Faktur & Pembelian PBF">
+            <i data-lucide="truck" class="w-4 h-4"></i>
+            <span>Pembelian PBF</span>
+          </button>
+        </div>
+
+        <!-- Divider 1 -->
+        <div class="h-6 w-px bg-slate-800 shrink-0"></div>
+
+        <!-- Grup 2: Finansial & Laporan Manajerial -->
+        <div class="flex items-center space-x-1.5 shrink-0">
+          <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider hidden 2xl:inline px-1">Finansial:</span>
+          
+          <button class="nav-tab" data-tab="finance" data-roles="OWNER" title="Arus Kas & Laba Rugi Cabang">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+            <span>Keuangan & Laba Rugi</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="reports" data-roles="OWNER,ADMIN,APOTEKER,KASIR" title="Laporan Penjualan & Ekspor Excel">
+            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+            <span>Laporan & Ekspor</span>
+          </button>
+        </div>
+
+        <!-- Divider 2 -->
+        <div class="h-6 w-px bg-slate-800 shrink-0"></div>
+
+        <!-- Grup 3: Kontrol Strategis & Kewenangan Owner -->
+        <div class="flex items-center space-x-1.5 shrink-0">
+          <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider hidden 2xl:inline px-1">Kewenangan Owner:</span>
+          
+          <button class="nav-tab" data-tab="ai" data-roles="OWNER" title="Analisis Bisnis Cerdas dengan AI">
+            <i data-lucide="bot" class="w-4 h-4 text-amber-400"></i>
+            <span class="text-amber-300 font-bold">AI Analyst</span>
+          </button>
+          
+          <button class="nav-tab" data-tab="users" data-roles="OWNER" title="Pengaturan Akun & Sandi Seluruh Staf (Khusus Owner)">
+            <i data-lucide="shield-check" class="w-4 h-4 text-purple-400"></i>
+            <span class="text-purple-300 font-bold">Pengguna & Akses (Owner)</span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- OFFLINE NOTIFICATION BANNER -->
+  <div id="offline-alert-banner" class="hidden bg-amber-500 text-slate-900 px-4 py-2 font-semibold text-xs flex items-center justify-between shadow">
+    <div class="flex items-center space-x-2 max-w-7xl mx-auto w-full">
+      <i data-lucide="wifi-off" class="w-4 h-4"></i>
+      <span>Mode Offline Aktif: Transaksi kasir tetap berjalan normal & tersimpan di database lokal. Data akan otomatis disinkronkan saat online.</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 w-full max-w-[1600px] mx-auto p-3 sm:p-6 lg:p-8">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: DASHBOARD OWNER -->
+    <!-- ======================================================== -->
+    <div id="view-dashboard" class="tab-pane animate-fade-in space-y-6">
+      
+      <!-- Dashboard Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight" id="dash-heading">Dashboard Eksekutif Owner</h1>
+          <p class="text-xs text-slate-500" id="dash-subtitle">Pemantauan konsolidasi performa finansial, stok, dan cabang Tonang Farma.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-slate-500">Filter Periode:</span>
+          <select id="dash-period" class="bg-white border border-slate-300 rounded-lg text-xs font-semibold px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm">
+            <option value="month">Bulan Ini (November 2026)</option>
+            <option value="week">7 Hari Terakhir</option>
+            <option value="today">Hari Ini</option>
+            <option value="year">Tahun 2026</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Financial Metrics Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Total Omzet -->
+        <div class="bg-white rounded-xl p-5 card-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Penjualan</span>
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl font-extrabold text-slate-900 mono" id="kpi-omzet">Rp 128.450.000</div>
+            <div class="text-xs text-emerald-600 font-medium mt-1 flex items-center">
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 mr-0.5"></i>
+              <span>+14.2% dari bulan lalu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HPP / Biaya Pokok -->
+        <div class="bg-white rounded-xl p-5 card-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">HPP (Moving Avg)</span>
+            <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+              <i data-lucide="package-minus" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl font-extrabold text-slate-900 mono" id="kpi-hpp">Rp 89.915.000</div>
+            <div class="text-xs text-slate-500 mt-1">Rasio HPP: 70.0% dari omzet</div>
+          </div>
+        </div>
+
+        <!-- Biaya Operasional -->
+        <div class="bg-white rounded-xl p-5 card-shadow">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Biaya Operasional</span>
+            <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+              <i data-lucide="receipt" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl font-extrabold text-slate-900 mono" id="kpi-operasional">Rp 11.200.000</div>
+            <div class="text-xs text-amber-600 mt-1">Gaji, listrik, sewa, logistik</div>
+          </div>
+        </div>
+
+        <!-- Laba Bersih -->
+        <div class="bg-white rounded-xl p-5 card-shadow border-emerald-500/40 bg-gradient-to-br from-white to-emerald-50/40">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Laba Bersih (Net)</span>
+            <div class="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/30">
+              <i data-lucide="banknote" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl font-extrabold text-emerald-700 mono" id="kpi-laba-bersih">Rp 27.335.000</div>
+            <div class="text-xs text-emerald-700 font-semibold mt-1">Margin Bersih: 21.3%</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts & Branch Comparison -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Sales Trend Chart -->
+        <div class="bg-white rounded-xl p-5 card-shadow lg:col-span-2">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Tren Penjualan & Laba Harian</h2>
+              <p class="text-xs text-slate-500">Perbandingan omzet harian antara Cabang Talaud dan Cabang Kembang Janggut</p>
+            </div>
+            <span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2.5 py-1 rounded">Rupiah (IDR)</span>
+          </div>
+          <div class="h-64">
+            <canvas id="salesTrendChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Branch Comparison Breakdown Card -->
+        <div class="bg-white rounded-xl p-5 card-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-900">Perbandingan Cabang</h2>
+            <i data-lucide="scale" class="w-4 h-4 text-slate-400"></i>
+          </div>
+
+          <!-- Cabang Talaud -->
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-xs text-slate-900 flex items-center">
+                <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>
+                Cabang Talaud (Sulut)
+              </span>
+              <span class="text-xs font-extrabold text-slate-900 mono" id="branch-tld-omzet">Rp 68.200.000</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+              <div class="bg-blue-600 h-1.5 rounded-full" style="width: 53%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-500">
+              <span>Laba: <b class="text-emerald-600" id="branch-tld-net">Rp 14.850.000</b></span>
+              <span>1.120 Struk</span>
+            </div>
+          </div>
+
+          <!-- Cabang Kembang Janggut -->
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-xs text-slate-900 flex items-center">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>
+                Kembang Janggut (Kaltim)
+              </span>
+              <span class="text-xs font-extrabold text-slate-900 mono" id="branch-kbj-omzet">Rp 60.250.000</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+              <div class="bg-emerald-600 h-1.5 rounded-full" style="width: 47%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-500">
+              <span>Laba: <b class="text-emerald-600" id="branch-kbj-net">Rp 12.485.000</b></span>
+              <span>985 Struk</span>
+            </div>
+          </div>
+
+          <!-- Quick AI Highlight -->
+          <div class="p-3 rounded-lg bg-amber-50 border border-amber-200 text-xs text-amber-800 space-y-1">
+            <div class="font-bold flex items-center">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 mr-1 text-amber-600"></i>
+              Insight AI Terkini
+            </div>
+            <p class="text-[11px] leading-relaxed">Cabang Talaud mencatat pertumbuhan obat antibiotik 18% lebih tinggi karena kapal logistik baru tiba. Kembang Janggut memiliki margin obat suplemen tertinggi (28.4%).</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Critical Alerts & Top Products -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Alerts: Expired & Low Stock -->
+        <div class="bg-white rounded-xl p-5 card-shadow space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 mr-1.5"></i>
+              Peringatan Persediaan Kritis
+            </h2>
+            <span class="text-[11px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold" id="badge-total-alerts">4 Peringatan</span>
+          </div>
+          <div class="space-y-2.5" id="inventory-alerts-list">
+            <!-- Dynamic alerts -->
+          </div>
+        </div>
+
+        <!-- Top Selling Medicines -->
+        <div class="bg-white rounded-xl p-5 card-shadow space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center">
+              <i data-lucide="flame" class="w-4 h-4 text-orange-500 mr-1.5"></i>
+              Top 5 Terlaris (Volume)
+            </h2>
+            <span class="text-xs text-slate-400">Qty Terjual</span>
+          </div>
+          <div class="space-y-2" id="top-selling-list">
+            <!-- Dynamic top products -->
+          </div>
+        </div>
+
+        <!-- Highest Profit Contribution Medicines -->
+        <div class="bg-white rounded-xl p-5 card-shadow space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center">
+              <i data-lucide="trophy" class="w-4 h-4 text-emerald-600 mr-1.5"></i>
+              Top 5 Kontribusi Laba
+            </h2>
+            <span class="text-xs text-slate-400">Nominal Laba</span>
+          </div>
+          <div class="space-y-2" id="top-profit-list">
+            <!-- Dynamic top profit -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: KASIR & PENJUALAN (POS) -->
+    <!-- ======================================================== -->
+    <div id="view-pos" class="tab-pane hidden animate-fade-in space-y-4">
+      
+      <!-- POS Top Action Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white p-3 rounded-xl border border-slate-200 gap-2 card-shadow">
+        <div class="flex items-center space-x-2.5">
+          <div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Sistem Kasir & Transaksi Apotek</h2>
+            <p class="text-[11px] text-slate-500">Pilih obat, tentukan satuan jual (Tablet/Strip/Box), dan proses transaksi.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <!-- Button: Riwayat & Koreksi Transaksi (Admin/Owner) -->
+          <button id="btn-open-sales-history" class="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm transition">
+            <i data-lucide="history" class="w-4 h-4"></i>
+            <span>Riwayat & Koreksi Nota (Admin / Owner)</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] bg-amber-700 font-mono text-white ml-1" id="badge-sales-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left: Product Catalog & Search (7 Cols) -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <!-- POS Search & Filter Bar -->
+          <div class="bg-white p-4 rounded-xl card-shadow space-y-3">
+            <div class="flex gap-2">
+              <div class="relative flex-1">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+                <input type="text" id="pos-search-input" placeholder="Cari nama obat, kode, atau scan barcode... (Tekan /)" class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+              </div>
+              <button id="pos-clear-search" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold">
+                Reset
+              </button>
+            </div>
+
+            <!-- Categories Chips -->
+            <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 text-xs" id="pos-category-filters">
+              <button class="pos-cat-filter active px-3 py-1 rounded-full bg-emerald-600 text-white font-semibold" data-cat="ALL">Semua</button>
+              <button class="pos-cat-filter px-3 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="Bebas">Bebas</button>
+              <button class="pos-cat-filter px-3 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="Bebas Terbatas">Bebas Terbatas</button>
+              <button class="pos-cat-filter px-3 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="Obat Keras">Obat Keras</button>
+              <button class="pos-cat-filter px-3 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="Suplemen">Suplemen</button>
+              <button class="pos-cat-filter px-3 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="Alkes">Alkes</button>
+            </div>
+          </div>
+
+          <!-- Product Cards Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[580px] overflow-y-auto pr-1" id="pos-product-grid">
+            <!-- Dynamic products -->
+          </div>
+
+        </div>
+
+        <!-- Right: Transaction Cart & Checkout (5 Cols) -->
+        <div class="lg:col-span-5 bg-white rounded-xl card-shadow flex flex-col h-[700px] sticky top-24">
+          
+          <!-- Cart Header -->
+          <div class="p-3.5 border-b border-slate-200 flex items-center justify-between bg-slate-50/80 rounded-t-xl">
+            <div>
+              <div class="text-[10px] text-slate-500 font-semibold uppercase">No. Transaksi Kasir</div>
+              <div class="font-extrabold text-sm mono text-slate-900" id="pos-invoice-no">TF-TLD-20261122-0042</div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button id="btn-quick-history-cart" class="text-[11px] text-amber-700 hover:text-amber-800 font-bold flex items-center space-x-1 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 transition" title="Riwayat & Koreksi Nota yang Sudah Dibayar">
+                <i data-lucide="history" class="w-3.5 h-3.5 text-amber-600"></i>
+                <span>Koreksi Nota</span>
+              </button>
+              <div class="text-right">
+                <div class="text-[10px] text-slate-500 font-semibold uppercase">Kasir Aktif</div>
+                <div class="font-bold text-xs text-emerald-700" id="pos-active-cashier">Siti (Cabang Talaud)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Items List (Scrollable) -->
+          <div class="flex-1 overflow-y-auto p-4 space-y-3" id="pos-cart-items">
+            <!-- Dynamic Cart Items -->
+            <div class="text-center py-16 text-slate-400">
+              <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-2 stroke-1"></i>
+              <p class="text-xs">Keranjang masih kosong</p>
+              <p class="text-[11px] text-slate-400">Klik obat di sebelah kiri untuk menambahkan transaksi</p>
+            </div>
+          </div>
+
+          <!-- Cart Summary & Actions -->
+          <div class="p-4 border-t border-slate-200 bg-slate-50 rounded-b-xl space-y-3">
+            
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between text-slate-600">
+                <span>Subtotal</span>
+                <span class="mono font-semibold" id="cart-subtotal">Rp 0</span>
+              </div>
+              
+              <div class="flex items-center justify-between text-slate-600">
+                <span class="flex items-center">
+                  Diskon
+                  <input type="number" id="cart-discount-input" value="0" min="0" class="w-16 ml-2 px-1.5 py-0.5 border border-slate-300 rounded text-right mono text-xs" placeholder="0">
+                  <span class="ml-1 text-[10px] text-slate-500">Rp</span>
+                </span>
+                <span class="mono text-red-600 font-semibold" id="cart-discount-display">- Rp 0</span>
+              </div>
+
+              <div class="flex justify-between text-base font-extrabold text-slate-900 pt-2 border-t border-slate-200">
+                <span>Total Bayar</span>
+                <span class="mono text-emerald-600 text-lg" id="cart-grand-total">Rp 0</span>
+              </div>
+            </div>
+
+            <!-- Quick Cash Buttons -->
+            <div class="grid grid-cols-4 gap-1.5">
+              <button class="quick-cash-btn text-[11px] font-bold py-1 bg-white border border-slate-300 hover:bg-slate-100 rounded text-slate-700" data-val="exact">Uang Pas</button>
+              <button class="quick-cash-btn text-[11px] font-bold py-1 bg-white border border-slate-300 hover:bg-slate-100 rounded text-slate-700" data-val="20000">20.000</button>
+              <button class="quick-cash-btn text-[11px] font-bold py-1 bg-white border border-slate-300 hover:bg-slate-100 rounded text-slate-700" data-val="50000">50.000</button>
+              <button class="quick-cash-btn text-[11px] font-bold py-1 bg-white border border-slate-300 hover:bg-slate-100 rounded text-slate-700" data-val="100000">100.000</button>
+            </div>
+
+            <!-- Payment Input & Method -->
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Metode Pembayaran</label>
+                <select id="cart-payment-method" class="w-full mt-0.5 bg-white border border-slate-300 rounded text-xs font-semibold py-1.5 px-2">
+                  <option value="CASH">💵 Tunai (Cash)</option>
+                  <option value="QRIS">📱 QRIS / E-Wallet</option>
+                  <option value="TRANSFER">🏦 Transfer Bank</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Jumlah Diterima (Rp)</label>
+                <input type="number" id="cart-cash-received" placeholder="0" class="w-full mt-0.5 bg-white border border-slate-300 rounded text-xs font-bold mono py-1.5 px-2 text-right">
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs font-bold p-2 bg-slate-200/60 rounded">
+              <span class="text-slate-600">Kembalian:</span>
+              <span class="mono text-slate-900 font-extrabold text-sm" id="cart-change-display">Rp 0</span>
+            </div>
+
+            <!-- Checkout Button -->
+            <button id="btn-process-payment" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-md shadow-emerald-700/30 flex items-center justify-center space-x-2 transition disabled:opacity-50 disabled:cursor-not-allowed">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>Bayar & Cetak Struk (F10)</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 3: MASTER OBAT -->
+    <!-- ======================================================== -->
+    <div id="view-medicines" class="tab-pane hidden animate-fade-in space-y-4">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900">Katalog Master Obat</h1>
+          <p class="text-xs text-slate-500">Kelola informasi obat, multi-satuan, konversi, harga HPP, dan harga jual.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="medicine-search-table" placeholder="Cari obat..." class="px-3 py-1.5 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <button id="btn-add-medicine-modal" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+            <span>Tambah Obat Baru</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Branch View Filter Tabs -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white p-2.5 rounded-xl border border-slate-200 gap-2">
+        <div class="flex items-center space-x-1.5 overflow-x-auto">
+          <span class="text-xs font-bold text-slate-500 mr-1.5 shrink-0">Tampilan Cabang:</span>
+          <button id="filter-master-branch-all" class="filter-master-branch-btn px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 text-white shadow-xs transition shrink-0" data-branch="ALL">
+            🌐 Semua Cabang (Katalog Pusat)
+          </button>
+          <button id="filter-master-branch-tld" class="filter-master-branch-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition shrink-0" data-branch="TLD">
+            🏝️ Cabang Kepulauan Talaud
+          </button>
+          <button id="filter-master-branch-kbj" class="filter-master-branch-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition shrink-0" data-branch="KBJ">
+            🌲 Cabang Kembang Janggut
+          </button>
+        </div>
+        <div class="text-[11px] text-slate-500 italic hidden lg:block">
+          *Gunakan tombol <b class="text-blue-700">⚙️ Atur Cabang & Harga</b> untuk atur harga & lokasi tiap cabang
+        </div>
+      </div>
+
+      <!-- Medicine Table Card -->
+      <div class="bg-white rounded-xl card-shadow overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Kode & Barcode</th>
+                <th class="py-3 px-4">Nama Obat</th>
+                <th class="py-3 px-4">Kategori & Bentuk</th>
+                <th class="py-3 px-4" id="th-master-location">Lokasi Rak</th>
+                <th class="py-3 px-4">Konversi Satuan</th>
+                <th class="py-3 px-4 text-right" id="th-master-hpp">HPP (Beli)</th>
+                <th class="py-3 px-4 text-right" id="th-master-price">Harga Jual</th>
+                <th class="py-3 px-4 text-center" id="th-master-buffer">Stok Min. Buffer</th>
+                <th class="py-3 px-4 text-center">Aksi & Cabang</th>
+              </tr>
+            </thead>
+            <tbody id="medicine-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamic rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 4: PERSEDIAAN & BATCH (FEFO) -->
+    <!-- ======================================================== -->
+    <div id="view-inventory" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900">Persediaan & Batch Obat (FEFO)</h1>
+          <p class="text-xs text-slate-500">Pengawasan nomor batch obat, tanggal expired, stok opname, dan transfer antar-cabang.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="btn-open-incoming-stock-modal" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm transition">
+            <i data-lucide="package-plus" class="w-4 h-4"></i>
+            <span>+ Input Penerimaan Faktur PBF / Obat Masuk</span>
+          </button>
+          <button id="btn-open-transfer-modal" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i>
+            <span>Transfer Stok Antar-Cabang</span>
+          </button>
+          <button id="btn-open-stockopname-modal" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>
+            <span>Stok Opname</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Batch Inventory Table -->
+      <div class="bg-white rounded-xl card-shadow overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Rincian Batch & Tanggal Kedaluwarsa</h3>
+          <span class="text-xs text-slate-500">Urutan otomatis: Expired Terdekat (FEFO)</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Nama Obat</th>
+                <th class="py-3 px-4">Cabang</th>
+                <th class="py-3 px-4">No. Batch</th>
+                <th class="py-3 px-4">Tanggal Expired</th>
+                <th class="py-3 px-4">Sisa Hari</th>
+                <th class="py-3 px-4 text-right">Stok Batch</th>
+                <th class="py-3 px-4 text-center">Status FEFO</th>
+                <th class="py-3 px-4 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-batch-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamic batch list -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 5: PEMBELIAN & PBF -->
+    <!-- ======================================================== -->
+    <div id="view-purchases" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900">Pembelian & Supplier PBF</h1>
+          <p class="text-xs text-slate-500">Kelola supplier Pedagang Besar Farmasi, Purchase Order, dan Penerimaan Barang.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button type="button" id="btn-open-add-supplier-modal" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm transition">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>+ Tambah Supplier Baru</span>
+          </button>
+          <button type="button" id="btn-open-supplier-list-modal" class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 rounded-lg text-xs font-bold flex items-center space-x-1.5 border border-slate-300 shadow-xs transition" title="Lihat dan kelola seluruh daftar supplier PBF yang tersimpan di sistem">
+            <i data-lucide="building-2" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Kelola Supplier</span>
+            <span id="badge-suppliers-count" class="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 font-mono text-slate-700 ml-1 border border-slate-200">3</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Kartu Ringkasan Hutang PBF & Deadline Monitoring (AP & Due Date Widget) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 card-shadow">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Total Utang AP ke PBF</span>
+          <span id="stat-ap-total-unpaid" class="text-base sm:text-lg font-extrabold text-red-600 font-mono block mt-1">Rp 0</span>
+          <span class="text-[10px] text-slate-400">Akumulasi faktur belum lunas</span>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 card-shadow">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Faktur Belum Lunas</span>
+          <span id="stat-ap-count-unpaid" class="text-base sm:text-lg font-extrabold text-slate-800 font-mono block mt-1">0 Faktur</span>
+          <span class="text-[10px] text-slate-400">Menunggu pembayaran</span>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-amber-200 bg-amber-50/40 card-shadow">
+          <span class="text-[10px] font-bold text-amber-800 uppercase tracking-wider block">Segera Jatuh Tempo (≤ 7 Hari)</span>
+          <span id="stat-ap-count-urgent" class="text-base sm:text-lg font-extrabold text-amber-700 font-mono block mt-1">0 Faktur</span>
+          <span class="text-[10px] text-amber-600">Perlu diprioritaskan bayar</span>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-red-200 bg-red-50/40 card-shadow">
+          <span class="text-[10px] font-bold text-red-800 uppercase tracking-wider block">Lewat Jatuh Tempo (Overdue)</span>
+          <span id="stat-ap-count-overdue" class="text-base sm:text-lg font-extrabold text-red-700 font-mono block mt-1">0 Faktur</span>
+          <span class="text-[10px] text-red-600">Terlambat bayar ke PBF</span>
+        </div>
+      </div>
+
+      <!-- Purchase History Table with Filters -->
+      <div class="bg-white rounded-xl card-shadow overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 flex items-center">
+              <i data-lucide="receipt" class="w-4 h-4 text-emerald-600 mr-1.5"></i>
+              Riwayat Pembelian & Faktur Masuk PBF
+            </h3>
+            <p class="text-[11px] text-slate-500">Daftar penerimaan obat dari PBF, jatuh tempo hutang (TOP), dan status pembayaran.</p>
+          </div>
+          <!-- Filter Controls -->
+          <div class="flex flex-wrap items-center gap-2">
+            <input type="text" id="purchase-search-input" placeholder="Cari No. Faktur / PBF..." class="px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs w-44 focus:ring-1 focus:ring-emerald-500">
+            <select id="purchase-status-filter" class="px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold bg-white text-slate-700">
+              <option value="ALL">Semua Status Bayar</option>
+              <option value="UNPAID">🔴 Belum Lunas (Hutang)</option>
+              <option value="PAID">🟢 Sudah Lunas</option>
+            </select>
+            <select id="purchase-due-filter" class="px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold bg-white text-slate-700">
+              <option value="ALL">Semua Jatuh Tempo</option>
+              <option value="OVERDUE">⚠️ Lewat Tempo (Overdue)</option>
+              <option value="URGENT">⏰ Segera (≤ 7 Hari)</option>
+            </select>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">No. Faktur</th>
+                <th class="py-3 px-4">Tanggal Masuk</th>
+                <th class="py-3 px-4">Supplier PBF</th>
+                <th class="py-3 px-4">Cabang</th>
+                <th class="py-3 px-4 text-right">Total Faktur</th>
+                <th class="py-3 px-4 text-center">Status Pembayaran</th>
+                <th class="py-3 px-4 text-center">Jatuh Tempo (Deadline)</th>
+                <th class="py-3 px-4 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="purchase-history-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamic rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 6: KEUANGAN & LABA RUGI -->
+    <!-- ======================================================== -->
+    <div id="view-finance" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900">Keuangan & Laba Rugi Cabang</h1>
+          <p class="text-xs text-slate-500">Pemisahan arus kas per cabang, pencatatan beban operasional, dan laporan P&L konsolidasi.</p>
+        </div>
+        <button id="btn-open-expense-modal" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+          <span>Catat Beban Operasional</span>
+        </button>
+      </div>
+
+      <!-- P&L Statement Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Income Statement (Laporan Laba Rugi) -->
+        <div class="bg-white rounded-xl card-shadow p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Laporan Laba Rugi (P&L)</h2>
+              <p class="text-xs text-slate-500" id="pnl-branch-label">Semua Cabang (Konsolidasi)</p>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">Bulan Ini</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="flex justify-between py-1 border-b border-slate-100">
+              <span class="font-bold text-slate-800">1. Pendapatan Penjualan (Omzet)</span>
+              <span class="mono font-bold text-slate-900" id="pnl-revenue">Rp 128.450.000</span>
+            </div>
+
+            <div class="flex justify-between py-1 text-slate-600 pl-4">
+              <span>HPP - Harga Pokok Penjualan (Moving Avg)</span>
+              <span class="mono text-red-600" id="pnl-cogs">(Rp 89.915.000)</span>
+            </div>
+
+            <div class="flex justify-between py-1.5 bg-slate-50 font-bold px-2 rounded text-slate-800">
+              <span>LABA KOTOR (Gross Profit)</span>
+              <span class="mono text-emerald-600 font-extrabold" id="pnl-gross">Rp 38.535.000</span>
+            </div>
+
+            <div class="pt-2">
+              <span class="font-bold text-slate-800">2. Beban Operasional Usaha</span>
+              <div class="space-y-1 pl-4 mt-1.5 text-slate-600" id="pnl-expense-breakdown">
+                <!-- Dynamic expenses breakdown -->
+              </div>
+            </div>
+
+            <div class="flex justify-between py-1 text-slate-600 pl-4 border-t border-slate-100 pt-2">
+              <span class="font-semibold">Total Beban Operasional</span>
+              <span class="mono text-amber-600 font-bold" id="pnl-total-expense">(Rp 11.200.000)</span>
+            </div>
+
+            <div class="flex justify-between py-2.5 bg-emerald-50 text-emerald-900 font-extrabold px-3 rounded-lg text-sm border border-emerald-200">
+              <span>LABA BERSIH (Net Income)</span>
+              <span class="mono text-emerald-700 text-base" id="pnl-net">Rp 27.335.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operational Expenses Log -->
+        <div class="bg-white rounded-xl card-shadow p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Riwayat Pengeluaran Operasional</h2>
+              <p class="text-xs text-slate-500">Gaji, listrik, internet satelit, transportasi logistik</p>
+            </div>
+            <i data-lucide="receipt" class="w-4 h-4 text-slate-400"></i>
+          </div>
+
+          <div class="space-y-2 max-h-[360px] overflow-y-auto pr-1" id="expense-log-list">
+            <!-- Dynamic expense items -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 7: LAPORAN & EKSPOR -->
+    <!-- ======================================================== -->
+    <div id="view-reports" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900">Pusat Laporan & Ekspor Dokumen</h1>
+          <p class="text-xs text-slate-500">Ekspor laporan penjualan, persediaan, dan keuangan dalam format Excel (CSV) dan PDF.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="btn-export-csv" class="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i>
+            <span>Export ke Excel (CSV)</span>
+          </button>
+          <button id="btn-print-report" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Cetak / Cetak PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Report Filter Selection -->
+      <div class="bg-white p-4 rounded-xl card-shadow flex flex-wrap gap-4 items-center">
+        <div>
+          <label class="text-[10px] font-bold text-slate-500 uppercase">Jenis Laporan</label>
+          <select id="report-type-select" class="block mt-1 bg-slate-50 border border-slate-300 rounded text-xs font-semibold py-1.5 px-3">
+            <option value="sales">1. Laporan Penjualan Transaksi</option>
+            <option value="stock">2. Laporan Posisi Stok & FEFO</option>
+            <option value="pnl">3. Laporan Laba Rugi Komparasi</option>
+            <option value="critical">4. Laporan Obat Kritis & Kedaluwarsa</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Report Table Preview -->
+      <div class="bg-white rounded-xl card-shadow overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+          <h3 class="text-xs font-bold text-slate-800 uppercase" id="report-preview-title">Tinjauan Data Laporan Penjualan</h3>
+          <span class="text-xs text-slate-500">Siap diekspor</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600" id="report-table">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200" id="report-table-head">
+              <!-- Dynamic headers -->
+            </thead>
+            <tbody id="report-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamic preview rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 8: AI BUSINESS ANALYST -->
+    <!-- ======================================================== -->
+    <div id="view-ai" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900 flex items-center">
+            <i data-lucide="bot" class="w-6 h-6 text-amber-500 mr-2"></i>
+            AI Business Analyst — Tonang Farma
+          </h1>
+          <p class="text-xs text-slate-500">Asisten cerdas berbasis data aktual akuntansi apotek. Tidak mengarang angka (Zero-Hallucination).</p>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div class="flex flex-wrap gap-2 text-xs">
+        <button class="ai-prompt-chip bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium px-3 py-1.5 rounded-full card-shadow transition">
+          📊 Cabang mana yang memiliki laba bersih tertinggi?
+        </button>
+        <button class="ai-prompt-chip bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium px-3 py-1.5 rounded-full card-shadow transition">
+          💊 Obat apa yang harus segera dibeli (restock) minggu ini?
+        </button>
+        <button class="ai-prompt-chip bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium px-3 py-1.5 rounded-full card-shadow transition">
+          ⏰ Deteksi obat mendekati expired & produk slow-moving
+        </button>
+        <button class="ai-prompt-chip bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium px-3 py-1.5 rounded-full card-shadow transition">
+          💰 Mengapa biaya operasional Talaud lebih tinggi dari Kembang Janggut?
+        </button>
+      </div>
+
+      <!-- Chat Conversation Box -->
+      <div class="bg-white rounded-xl card-shadow flex flex-col h-[520px]">
+        
+        <!-- Chat History -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4" id="ai-chat-history">
+          
+          <!-- AI Welcome Message -->
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shrink-0 shadow">
+              AI
+            </div>
+            <div class="bg-slate-100 text-slate-800 p-4 rounded-2xl rounded-tl-none text-xs leading-relaxed max-w-2xl space-y-2">
+              <p class="font-bold text-slate-900">Halo Bapak/Ibu Pemilik Tonang Farma!</p>
+              <p>Saya adalah **AI Business Analyst** apotek Anda. Saya telah menganalisis seluruh data transaksi kasir, kartu stok batch FEFO, faktur PBF, dan beban operasional di Cabang Talaud dan Cabang Kembang Janggut.</p>
+              <p class="text-slate-600">Silakan tanyakan apa pun terkait performa bisnis atau klik salah satu rekomendasi cepat di atas.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="p-3 border-t border-slate-200 bg-slate-50 rounded-b-xl flex gap-2">
+          <input type="text" id="ai-chat-input" placeholder="Ajukan pertanyaan bisnis kepada AI... (misal: 'Rekomendasi pembelian obat')" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+          <button id="ai-chat-send" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 transition">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Kirim</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 9: MANAJEMEN PENGGUNA & HAK AKSES (RBAC) -->
+    <!-- ======================================================== -->
+    <div id="view-users" class="tab-pane hidden animate-fade-in space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-xl font-bold text-slate-900 flex items-center">
+              <i data-lucide="shield-check" class="w-6 h-6 text-purple-600 mr-2"></i>
+              Manajemen Pengguna & Hak Akses
+            </h1>
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-purple-100 text-purple-800 border border-purple-200">👑 Khusus Kewenangan Owner</span>
+          </div>
+          <p class="text-xs text-slate-500">Kewenangan penuh Owner untuk mengubah username, mereset kata sandi seluruh anggota staf apotek, dan penugasan cabang.</p>
+        </div>
+        <button id="btn-open-add-user-modal" class="px-3.5 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
+          <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+          <span>Tambah Pengguna Baru</span>
+        </button>
+      </div>
+
+      <!-- Matrix Hak Akses Card -->
+      <div class="bg-white rounded-xl card-shadow p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+          <h3 class="text-sm font-bold text-slate-900 flex items-center">
+            <i data-lucide="key-round" class="w-4 h-4 text-purple-600 mr-2"></i>
+            Matriks Hak Akses 5 Peran (Sesuai Dokumen PRD)
+          </h3>
+          <span class="text-[11px] text-slate-500 font-semibold">Tersertifikasi Role-Based Access Control</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          <!-- 1. Owner -->
+          <div class="p-3 rounded-lg border border-emerald-200 bg-emerald-50/50 space-y-2">
+            <div class="flex items-center space-x-1.5 font-extrabold text-emerald-800">
+              <span>👑 Owner (Pemilik)</span>
+            </div>
+            <ul class="text-[11px] text-emerald-950 space-y-1 list-disc pl-3.5">
+              <li>Melihat seluruh cabang</li>
+              <li>Laporan konsolidasi</li>
+              <li>Laporan keuangan & P&L</li>
+              <li>Pantau stok & pembelian</li>
+              <li>Melihat kinerja produk</li>
+              <li>Mengawasi pengeluaran</li>
+              <li><b>Akses AI Analyst</b></li>
+              <li>Approval kebijakan khusus</li>
+            </ul>
+          </div>
+
+          <!-- 2. Admin -->
+          <div class="p-3 rounded-lg border border-blue-200 bg-blue-50/50 space-y-2">
+            <div class="flex items-center space-x-1.5 font-extrabold text-blue-800">
+              <span>👨‍💼 Administrator</span>
+            </div>
+            <ul class="text-[11px] text-blue-950 space-y-1 list-disc pl-3.5">
+              <li>Mengelola data master obat</li>
+              <li><b>Mengelola akun pengguna</b></li>
+              <li>Konfigurasi cabang</li>
+              <li>Mengatur hak akses</li>
+              <li>Audit log aktivitas sistem</li>
+            </ul>
+          </div>
+
+          <!-- 3. Apoteker -->
+          <div class="p-3 rounded-lg border border-teal-200 bg-teal-50/50 space-y-2">
+            <div class="flex items-center space-x-1.5 font-extrabold text-teal-800">
+              <span>🩺 Apoteker (APA)</span>
+            </div>
+            <ul class="text-[11px] text-teal-950 space-y-1 list-disc pl-3.5">
+              <li>Aktivitas kefarmasian & resep</li>
+              <li>Pantau persediaan & FEFO</li>
+              <li>Karantina obat expired</li>
+              <li>Pemeriksaan & persetujuan</li>
+              <li>Laporan kefarmasian</li>
+            </ul>
+          </div>
+
+          <!-- 4. Gudang -->
+          <div class="p-3 rounded-lg border border-amber-200 bg-amber-50/50 space-y-2">
+            <div class="flex items-center space-x-1.5 font-extrabold text-amber-800">
+              <span>📦 Petugas Gudang</span>
+            </div>
+            <ul class="text-[11px] text-amber-950 space-y-1 list-disc pl-3.5">
+              <li>Mengelola stok fisik</li>
+              <li>Permintaan pembelian (PO)</li>
+              <li>Penerimaan faktur PBF</li>
+              <li>Melakukan stok opname</li>
+              <li>Transfer antar-cabang</li>
+            </ul>
+          </div>
+
+          <!-- 5. Kasir -->
+          <div class="p-3 rounded-lg border border-slate-300 bg-slate-50 space-y-2">
+            <div class="flex items-center space-x-1.5 font-extrabold text-slate-800">
+              <span>🛒 Kasir Cabang</span>
+            </div>
+            <ul class="text-[11px] text-slate-700 space-y-1 list-disc pl-3.5">
+              <li>Transaksi penjualan POS</li>
+              <li>Cetak struk kasir thermal</li>
+              <li>Riwayat transaksi kasirnya</li>
+              <li>Retur sesuai persetujuan</li>
+              <li><i>Terkunci di cabangnya</i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Table Card -->
+      <div class="bg-white rounded-xl card-shadow overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+          <div>
+            <h3 class="text-xs font-bold text-slate-800 uppercase">Daftar Akun Pengguna & Kredensial Login</h3>
+            <p class="text-[11px] text-slate-500">Kredensial aktif untuk pengujian dan operasional cabang.</p>
+          </div>
+          <button id="btn-toggle-all-passwords" class="px-2.5 py-1 bg-white border border-slate-300 hover:bg-slate-100 rounded text-xs font-semibold text-slate-700 flex items-center space-x-1">
+            <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+            <span id="label-toggle-passwords">Tampilkan Password</span>
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Nama Pengguna</th>
+                <th class="py-3 px-4">Username</th>
+                <th class="py-3 px-4">Kata Sandi</th>
+                <th class="py-3 px-4">Peran (Role)</th>
+                <th class="py-3 px-4">Akses Cabang</th>
+                <th class="py-3 px-4 text-center">Status</th>
+                <th class="py-3 px-4 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamic user rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: THERMAL RECEIPT PRINT (58mm / 80mm) -->
+  <!-- ======================================================== -->
+  <div id="receipt-modal-backdrop" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-sm w-full p-4 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center no-print">
+        <h3 class="font-bold text-sm text-slate-900">Struk Pembayaran Kasir</h3>
+        <button id="btn-close-receipt" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Printable Thermal Paper -->
+      <div id="thermal-receipt-modal" class="receipt-paper mx-auto">
+        <div class="text-center pb-2 border-b border-dashed border-slate-400">
+          <h2 class="font-extrabold text-sm tracking-wider">APOTEK TONANG FARMA</h2>
+          <p class="text-[10px]" id="receipt-branch-name">Cabang Kepulauan Talaud</p>
+          <p class="text-[9px] text-slate-600">SIA: 440/12/Dinkes/2026 | APA: apt. Tonang S.Farm</p>
+          <div id="rcpt-status-badge" class="hidden mt-1 px-2 py-0.5 rounded text-[10px] font-extrabold tracking-wider border"></div>
+        </div>
+
+        <div id="rcpt-revision-notes" class="hidden text-[9px] p-1.5 my-1 bg-amber-50 border border-dashed border-amber-300 text-amber-900 rounded space-y-0.5"></div>
+
+        <div class="py-2 text-[10px] space-y-0.5 border-b border-dashed border-slate-400">
+          <div class="flex justify-between">
+            <span>No. Struk</span>
+            <span class="mono font-bold" id="rcpt-no">TF-TLD-20261122-0042</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Tanggal</span>
+            <span id="rcpt-date">22/11/2026 14:35</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Kasir</span>
+            <span id="rcpt-cashier">Siti Aminah</span>
+          </div>
+        </div>
+
+        <!-- Receipt Items -->
+        <div class="py-2 space-y-1.5 border-b border-dashed border-slate-400 text-[10px]" id="rcpt-items-list">
+          <!-- dynamic items -->
+        </div>
+
+        <!-- Receipt Totals -->
+        <div class="py-2 space-y-1 text-[10px] border-b border-dashed border-slate-400">
+          <div class="flex justify-between">
+            <span>Subtotal</span>
+            <span class="mono" id="rcpt-subtotal">Rp 45.000</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Diskon</span>
+            <span class="mono text-red-600" id="rcpt-discount">- Rp 0</span>
+          </div>
+          <div class="flex justify-between font-bold text-xs pt-1 border-t border-slate-200">
+            <span>TOTAL</span>
+            <span class="mono" id="rcpt-total">Rp 45.000</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Bayar (Tunai)</span>
+            <span class="mono" id="rcpt-paid">Rp 50.000</span>
+          </div>
+          <div class="flex justify-between font-bold">
+            <span>Kembalian</span>
+            <span class="mono" id="rcpt-change">Rp 5.000</span>
+          </div>
+        </div>
+
+        <div class="text-center pt-2 text-[9px] text-slate-600 space-y-0.5">
+          <p>Terima Kasih atas Kunjungan Anda</p>
+          <p>Semoga Lekas Sembuh & Sehat Selalu</p>
+          <p class="text-[8px] text-slate-400 mt-1">Simpan struk ini sebagai bukti pembayaran yang sah.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-2 no-print">
+        <button id="btn-print-thermal-action" class="flex-1 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg flex items-center justify-center space-x-1.5">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>Cetak Struk Fisik</span>
+        </button>
+        <button id="btn-done-receipt" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: DAFTAR RIWAYAT & KOREKSI TRANSAKSI PENJUALAN -->
+  <!-- ======================================================== -->
+  <div id="modal-sales-history" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-5xl w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] flex flex-col">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div class="flex items-center space-x-3">
+          <div class="p-2.5 bg-amber-100 text-amber-800 rounded-xl">
+            <i data-lucide="receipt" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900 flex items-center space-x-2">
+              <span>Riwayat Transaksi Penjualan & Koreksi Nota</span>
+              <span class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold border border-red-200 flex items-center space-x-1">
+                <i data-lucide="shield-alert" class="w-3 h-3"></i>
+                <span>Khusus Admin & Owner</span>
+              </span>
+            </h3>
+            <p class="text-xs text-slate-500">Daftar nota transaksi kasir yang telah dibayar. Revisi jumlah obat, ganti item, atau batalkan transaksi.</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Filters & Search -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
+        <div class="flex items-center space-x-2 flex-1">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="sales-history-search" placeholder="Cari nomor nota (TF-...), kasir, atau nama obat..." class="w-full pl-9 pr-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-medium focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 shrink-0">
+          <select id="sales-history-branch-filter" class="px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold">
+            <option value="ALL">🌐 Semua Cabang</option>
+            <option value="TLD">🏝️ Cabang Talaud</option>
+            <option value="KBJ">🌲 Cabang Kembang Janggut</option>
+          </select>
+          <select id="sales-history-status-filter" class="px-2.5 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold">
+            <option value="ALL">Semua Status</option>
+            <option value="COMPLETED">✓ Lunas (Normal)</option>
+            <option value="REVISED">✏️ Telah Direvisi</option>
+            <option value="VOID">❌ Dibatalkan (Void)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table Container -->
+      <div class="flex-1 overflow-y-auto border border-slate-200 rounded-xl">
+        <table class="w-full text-left text-xs text-slate-600">
+          <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b border-slate-200 sticky top-0 z-10">
+            <tr>
+              <th class="py-3 px-4">No. Struk & Waktu</th>
+              <th class="py-3 px-4">Cabang & Kasir</th>
+              <th class="py-3 px-4">Rincian Item Obat</th>
+              <th class="py-3 px-4 text-right">Total Transaksi</th>
+              <th class="py-3 px-4 text-center">Status</th>
+              <th class="py-3 px-4 text-center">Aksi Koreksi</th>
+            </tr>
+          </thead>
+          <tbody id="sales-history-table-body" class="divide-y divide-slate-100">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200">
+        <div class="flex items-center space-x-2">
+          <span class="text-[11px]">💡 *Revisi nota atau pembatalan transaksi otomatis mengembalikan stok ke batch fisik rak apotek secara akurat.</span>
+        </div>
+        <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg text-xs transition mt-2 sm:mt-0">
+          Tutup Riwayat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: REVISI & KOREKSI NOTA TRANSAKSI PENJUALAN -->
+  <!-- ======================================================== -->
+  <div id="modal-edit-sale" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div class="flex items-center space-x-2.5">
+          <div class="p-2 bg-blue-100 text-blue-800 rounded-lg">
+            <i data-lucide="edit-3" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900">Revisi & Koreksi Nota Penjualan</h3>
+            <p class="text-xs text-slate-500">Ubah jumlah obat, hapus item, atau tambah obat pengganti untuk nota yang telah dibayar.</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-edit-sale" class="space-y-4 text-xs">
+        <input type="hidden" id="edit-sale-id" value="">
+
+        <!-- Nota Info Banner -->
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-wrap justify-between items-center gap-2">
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">No. Nota / Struk</span>
+            <span id="edit-sale-invoice-no" class="font-mono font-extrabold text-sm text-slate-900">TF-TLD-20261122-0001</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Cabang</span>
+            <span id="edit-sale-branch-badge" class="font-bold text-xs text-blue-700">Cabang Talaud</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Kasir Pembuat</span>
+            <span id="edit-sale-cashier-text" class="font-medium text-xs text-slate-700">Siti Aminah</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block uppercase font-bold">Waktu Transaksi</span>
+            <span id="edit-sale-date-text" class="font-mono text-xs text-slate-600">22/11/2026 14:30</span>
+          </div>
+        </div>
+
+        <!-- Items Table -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
+              <i data-lucide="package" class="w-4 h-4 text-emerald-600"></i>
+              <span>Daftar Item Obat dalam Nota (Bisa Diedit / Dihapus)</span>
+            </span>
+            <button type="button" id="btn-add-item-to-sale" class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-[11px] rounded-lg border border-emerald-200 transition flex items-center space-x-1">
+              <i data-lucide="plus" class="w-3 h-3"></i>
+              <span>Tambah Obat Lain ke Nota</span>
+            </button>
+          </div>
+
+          <!-- Quick Add Dropdown Container (Hidden by default) -->
+          <div id="quick-add-item-panel" class="hidden p-3 bg-emerald-50/60 border border-emerald-200 rounded-xl space-y-2 animate-fade-in">
+            <div class="font-bold text-emerald-900 text-xs">Pilih Obat Tambahan:</div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <div class="sm:col-span-6">
+                <select id="quick-add-med-select" class="w-full px-2 py-1.5 bg-white border border-emerald-300 rounded-lg text-xs font-medium"></select>
+              </div>
+              <div class="sm:col-span-3">
+                <select id="quick-add-tier-select" class="w-full px-2 py-1.5 bg-white border border-emerald-300 rounded-lg text-xs font-semibold">
+                  <option value="base">Eceran</option>
+                  <option value="strip">Strip</option>
+                  <option value="box">Box</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <input type="number" id="quick-add-qty-input" min="1" value="1" class="w-full px-2 py-1.5 bg-white border border-emerald-300 rounded-lg text-xs font-bold text-center mono">
+              </div>
+              <div class="sm:col-span-1 flex items-center">
+                <button type="button" id="btn-confirm-add-item" class="w-full py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-xs flex items-center justify-center">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl overflow-hidden">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[10px] border-b border-slate-200">
+                <tr>
+                  <th class="py-2.5 px-3">Nama Obat</th>
+                  <th class="py-2.5 px-2">Satuan Jual</th>
+                  <th class="py-2.5 px-2 text-right">Harga Satuan</th>
+                  <th class="py-2.5 px-2 text-center w-24">Jumlah (Qty)</th>
+                  <th class="py-2.5 px-3 text-right">Subtotal</th>
+                  <th class="py-2.5 px-2 text-center w-12">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="edit-sale-items-tbody" class="divide-y divide-slate-100">
+                <!-- Dynamic editable rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Financial Recalculation & Refund / Sisa Tagihan -->
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-600">Subtotal Nota Baru:</span>
+            <span id="edit-sale-subtotal-text" class="mono font-bold text-slate-900">Rp 0</span>
+          </div>
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-600">Diskon Nota (Rp):</span>
+            <input type="number" id="edit-sale-discount-input" min="0" value="0" class="w-24 px-2 py-0.5 border border-slate-300 rounded text-right mono font-bold text-xs">
+          </div>
+          <div class="flex justify-between items-center text-xs pt-1.5 border-t border-slate-200 font-bold">
+            <span class="text-slate-800">Total Tagihan Baru:</span>
+            <span id="edit-sale-new-total" class="mono text-emerald-700 text-sm">Rp 0</span>
+          </div>
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-500">Total Pembayaran Awal:</span>
+            <span id="edit-sale-old-total" class="mono text-slate-500">Rp 0</span>
+          </div>
+
+          <!-- Refund / Additional payment calculation banner -->
+          <div id="edit-sale-diff-banner" class="p-2.5 rounded-lg border font-bold text-xs flex items-center justify-between">
+            <!-- Dynamic diff info -->
+          </div>
+        </div>
+
+        <!-- Required Reason & Supervisor Audit Trail -->
+        <div class="space-y-1.5">
+          <label class="font-bold text-slate-700 flex items-center justify-between">
+            <span>Alasan Revisi / Koreksi Nota *</span>
+            <span class="text-[10px] text-red-600 font-semibold">Wajib Diisi</span>
+          </label>
+          <textarea id="edit-sale-reason-input" required rows="2" placeholder="Contoh: Pembeli mengubah jumlah dari 3 strip menjadi 1 strip; salah input kasir" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-blue-500"></textarea>
+          <p class="text-[10px] text-slate-400">Catatan ini akan tersimpan permanen dalam riwayat audit nota apotek.</p>
+        </div>
+
+        <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-lg flex items-center space-x-2 text-[11px] text-blue-900">
+          <i data-lucide="shield-check" class="w-4 h-4 text-blue-600 shrink-0"></i>
+          <div>
+            <b>Otorisasi Admin/Owner:</b> Tindakan revisi akan dicatat atas nama <span id="edit-sale-authorizer-name" class="font-bold">Bpk. Tonang (OWNER)</span>.
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" id="btn-submit-edit-sale" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-sm flex items-center space-x-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Simpan & Terapkan Revisi Nota</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: PEMBATALAN TRANSAKSI (VOID SALE) -->
+  <!-- ======================================================== -->
+  <div id="modal-void-sale" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex items-start space-x-3 pb-3 border-b border-slate-200">
+        <div class="p-2.5 bg-red-100 text-red-600 rounded-xl shrink-0">
+          <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-slate-900">Konfirmasi Pembatalan Nota (Void)</h3>
+          <p class="text-xs text-slate-500">Transaksi kasir akan dibatalkan secara permanen.</p>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3 bg-red-50 border border-red-200 rounded-xl space-y-1">
+          <div class="flex justify-between font-bold text-red-900">
+            <span>Nomor Struk:</span>
+            <span id="void-sale-invoice-no" class="font-mono">TF-TLD-20261122-0001</span>
+          </div>
+          <div class="flex justify-between text-red-700">
+            <span>Total Transaksi Dibatalkan:</span>
+            <span id="void-sale-total" class="font-mono font-bold">Rp 0</span>
+          </div>
+          <div class="text-[11px] text-red-800 pt-1 border-t border-red-200/60 mt-1">
+            ⚠️ <b>Efek Stok:</b> Seluruh jumlah obat yang terjual dalam nota ini akan <b>otomatis dikembalikan ke nomor batch asalnya</b> di rak fisik apotek.
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Alasan Pembatalan Transaksi *</label>
+          <textarea id="void-sale-reason" required rows="2" placeholder="Contoh: Pelanggan membatalkan seluruh pembelian; transaksi ganda" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-red-500"></textarea>
+        </div>
+
+        <input type="hidden" id="void-sale-id" value="">
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200 text-xs">
+        <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+        <button type="button" id="btn-confirm-void-sale" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold shadow-sm flex items-center space-x-1.5">
+          <i data-lucide="trash-2" class="w-4 h-4"></i>
+          <span>Ya, Batalkan & Kembalikan Stok</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: OTORISASI SUPERVISOR (ADMIN / OWNER) -->
+  <!-- ======================================================== -->
+  <div id="modal-supervisor-auth" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 card-shadow-lg space-y-3.5 text-xs">
+      <div class="flex items-center space-x-2.5 pb-2.5 border-b border-slate-200">
+        <div class="p-2 bg-amber-100 text-amber-800 rounded-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm text-slate-900">Otorisasi Supervisor</h3>
+          <p class="text-[11px] text-slate-500">Khusus Hak Akses Admin atau Owner</p>
+        </div>
+      </div>
+
+      <p class="text-slate-600 text-xs">
+        Koreksi atau pembatalan nota yang sudah dibayar memerlukan persetujuan Supervisor. Masukkan kredensial Admin atau Owner:
+      </p>
+
+      <div class="space-y-2">
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Username Supervisor *</label>
+          <input type="text" id="spv-auth-username" placeholder="owner / admin" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg font-medium">
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Password / Kata Sandi *</label>
+          <input type="password" id="spv-auth-password" placeholder="••••••••" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg font-medium">
+        </div>
+        <div id="spv-auth-error" class="hidden text-[11px] text-red-600 font-bold p-1.5 bg-red-50 rounded border border-red-200"></div>
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-2 border-t border-slate-200">
+        <button type="button" class="btn-close-modal px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+        <button type="button" id="btn-submit-spv-auth" class="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold shadow-sm">
+          Beri Otorisasi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <div id="modal-add-medicine" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 card-shadow-lg space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 id="modal-medicine-title" class="font-bold text-base text-slate-900">Tambah Master Obat Umum</h3>
+          <p class="text-[11px] text-slate-500">Katalog umum nama, golongan medis, bentuk sediaan & rasio kemasan obat.</p>
+        </div>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-add-medicine" class="space-y-3.5 text-xs">
+        <input type="hidden" id="edit-med-id" value="">
+        
+        <div>
+          <label class="font-bold text-slate-700 flex items-center justify-between">
+            <span>Kode Obat / SKU *</span>
+            <span id="badge-med-code-auto" class="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Auto Unik</span>
+          </label>
+          <input type="text" id="new-med-code" required placeholder="MED-014" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-emerald-500 transition">
+          <div id="med-code-feedback" class="mt-0.5 min-h-[16px]">
+            <p class="text-[10px] text-slate-400">Kode identitas unik obat (misal: MED-014)</p>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 flex items-center justify-between">
+            <span>Nama Obat *</span>
+            <span class="text-[10px] text-slate-500 font-semibold bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Wajib Unik</span>
+          </label>
+          <input type="text" id="new-med-name" required placeholder="misal: Cefixime 100mg Kapsul" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg font-medium transition focus:ring-2 focus:ring-emerald-500">
+          <div id="med-name-feedback" class="mt-0.5 min-h-[16px]">
+            <p class="text-[10px] text-slate-400">Nama obat harus unik & belum pernah terdaftar</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-600">Golongan / Kategori *</label>
+            <select id="new-med-cat" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="Bebas">Obat Bebas (Hijau)</option>
+              <option value="Bebas Terbatas">Bebas Terbatas (Biru)</option>
+              <option value="Obat Keras">Obat Keras (Merah / K)</option>
+              <option value="Suplemen">Suplemen & Vitamin</option>
+              <option value="Alkes">Alat Kesehatan</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-600">Bentuk Sediaan *</label>
+            <select id="new-med-dosage" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="Tablet">Tablet</option>
+              <option value="Kapsul">Kapsul</option>
+              <option value="Sirup">Sirup</option>
+              <option value="Salep">Salep</option>
+              <option value="Drop">Tetes / Drop</option>
+              <option value="Pcs">Pcs / Buah</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Konfigurasi Satuan Dasar (Katalog Umum) -->
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Definisi Satuan & Konversi Kemasan</span>
+            </span>
+            <span class="text-[10px] text-slate-500 font-medium">Berlaku untuk seluruh cabang</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="text-[10px] font-semibold text-slate-700">Satuan Eceran *</label>
+              <input type="text" id="new-med-base-unit" value="Tablet" required placeholder="Tablet / Kapsul / Botol" class="w-full mt-0.5 px-2.5 py-1 border border-slate-300 rounded text-xs font-semibold text-slate-800">
+              <span class="text-[9px] text-slate-400">Terkecil</span>
+            </div>
+            <div>
+              <label class="text-[10px] font-semibold text-slate-700">Satuan Menengah</label>
+              <input type="text" id="new-med-strip-unit" value="Strip" placeholder="Strip / Blister" class="w-full mt-0.5 px-2.5 py-1 border border-slate-300 rounded text-xs font-semibold text-slate-800">
+              <div class="relative mt-1">
+                <input type="number" id="new-med-strip-conv" value="10" min="0" placeholder="10" class="w-full pl-2 pr-7 py-0.5 border border-slate-300 rounded text-[11px] text-right mono font-semibold">
+                <span id="suffix-strip-base" class="absolute right-1.5 top-0.5 text-[9px] text-slate-400 pointer-events-none">Tab</span>
+              </div>
+            </div>
+            <div>
+              <label class="text-[10px] font-semibold text-slate-700">Kemasan Beli / Besar</label>
+              <input type="text" id="new-med-buy-unit" value="Box" placeholder="Box / Dus" class="w-full mt-0.5 px-2.5 py-1 border border-slate-300 rounded text-xs font-semibold text-slate-800">
+              <div class="relative mt-1">
+                <input type="number" id="new-med-conv-rate" value="100" min="1" placeholder="100" class="w-full pl-2 pr-7 py-0.5 border border-slate-300 rounded text-[11px] text-right mono font-semibold">
+                <span id="suffix-box-base" class="absolute right-1.5 top-0.5 text-[9px] text-slate-400 pointer-events-none">Tab</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-lg text-[11px] text-blue-800 flex items-start space-x-2">
+          <i data-lucide="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+          <div>
+            <b>Catatan Pemisahan Cabang:</b> Harga jual, barcode cabang, lokasi rak, dan stok minimum buffer akan diatur terpisah per cabang melalui tombol <b>⚙️ Atur Cabang & Harga</b> di tabel obat.
+          </div>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" id="btn-submit-medicine" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold shadow-sm">Simpan Master Obat</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: ATUR CABANG, HARGA & LOKASI RAK PER CABANG -->
+  <!-- ======================================================== -->
+  <div id="modal-branch-pricing" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="store" class="w-5 h-5 text-blue-600 mr-2"></i>
+            <span>Pengaturan Cabang & Harga Bertingkat</span>
+          </h3>
+          <p class="text-xs text-slate-500">
+            Obat: <b id="branch-pricing-med-name" class="text-slate-800">Nama Obat</b> (<span id="branch-pricing-med-code" class="font-mono text-slate-600">MED-000</span>)
+          </p>
+          <!-- Ringkasan Satuan Kemasan Obat -->
+          <div id="bp-med-packaging-summary" class="flex flex-wrap items-center gap-1.5 mt-2 p-2 bg-slate-100/90 border border-slate-200 rounded-lg text-[11px] text-slate-700">
+            <span class="font-bold text-slate-900 flex items-center space-x-1">
+              <i data-lucide="package" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Kemasan Obat:</span>
+            </span>
+            <span id="bp-summary-base" class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold">1 Tablet</span>
+            <span id="bp-summary-strip" class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold">1 Strip = 10 Tablet</span>
+            <span id="bp-summary-buy" class="px-2 py-0.5 bg-purple-100 text-purple-800 rounded font-bold">1 Box = 100 Tablet</span>
+            <button type="button" id="btn-edit-units-from-pricing" class="ml-auto text-blue-700 hover:text-blue-900 font-bold text-[10px] underline flex items-center space-x-1">
+              <i data-lucide="settings-2" class="w-3 h-3"></i>
+              <span>Ubah Satuan / Kemasan</span>
+            </button>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-branch-pricing" class="space-y-4 text-xs">
+        <input type="hidden" id="branch-pricing-med-id" value="">
+
+        <!-- Quick copy banner -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-2.5 bg-blue-50 border border-blue-200 rounded-xl gap-2">
+          <span class="text-[11px] text-blue-900 font-medium">💡 Ingin harga kedua cabang sama?</span>
+          <button type="button" id="btn-copy-pricing-tld-to-kbj" class="px-2.5 py-1 bg-white hover:bg-blue-100 text-blue-700 font-bold text-[10px] rounded-lg border border-blue-300 transition flex items-center space-x-1 shadow-xs">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span>Salin Pengaturan Talaud ➔ Kembang Janggut</span>
+          </button>
+        </div>
+
+        <!-- 1. Cabang Kepulauan Talaud (TLD) -->
+        <div class="p-3.5 bg-slate-50 border-2 border-blue-200 rounded-xl space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+              <span class="font-bold text-slate-900 text-xs">🏝️ Cabang Kepulauan Talaud (TLD)</span>
+            </div>
+            <label class="flex items-center space-x-1.5 cursor-pointer">
+              <input type="checkbox" id="bp-tld-active" checked class="w-4 h-4 text-blue-600 rounded">
+              <span class="text-xs font-bold text-slate-700">Jual di Cabang Ini (Aktif)</span>
+            </label>
+          </div>
+
+          <div id="bp-tld-fields" class="space-y-3">
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="font-bold text-slate-700 block mb-0.5">Lokasi / Rak di Talaud *</label>
+                <input type="text" id="bp-tld-location" list="storage-location-suggestions" placeholder="misal: Rak A-01" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-medium text-slate-800 bg-white">
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-0.5">Barcode Khusus Talaud</label>
+                <input type="text" id="bp-tld-barcode" placeholder="Barcode scanner" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white">
+              </div>
+            </div>
+
+            <!-- HPP Beli Modal Kalkulator Talaud -->
+            <div class="p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="text-[11px] font-extrabold text-amber-900 flex items-center space-x-1">
+                  <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-600"></i>
+                  <span>HPP Beli (Harga Pokok Pembelian / Modal Beli)</span>
+                </span>
+                <span id="bp-tld-hpp-summary-calc" class="text-[10px] text-amber-800 font-bold bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
+                  💡 Modal: Rp 0 / Tablet
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                  <label class="text-[10px] font-bold text-slate-700 block mb-0.5" id="lbl-bp-tld-buy-pkg">
+                    HPP per 1 Kemasan Besar (Box / Faktur PBF) *
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-slate-400 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-tld-buy-pkg-price" placeholder="35000" class="w-full pl-8 pr-2.5 py-1 border border-amber-300 rounded-lg text-xs font-bold text-slate-900 text-right mono bg-white focus:ring-2 focus:ring-amber-500">
+                  </div>
+                  <span class="text-[9px] text-slate-500">Harga beli 1 <span class="lbl-pkg-buy-name">Box</span> saat belanja ke distributor</span>
+                </div>
+                <div>
+                  <label class="text-[10px] font-bold text-slate-700 block mb-0.5" id="lbl-bp-tld-buy-base">
+                    HPP Satuan Dasar (per 1 Tablet) *
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-slate-400 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-tld-buy-price" placeholder="350" class="w-full pl-8 pr-2.5 py-1 border border-slate-300 rounded-lg text-xs font-bold text-emerald-800 text-right mono bg-white focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                  <span class="text-[9px] text-slate-500">Dasar hitung laba rugi saat jual eceran / strip / box</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Harga Jual Bertingkat Talaud -->
+            <div class="p-2.5 bg-white border border-slate-200 rounded-xl space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-slate-800">🏷️ Harga Jual Bertingkat</span>
+                <span class="text-[10px] text-slate-400">Atur harga sesuai satuan yang dijual</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div>
+                  <label class="text-[10px] font-bold text-emerald-700 block mb-0.5" id="lbl-bp-tld-sell-price">
+                    Harga per Tablet (Eceran) (Opsional)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-emerald-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-tld-sell-price" placeholder="600" class="w-full pl-8 pr-2.5 py-1 border border-emerald-300 rounded-lg text-xs font-bold text-emerald-700 text-right mono bg-white focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400">Opsional. Kosongkan jika tidak diecer.</span>
+                </div>
+                <div id="col-bp-tld-strip">
+                  <label class="text-[10px] font-bold text-blue-700 block mb-0.5" id="lbl-bp-tld-strip-price">
+                    Harga per Strip (10 Tablet)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-blue-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-tld-strip-price" placeholder="5500" class="w-full pl-8 pr-2.5 py-1 border border-blue-300 rounded-lg text-xs font-bold text-blue-700 text-right mono bg-white focus:ring-2 focus:ring-blue-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400" id="sub-bp-tld-strip">Satuan menengah</span>
+                </div>
+                <div id="col-bp-tld-box">
+                  <label class="text-[10px] font-bold text-purple-700 block mb-0.5" id="lbl-bp-tld-box-price">
+                    Harga per Box (100 Tablet)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-purple-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-tld-box-price" placeholder="54000" class="w-full pl-8 pr-2.5 py-1 border border-purple-300 rounded-lg text-xs font-bold text-purple-700 text-right mono bg-white focus:ring-2 focus:ring-purple-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400" id="sub-bp-tld-box">Kemasan beli / besar</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[10px] font-bold text-slate-600">Stok Minimum Buffer Talaud *</label>
+              <input type="number" id="bp-tld-min-stock" value="50" min="1" class="w-32 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
+              <span class="text-[10px] text-slate-400 ml-1">Satuan kemasan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Cabang Kembang Janggut (KBJ) -->
+        <div class="p-3.5 bg-slate-50 border-2 border-emerald-200 rounded-xl space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+              <span class="font-bold text-slate-900 text-xs">🌲 Cabang Kembang Janggut (KBJ)</span>
+            </div>
+            <label class="flex items-center space-x-1.5 cursor-pointer">
+              <input type="checkbox" id="bp-kbj-active" checked class="w-4 h-4 text-emerald-600 rounded">
+              <span class="text-xs font-bold text-slate-700">Jual di Cabang Ini (Aktif)</span>
+            </label>
+          </div>
+
+          <div id="bp-kbj-fields" class="space-y-3">
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="font-bold text-slate-700 block mb-0.5">Lokasi / Rak di Kembang Janggut *</label>
+                <input type="text" id="bp-kbj-location" list="storage-location-suggestions" placeholder="misal: Rak B-02" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-medium text-slate-800 bg-white">
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-0.5">Barcode Khusus Kembang Janggut</label>
+                <input type="text" id="bp-kbj-barcode" placeholder="Barcode scanner" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white">
+              </div>
+            </div>
+
+            <!-- HPP Beli Modal Kalkulator KBJ -->
+            <div class="p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="text-[11px] font-extrabold text-amber-900 flex items-center space-x-1">
+                  <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-600"></i>
+                  <span>HPP Beli (Harga Pokok Pembelian / Modal Beli)</span>
+                </span>
+                <span id="bp-kbj-hpp-summary-calc" class="text-[10px] text-amber-800 font-bold bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
+                  💡 Modal: Rp 0 / Tablet
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                  <label class="text-[10px] font-bold text-slate-700 block mb-0.5" id="lbl-bp-kbj-buy-pkg">
+                    HPP Kemasan Besar (per 1 Box / Faktur PBF) *
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-slate-400 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-kbj-buy-pkg-price" placeholder="35000" class="w-full pl-8 pr-2.5 py-1 border border-amber-300 rounded-lg text-xs font-bold text-slate-900 text-right mono bg-white focus:ring-2 focus:ring-amber-500">
+                  </div>
+                  <span class="text-[9px] text-slate-500">Harga beli 1 <span class="lbl-pkg-buy-name">Box</span> saat belanja ke distributor</span>
+                </div>
+                <div>
+                  <label class="text-[10px] font-bold text-slate-700 block mb-0.5" id="lbl-bp-kbj-buy-base">
+                    HPP Satuan Dasar (per 1 Tablet) *
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-slate-400 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-kbj-buy-price" placeholder="350" class="w-full pl-8 pr-2.5 py-1 border border-slate-300 rounded-lg text-xs font-bold text-emerald-800 text-right mono bg-white focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                  <span class="text-[9px] text-slate-500">Dasar hitung laba rugi saat jual eceran / strip / box</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Harga Jual Bertingkat KBJ -->
+            <div class="p-2.5 bg-white border border-slate-200 rounded-xl space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-slate-800">🏷️ Harga Jual Bertingkat</span>
+                <span class="text-[10px] text-slate-400">Atur harga sesuai satuan yang dijual</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div>
+                  <label class="text-[10px] font-bold text-emerald-700 block mb-0.5" id="lbl-bp-kbj-sell-price">
+                    Harga per Tablet (Eceran) (Opsional)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-emerald-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-kbj-sell-price" placeholder="600" class="w-full pl-8 pr-2.5 py-1 border border-emerald-300 rounded-lg text-xs font-bold text-emerald-700 text-right mono bg-white focus:ring-2 focus:ring-emerald-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400">Opsional. Kosongkan jika tidak diecer.</span>
+                </div>
+                <div id="col-bp-kbj-strip">
+                  <label class="text-[10px] font-bold text-blue-700 block mb-0.5" id="lbl-bp-kbj-strip-price">
+                    Harga per Strip (10 Tablet)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-blue-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-kbj-strip-price" placeholder="5500" class="w-full pl-8 pr-2.5 py-1 border border-blue-300 rounded-lg text-xs font-bold text-blue-700 text-right mono bg-white focus:ring-2 focus:ring-blue-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400" id="sub-bp-kbj-strip">Satuan menengah</span>
+                </div>
+                <div id="col-bp-kbj-box">
+                  <label class="text-[10px] font-bold text-purple-700 block mb-0.5" id="lbl-bp-kbj-box-price">
+                    Harga per Box (100 Tablet)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-2.5 top-1.5 text-purple-600 font-bold text-xs">Rp</span>
+                    <input type="number" id="bp-kbj-box-price" placeholder="54000" class="w-full pl-8 pr-2.5 py-1 border border-purple-300 rounded-lg text-xs font-bold text-purple-700 text-right mono bg-white focus:ring-2 focus:ring-purple-500">
+                  </div>
+                  <span class="text-[9px] text-slate-400" id="sub-bp-kbj-box">Kemasan beli / besar</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[10px] font-bold text-slate-600">Stok Minimum Buffer Kembang Janggut *</label>
+              <input type="number" id="bp-kbj-min-stock" value="50" min="1" class="w-32 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
+              <span class="text-[10px] text-slate-400 ml-1">Satuan kemasan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" id="btn-save-branch-pricing" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-sm flex items-center space-x-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Simpan Pengaturan Cabang</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: KONFIRMASI HAPUS MASTER OBAT -->
+  <!-- ======================================================== -->
+  <div id="modal-delete-medicine" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-xl max-w-sm w-full p-6 card-shadow-lg space-y-4 text-center">
+      <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto">
+        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h3 class="font-bold text-base text-slate-900">Hapus Master Obat?</h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Apakah Anda yakin ingin menghapus data obat <b id="delete-med-name-text" class="text-slate-800">Nama Obat</b> (<span id="delete-med-code-text" class="font-mono text-slate-700">MED-000</span>) dari Master Data?
+        </p>
+        <p class="text-[11px] text-red-600 font-semibold mt-2 bg-red-50 py-1 px-2 rounded border border-red-100">
+          ⚠️ Tindakan ini permanen dan akan disinkronkan ke seluruh cabang.
+        </p>
+      </div>
+      <input type="hidden" id="delete-med-target-id" value="">
+      <input type="hidden" id="delete-med-target-code" value="">
+      <div class="flex justify-center space-x-2 pt-2">
+        <button type="button" id="btn-cancel-delete-med" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold">Batal</button>
+        <button type="button" id="btn-confirm-delete-med" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold shadow flex items-center space-x-1.5">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+          <span>Ya, Hapus Obat</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: INPUT PENERIMAAN OBAT MASUK (FAKTUR & STOK PERIODE) -->
+  <!-- ======================================================== -->
+  <div id="modal-incoming-stock" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-3xl w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="package-plus" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            Input Penerimaan Faktur PBF & Stok Obat Masuk
+          </h3>
+          <p class="text-xs text-slate-500">Catat faktur masuk dari PBF, rincian harga beli, total faktur, status pembayaran (lunas/hutang), dan deadline jatuh tempo.</p>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-incoming-stock" class="space-y-4 text-xs">
+        <!-- Dokumen / Faktur Header -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Tanggal Masuk Obat *</label>
+            <input type="date" id="incoming-date" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white focus:ring-2 focus:ring-emerald-500">
+            <p class="text-[10px] text-slate-400 mt-0.5">Periode penerimaan obat</p>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">No. Faktur / Bukti Masuk *</label>
+            <input type="text" id="incoming-invoice-no" required placeholder="misal: FAK-20261129-01" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white uppercase focus:ring-2 focus:ring-emerald-500">
+            <p class="text-[10px] text-slate-400 mt-0.5">Nomor faktur dari PBF</p>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Supplier / PBF *</label>
+            <select id="incoming-supplier-select" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white">
+              <!-- Dynamic suppliers -->
+            </select>
+            <p class="text-[10px] text-slate-400 mt-0.5">Pedagang Besar Farmasi</p>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Cabang Penerima *</label>
+            <select id="incoming-branch-select" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white">
+              <option value="TLD">Cabang Kepulauan Talaud</option>
+              <option value="KBJ">Cabang Kembang Janggut</option>
+            </select>
+            <p class="text-[10px] text-slate-400 mt-0.5">Lokasi stok disimpan</p>
+          </div>
+        </div>
+
+        <!-- Status Pembayaran & Jatuh Tempo (Term of Payment) -->
+        <div class="p-3.5 bg-amber-50/50 border border-amber-200 rounded-xl space-y-3">
+          <div class="flex items-center justify-between border-b border-amber-200/70 pb-2">
+            <span class="font-bold text-amber-950 text-xs flex items-center">
+              <i data-lucide="credit-card" class="w-4 h-4 text-amber-600 mr-1.5"></i>
+              Status Pembayaran Faktur & Termin Tempo (TOP)
+            </span>
+            <span class="text-[10px] text-amber-800">Tentukan apakah pembelian dibayar lunas atau hutang ke PBF</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-start">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1.5">Status Pembayaran Faktur *</label>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="flex items-center p-2.5 border rounded-lg cursor-pointer transition bg-white border-slate-200 hover:border-emerald-400 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/70 has-[:checked]:ring-1 has-[:checked]:ring-emerald-500">
+                  <input type="radio" name="incoming-payment-status" id="incoming-pay-status-paid" value="PAID" class="text-emerald-600 focus:ring-emerald-500 mr-2" checked>
+                  <div>
+                    <span class="font-bold text-slate-800 text-xs block">🟢 LUNAS</span>
+                    <span class="text-[10px] text-slate-500">Cash / Transfer langsung</span>
+                  </div>
+                </label>
+                <label class="flex items-center p-2.5 border rounded-lg cursor-pointer transition bg-white border-slate-200 hover:border-red-400 has-[:checked]:border-red-600 has-[:checked]:bg-red-50/70 has-[:checked]:ring-1 has-[:checked]:ring-red-500">
+                  <input type="radio" name="incoming-payment-status" id="incoming-pay-status-unpaid" value="UNPAID" class="text-red-600 focus:ring-red-500 mr-2">
+                  <div>
+                    <span class="font-bold text-slate-800 text-xs block">🔴 BELUM LUNAS</span>
+                    <span class="text-[10px] text-slate-500">Hutang ke PBF (Kredit/TOP)</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Container Jatuh Tempo (Hanya aktif saat BELUM LUNAS) -->
+            <div id="incoming-due-date-container" class="hidden p-2.5 bg-white border border-amber-300 rounded-lg space-y-2 shadow-xs">
+              <div class="flex items-center justify-between">
+                <label class="font-bold text-amber-900 block text-[11px] flex items-center">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-amber-600"></i>
+                  Termin Tempo (TOP) & Deadline Jatuh Tempo *
+                </label>
+                <span id="incoming-due-days-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">30 Hari</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-600 block mb-0.5">Pilih Termin Cepat (TOP):</label>
+                  <select id="incoming-top-select" class="w-full px-2 py-1.5 border border-slate-300 rounded text-xs font-semibold bg-white text-slate-800">
+                    <option value="7">7 Hari (1 Minggu)</option>
+                    <option value="14">14 Hari (2 Minggu)</option>
+                    <option value="21">21 Hari (3 Minggu)</option>
+                    <option value="30" selected>30 Hari (1 Bulan - Standar PBF)</option>
+                    <option value="45">45 Hari (1.5 Bulan)</option>
+                    <option value="60">60 Hari (2 Bulan)</option>
+                    <option value="custom">Kustom Tanggal</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-600 block mb-0.5">Deadline / Tgl Jatuh Tempo *</label>
+                  <input type="date" id="incoming-due-date" class="w-full px-2 py-1.5 border border-amber-400 rounded text-xs font-mono font-bold bg-white text-amber-950 focus:ring-amber-500">
+                </div>
+              </div>
+              <p id="incoming-due-info-text" class="text-[10px] text-amber-800 font-medium"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daftar Baris Obat Masuk -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="font-bold text-slate-900 text-xs">Daftar Obat Masuk pada Faktur Ini:</span>
+              <p class="text-[10px] text-slate-500">Pilih obat, satuan beli, kuantitas, harga beli satuan, no. batch, dan tanggal kadaluarsa.</p>
+            </div>
+            <button type="button" id="btn-add-incoming-row" class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 rounded-lg text-xs font-bold flex items-center space-x-1 transition">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              <span>+ Tambah Baris Obat</span>
+            </button>
+          </div>
+
+          <div id="incoming-rows-container" class="space-y-2.5">
+            <!-- Dynamic rows will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Panel Kalkulasi Nilai Faktur (Subtotal, Diskon, Total Faktur Rp) -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2.5">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+            <span class="font-bold text-slate-800 text-xs flex items-center">
+              <i data-lucide="calculator" class="w-4 h-4 text-emerald-600 mr-1.5"></i>
+              Kalkulasi & Total Nominal Faktur Pembelian (Rupiah)
+            </span>
+            <span class="text-[10px] text-slate-500">Total faktur dapat disesuaikan manual agar sama persis dengan fisik nota PBF</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+            <div>
+              <label class="text-[10px] font-semibold text-slate-600 block mb-0.5">Subtotal Harga Beli Obat:</label>
+              <input type="text" id="incoming-calc-subtotal" readonly class="w-full px-2.5 py-1.5 border border-slate-200 bg-slate-100 rounded-lg text-xs font-mono font-bold text-slate-700" value="Rp 0">
+              <p class="text-[9px] text-slate-400 mt-0.5">Akumulasi (Qty x Harga Beli)</p>
+            </div>
+            <div>
+              <label class="text-[10px] font-semibold text-slate-600 block mb-0.5">Potongan / Diskon Faktur (Rp):</label>
+              <input type="number" id="incoming-discount" min="0" value="0" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 focus:ring-1 focus:ring-emerald-500" placeholder="0">
+              <p class="text-[9px] text-slate-400 mt-0.5">Diskon nota dari supplier</p>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-emerald-950 block mb-0.5 flex items-center">
+                <span>Total Faktur Fisik PBF (Rp) *</span>
+                <span class="ml-1 text-[9px] text-emerald-700 bg-emerald-100 px-1 rounded font-normal">Wajib</span>
+              </label>
+              <input type="number" id="incoming-final-total" min="0" class="w-full px-2.5 py-1.5 border-2 border-emerald-500 bg-emerald-50/40 rounded-lg text-sm font-mono font-extrabold text-emerald-900 focus:ring-2 focus:ring-emerald-600" placeholder="Rp 0" required>
+              <p class="text-[9px] text-emerald-700 mt-0.5 font-medium">*Bisa diedit jika ada selisih PPN/ongkir dari PBF</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ringkasan Akumulasi Penambahan Stok -->
+        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1.5 text-xs" id="incoming-summary-box">
+          <div class="flex items-center justify-between font-bold text-emerald-950">
+            <span class="flex items-center space-x-1">
+              <i data-lucide="layers" class="w-4 h-4 text-emerald-600"></i>
+              <span>Perkiraan Penambahan Stok Obat ke Rak Apotek:</span>
+            </span>
+            <span id="incoming-total-qty-badge" class="font-mono text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-200">0 Item Obat</span>
+          </div>
+          <div id="incoming-preview-list" class="text-[11px] text-emerald-900 space-y-1 pt-1 border-t border-emerald-200/60">
+            <!-- Live calculation preview -->
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">
+            Batal
+          </button>
+          <button type="submit" id="btn-submit-incoming" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold shadow-md shadow-emerald-700/20 flex items-center space-x-2 transition">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Simpan & Tambah ke Stok Obat</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: TRANSFER STOK ANTAR-CABANG -->
+  <!-- ======================================================== -->
+  <div id="modal-transfer-stock" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <h3 class="font-bold text-base text-slate-900">Transfer Stok Antar-Cabang</h3>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-transfer-stock" class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-600">Cabang Pengirim *</label>
+            <select id="transfer-from-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="TLD">Cabang Talaud</option>
+              <option value="KBJ">Cabang Kembang Janggut</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-600">Cabang Penerima *</label>
+            <select id="transfer-to-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="KBJ">Cabang Kembang Janggut</option>
+              <option value="TLD">Cabang Talaud</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Pilih Obat & Batch *</label>
+          <select id="transfer-batch-select" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+            <!-- Dynamic batch options -->
+          </select>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Jumlah Unit Transfer *</label>
+          <input type="number" id="transfer-qty" required min="1" value="20" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded text-right mono">
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Catatan / No. Surat Jalan</label>
+          <input type="text" id="transfer-notes" placeholder="SJ-TRF-202611-01 via Kapal Laut" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded">
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold">Kirim Transfer Stok</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: CATAT BIAYA OPERASIONAL -->
+  <!-- ======================================================== -->
+  <div id="modal-expense" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <h3 class="font-bold text-base text-slate-900">Catat Pengeluaran Beban Operasional</h3>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-expense" class="space-y-3 text-xs">
+        <div>
+          <label class="font-bold text-slate-600">Cabang Pembayar *</label>
+          <select id="expense-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+            <option value="TLD">Cabang Talaud</option>
+            <option value="KBJ">Cabang Kembang Janggut</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Kategori Biaya *</label>
+          <select id="expense-category" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+            <option value="Listrik & Air">Listrik PLN & PDAM</option>
+            <option value="Sewa Tempat">Sewa Ruko / Tempat</option>
+            <option value="Gaji & Uang Makan">Gaji & Insentif Karyawan</option>
+            <option value="Internet & Pulsa">Internet Satelit / WiFi</option>
+            <option value="Transport & Logistik">Ongkos Kirim Logistik / Kapal</option>
+            <option value="ATK & Perlengkapan">Kertas Struk Kasir & Plastik</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Nominal Biaya (Rp) *</label>
+          <input type="number" id="expense-amount" required placeholder="500000" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded text-right mono font-bold">
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-600">Keterangan / Nomor Bukti</label>
+          <input type="text" id="expense-notes" placeholder="Tagihan PLN bulan berjalan" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded">
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold">Simpan Pengeluaran</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: LOGIN / GANTI AKUN PENGGUNA -->
+  <!-- ======================================================== -->
+  <div id="modal-login-switch" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 card-shadow-lg space-y-5 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-extrabold text-base text-slate-900 flex items-center">
+            <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            Login / Ganti Akun Pengguna
+          </h3>
+          <p class="text-xs text-slate-500">Masuk sesuai hak akses dan peran operasional cabang.</p>
+        </div>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Login Form Manual -->
+      <form id="form-login" class="space-y-3 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <!-- Error Message Display -->
+        <div id="login-error-msg" class="hidden p-2.5 rounded-lg bg-red-100 border border-red-200 text-red-700 font-semibold text-xs flex items-center space-x-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+          <span id="login-error-text">Kata sandi atau username salah.</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700">Nama Pengguna (Username) *</label>
+          <div class="relative mt-1">
+            <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="login-username" required placeholder="misal: owner / admin / kasir.tld" class="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg font-medium text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Kata Sandi (Password) *</label>
+          <div class="relative mt-1">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="password" id="login-password" required placeholder="Masukkan kata sandi..." class="w-full pl-9 pr-9 py-2 border border-slate-300 rounded-lg font-medium text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <button type="button" id="btn-toggle-login-password" class="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600 focus:outline-none" title="Lihat Password">
+              <i data-lucide="eye" class="w-4 h-4" id="eye-login-icon"></i>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm transition flex items-center justify-center space-x-1.5">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          <span>Masuk ke Sistem</span>
+        </button>
+      </form>
+
+      <!-- Panduan Akun & Kredensial -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Panduan Kredensial (Ketik Password untuk Masuk):</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs" id="quick-login-grid">
+          <!-- 1. Owner -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-emerald-500 hover:bg-emerald-50/40 transition space-y-0.5" data-u="owner">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>👑 Owner (Pemilik)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">owner / owner123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>owner</b></div>
+          </button>
+
+          <!-- 2. Admin -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-blue-500 hover:bg-blue-50/40 transition space-y-0.5" data-u="admin">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>👨‍💼 Administrator</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">admin / admin123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>admin</b></div>
+          </button>
+
+          <!-- 3. Apoteker -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-teal-500 hover:bg-teal-50/40 transition space-y-0.5" data-u="apt.tonang">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>🩺 Apoteker (APA)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">apt.tonang / apoteker123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>apt.tonang</b></div>
+          </button>
+
+          <!-- 4. Gudang Talaud -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-amber-500 hover:bg-amber-50/40 transition space-y-0.5" data-u="gudang.tld">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>📦 Gudang (Talaud)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">gudang.tld / gudang123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>gudang.tld</b></div>
+          </button>
+
+          <!-- 5. Gudang KBJ -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-amber-500 hover:bg-amber-50/40 transition space-y-0.5" data-u="gudang.kbj">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>📦 Gudang (Kembang)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">gudang.kbj / gudang123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>gudang.kbj</b></div>
+          </button>
+
+          <!-- 6. Kasir Talaud -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-slate-500 hover:bg-slate-50 transition space-y-0.5" data-u="kasir.tld">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>🛒 Kasir (Talaud)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">kasir.tld / kasir123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>kasir.tld</b></div>
+          </button>
+
+          <!-- 7. Kasir KBJ -->
+          <button type="button" class="quick-login-chip text-left p-2.5 rounded-lg border border-slate-200 bg-white hover:border-slate-500 hover:bg-slate-50 transition space-y-0.5" data-u="kasir.kbj">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>🛒 Kasir (Kembang)</span>
+              <span class="text-[9px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-mono">kasir.kbj / kasir123</span>
+            </div>
+            <div class="text-[10px] text-slate-500">Klik untuk isi username: <b>kasir.kbj</b></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Logout Action -->
+      <div class="pt-2 border-t border-slate-200 flex justify-between items-center" id="modal-logout-section">
+        <span class="text-xs text-slate-500">Ingin keluar dari akun saat ini?</span>
+        <button type="button" id="btn-modal-logout" class="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 rounded-lg text-xs font-bold flex items-center space-x-1.5 transition">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Keluar (Logout)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: TAMBAH AKUN PENGGUNA BARU -->
+  <!-- ======================================================== -->
+  <div id="modal-add-user" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <h3 class="font-bold text-base text-slate-900">Tambah Akun Pengguna Baru</h3>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-add-user" class="space-y-3 text-xs">
+        <div>
+          <label class="font-bold text-slate-600">Nama Lengkap *</label>
+          <input type="text" id="new-user-fullname" required placeholder="misal: Hendra Gunawan" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-600">Username *</label>
+            <input type="text" id="new-user-username" required placeholder="hendra.kasir" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+          </div>
+          <div>
+            <label class="font-bold text-slate-600">Password *</label>
+            <input type="text" id="new-user-password" required placeholder="pass123" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-600">Peran (Role) *</label>
+            <select id="new-user-role" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="KASIR">Kasir</option>
+              <option value="GUDANG">Petugas Gudang</option>
+              <option value="APOTEKER">Apoteker</option>
+              <option value="ADMIN">Administrator</option>
+              <option value="OWNER">Owner (Pemilik)</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-600">Penugasan Cabang *</label>
+            <select id="new-user-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+              <option value="TLD">Cabang Talaud</option>
+              <option value="KBJ">Cabang Kembang Janggut</option>
+              <option value="ALL">Semua Cabang (Pusat)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" class="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-bold">Simpan Pengguna</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: EDIT PENGGUNA & UBAH USERNAME / SANDI (KHUSUS OWNER) -->
+  <!-- ======================================================== -->
+  <div id="modal-edit-user" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900">Ubah Akun & Sandi Anggota</h3>
+            <p class="text-[11px] text-purple-700 font-semibold">👑 Kewenangan Eksklusif Owner</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-edit-user" class="space-y-3.5 text-xs">
+        <input type="hidden" id="edit-user-id" value="">
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Nama Lengkap Anggota *</label>
+          <input type="text" id="edit-user-fullname" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white focus:ring-2 focus:ring-purple-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Username Login *</label>
+            <input type="text" id="edit-user-username" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white focus:ring-2 focus:ring-purple-500">
+            <p class="text-[10px] text-slate-400 mt-0.5">Digunakan saat masuk sistem</p>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1 flex items-center justify-between">
+              <span>Kata Sandi Baru *</span>
+              <button type="button" id="btn-toggle-edit-password" class="text-purple-600 hover:text-purple-700 text-[10px] font-semibold">Lihat</button>
+            </label>
+            <div class="relative">
+              <input type="password" id="edit-user-password" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white focus:ring-2 focus:ring-purple-500">
+            </div>
+            <p class="text-[10px] text-slate-400 mt-0.5">Ganti sandi anggota ini</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Peran (Role) *</label>
+            <select id="edit-user-role" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white focus:ring-2 focus:ring-purple-500">
+              <option value="KASIR">Kasir</option>
+              <option value="GUDANG">Petugas Gudang</option>
+              <option value="APOTEKER">Apoteker (APA)</option>
+              <option value="ADMIN">Administrator</option>
+              <option value="OWNER">Owner (Pemilik)</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Penugasan Cabang *</label>
+            <select id="edit-user-branch" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white focus:ring-2 focus:ring-purple-500">
+              <option value="TLD">Cabang Kepulauan Talaud</option>
+              <option value="KBJ">Cabang Kembang Janggut</option>
+              <option value="ALL">Semua Cabang (Pusat)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-amber-50 border border-amber-200 rounded-lg text-[11px] text-amber-900 flex items-start space-x-1.5">
+          <i data-lucide="info" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+          <span>Perubahan username dan kata sandi langsung berlaku seketika. Anggota dapat login menggunakan kredensial baru tersebut.</span>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" class="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-bold shadow flex items-center space-x-1.5 transition">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Simpan Perubahan & Sandi</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: DOWNLOAD APLIKASI (WINDOWS, MAC, ANDROID APK, IPAD) -->
+  <!-- ======================================================== -->
+  <div id="modal-download-app" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-4xl w-full p-6 card-shadow-lg space-y-5 max-h-[92vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+            <i data-lucide="download" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base sm:text-lg text-slate-900 flex items-center">
+              Pusat Unduhan & Instalasi Aplikasi Tonang Farma
+            </h3>
+            <p class="text-xs text-slate-500">Pasang aplikasi di komputer kasir, laptop, smartphone, dan tablet apotek.</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Quick Platform Filter / Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- 1. WINDOWS (PC / LAPTOP) -->
+        <div class="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-400 bg-white transition space-y-3 relative group">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center">
+                <i data-lucide="monitor" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900">Versi Windows (10 / 11)</h4>
+                <span class="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">PC Kasir & Admin</span>
+              </div>
+            </div>
+            <span class="text-[11px] font-mono font-bold text-slate-400">Desktop App</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Menjalankan kasir POS dalam jendela aplikasi mandiri tanpa address bar / tab browser, siap pakai untuk PC kasir apotek.
+          </p>
+          <div class="space-y-2 pt-1 border-t border-slate-100">
+            <div class="text-[11px] text-slate-500 space-y-1">
+              <div>• <b>Paket Portable:</b> Berisi launcher & shortcut otomatis.</div>
+              <div>• <b>PWA Desktop:</b> Klik ikon komputer di address bar Edge / Chrome.</div>
+            </div>
+            <a href="/downloads/TonangFarma-Windows.zip" download class="w-full py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-2 shadow-sm transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download Paket Windows (.zip)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. ANDROID (SMARTPHONE & TABLET) -->
+        <div class="p-4 rounded-xl border-2 border-slate-200 hover:border-emerald-400 bg-white transition space-y-3 relative group">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i data-lucide="smartphone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900">Versi Android (HP & Tablet)</h4>
+                <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Aplikasi Kasir Android</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Resmi Google WebAPK</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Pasang langsung di HP/tablet kasir tanpa error parsing. Mendukung pemindai barcode kamera, offline mode, dan update otomatis.
+          </p>
+
+          <!-- Rekomendasi Resmi Google Chrome -->
+          <div class="p-2.5 bg-emerald-50 border border-emerald-300 rounded-lg text-[11px] text-emerald-950 space-y-1">
+            <div class="font-bold flex items-center text-emerald-800">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i>
+              Cara Terbaik Pasang di Android (Bebas Parse Error):
+            </div>
+            <div>1. Buka <b>Google Chrome</b> di HP Anda.</div>
+            <div>2. Buka link sistem ini di browser HP Anda.</div>
+            <div>3. Tekan menu titik tiga (<b>⋮</b>) di pojok kanan atas Chrome.</div>
+            <div>4. Pilih <b>"Instal Aplikasi" (Install app)</b> atau <b>"Tambahkan ke Layar Utama"</b>.</div>
+            <div>5. Tekan <b>"Instal"</b>. Ikon Tonang Farma akan langsung terpasang di menu HP Anda!</div>
+          </div>
+
+          <div class="space-y-1.5 pt-1 border-t border-slate-100">
+            <button type="button" id="btn-copy-android-url" class="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm transition">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Salin Link Buka di Chrome HP Android</span>
+            </button>
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+              <span>Ingin download file paket mentah?</span>
+              <a href="/downloads/TonangFarma-Android.zip" download class="text-emerald-700 font-semibold hover:underline flex items-center space-x-0.5">
+                <i data-lucide="download" class="w-3 h-3"></i>
+                <span>Download Paket Installer (.zip)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. APPLE MAC (macOS) -->
+        <div class="p-4 rounded-xl border-2 border-slate-200 hover:border-slate-400 bg-white transition space-y-3 relative group">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center">
+                <i data-lucide="laptop" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900">Versi Mac (macOS)</h4>
+                <span class="text-[10px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-300">MacBook & iMac</span>
+              </div>
+            </div>
+            <span class="text-[11px] font-mono font-bold text-slate-500">.app Bundle</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Paket aplikasi macOS bawaan (Tonang Farma.app) dengan icon resmi, dapat diletakkan di Dock dan dibuka tanpa browser tab.
+          </p>
+          <div class="space-y-2 pt-1 border-t border-slate-100">
+            <div class="text-[11px] text-slate-500 space-y-1">
+              <div>• <b>Ekstrak & Jalankan:</b> Seret Tonang Farma.app ke Applications.</div>
+              <div>• <b>Safari Mac:</b> Menu File > Tambahkan ke Dock (Add to Dock).</div>
+            </div>
+            <a href="/downloads/TonangFarma-Mac.zip" download class="w-full py-2 px-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-2 shadow-sm transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download Aplikasi Mac (.zip)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. APPLE IPAD & IPHONE (iPadOS / iOS) -->
+        <div class="p-4 rounded-xl border-2 border-slate-200 hover:border-purple-400 bg-white transition space-y-3 relative group">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-9 h-9 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center">
+                <i data-lucide="tablet" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900">Versi iPad & iPhone (iOS)</h4>
+                <span class="text-[10px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">Tablet Kasir Apple</span>
+              </div>
+            </div>
+            <span class="text-[11px] font-mono font-bold text-purple-600">Home Screen App</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Standar resmi Apple untuk memasang aplikasi mandiri di iPad/iPhone (Layar penuh, tanpa bilah Safari, ada icon di layar utama).
+          </p>
+          <div class="space-y-2 pt-1 border-t border-slate-100">
+            <div class="p-2.5 bg-purple-50 border border-purple-200 rounded-lg text-[11px] text-purple-900 space-y-1">
+              <div class="font-bold">Langkah Pasang di iPad (Safari):</div>
+              <div>1. Buka tautan sistem di browser <b>Safari</b> iPad.</div>
+              <div>2. Tekan tombol <b>Bagikan (Share)</b> <i data-lucide="share" class="w-3.5 h-3.5 inline text-blue-600"></i>.</div>
+              <div>3. Pilih <b>"Tambahkan ke Layar Utama" (Add to Home Screen)</b>.</div>
+              <div>4. Tekan <b>"Tambah"</b>. Icon aplikasi akan muncul di layar iPad!</div>
+            </div>
+            <button type="button" id="btn-copy-ipad-url" class="w-full py-2 px-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-1.5 transition">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Salin Tautan Akses untuk iPad</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Info -->
+      <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+          <span>Seluruh versi multi-platform terhubung secara real-time ke database pusat apotek.</span>
+        </div>
+        <button type="button" class="btn-close-modal px-4 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg transition">
+          Tutup
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: BUKA DI HP / TABLET (AKSES JARINGAN LOKAL) -->
+  <!-- ======================================================== -->
+  <div id="modal-mobile-access" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4 text-center max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <h3 class="font-extrabold text-base text-slate-900 flex items-center">
+          <i data-lucide="smartphone" class="w-5 h-5 text-blue-600 mr-2"></i>
+          Buka di HP & Tablet
+        </h3>
+        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-600 leading-relaxed text-left">
+        Di perangkat HP atau tablet, alamat <b>localhost</b> tidak bisa dibuka karena mengarah ke memori HP itu sendiri. Gunakan <b>Alamat IP Jaringan Wi-Fi</b> berikut:
+      </p>
+
+      <!-- URL Display Box -->
+      <div class="space-y-3 text-left">
+        <!-- Opsi 1: Online Public HTTPS -->
+        <div class="bg-emerald-50 border-2 border-emerald-300 rounded-xl p-3.5 space-y-1.5 text-center">
+          <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">1. Tautan Online Publik (Bisa dari Internet/Wi-Fi Mana Saja):</span>
+          <div class="text-sm font-extrabold text-emerald-950 font-mono select-all py-1.5 px-2 bg-white rounded-lg border border-emerald-300 flex items-center justify-center space-x-2">
+            <span id="mobile-url-text">https://number-org-discrete-arranged.trycloudflare.com</span>
+            <button id="btn-copy-mobile-url" class="p-1 hover:bg-slate-100 rounded text-emerald-700" title="Salin URL">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <span class="text-[10px] text-emerald-700 font-semibold block">Dapat dibuka dari HP (4G/5G), iPad, & Cabang Talaud / Kembang Janggut 24 Jam!</span>
+        </div>
+
+        <!-- Opsi 2: Wi-Fi Lokal Langsung -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 space-y-1 text-center">
+          <span class="text-[11px] font-bold text-blue-800 uppercase tracking-wider block">2. Tautan Wi-Fi Lokal (Khusus Jika 1 Jaringan Wi-Fi):</span>
+          <div class="text-xs font-bold text-blue-950 font-mono select-all py-1 px-2 bg-white rounded border border-blue-200 flex items-center justify-center space-x-2">
+            <span>http://10.62.8.166:5173</span>
+          </div>
+          <span class="text-[10px] text-blue-600 block">Langsung terhubung cepat tanpa kuota internet saat iPad terhubung ke Wi-Fi apotek.</span>
+        </div>
+      </div>
+
+      <!-- QR Code -->
+      <div class="p-3 bg-white border border-slate-200 rounded-xl space-y-2 text-center">
+        <span class="text-xs font-bold text-slate-700 block">Scan QR Code dengan Kamera iPad / HP:</span>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://number-org-discrete-arranged.trycloudflare.com" alt="QR Code Akses HP" class="w-48 h-48 mx-auto rounded-lg border border-slate-200 p-2 shadow-sm">
+        <span class="text-[11px] text-slate-500 block">Buka aplikasi Kamera di iPad Anda lalu arahkan ke QR Code di atas.</span>
+      </div>
+
+      <!-- Checklist Tips -->
+      <div class="text-left bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-1.5 text-xs">
+        <div class="font-bold text-slate-800 flex items-center">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 mr-1.5"></i>
+          Keamanan & Akses Online Penuh:
+        </div>
+        <ul class="text-[11px] text-slate-600 space-y-1 list-disc pl-4">
+          <li>Bisa dibuka dari <b>semua jaringan</b>: paket data seluler (4G/5G), Wi-Fi rumah, dan antar-cabang.</li>
+          <li>Koneksi terenkripsi aman dengan sertifikat SSL (HTTPS).</li>
+          <li>Data terlindungi di balik login username dan kata sandi.</li>
+        </ul>
+      </div>
+
+      <div class="pt-2 border-t border-slate-200">
+        <button type="button" class="btn-close-modal w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg text-xs transition">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: RINCIAN FAKTUR PEMBELIAN PBF -->
+  <!-- ======================================================== -->
+  <div id="modal-purchase-detail" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-3xl w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="file-text" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            Rincian Faktur Pembelian PBF
+          </h3>
+          <p class="text-xs text-slate-500" id="detail-po-subtitle">Detail item obat masuk, harga beli, dan status pelunasan faktur.</p>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Info Box Faktur -->
+      <div id="detail-po-info-box" class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+        <!-- populated dynamically -->
+      </div>
+
+      <!-- Daftar Obat yang Diterima -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-slate-800 text-xs">Daftar Item Obat dalam Faktur Ini:</h4>
+        <div class="overflow-x-auto border border-slate-200 rounded-xl">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-700 font-bold uppercase text-[10px] border-b border-slate-200">
+              <tr>
+                <th class="py-2.5 px-3">No</th>
+                <th class="py-2.5 px-3">Nama Obat</th>
+                <th class="py-2.5 px-3">Qty & Satuan</th>
+                <th class="py-2.5 px-3">No. Batch</th>
+                <th class="py-2.5 px-3">Expired Date</th>
+                <th class="py-2.5 px-3 text-right">Harga Beli Satuan</th>
+                <th class="py-2.5 px-3 text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="detail-po-items-table" class="divide-y divide-slate-100">
+              <!-- populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Ringkasan Finansial & Pembayaran -->
+      <div id="detail-po-financial-summary" class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
+        <!-- populated dynamically -->
+      </div>
+
+      <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+        <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold">
+          Tutup
+        </button>
+        <div id="detail-po-actions">
+          <!-- Bayar button if unpaid -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: PELUNASAN UTANG FAKTUR PBF -->
+  <!-- ======================================================== -->
+  <div id="modal-pay-purchase" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="credit-card" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            Pelunasan Tagihan Faktur PBF
+          </h3>
+          <p class="text-xs text-slate-500">Konfirmasi pembayaran utang/tagihan ke Pedagang Besar Farmasi.</p>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-pay-purchase" class="space-y-4 text-xs">
+        <input type="hidden" id="pay-po-id" value="">
+
+        <!-- Ringkasan Tagihan -->
+        <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500 text-[11px]">No. Faktur PBF:</span>
+            <span id="pay-po-invoice-no" class="font-bold font-mono text-slate-800 text-xs"></span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500 text-[11px]">Supplier PBF:</span>
+            <span id="pay-po-supplier-name" class="font-semibold text-slate-800 text-xs"></span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-500 text-[11px]">Cabang Pemesan:</span>
+            <span id="pay-po-branch-name" class="font-semibold text-slate-800 text-xs"></span>
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t border-slate-200">
+            <span class="font-bold text-slate-700">Total Tagihan Hutang:</span>
+            <span id="pay-po-amount" class="text-base font-extrabold text-red-600 font-mono"></span>
+          </div>
+        </div>
+
+        <!-- Form Pelunasan -->
+        <div class="space-y-3">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Tanggal Pembayaran *</label>
+            <input type="date" id="pay-po-date" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 bg-white focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Metode Pembayaran *</label>
+            <select id="pay-po-method" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white">
+              <option value="BANK_TRANSFER">Transfer Bank (BCA / Mandiri / BRI / BNI)</option>
+              <option value="CASH">Kas Tunai Apotek</option>
+              <option value="GIRO">Bilyet Giro / Cek</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Nomor Referensi / No. Bukti Transfer (Opsional)</label>
+            <input type="text" id="pay-po-ref" placeholder="misal: TRF-BCA-8891023 / No. Resi Bank" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono text-slate-800 bg-white">
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Catatan Pelunasan (Opsional)</label>
+            <textarea id="pay-po-notes" rows="2" placeholder="Catatan tambahan pelunasan..." class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800 bg-white"></textarea>
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-[11px] text-emerald-800">
+          💡 <b>Pengaruh Sistem:</b> Status faktur akan berubah menjadi <b>LUNAS</b> dan Saldo Utang (AP) supplier PBF otomatis berkurang sejumlah tagihan ini.
+        </div>
+
+        <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">
+            Batal
+          </button>
+          <button type="submit" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold shadow flex items-center space-x-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Konfirmasi Pelunasan Hutang</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: TAMBAH / EDIT SUPPLIER PBF -->
+  <!-- ======================================================== -->
+  <div id="modal-add-supplier" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 id="modal-supplier-title" class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="building-2" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            <span>Tambah Supplier PBF Baru</span>
+          </h3>
+          <p class="text-[11px] text-slate-500">Pendaftaran distributor resmi farmasi langsung ke sistem database.</p>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-add-supplier" class="space-y-3.5 text-xs">
+        <input type="hidden" id="edit-supplier-id" value="">
+        
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Kode Supplier PBF *</label>
+          <input type="text" id="new-supplier-code" required placeholder="SUP-04" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 uppercase bg-slate-100 focus:outline-none">
+          <span class="text-[10px] text-slate-400">Kode identitas unik supplier di sistem</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Nama Supplier / PT PBF *</label>
+          <input type="text" id="new-supplier-name" required placeholder="misal: PT Kimia Farma Trading & Distribution" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-medium text-slate-800 focus:ring-2 focus:ring-emerald-500">
+          <span class="text-[10px] text-slate-400">Nama lengkap instansi atau Pedagang Besar Farmasi</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Kontak / No. Telepon / WhatsApp *</label>
+          <input type="text" id="new-supplier-contact" required placeholder="misal: 0811-2345-6789 atau (0431) 889123" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-medium text-slate-800 focus:ring-2 focus:ring-emerald-500">
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Alamat Kantor / Gudang PBF *</label>
+          <textarea id="new-supplier-address" required rows="2" placeholder="misal: Jl. Ahmad Yani No. 45, Manado" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-emerald-500"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="font-bold text-slate-700 block mb-0.5">Nama Sales / PIC (Opsional)</label>
+            <input type="text" id="new-supplier-pic" placeholder="misal: Bpk. Hendra" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800">
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-0.5">Tempo Pembayaran (TOP)</label>
+            <input type="text" id="new-supplier-top" placeholder="misal: 30 Hari" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800">
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-lg text-[11px] text-blue-800 flex items-start space-x-1.5">
+          <i data-lucide="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+          <span>Data supplier tersimpan rapi di sistem database dan otomatis muncul di daftar pilihan saat input faktur obat masuk.</span>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" id="btn-submit-supplier" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold shadow-sm flex items-center space-x-1.5">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Simpan Supplier</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: DAFTAR / KELOLA SUPPLIER PBF -->
+  <!-- ======================================================== -->
+  <div id="modal-supplier-list" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-4xl w-full p-6 card-shadow-lg space-y-4 max-h-[90vh] flex flex-col">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="building-2" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            <span>Daftar Master Supplier PBF</span>
+          </h3>
+          <p class="text-xs text-slate-500">Kelola seluruh data distributor/PBF resmi rekanan Tonang Farma.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button type="button" id="btn-trigger-add-supplier-from-list" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm transition">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Tambah Supplier</span>
+          </button>
+          <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between gap-2">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+          <input type="text" id="supplier-search-input" placeholder="Cari nama supplier, kode, kontak, atau alamat..." class="w-full pl-9 pr-3 py-1.5 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500">
+        </div>
+        <span id="supplier-count-text" class="text-xs text-slate-500 font-semibold shrink-0">Total: 3 Supplier</span>
+      </div>
+
+      <div class="overflow-y-auto flex-1 border border-slate-200 rounded-xl">
+        <table class="w-full text-left text-xs text-slate-600">
+          <thead class="bg-slate-50 text-slate-700 font-bold uppercase text-[10px] border-b border-slate-200 sticky top-0">
+            <tr>
+              <th class="py-2.5 px-3">Kode</th>
+              <th class="py-2.5 px-3">Nama Supplier PBF</th>
+              <th class="py-2.5 px-3">Kontak</th>
+              <th class="py-2.5 px-3">Alamat</th>
+              <th class="py-2.5 px-3 text-right">Saldo Utang (AP)</th>
+              <th class="py-2.5 px-3 text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="supplier-list-table-body" class="divide-y divide-slate-100">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flex justify-end pt-2 border-t border-slate-200">
+        <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold text-xs">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: EDIT DATA BATCH OBAT -->
+  <!-- ======================================================== -->
+  <div id="modal-edit-batch" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 card-shadow-lg space-y-4 max-h-[92vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 flex items-center">
+            <i data-lucide="edit-3" class="w-5 h-5 text-blue-600 mr-2"></i>
+            <span>Edit Data Batch Obat</span>
+          </h3>
+          <p class="text-[11px] text-slate-500">Koreksi nomor batch, tanggal kedaluwarsa, atau jumlah stok fisik.</p>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-edit-batch" class="space-y-3.5 text-xs">
+        <input type="hidden" id="edit-batch-id" value="">
+        <input type="hidden" id="edit-batch-med-id" value="">
+
+        <!-- Info Obat (Readonly) -->
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Obat Terpilih:</span>
+          <div class="font-bold text-sm text-slate-900" id="edit-batch-med-name">-</div>
+          <div class="text-[11px] text-slate-500 flex items-center space-x-2">
+            <span>Kode: <b id="edit-batch-med-code" class="mono text-slate-700">-</b></span>
+            <span>•</span>
+            <span>Satuan Dasar: <b id="edit-batch-base-unit" class="text-emerald-700">-</b></span>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Cabang Penempatan *</label>
+          <select id="edit-batch-branch" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-semibold text-slate-800 bg-white">
+            <option value="TLD">🏝️ Cabang Kepulauan Talaud (TLD)</option>
+            <option value="KBJ">🌲 Cabang Kembang Janggut (KBJ)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Nomor Batch (No. Batch) *</label>
+          <input type="text" id="edit-batch-no" required placeholder="misal: PCT26A02" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-blue-500">
+          <span class="text-[10px] text-slate-400">Nomor lot / batch produksi dari pabrik</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Tanggal Kedaluwarsa (Expired Date) *</label>
+          <input type="date" id="edit-batch-expiry" required class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg font-mono font-bold text-slate-800 focus:ring-2 focus:ring-blue-500">
+          <span class="text-[10px] text-slate-400">Tanggal jatuh tempo expired untuk urutan FEFO</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">
+            Jumlah Stok Fisik Batch (<span id="edit-batch-unit-label">Tablet</span>) *
+          </label>
+          <div class="relative">
+            <input type="number" id="edit-batch-stock" required min="0" placeholder="0" class="w-full pl-3 pr-16 py-1.5 border border-slate-300 rounded-lg font-mono font-extrabold text-sm text-slate-900 focus:ring-2 focus:ring-blue-500">
+            <span id="edit-batch-unit-suffix" class="absolute right-3 top-2 text-xs font-bold text-slate-500 pointer-events-none">Tablet</span>
+          </div>
+          <span class="text-[10px] text-slate-400">Total stok fisik batch ini dalam satuan terkecil</span>
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Alasan Koreksi / Catatan (Opsional)</label>
+          <input type="text" id="edit-batch-notes" placeholder="misal: Koreksi salah ketik no. batch / expired" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-700">
+        </div>
+
+        <div class="p-2.5 bg-amber-50 border border-amber-200 rounded-lg text-[11px] text-amber-900 flex items-start space-x-1.5">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+          <span>Perubahan nomor batch, expired date, dan stok akan langsung memperbarui urutan FEFO dan stok di kasir.</span>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
+          <button type="submit" id="btn-submit-edit-batch" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-sm flex items-center space-x-1.5">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Simpan Perubahan Batch</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: HAPUS BATCH OBAT -->
+  <!-- ======================================================== -->
+  <div id="modal-delete-batch" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 card-shadow-lg space-y-4">
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto">
+          <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-base text-slate-900">Hapus Batch Obat?</h3>
+        <p class="text-xs text-slate-500">
+          Apakah Anda yakin ingin menghapus data batch berikut dari sistem? Tindakan ini akan menghapus stok batch terkait dari sistem.
+        </p>
+      </div>
+
+      <div class="p-3 bg-red-50/60 border border-red-200 rounded-xl space-y-1 text-xs">
+        <input type="hidden" id="delete-batch-target-id" value="">
+        <div class="flex justify-between text-slate-600">
+          <span>Obat:</span>
+          <b class="text-slate-900" id="delete-batch-med-name">-</b>
+        </div>
+        <div class="flex justify-between text-slate-600">
+          <span>No. Batch:</span>
+          <b class="mono text-slate-900 font-bold" id="delete-batch-target-no">-</b>
+        </div>
+        <div class="flex justify-between text-slate-600">
+          <span>Cabang:</span>
+          <span class="font-bold text-slate-800" id="delete-batch-target-branch">-</span>
+        </div>
+        <div class="flex justify-between text-slate-600 pt-1 border-t border-red-200">
+          <span>Stok Terhapus:</span>
+          <b class="mono text-red-700 font-extrabold" id="delete-batch-target-stock">-</b>
+        </div>
+      </div>
+
+      <div class="flex space-x-2 pt-2">
+        <button type="button" class="btn-close-modal flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold text-xs">
+          Batal
+        </button>
+        <button type="button" id="btn-confirm-delete-batch" class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold text-xs shadow-sm flex items-center justify-center space-x-1">
+          <i data-lucide="trash-2" class="w-4 h-4"></i>
+          <span>Ya, Hapus Batch</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- CORE LOGIC SCRIPTS -->
+  <script src="app.js?v=44"></script>
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Register Service Worker for PWA / Offline Desktop Support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log('PWA Service Worker registered:', reg.scope))
+          .catch(err => console.log('Service Worker registration skipped:', err));
+      });
+    }
+  </script>
+</body>
+</html>

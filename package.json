@@ -1,0 +1,15 @@
+{
+  "name": "tonang-farma-pms",
+  "version": "1.0.0",
+  "description": "Sistem Apotek Multi-Cabang & POS Hybrid Cloud Tonang Farma",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["pharmacy", "pos", "fefo", "multi-branch"],
+  "author": "Apotek Tonang Farma",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
