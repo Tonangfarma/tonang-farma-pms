@@ -43,7 +43,40 @@ if (fs.existsSync(STATE_FILE)) {
     const raw = fs.readFileSync(STATE_FILE, 'utf8');
     serverState = JSON.parse(raw);
     serverState.deletedMedicineCodes = serverState.deletedMedicineCodes || [];
-    console.log(`[STATE] Loaded server state v${serverState.version} with ${serverState.medicines?.length || 0} medicines, ${serverState.deletedMedicineCodes.length} deleted.`);
+
+    // Auto-clean any legacy demo batches and demo medicines permanently
+    let needsPersist = false;
+    if (serverState.batches && serverState.batches.length > 0) {
+      const origBatchCount = serverState.batches.length;
+      serverState.batches = serverState.batches.filter(b => 
+        b.batchNo !== 'MED001-2611-01' && 
+        b.batchNo !== 'MED001-2611-02' && 
+        !b.batchNo?.startsWith('MED001-2611')
+      );
+      if (serverState.batches.length !== origBatchCount) {
+        needsPersist = true;
+      }
+    }
+
+    if (serverState.medicines && serverState.medicines.length > 0) {
+      const origMedCount = serverState.medicines.length;
+      serverState.medicines = serverState.medicines.filter(m => 
+        !m.name?.toLowerCase().includes('allofar') &&
+        !m.name?.toLowerCase().includes('fasidol')
+      );
+      if (serverState.medicines.length !== origMedCount) {
+        needsPersist = true;
+      }
+    }
+
+    if ((serverState.version || 0) < 600 || needsPersist) {
+      serverState.version = Math.max(serverState.version || 1, 600);
+      serverState.lastUpdated = Date.now();
+      persistState();
+      console.log(`[STATE] Auto-cleaned legacy demo data. State upgraded to v${serverState.version}.`);
+    } else {
+      console.log(`[STATE] Loaded server state v${serverState.version} with ${serverState.medicines?.length || 0} medicines, ${serverState.batches?.length || 0} batches.`);
+    }
   } catch (err) {
     console.error('[STATE] Error reading state file:', err.message);
   }
@@ -441,10 +474,16 @@ function requestHandler(req, res) {
         }
 
         if (incoming.batches && Array.isArray(incoming.batches)) {
+          const cleanBatches = incoming.batches.filter(b => 
+            b && 
+            b.batchNo !== 'MED001-2611-01' && 
+            b.batchNo !== 'MED001-2611-02' && 
+            !b.batchNo?.startsWith('MED001-2611')
+          );
           if (incoming.replaceBatches) {
-            serverState.batches = incoming.batches;
+            serverState.batches = cleanBatches;
           } else {
-            serverState.batches = mergeArrayById(serverState.batches || [], incoming.batches, 'id');
+            serverState.batches = mergeArrayById(serverState.batches || [], cleanBatches, 'id');
           }
           hasChanges = true;
         }

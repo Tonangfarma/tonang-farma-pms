@@ -1,12 +1,57 @@
 {
-  "version": 353,
-  "lastUpdated": 1795543858979,
+  "version": 600,
+  "lastUpdated": 1795599360598,
   "medicines": [
     {
       "id": "MED-001",
       "code": "MED-001",
       "barcode": "8999909001",
-      "name": "Allofar 100mg",
+      "name": "Zimuno 200ml Sirup",
+      "category": "Suplemen",
+      "dosageForm": "Sirup",
+      "baseUnit": "Botol",
+      "buyUnit": "Karton",
+      "conversionRate": 24,
+      "stripUnit": "Strip",
+      "stripConversion": 0,
+      "location": "Rak A-01",
+      "buyPrice": 0,
+      "sellPrice": 0,
+      "stripPrice": 0,
+      "boxPrice": 0,
+      "minStock": 5,
+      "minStockUnit": "Botol",
+      "active": true,
+      "branchConfigs": {
+        "TLD": {
+          "active": true,
+          "location": "Rak A-01",
+          "barcode": "8999909001",
+          "buyPrice": 0,
+          "sellPrice": 0,
+          "stripPrice": 0,
+          "boxPrice": 0,
+          "minStock": 5,
+          "minStockUnit": "Botol"
+        },
+        "KBJ": {
+          "active": true,
+          "location": "Rak B-01",
+          "barcode": "8999909001",
+          "buyPrice": 0,
+          "sellPrice": 0,
+          "stripPrice": 0,
+          "boxPrice": 0,
+          "minStock": 5,
+          "minStockUnit": "Botol"
+        }
+      }
+    },
+    {
+      "id": "MED-002",
+      "code": "MED-002",
+      "barcode": "8999909002",
+      "name": "Paracetamol 500mg",
       "category": "Bebas",
       "dosageForm": "Tablet",
       "baseUnit": "Tablet",
@@ -15,78 +60,46 @@
       "stripUnit": "Strip",
       "stripConversion": 10,
       "location": "Rak A-01",
-      "buyPrice": 2000,
-      "sellPrice": 500,
+      "buyPrice": 380,
+      "sellPrice": 0,
       "stripPrice": 5000,
-      "boxPrice": 80000,
-      "minStock": 20,
+      "boxPrice": 48000,
+      "minStock": 10,
+      "minStockUnit": "Strip",
       "active": true,
       "branchConfigs": {
         "TLD": {
           "active": true,
           "location": "Rak A-01",
-          "barcode": "8999909001",
-          "buyPrice": 2000,
-          "sellPrice": 500,
-          "stripPrice": 5000,
-          "boxPrice": 80000,
-          "minStock": 20
-        },
-        "KBJ": {
-          "active": false,
-          "location": "Rak B-01",
-          "barcode": "8999909001",
-          "buyPrice": 0,
+          "barcode": "8999909002",
+          "pkgBuyPrice": 35000,
+          "stripBuyPrice": 3800,
+          "buyPrice": 380,
           "sellPrice": 0,
-          "stripPrice": 0,
-          "boxPrice": 0,
-          "minStock": 20
-        }
-      }
-    },
-    {
-      "id": "MED-002",
-      "code": "MED-002",
-      "barcode": "8999909002",
-      "name": "Fasidol",
-      "category": "Bebas",
-      "dosageForm": "Sirup",
-      "baseUnit": "Botol",
-      "buyUnit": "Karton",
-      "conversionRate": 24,
-      "stripUnit": "Strip",
-      "stripConversion": 0,
-      "location": "Rak A-01",
-      "buyPrice": 5000,
-      "sellPrice": 7000,
-      "stripPrice": 0,
-      "boxPrice": 160000,
-      "minStock": 20,
-      "active": true,
-      "branchConfigs": {
-        "TLD": {
-          "active": true,
-          "location": "Rak A-01",
-          "barcode": "8999909002",
-          "buyPrice": 5000,
-          "sellPrice": 7000,
-          "stripPrice": 0,
-          "boxPrice": 160000,
-          "minStock": 20
+          "stripPrice": 5000,
+          "boxPrice": 48000,
+          "minStock": 10,
+          "minStockUnit": "Strip"
         },
         "KBJ": {
           "active": true,
           "location": "Rak B-01",
           "barcode": "8999909002",
-          "buyPrice": 5000,
-          "sellPrice": 7000,
-          "stripPrice": 0,
-          "boxPrice": 160000,
-          "minStock": 20
+          "pkgBuyPrice": 35000,
+          "stripBuyPrice": 3800,
+          "buyPrice": 380,
+          "sellPrice": 0,
+          "stripPrice": 5000,
+          "boxPrice": 48000,
+          "minStock": 10,
+          "minStockUnit": "Strip"
         }
-      }
+      },
+      "pkgBuyPrice": 35000,
+      "stripBuyPrice": 3800
     }
   ],
+  "deletedMedicineCodes": [],
   "branches": [
     {
       "id": "TLD",
@@ -99,1135 +112,92 @@
       "location": "Kutai Kartanegara, Kalimantan Timur"
     }
   ],
-  "batches": [
-    {
-      "id": "B-01",
-      "medicineId": "MED-001",
-      "branchId": "TLD",
-      "batchNo": "PCT26A01",
-      "expiryDate": "2027-10-15",
-      "stock": 450
-    },
-    {
-      "id": "B-02",
-      "medicineId": "MED-001",
-      "branchId": "TLD",
-      "batchNo": "PCT26A02",
-      "expiryDate": "2026-12-10",
-      "stock": 14
-    },
-    {
-      "id": "B-03",
-      "medicineId": "MED-001",
-      "branchId": "KBJ",
-      "batchNo": "PCT26K01",
-      "expiryDate": "2027-08-20",
-      "stock": 320
-    },
-    {
-      "id": "B-04",
-      "medicineId": "MED-002",
-      "branchId": "TLD",
-      "batchNo": "AMX26T01",
-      "expiryDate": "2027-05-10",
-      "stock": 160
-    },
-    {
-      "id": "B-05",
-      "medicineId": "MED-002",
-      "branchId": "KBJ",
-      "batchNo": "AMX26K02",
-      "expiryDate": "2027-02-15",
-      "stock": 38
-    },
-    {
-      "id": "B-06",
-      "medicineId": "MED-003",
-      "branchId": "TLD",
-      "batchNo": "CFX26T01",
-      "expiryDate": "2027-12-01",
-      "stock": 89
-    },
-    {
-      "id": "B-07",
-      "medicineId": "MED-003",
-      "branchId": "KBJ",
-      "batchNo": "CFX26K01",
-      "expiryDate": "2026-11-15",
-      "stock": 15
-    },
-    {
-      "id": "B-08",
-      "medicineId": "MED-004",
-      "branchId": "TLD",
-      "batchNo": "ATD26T01",
-      "expiryDate": "2028-01-10",
-      "stock": 300
-    },
-    {
-      "id": "B-09",
-      "medicineId": "MED-004",
-      "branchId": "KBJ",
-      "batchNo": "ATD26K01",
-      "expiryDate": "2027-09-12",
-      "stock": 250
-    },
-    {
-      "id": "B-10",
-      "medicineId": "MED-005",
-      "branchId": "TLD",
-      "batchNo": "AML26T01",
-      "expiryDate": "2027-04-18",
-      "stock": 220
-    },
-    {
-      "id": "B-11",
-      "medicineId": "MED-005",
-      "branchId": "KBJ",
-      "batchNo": "AML26K01",
-      "expiryDate": "2027-06-30",
-      "stock": 180
-    },
-    {
-      "id": "B-12",
-      "medicineId": "MED-006",
-      "branchId": "TLD",
-      "batchNo": "CTZ26T01",
-      "expiryDate": "2027-03-25",
-      "stock": 140
-    },
-    {
-      "id": "B-13",
-      "medicineId": "MED-006",
-      "branchId": "KBJ",
-      "batchNo": "CTZ26K01",
-      "expiryDate": "2027-11-10",
-      "stock": 110
-    },
-    {
-      "id": "B-14",
-      "medicineId": "MED-007",
-      "branchId": "TLD",
-      "batchNo": "VTC26T01",
-      "expiryDate": "2027-08-01",
-      "stock": 45
-    },
-    {
-      "id": "B-15",
-      "medicineId": "MED-007",
-      "branchId": "KBJ",
-      "batchNo": "VTC26K01",
-      "expiryDate": "2027-07-15",
-      "stock": 50
-    },
-    {
-      "id": "B-16",
-      "medicineId": "MED-008",
-      "branchId": "TLD",
-      "batchNo": "MKP26T01",
-      "expiryDate": "2028-05-20",
-      "stock": 35
-    },
-    {
-      "id": "B-17",
-      "medicineId": "MED-008",
-      "branchId": "KBJ",
-      "batchNo": "MKP26K01",
-      "expiryDate": "2028-06-01",
-      "stock": 40
-    },
-    {
-      "id": "B-18",
-      "medicineId": "MED-009",
-      "branchId": "TLD",
-      "batchNo": "BTD26T01",
-      "expiryDate": "2027-10-10",
-      "stock": 28
-    },
-    {
-      "id": "B-19",
-      "medicineId": "MED-010",
-      "branchId": "KBJ",
-      "batchNo": "THM26K01",
-      "expiryDate": "2029-12-31",
-      "stock": 14
-    },
-    {
-      "id": "B-1795411210413-74",
-      "medicineId": "MED-001",
-      "branchId": "KBJ",
-      "batchNo": "PCT26N29",
-      "expiryDate": "2028-11-20",
-      "stock": 100
-    },
-    {
-      "id": "B-1795411210413-38",
-      "medicineId": "MED-004",
-      "branchId": "KBJ",
-      "batchNo": "ATD26N29",
-      "expiryDate": "2028-11-20",
-      "stock": 200
-    },
-    {
-      "id": "B-1795415714035-62",
-      "medicineId": "MED-001",
-      "branchId": "KBJ",
-      "batchNo": "MED001-2611-01",
-      "expiryDate": "2028-11-21",
-      "stock": 100
-    },
-    {
-      "id": "B-1795427285997-149",
-      "medicineId": "MED-001",
-      "branchId": "TLD",
-      "batchNo": "PCT26N23",
-      "expiryDate": "2028-11-20",
-      "stock": 200
-    },
-    {
-      "id": "B-1795514861571-569",
-      "medicineId": "MED-001",
-      "branchId": "TLD",
-      "batchNo": "MED001-2611-02",
-      "expiryDate": "2028-11-24",
-      "stock": 100
-    }
-  ],
-  "expenses": [
-    {
-      "id": "EXP-01",
-      "branchId": "TLD",
-      "date": "2026-11-05",
-      "category": "Gaji & Uang Makan",
-      "amount": 3500000,
-      "notes": "Gaji 2 staf kasir Talaud"
-    },
-    {
-      "id": "EXP-02",
-      "branchId": "TLD",
-      "date": "2026-11-08",
-      "category": "Listrik & Air",
-      "amount": 650000,
-      "notes": "PLN & Genset Talaud"
-    },
-    {
-      "id": "EXP-03",
-      "branchId": "TLD",
-      "date": "2026-11-10",
-      "category": "Internet & Pulsa",
-      "amount": 850000,
-      "notes": "Starlink Cabang Talaud"
-    },
-    {
-      "id": "EXP-04",
-      "branchId": "TLD",
-      "date": "2026-11-12",
-      "category": "Transport & Logistik",
-      "amount": 1200000,
-      "notes": "Ongkir kapal laut ekspedisi Manado-Talaud"
-    },
-    {
-      "id": "EXP-05",
-      "branchId": "KBJ",
-      "date": "2026-11-05",
-      "category": "Gaji & Uang Makan",
-      "amount": 3200000,
-      "notes": "Gaji staf kasir Kembang Janggut"
-    },
-    {
-      "id": "EXP-06",
-      "branchId": "KBJ",
-      "date": "2026-11-08",
-      "category": "Listrik & Air",
-      "amount": 550000,
-      "notes": "PLN Kembang Janggut"
-    },
-    {
-      "id": "EXP-07",
-      "branchId": "KBJ",
-      "date": "2026-11-11",
-      "category": "Internet & Pulsa",
-      "amount": 450000,
-      "notes": "WiFi Telkomsel Orbit"
-    },
-    {
-      "id": "EXP-08",
-      "branchId": "KBJ",
-      "date": "2026-11-14",
-      "category": "Transport & Logistik",
-      "amount": 800000,
-      "notes": "Logistik darat Samarinda-Kembang Janggut"
-    },
-    {
-      "id": "EXP-1795424616112",
-      "branchId": "TLD",
-      "date": "2026-11-23",
-      "category": "Listrik & Air",
-      "amount": 800000,
-      "notes": ""
-    }
-  ],
+  "batches": [],
+  "sales": [],
+  "transfers": [],
+  "expenses": [],
+  "deletedExpenseIds": [],
   "users": [
     {
       "id": "USR-01",
       "username": "owner",
-      "password": "owner123",
-      "fullName": "Bpk. Tonang",
+      "fullName": "Bpk. Tonang (Owner)",
       "role": "OWNER",
       "branchId": "ALL",
-      "active": true
+      "active": true,
+      "password": "owner123"
     },
     {
       "id": "USR-02",
       "username": "admin",
-      "password": "admin123",
-      "fullName": "Reza Pratama",
+      "fullName": "Admin Pusat",
       "role": "ADMIN",
       "branchId": "ALL",
-      "active": true
+      "active": true,
+      "password": "admin123"
     },
     {
       "id": "USR-03",
-      "username": "apt.tonang",
-      "password": "apoteker123",
-      "fullName": "apt. Tonang, S.Farm",
+      "username": "apoteker.tld",
+      "fullName": "apt. Sarah, S.Farm (Talaud)",
       "role": "APOTEKER",
-      "branchId": "ALL",
-      "active": true
+      "branchId": "TLD",
+      "active": true,
+      "password": "apoteker123"
     },
     {
       "id": "USR-04",
-      "username": "gudang.tld",
-      "password": "gudang123",
-      "fullName": "Rian (Gudang Talaud)",
-      "role": "GUDANG",
-      "branchId": "TLD",
-      "active": true
+      "username": "apoteker.kbj",
+      "fullName": "apt. Hendra, S.Farm (Kembang Janggut)",
+      "role": "APOTEKER",
+      "branchId": "KBJ",
+      "active": true,
+      "password": "apoteker123"
     },
     {
       "id": "USR-05",
-      "username": "gudang.kbj",
-      "password": "gudang123",
-      "fullName": "Joko (Gudang Kembang)",
-      "role": "GUDANG",
-      "branchId": "KBJ",
-      "active": true
-    },
-    {
-      "id": "USR-06",
       "username": "kasir.tld",
-      "password": "kasir123",
-      "fullName": "Siti Aminah (Kasir Talaud)",
+      "fullName": "Rina Marlina (Kasir Talaud)",
       "role": "KASIR",
       "branchId": "TLD",
-      "active": true
+      "active": true,
+      "password": "kasir123"
     },
     {
       "id": "USR-07",
       "username": "kasir.kbj",
-      "password": "kasir123",
       "fullName": "Budi Santoso (Kasir Kembang)",
       "role": "KASIR",
       "branchId": "KBJ",
-      "active": true
+      "active": true,
+      "password": "kasir123"
     }
   ],
-  "deletedMedicineCodes": [],
   "suppliers": [
     {
       "id": "SUP-01",
-      "name": "PT Kimia Farma Trading & Distribution",
-      "contact": "0811-2345-6789",
-      "apBalance": 12550000
+      "name": "PT. Kimia Farma Trading & Distribution",
+      "phone": "021-3847709",
+      "address": "Manado / Balikpapan"
     },
     {
       "id": "SUP-02",
-      "name": "PT Enseval Putera Megatrading (Kalbe Group)",
-      "contact": "0812-9876-5432",
-      "apBalance": 8400000
+      "name": "PT. Enseval Putera Megatrading",
+      "phone": "021-4609042",
+      "address": "Samarinda / Manado"
     },
     {
       "id": "SUP-03",
-      "name": "PT Anugrah Argon Medica (AAM)",
-      "contact": "0813-4455-6677",
-      "apBalance": 4200000
+      "name": "PT. Anugrah Argon Medica (AAM)",
+      "phone": "021-6593000",
+      "address": "Balikpapan"
     },
     {
       "id": "SUP-04",
-      "name": "PT Mensa Bina Sukses",
-      "contact": "0812-3344-5566",
-      "address": "Jl. Diponegoro No. 88, Manado",
-      "pic": "",
-      "top": "30 Hari",
-      "apBalance": 0
-    },
-    {
-      "id": "SUP-05",
-      "name": "Apotek Tonang",
-      "contact": "082345673531",
-      "address": "Kelurahan Beo Barat, Kec Beo, Kab Kepulauan Talaud",
-      "pic": "",
-      "top": "30 Hari",
-      "apBalance": 0
+      "name": "PT. Mensa Bina Sukses (MBS)",
+      "phone": "021-4701234",
+      "address": "Manado"
     }
   ],
-  "purchases": [
-    {
-      "id": "PO-202611-01",
-      "invoiceNo": "FAK-KF-88210",
-      "date": "2026-11-18",
-      "supplierId": "SUP-01",
-      "branchId": "TLD",
-      "total": 18500000,
-      "status": "PAID",
-      "subtotal": 18500000,
-      "discount": 0,
-      "dueDate": "2026-12-18",
-      "topDays": 30,
-      "paidDate": "2026-11-20",
-      "paidMethod": "BANK_TRANSFER",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "inputUnit": "Box",
-          "inputQty": 200,
-          "buyPrice": 35000,
-          "baseUnit": "Tablet",
-          "baseQty": 20000,
-          "batchNo": "PCT26A01",
-          "expiryDate": "2027-12-31",
-          "subtotalCost": 7000000
-        },
-        {
-          "medicineId": "MED-002",
-          "medicineName": "Amoxicillin 500mg",
-          "inputUnit": "Box",
-          "inputQty": 150,
-          "buyPrice": 50000,
-          "baseUnit": "Kaplet",
-          "baseQty": 15000,
-          "batchNo": "AMX26B01",
-          "expiryDate": "2028-06-30",
-          "subtotalCost": 7500000
-        },
-        {
-          "medicineId": "MED-004",
-          "medicineName": "Antasida Doen",
-          "inputUnit": "Box",
-          "inputQty": 160,
-          "buyPrice": 25000,
-          "baseUnit": "Tablet",
-          "baseQty": 16000,
-          "batchNo": "ATD26T01",
-          "expiryDate": "2028-01-10",
-          "subtotalCost": 4000000
-        }
-      ]
-    },
-    {
-      "id": "PO-202611-02",
-      "invoiceNo": "FAK-ENS-44192",
-      "date": "2026-11-19",
-      "supplierId": "SUP-02",
-      "branchId": "KBJ",
-      "total": 14200000,
-      "status": "UNPAID",
-      "subtotal": 14200000,
-      "discount": 0,
-      "dueDate": "2026-12-03",
-      "topDays": 14,
-      "items": [
-        {
-          "medicineId": "MED-005",
-          "medicineName": "Amlodipine 10mg",
-          "inputUnit": "Box",
-          "inputQty": 200,
-          "buyPrice": 45000,
-          "baseUnit": "Tablet",
-          "baseQty": 6000,
-          "batchNo": "AML26K01",
-          "expiryDate": "2027-06-30",
-          "subtotalCost": 9000000
-        },
-        {
-          "medicineId": "MED-006",
-          "medicineName": "Cetirizine 10mg",
-          "inputUnit": "Box",
-          "inputQty": 130,
-          "buyPrice": 40000,
-          "baseUnit": "Kapsul",
-          "baseQty": 3900,
-          "batchNo": "CTZ26K01",
-          "expiryDate": "2027-11-10",
-          "subtotalCost": 5200000
-        }
-      ]
-    },
-    {
-      "id": "PO-1795411210413",
-      "invoiceNo": "FAK-20261129-01",
-      "date": "2026-11-29",
-      "supplierId": "SUP-01",
-      "branchId": "KBJ",
-      "total": 95000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 1,
-          "multiplier": 100,
-          "baseQty": 100,
-          "batchNo": "PCT26N29",
-          "expiryDate": "2028-11-20",
-          "subtotalCost": 35000
-        },
-        {
-          "medicineId": "MED-004",
-          "medicineName": "Antasida Doen",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 2,
-          "multiplier": 100,
-          "baseQty": 200,
-          "batchNo": "ATD26N29",
-          "expiryDate": "2028-11-20",
-          "subtotalCost": 60000
-        }
-      ],
-      "status": "PAID"
-    },
-    {
-      "id": "PO-1795412453479",
-      "invoiceNo": "FAK-20261122-7232",
-      "date": "2026-11-22",
-      "supplierId": "SUP-03",
-      "branchId": "TLD",
-      "total": 35000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 1,
-          "multiplier": 100,
-          "baseQty": 100,
-          "batchNo": "MED001-2611-01",
-          "expiryDate": "2028-11-21",
-          "subtotalCost": 35000
-        }
-      ],
-      "status": "PAID"
-    },
-    {
-      "id": "PO-1795412688674",
-      "invoiceNo": "FAK-20261122-5242",
-      "date": "2026-11-22",
-      "supplierId": "SUP-01",
-      "branchId": "TLD",
-      "total": 35000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 1,
-          "multiplier": 100,
-          "baseQty": 100,
-          "batchNo": "MED001-2611-01",
-          "expiryDate": "2028-11-21",
-          "subtotalCost": 35000
-        }
-      ],
-      "status": "PAID"
-    },
-    {
-      "id": "PO-1795415714035",
-      "invoiceNo": "FAK-20261122-5075",
-      "date": "2026-11-21",
-      "supplierId": "SUP-02",
-      "branchId": "KBJ",
-      "total": 35000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 1,
-          "multiplier": 100,
-          "baseQty": 100,
-          "batchNo": "MED001-2611-01",
-          "expiryDate": "2028-11-21",
-          "subtotalCost": 35000
-        }
-      ],
-      "status": "PAID"
-    },
-    {
-      "id": "PO-1795427285997",
-      "invoiceNo": "FAK-20261123-5565",
-      "date": "2026-11-23",
-      "supplierId": "SUP-01",
-      "branchId": "TLD",
-      "subtotal": 70000,
-      "discount": 0,
-      "total": 70000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Paracetamol 500mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 2,
-          "buyPrice": 35000,
-          "multiplier": 100,
-          "baseQty": 200,
-          "batchNo": "PCT26N23",
-          "expiryDate": "2028-11-20",
-          "subtotalCost": 70000
-        }
-      ],
-      "status": "UNPAID",
-      "dueDate": "2026-12-23",
-      "topDays": 30,
-      "paidDate": null,
-      "paidMethod": null,
-      "paidRef": "TRF-BCA-20261123",
-      "paidNotes": "Pelunasan tagihan tempo PT Kimia Farma via Kas/Bank"
-    },
-    {
-      "id": "PO-1795514654521",
-      "invoiceNo": "FAK-20261124-7164",
-      "date": "2026-11-24",
-      "supplierId": "SUP-01",
-      "branchId": "TLD",
-      "subtotal": 350000,
-      "discount": 0,
-      "total": 350000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Allofar 100mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 10,
-          "buyPrice": 35000,
-          "multiplier": 100,
-          "baseQty": 1000,
-          "batchNo": "MED001-2611-01",
-          "expiryDate": "2028-11-25",
-          "subtotalCost": 350000
-        }
-      ],
-      "status": "PAID",
-      "dueDate": null,
-      "topDays": 0,
-      "paidDate": "2026-11-24",
-      "paidMethod": "CASH"
-    },
-    {
-      "id": "PO-1795514861571",
-      "invoiceNo": "FAK-20261124-6529",
-      "date": "2026-11-24",
-      "supplierId": "SUP-01",
-      "branchId": "TLD",
-      "subtotal": 50000,
-      "discount": 0,
-      "total": 50000,
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "medicineName": "Allofar 100mg",
-          "baseUnit": "Tablet",
-          "inputUnit": "Box",
-          "inputQty": 1,
-          "buyPrice": 50000,
-          "multiplier": 100,
-          "baseQty": 100,
-          "batchNo": "MED001-2611-02",
-          "expiryDate": "2028-11-24",
-          "subtotalCost": 50000
-        }
-      ],
-      "status": "UNPAID",
-      "dueDate": "2026-12-24",
-      "topDays": 30,
-      "paidDate": null,
-      "paidMethod": null
-    }
-  ],
-  "sales": [
-    {
-      "id": "TF-TLD-20261124-0012",
-      "branchId": "TLD",
-      "date": "2026-11-23T16:38:44.144Z",
-      "cashier": "Bpk. Tonang (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Allofar 100mg",
-          "tier": "base",
-          "unit": "Tablet",
-          "baseUnit": "Tablet",
-          "multiplier": 1,
-          "price": 500,
-          "hpp": 2000,
-          "qty": 1,
-          "subtotal": 500,
-          "batchDetails": [
-            {
-              "batchId": "B-02",
-              "batchNo": "PCT26A02",
-              "expiryDate": "2026-12-10",
-              "deductedQty": 1
-            }
-          ],
-          "batchNo": "PCT26A02",
-          "expiryDate": "2026-12-10"
-        }
-      ],
-      "subtotal": 500,
-      "discount": 0,
-      "total": 500,
-      "paid": 500,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-KBJ-20261122-0009",
-      "branchId": "KBJ",
-      "date": "2026-11-24T09:12:10.422Z",
-      "cashier": "Bpk. Tonang (KBJ)",
-      "items": [
-        {
-          "medicineId": "MED-002",
-          "name": "Amoxicillin 500mg",
-          "tier": "base",
-          "unit": "Kapsul",
-          "baseUnit": "Kapsul",
-          "multiplier": 1,
-          "price": 1200,
-          "hpp": 650,
-          "qty": 2,
-          "subtotal": 2400,
-          "batchDetails": [
-            {
-              "batchId": "B-05",
-              "batchNo": "AMX26K02",
-              "expiryDate": "2027-02-15",
-              "deductedQty": 2
-            }
-          ],
-          "batchNo": "AMX26K02",
-          "expiryDate": "2027-02-15"
-        }
-      ],
-      "subtotal": 2400,
-      "discount": 0,
-      "total": 2400,
-      "paid": 2400,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261122-0008",
-      "branchId": "TLD",
-      "date": "2026-11-23T16:09:42.095Z",
-      "cashier": "Bpk. Tonang (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-002",
-          "name": "Amoxicillin 500mg",
-          "tier": "strip",
-          "unit": "Strip",
-          "baseUnit": "Kapsul",
-          "multiplier": 10,
-          "price": 5000,
-          "hpp": 6500,
-          "qty": 2,
-          "subtotal": 10000,
-          "batchDetails": [
-            {
-              "batchId": "B-04",
-              "batchNo": "AMX26T01",
-              "expiryDate": "2027-05-10",
-              "deductedQty": 20
-            }
-          ],
-          "batchNo": "AMX26T01",
-          "expiryDate": "2027-05-10"
-        }
-      ],
-      "subtotal": 10000,
-      "discount": 0,
-      "total": 10000,
-      "paid": 10000,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261122-0007",
-      "branchId": "TLD",
-      "date": "2026-11-23T15:51:47.673Z",
-      "cashier": "Bpk. Tonang (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "tier": "strip",
-          "unit": "Strip",
-          "baseUnit": "Tablet",
-          "multiplier": 10,
-          "price": 6000,
-          "hpp": 23000,
-          "qty": 1,
-          "subtotal": 6000,
-          "batchDetails": [
-            {
-              "batchId": "B-02",
-              "batchNo": "PCT26A02",
-              "expiryDate": "2026-12-10",
-              "deductedQty": 10
-            }
-          ],
-          "batchNo": "PCT26A02",
-          "expiryDate": "2026-12-10"
-        }
-      ],
-      "subtotal": 6000,
-      "discount": 0,
-      "total": 6000,
-      "paid": 6000,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261122-0006",
-      "branchId": "TLD",
-      "date": "2026-11-23T09:01:37.690Z",
-      "cashier": "Reza Pratama (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "tier": "box",
-          "unit": "Box",
-          "baseUnit": "Tablet",
-          "multiplier": 100,
-          "price": 54000,
-          "hpp": 35000,
-          "qty": 1,
-          "subtotal": 54000,
-          "batchDetails": [
-            {
-              "batchId": "B-01",
-              "batchNo": "PCT26A01",
-              "expiryDate": "2027-10-15",
-              "deductedQty": 100
-            }
-          ],
-          "batchNo": "PCT26A01",
-          "expiryDate": "2027-10-15"
-        }
-      ],
-      "subtotal": 54000,
-      "discount": 0,
-      "total": 54000,
-      "paid": 54000,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true,
-      "status": "VOID",
-      "voidInfo": {
-        "voidedAt": "2026-11-23T09:02:36.411Z",
-        "voidedBy": "Reza Pratama (ADMIN)",
-        "reason": "Pelanggan membatalkan seluruh pembelian"
-      }
-    },
-    {
-      "id": "TF-TLD-20261122-0005",
-      "branchId": "TLD",
-      "date": "2026-11-23T08:56:36.853Z",
-      "cashier": "Reza Pratama (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "tier": "strip",
-          "unit": "Strip",
-          "baseUnit": "Tablet",
-          "multiplier": 10,
-          "price": 5700,
-          "hpp": 3500,
-          "qty": 1,
-          "subtotal": 5700,
-          "batchDetails": [
-            {
-              "batchId": "B-01",
-              "batchNo": "PCT26A01",
-              "expiryDate": "2027-10-15",
-              "deductedQty": 20
-            }
-          ],
-          "batchNo": "PCT26A01",
-          "expiryDate": "2027-10-15"
-        }
-      ],
-      "subtotal": 5700,
-      "discount": 0,
-      "total": 5700,
-      "paid": 11400,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true,
-      "status": "REVISED",
-      "revisionHistory": [
-        {
-          "revisedAt": "2026-11-23T08:59:51.793Z",
-          "revisedBy": "Reza Pratama (ADMIN)",
-          "reason": "Salah input jumlah oleh kasir, pembeli minta 1",
-          "oldTotal": 11400,
-          "newTotal": 5700,
-          "diff": -5700
-        }
-      ]
-    },
-    {
-      "id": "TF-TLD-20261122-0004",
-      "branchId": "TLD",
-      "date": "2026-11-23T06:14:55.548Z",
-      "cashier": "Reza Pratama (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "tier": "base",
-          "unit": "Tablet",
-          "baseUnit": "Tablet",
-          "multiplier": 1,
-          "price": 600,
-          "hpp": 350,
-          "qty": 50,
-          "subtotal": 30000,
-          "batchDetails": [
-            {
-              "batchId": "B-02",
-              "batchNo": "PCT26A02",
-              "expiryDate": "2026-12-10",
-              "deductedQty": 45
-            },
-            {
-              "batchId": "B-01",
-              "batchNo": "PCT26A01",
-              "expiryDate": "2027-10-15",
-              "deductedQty": 5
-            }
-          ],
-          "batchNo": "PCT26A02, PCT26A01",
-          "expiryDate": "2026-12-10"
-        }
-      ],
-      "subtotal": 30000,
-      "discount": 0,
-      "total": 30000,
-      "paid": 50000,
-      "change": 20000,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-KBJ-20261122-0003",
-      "branchId": "KBJ",
-      "date": "2026-11-23T04:40:34.479Z",
-      "cashier": "Reza Pratama (KBJ)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "batchId": "B-03",
-          "batchNo": "PCT26K01",
-          "expiryDate": "2027-08-20",
-          "tier": "strip",
-          "unit": "Strip",
-          "baseUnit": "Tablet",
-          "multiplier": 10,
-          "price": 5500,
-          "hpp": 3500,
-          "qty": 1,
-          "subtotal": 5500
-        },
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "batchId": "B-03",
-          "batchNo": "PCT26K01",
-          "expiryDate": "2027-08-20",
-          "tier": "box",
-          "unit": "Box",
-          "baseUnit": "Tablet",
-          "multiplier": 100,
-          "price": 54000,
-          "hpp": 35000,
-          "qty": 1,
-          "subtotal": 54000
-        }
-      ],
-      "subtotal": 59500,
-      "discount": 0,
-      "total": 59500,
-      "paid": 100000,
-      "change": 40500,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261122-0001",
-      "branchId": "TLD",
-      "date": "2026-11-22T08:30:00",
-      "cashier": "Siti Aminah",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "batchId": "B-02",
-          "qty": 10,
-          "unit": "Tablet",
-          "price": 600,
-          "hpp": 350,
-          "subtotal": 6000
-        },
-        {
-          "medicineId": "MED-004",
-          "batchId": "B-08",
-          "qty": 10,
-          "unit": "Tablet",
-          "price": 500,
-          "hpp": 300,
-          "subtotal": 5000
-        }
-      ],
-      "subtotal": 11000,
-      "discount": 0,
-      "total": 11000,
-      "paid": 20000,
-      "change": 9000,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-KBJ-20261122-0001",
-      "branchId": "KBJ",
-      "date": "2026-11-22T09:15:00",
-      "cashier": "Budi Santoso",
-      "items": [
-        {
-          "medicineId": "MED-002",
-          "batchId": "B-05",
-          "qty": 10,
-          "unit": "Kapsul",
-          "price": 1200,
-          "hpp": 650,
-          "subtotal": 12000
-        },
-        {
-          "medicineId": "MED-007",
-          "batchId": "B-15",
-          "qty": 1,
-          "unit": "Botol",
-          "price": 8500,
-          "hpp": 5500,
-          "subtotal": 8500
-        }
-      ],
-      "subtotal": 20500,
-      "discount": 500,
-      "total": 20000,
-      "paid": 50000,
-      "change": 30000,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261122-0003",
-      "branchId": "TLD",
-      "date": "2026-11-23T15:23:24.808Z",
-      "cashier": "Bpk. Tonang (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-001",
-          "name": "Paracetamol 500mg",
-          "tier": "strip",
-          "unit": "Strip",
-          "baseUnit": "Tablet",
-          "multiplier": 10,
-          "price": 6000,
-          "hpp": 23000,
-          "qty": 3,
-          "subtotal": 18000,
-          "batchDetails": [
-            {
-              "batchId": "B-02",
-              "batchNo": "PCT26A02",
-              "expiryDate": "2026-12-10",
-              "deductedQty": 30
-            }
-          ],
-          "batchNo": "PCT26A02",
-          "expiryDate": "2026-12-10"
-        }
-      ],
-      "subtotal": 18000,
-      "discount": 0,
-      "total": 18000,
-      "paid": 18000,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    },
-    {
-      "id": "TF-TLD-20261124-0011",
-      "branchId": "TLD",
-      "date": "2026-11-23T16:34:33.001Z",
-      "cashier": "Bpk. Tonang (TLD)",
-      "items": [
-        {
-          "medicineId": "MED-003",
-          "name": "Cefixime 100mg",
-          "tier": "base",
-          "unit": "Kapsul",
-          "baseUnit": "Kapsul",
-          "multiplier": 1,
-          "price": 4500,
-          "hpp": 2800,
-          "qty": 1,
-          "subtotal": 4500,
-          "batchDetails": [
-            {
-              "batchId": "B-06",
-              "batchNo": "CFX26T01",
-              "expiryDate": "2027-12-01",
-              "deductedQty": 1
-            }
-          ],
-          "batchNo": "CFX26T01",
-          "expiryDate": "2027-12-01"
-        }
-      ],
-      "subtotal": 4500,
-      "discount": 0,
-      "total": 4500,
-      "paid": 4500,
-      "change": 0,
-      "paymentMethod": "CASH",
-      "synced": true
-    }
-  ]
+  "purchases": []
 }

@@ -99,15 +99,23 @@
   // Load from LocalStorage (V2 Clean) or seed
   let appState = (function() {
     try {
-      // Clear legacy V1 cache that held dummy demo medicines/batches
+      // Clear legacy V1 & V2 caches that held dummy demo medicines/batches
       localStorage.removeItem('TONANG_FARMA_STATE_V1');
+      localStorage.removeItem('TONANG_FARMA_STATE_V2');
 
-      const saved = localStorage.getItem('TONANG_FARMA_STATE_V2');
+      const saved = localStorage.getItem('TONANG_FARMA_STATE_V3');
       if (saved) {
         const parsed = JSON.parse(saved);
         parsed.deletedMedicineCodes = parsed.deletedMedicineCodes || [];
-        parsed.medicines = parsed.medicines || [];
-        parsed.batches = parsed.batches || [];
+        parsed.medicines = (parsed.medicines || []).filter(m => 
+          !m.name?.toLowerCase().includes('allofar') &&
+          !m.name?.toLowerCase().includes('fasidol')
+        );
+        parsed.batches = (parsed.batches || []).filter(b => 
+          b.batchNo !== 'MED001-2611-01' && 
+          b.batchNo !== 'MED001-2611-02' && 
+          !b.batchNo?.startsWith('MED001-2611')
+        );
         parsed.sales = parsed.sales || [];
         parsed.expenses = parsed.expenses || [];
         if (!parsed.users || parsed.users.length === 0) {
@@ -190,14 +198,21 @@
     const savedCart = appState.cart;
     const savedOutbox = appState.outbox;
 
-    // Server data is the absolute authority for medicines
+    // Server data is the absolute authority for medicines (sanitize demo data)
     if (Array.isArray(serverData.medicines)) {
-      appState.medicines = serverData.medicines;
+      appState.medicines = serverData.medicines.filter(m => 
+        !m.name?.toLowerCase().includes('allofar') &&
+        !m.name?.toLowerCase().includes('fasidol')
+      );
       appState.deletedMedicineCodes = [];
     }
-    // Batches from server are authoritative for real-time stock deductions across branches
+    // Batches from server (sanitize legacy demo batches)
     if (Array.isArray(serverData.batches)) {
-      appState.batches = serverData.batches;
+      appState.batches = serverData.batches.filter(b => 
+        b.batchNo !== 'MED001-2611-01' && 
+        b.batchNo !== 'MED001-2611-02' && 
+        !b.batchNo?.startsWith('MED001-2611')
+      );
     }
     // Sales from server are merged
     if (Array.isArray(serverData.sales)) {
@@ -433,7 +448,7 @@
 
   function saveStateLocalOnly() {
     try {
-      localStorage.setItem('TONANG_FARMA_STATE_V1', JSON.stringify(appState));
+      localStorage.setItem('TONANG_FARMA_STATE_V3', JSON.stringify(appState));
     } catch (e) {
       console.error('Failed to save state to localStorage:', e);
     }
@@ -964,7 +979,14 @@
     listEl.innerHTML = '';
 
     const branch = appState.currentBranch;
-    const relevantBatches = branch === 'ALL' ? (appState.batches || []) : (appState.batches || []).filter(b => b.branchId === branch);
+    // Filter by branch and exclude any legacy demo batches permanently
+    const validBatches = (appState.batches || []).filter(b => 
+      b &&
+      b.batchNo !== 'MED001-2611-01' && 
+      b.batchNo !== 'MED001-2611-02' && 
+      !b.batchNo?.startsWith('MED001-2611')
+    );
+    const relevantBatches = branch === 'ALL' ? validBatches : validBatches.filter(b => b.branchId === branch);
 
     let alertCount = 0;
 
@@ -4073,7 +4095,14 @@
     tbody.innerHTML = '';
 
     const branch = appState.currentBranch;
-    const relevantBatches = branch === 'ALL' ? (appState.batches || []) : (appState.batches || []).filter(b => b.branchId === branch);
+    // Filter by branch and exclude any legacy demo batches permanently
+    const validBatches = (appState.batches || []).filter(b => 
+      b &&
+      b.batchNo !== 'MED001-2611-01' && 
+      b.batchNo !== 'MED001-2611-02' && 
+      !b.batchNo?.startsWith('MED001-2611')
+    );
+    const relevantBatches = branch === 'ALL' ? validBatches : validBatches.filter(b => b.branchId === branch);
 
     if (relevantBatches.length === 0) {
       tbody.innerHTML = `
