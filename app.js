@@ -3474,8 +3474,6 @@
     if (tldStrip) tldStrip.value = (hasStrip && tldCfg.stripPrice > 0) ? tldCfg.stripPrice : '';
     const tldBox = document.getElementById('bp-tld-box-price');
     if (tldBox) tldBox.value = tldCfg.boxPrice > 0 ? tldCfg.boxPrice : '';
-    const tldMin = document.getElementById('bp-tld-min-stock');
-    if (tldMin) tldMin.value = tldCfg.minStock ?? 10;
 
     // Kembang Janggut (KBJ) inputs
     const kbjActive = document.getElementById('bp-kbj-active');
@@ -3515,40 +3513,6 @@
     if (kbjStrip) kbjStrip.value = (hasStrip && kbjCfg.stripPrice > 0) ? kbjCfg.stripPrice : '';
     const kbjBox = document.getElementById('bp-kbj-box-price');
     if (kbjBox) kbjBox.value = kbjCfg.boxPrice > 0 ? kbjCfg.boxPrice : '';
-    const kbjMin = document.getElementById('bp-kbj-min-stock');
-    if (kbjMin) kbjMin.value = kbjCfg.minStock ?? 10;
-
-    function populateBufferUnitSelect(selectId, chosenUnit) {
-      const sel = document.getElementById(selectId);
-      if (!sel) return;
-      sel.innerHTML = '';
-      const options = [];
-      if (hasStrip) {
-        options.push({ val: stripUnit, label: `${stripUnit} (Rekomendasi Strip)` });
-      }
-      if (baseUnit && baseUnit !== stripUnit) {
-        options.push({ val: baseUnit, label: `${baseUnit} (${baseUnit === 'Botol' ? 'Rekomendasi Sirup' : 'Satuan Dasar'})` });
-      }
-      if (buyUnit && buyUnit !== baseUnit && buyUnit !== stripUnit) {
-        options.push({ val: buyUnit, label: `${buyUnit} (Kemasan Besar)` });
-      }
-      if (options.length === 0) {
-        options.push({ val: 'Botol', label: 'Botol' }, { val: 'Strip', label: 'Strip' }, { val: 'Box', label: 'Box' }, { val: 'Tablet', label: 'Tablet' }, { val: 'Pcs', label: 'Pcs' });
-      }
-      options.forEach(opt => {
-        const o = document.createElement('option');
-        o.value = opt.val;
-        o.textContent = opt.label;
-        sel.appendChild(o);
-      });
-      if (chosenUnit && options.some(o => o.val === chosenUnit)) {
-        sel.value = chosenUnit;
-      } else if (options.length > 0) {
-        sel.value = options[0].val;
-      }
-    }
-    populateBufferUnitSelect('bp-tld-min-stock-unit', tldCfg.minStockUnit || med.minStockUnit);
-    populateBufferUnitSelect('bp-kbj-min-stock-unit', kbjCfg.minStockUnit || med.minStockUnit);
 
     modal.classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
@@ -3628,7 +3592,6 @@
         const tldSell = document.getElementById('bp-tld-sell-price')?.value || '';
         const tldStrip = document.getElementById('bp-tld-strip-price')?.value || '';
         const tldBox = document.getElementById('bp-tld-box-price')?.value || '';
-        const tldMin = document.getElementById('bp-tld-min-stock')?.value || 50;
 
         const kbjActive = document.getElementById('bp-kbj-active');
         const kbjLoc = document.getElementById('bp-kbj-location');
@@ -3638,7 +3601,6 @@
         const kbjSell = document.getElementById('bp-kbj-sell-price');
         const kbjStrip = document.getElementById('bp-kbj-strip-price');
         const kbjBox = document.getElementById('bp-kbj-box-price');
-        const kbjMin = document.getElementById('bp-kbj-min-stock');
 
         if (kbjActive) kbjActive.checked = tldActive;
         if (kbjLoc) kbjLoc.value = tldLoc ? tldLoc.replace('A-', 'B-') : 'Rak B-01';
@@ -3648,7 +3610,6 @@
         if (kbjSell) kbjSell.value = tldSell;
         if (kbjStrip) kbjStrip.value = tldStrip;
         if (kbjBox) kbjBox.value = tldBox;
-        if (kbjMin) kbjMin.value = tldMin;
 
         refreshKbjHppBadge();
         showToast('Pengaturan harga & HPP Talaud berhasil disalin ke Kembang Janggut!', 'success');
@@ -3690,8 +3651,6 @@
         const tldSell = Number(document.getElementById('bp-tld-sell-price')?.value) || 0;
         const tldStrip = hasStrip ? (Number(document.getElementById('bp-tld-strip-price')?.value) || 0) : 0;
         const tldBox = Number(document.getElementById('bp-tld-box-price')?.value) || 0;
-        const tldMin = Number(document.getElementById('bp-tld-min-stock')?.value) || 10;
-        const tldMinUnit = document.getElementById('bp-tld-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? med.stripUnit : med.baseUnit);
 
         const kbjActive = document.getElementById('bp-kbj-active')?.checked ?? true;
         const kbjLoc = (document.getElementById('bp-kbj-location')?.value || 'Rak B-01').trim();
@@ -3703,8 +3662,9 @@
         const kbjSell = Number(document.getElementById('bp-kbj-sell-price')?.value) || 0;
         const kbjStrip = hasStrip ? (Number(document.getElementById('bp-kbj-strip-price')?.value) || 0) : 0;
         const kbjBox = Number(document.getElementById('bp-kbj-box-price')?.value) || 0;
-        const kbjMin = Number(document.getElementById('bp-kbj-min-stock')?.value) || 10;
-        const kbjMinUnit = document.getElementById('bp-kbj-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? med.stripUnit : med.baseUnit);
+
+        const branchMinStock = med.minStock !== undefined ? med.minStock : 10;
+        const branchMinStockUnit = med.minStockUnit || (hasStrip ? med.stripUnit : med.baseUnit);
 
         med.branchConfigs = {
           TLD: {
@@ -3717,8 +3677,8 @@
             sellPrice: tldSell,
             stripPrice: tldStrip,
             boxPrice: tldBox,
-            minStock: tldMin,
-            minStockUnit: tldMinUnit
+            minStock: branchMinStock,
+            minStockUnit: branchMinStockUnit
           },
           KBJ: {
             active: kbjActive,
@@ -3730,8 +3690,8 @@
             sellPrice: kbjSell,
             stripPrice: kbjStrip,
             boxPrice: kbjBox,
-            minStock: kbjMin,
-            minStockUnit: kbjMinUnit
+            minStock: branchMinStock,
+            minStockUnit: branchMinStockUnit
           }
         };
 
@@ -3743,8 +3703,8 @@
         med.sellPrice = tldSell;
         med.stripPrice = tldStrip;
         med.boxPrice = tldBox;
-        med.minStock = tldMin;
-        med.minStockUnit = tldMinUnit;
+        med.minStock = branchMinStock;
+        med.minStockUnit = branchMinStockUnit;
 
         saveState();
         pushMedicineToServer(med);
