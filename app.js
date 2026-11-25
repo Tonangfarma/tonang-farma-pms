@@ -18,8 +18,315 @@
       { id: 'KBJ', name: 'Cabang Kembang Janggut', location: 'Kutai Kartanegara, Kalimantan Timur' }
     ],
 
-    // Clean initial state (no dummy/seed data)
-    medicines: [],
+    // Active Master Medicines (Restored without demo dummy data)
+    medicines: [
+      {
+        id: "MED-001",
+        code: "MED-001",
+        barcode: "8999909001",
+        name: "Allofar 100mg",
+        category: "Obat Keras",
+        dosageForm: "Tablet",
+        baseUnit: "Tablet",
+        buyUnit: "Box",
+        conversionRate: 100,
+        stripUnit: "Strip",
+        stripConversion: 10,
+        location: "Rak Belakang",
+        buyPrice: 340,
+        sellPrice: 600,
+        stripPrice: 5000,
+        boxPrice: 45000,
+        minStock: 10,
+        minStockUnit: "Strip",
+        active: true,
+        pkgBuyPrice: 34000,
+        stripBuyPrice: 3400,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909001",
+            pkgBuyPrice: 34000,
+            stripBuyPrice: 3400,
+            buyPrice: 340,
+            sellPrice: 600,
+            stripPrice: 5000,
+            boxPrice: 45000,
+            minStock: 10,
+            minStockUnit: "Strip"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909001",
+            pkgBuyPrice: 34000,
+            stripBuyPrice: 3400,
+            buyPrice: 340,
+            sellPrice: 600,
+            stripPrice: 5000,
+            boxPrice: 45000,
+            minStock: 10,
+            minStockUnit: "Strip"
+          }
+        }
+      },
+      {
+        id: "MED-002",
+        code: "MED-002",
+        barcode: "8999909002",
+        name: "Acetylcysteine",
+        category: "Obat Keras",
+        dosageForm: "Kapsul",
+        baseUnit: "Kapsul",
+        buyUnit: "Box",
+        conversionRate: 100,
+        stripUnit: "Strip",
+        stripConversion: 10,
+        location: "Rak Belakang",
+        buyPrice: 0,
+        sellPrice: 0,
+        stripPrice: 0,
+        boxPrice: 0,
+        minStock: 20,
+        minStockUnit: "Strip",
+        active: true,
+        pkgBuyPrice: 0,
+        stripBuyPrice: 0,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909002",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 0,
+            stripPrice: 0,
+            boxPrice: 0,
+            minStock: 20,
+            minStockUnit: "Strip"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909002",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 0,
+            stripPrice: 0,
+            boxPrice: 0,
+            minStock: 20,
+            minStockUnit: "Strip"
+          }
+        }
+      },
+      {
+        id: "MED-003",
+        code: "MED-003",
+        barcode: "8999909003",
+        name: "Abocath 20G GEA",
+        category: "Alat Kesehatan",
+        dosageForm: "Pcs",
+        baseUnit: "Pcs",
+        buyUnit: "Box",
+        conversionRate: 50,
+        stripUnit: "",
+        stripConversion: 0,
+        location: "Rak Belakang",
+        buyPrice: 0,
+        sellPrice: 10000,
+        stripPrice: 0,
+        boxPrice: 54000,
+        minStock: 20,
+        minStockUnit: "Pcs",
+        active: true,
+        pkgBuyPrice: 0,
+        stripBuyPrice: 0,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909003",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909003",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          }
+        }
+      },
+      {
+        id: "MED-004",
+        code: "MED-004",
+        barcode: "8999909004",
+        name: "Abocath 22G",
+        category: "Alat Kesehatan",
+        dosageForm: "Pcs",
+        baseUnit: "Pcs",
+        buyUnit: "Box",
+        conversionRate: 50,
+        stripUnit: "",
+        stripConversion: 0,
+        location: "Rak Belakang",
+        buyPrice: 0,
+        sellPrice: 10000,
+        stripPrice: 0,
+        boxPrice: 54000,
+        minStock: 20,
+        minStockUnit: "Pcs",
+        active: true,
+        pkgBuyPrice: 0,
+        stripBuyPrice: 0,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909004",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909004",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          }
+        }
+      },
+      {
+        id: "MED-005",
+        code: "MED-005",
+        barcode: "8999909005",
+        name: "Abocath 24G",
+        category: "Alat Kesehatan",
+        dosageForm: "Pcs",
+        baseUnit: "Pcs",
+        buyUnit: "Box",
+        conversionRate: 50,
+        stripUnit: "",
+        stripConversion: 0,
+        location: "Rak Belakang",
+        buyPrice: 0,
+        sellPrice: 10000,
+        stripPrice: 0,
+        boxPrice: 54000,
+        minStock: 20,
+        minStockUnit: "Pcs",
+        active: true,
+        pkgBuyPrice: 0,
+        stripBuyPrice: 0,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909005",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909005",
+            pkgBuyPrice: 0,
+            stripBuyPrice: 0,
+            buyPrice: 0,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Pcs"
+          }
+        }
+      },
+      {
+        id: "MED-006",
+        code: "MED-006",
+        barcode: "8999909006",
+        name: "Abocath 26G",
+        category: "Alat Kesehatan",
+        dosageForm: "Pcs",
+        baseUnit: "Pcs",
+        buyUnit: "Box",
+        conversionRate: 50,
+        stripUnit: "",
+        stripConversion: 0,
+        location: "Rak Belakang",
+        buyPrice: 3000,
+        sellPrice: 10000,
+        stripPrice: 0,
+        boxPrice: 54000,
+        minStock: 20,
+        minStockUnit: "Box",
+        active: true,
+        pkgBuyPrice: 35000,
+        stripBuyPrice: 0,
+        branchConfigs: {
+          TLD: {
+            active: true,
+            location: "Rak Belakang",
+            barcode: "8999909006",
+            pkgBuyPrice: 35000,
+            stripBuyPrice: 0,
+            buyPrice: 3000,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Box"
+          },
+          KBJ: {
+            active: true,
+            location: "Rak B-01",
+            barcode: "8999909006",
+            pkgBuyPrice: 35000,
+            stripBuyPrice: 0,
+            buyPrice: 3000,
+            sellPrice: 10000,
+            stripPrice: 0,
+            boxPrice: 54000,
+            minStock: 20,
+            minStockUnit: "Box"
+          }
+        }
+      }
+    ],
     deletedMedicineCodes: [],
     batches: [],
     sales: [],
@@ -107,7 +414,33 @@
       if (saved) {
         const parsed = JSON.parse(saved);
         parsed.deletedMedicineCodes = parsed.deletedMedicineCodes || [];
-        parsed.medicines = parsed.medicines || [];
+
+        // Clean out any legacy demo medicines permanently
+        parsed.medicines = (parsed.medicines || []).filter(m => {
+          const n = (m.name || '').toLowerCase();
+          return !n.includes('zimuno') && !n.includes('paracetamol');
+        });
+
+        // Emergency auto-recovery: If local medicines became empty, try safety backup
+        if (parsed.medicines.length === 0) {
+          try {
+            const safety = localStorage.getItem('TONANG_FARMA_SAFETY_BACKUP');
+            if (safety) {
+              const parsedSafety = JSON.parse(safety);
+              if (Array.isArray(parsedSafety.medicines) && parsedSafety.medicines.length > 0) {
+                parsed.medicines = parsedSafety.medicines.filter(m => {
+                  const n = (m.name || '').toLowerCase();
+                  return !n.includes('zimuno') && !n.includes('paracetamol');
+                });
+              }
+            }
+          } catch (e) {}
+        }
+
+        // If still empty, fall back to restored DEFAULT_STATE.medicines
+        if (parsed.medicines.length === 0) {
+          parsed.medicines = JSON.parse(JSON.stringify(DEFAULT_STATE.medicines));
+        }
         parsed.batches = (parsed.batches || []).filter(b => 
           b.batchNo !== 'MED001-2611-01' && 
           b.batchNo !== 'MED001-2611-02' && 
@@ -195,10 +528,35 @@
     const savedCart = appState.cart;
     const savedOutbox = appState.outbox;
 
-    // Server data is the absolute authority for medicines
+    // Bulletproof Non-Destructive Medicine Sync (Local-First Safety)
     if (Array.isArray(serverData.medicines)) {
-      appState.medicines = serverData.medicines;
+      // 1. Filter out legacy demo medicines from server data
+      const cleanServerMeds = serverData.medicines.filter(m => {
+        const n = (m.name || '').toLowerCase();
+        return !n.includes('zimuno') && !n.includes('paracetamol');
+      });
+
+      // 2. Filter out legacy demo medicines from local medicines
+      const cleanLocalMeds = (appState.medicines || []).filter(m => {
+        const n = (m.name || '').toLowerCase();
+        return !n.includes('zimuno') && !n.includes('paracetamol');
+      });
+
+      // 3. Smart Non-Destructive Merge: Combine local and server medicines by code & ID
+      // Incoming server changes update matches, but local additions are NEVER deleted
+      const mergedMeds = mergeArrayById(cleanLocalMeds, cleanServerMeds, 'code');
+      appState.medicines = mergedMeds;
       appState.deletedMedicineCodes = [];
+
+      // 4. If client has local medicines that the server does not have (e.g. server restarted or spun down),
+      // auto-push local medicines back to the server to heal server state!
+      const missingOnServer = cleanLocalMeds.some(local => 
+        !cleanServerMeds.some(s => s.code === local.code || s.id === local.id)
+      );
+      if (missingOnServer && cleanLocalMeds.length > cleanServerMeds.length) {
+        console.warn('[SYNC] Client has medicines missing from server. Pushing local medicines to restore server state...');
+        setTimeout(() => pushStateToServer(), 500);
+      }
     }
     // Batches from server (sanitize legacy demo batches)
     if (Array.isArray(serverData.batches)) {
@@ -350,8 +708,8 @@
   }
 
   function initRealtimeSync() {
-    // 1. Initial sync: always pull authoritative central server state first
-    pullStateFromServer(false);
+    // 1. Initial sync: bi-directional merge ensures local items are never wiped by server restart
+    pullStateFromServer(true);
 
     // 2. Real-time Server-Sent Events (SSE) push
     if (window.EventSource) {
@@ -443,6 +801,15 @@
   function saveStateLocalOnly() {
     try {
       localStorage.setItem('TONANG_FARMA_STATE_V3', JSON.stringify(appState));
+      // Multi-tier emergency backup: snapshot medicines, batches, sales permanently
+      if (Array.isArray(appState.medicines) && appState.medicines.length > 0) {
+        localStorage.setItem('TONANG_FARMA_SAFETY_BACKUP', JSON.stringify({
+          timestamp: Date.now(),
+          medicines: appState.medicines,
+          batches: appState.batches,
+          sales: appState.sales
+        }));
+      }
     } catch (e) {
       console.error('Failed to save state to localStorage:', e);
     }
@@ -6979,6 +7346,122 @@
     }
   }
 
+  function setupBackupRestoreModal() {
+    const backupBtns = [
+      document.getElementById('btn-open-backup-modal'),
+      document.getElementById('btn-export-medicines-quick')
+    ].filter(Boolean);
+    const modal = document.getElementById('modal-backup-restore');
+    const downloadBtn = document.getElementById('btn-do-backup-download');
+    const triggerRestoreBtn = document.getElementById('btn-trigger-restore-file');
+    const fileInput = document.getElementById('input-restore-file');
+
+    if (backupBtns.length > 0 && modal) {
+      backupBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+          if (window.lucide) lucide.createIcons();
+        });
+      });
+      modal.querySelectorAll('.btn-close-modal').forEach(b => {
+        b.addEventListener('click', () => modal.classList.add('hidden'));
+      });
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+      });
+    }
+
+    // 1. Download Backup (.JSON)
+    const performBackupDownload = () => {
+      try {
+        const payload = {
+          exportDate: new Date().toISOString(),
+          version: appState.version || 700,
+          medicines: appState.medicines || [],
+          batches: appState.batches || [],
+          sales: appState.sales || [],
+          transfers: appState.transfers || [],
+          expenses: appState.expenses || [],
+          suppliers: appState.suppliers || [],
+          purchases: appState.purchases || []
+        };
+        const str = JSON.stringify(payload, null, 2);
+        const blob = new Blob([str], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const d = new Date();
+        const dateStr = d.toISOString().slice(0, 10);
+        a.href = url;
+        a.download = `TonangFarma_Backup_${dateStr}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('File backup database berhasil diunduh ke komputer Anda!', 'success');
+      } catch (err) {
+        showToast('Gagal membuat file backup: ' + err.message, 'error');
+      }
+    };
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', performBackupDownload);
+    }
+
+    // 2. Restore Backup from File
+    if (triggerRestoreBtn && fileInput) {
+      triggerRestoreBtn.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            const data = JSON.parse(event.target.result);
+            if (!data || (!Array.isArray(data.medicines) && !Array.isArray(data.sales))) {
+              showToast('Format file backup tidak valid!', 'error');
+              return;
+            }
+
+            // Restore & Merge medicines
+            if (Array.isArray(data.medicines)) {
+              const cleanImport = data.medicines.filter(m => {
+                const n = (m.name || '').toLowerCase();
+                return !n.includes('zimuno') && !n.includes('paracetamol');
+              });
+              appState.medicines = mergeArrayById(appState.medicines || [], cleanImport, 'code');
+            }
+
+            if (Array.isArray(data.batches)) {
+              appState.batches = mergeArrayById(appState.batches || [], data.batches, 'id');
+            }
+            if (Array.isArray(data.sales)) {
+              appState.sales = mergeArrayById(appState.sales || [], data.sales, 'id');
+            }
+            if (Array.isArray(data.transfers)) {
+              appState.transfers = mergeArrayById(appState.transfers || [], data.transfers, 'id');
+            }
+            if (Array.isArray(data.expenses)) {
+              appState.expenses = mergeArrayById(appState.expenses || [], data.expenses, 'id');
+            }
+            if (Array.isArray(data.purchases)) {
+              appState.purchases = mergeArrayById(appState.purchases || [], data.purchases, 'id');
+            }
+
+            saveState();
+            refreshCurrentActiveTab();
+            if (modal) modal.classList.add('hidden');
+            fileInput.value = '';
+            showToast(`Database berhasil dipulihkan! Total ${appState.medicines.length} obat tersinkron.`, 'success');
+          } catch (err) {
+            showToast('Gagal membaca file: ' + err.message, 'error');
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+  }
+
   // ==========================================
   // 14. APP INITIALIZER
   // ==========================================
@@ -7001,6 +7484,7 @@
     setupLoginAndUserModals();
     setupMobileAccessModal();
     setupDownloadModal();
+    setupBackupRestoreModal();
 
     // Initialize user permissions & active role
     if (appState.isLoggedIn === false) {

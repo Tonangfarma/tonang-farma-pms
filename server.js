@@ -46,6 +46,17 @@ if (fs.existsSync(STATE_FILE)) {
 
     // Auto-clean any legacy demo batches and demo medicines permanently
     let needsPersist = false;
+    if (serverState.medicines && serverState.medicines.length > 0) {
+      const origMedCount = serverState.medicines.length;
+      serverState.medicines = serverState.medicines.filter(m => {
+        const n = (m.name || '').toLowerCase();
+        return !n.includes('zimuno') && !n.includes('paracetamol');
+      });
+      if (serverState.medicines.length !== origMedCount) {
+        needsPersist = true;
+      }
+    }
+
     if (serverState.batches && serverState.batches.length > 0) {
       const origBatchCount = serverState.batches.length;
       serverState.batches = serverState.batches.filter(b => 
@@ -58,8 +69,8 @@ if (fs.existsSync(STATE_FILE)) {
       }
     }
 
-    if ((serverState.version || 0) < 600 || needsPersist) {
-      serverState.version = Math.max(serverState.version || 1, 600);
+    if ((serverState.version || 0) < 700 || needsPersist) {
+      serverState.version = Math.max(serverState.version || 1, 700);
       serverState.lastUpdated = Date.now();
       persistState();
       console.log(`[STATE] Auto-cleaned legacy demo data. State upgraded to v${serverState.version}.`);
@@ -452,8 +463,17 @@ function requestHandler(req, res) {
 
         serverState.deletedMedicineCodes = [];
         if (incoming.medicines && Array.isArray(incoming.medicines)) {
-          // Merge incoming into server medicines (incoming takes precedence)
-          serverState.medicines = deduplicateMedicines(mergeArrayById(serverState.medicines, incoming.medicines, 'code'));
+          // Filter out demo medicines and merge incoming into server medicines
+          const cleanIncoming = incoming.medicines.filter(m => {
+            const n = (m.name || '').toLowerCase();
+            return !n.includes('zimuno') && !n.includes('paracetamol');
+          });
+          serverState.medicines = deduplicateMedicines(mergeArrayById(serverState.medicines, cleanIncoming, 'code'));
+          // Ensure no demo medicines linger in serverState
+          serverState.medicines = serverState.medicines.filter(m => {
+            const n = (m.name || '').toLowerCase();
+            return !n.includes('zimuno') && !n.includes('paracetamol');
+          });
           hasChanges = true;
         }
 
