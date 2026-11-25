@@ -4,9 +4,15 @@
   "description": "Sistem Apotek Multi-Cabang & POS Hybrid Cloud Tonang Farma",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Build OK'"
   },
-  "keywords": ["pharmacy", "pos", "fefo", "multi-branch"],
+  "keywords": [
+    "pharmacy",
+    "pos",
+    "fefo",
+    "multi-branch"
+  ],
   "author": "Apotek Tonang Farma",
   "license": "ISC",
   "engines": {

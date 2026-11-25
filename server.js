@@ -13,23 +13,12 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-// Ensure downloads directory & packages exist
+// In-memory embedded downloads (loaded without blocking server start)
 let embeddedDownloads = {};
 try {
   embeddedDownloads = require('./embedded_downloads');
-  const dlDir = path.join(PUBLIC_DIR, 'downloads');
-  if (!fs.existsSync(dlDir)) {
-    fs.mkdirSync(dlDir, { recursive: true });
-  }
-  for (const [filename, b64] of Object.entries(embeddedDownloads)) {
-    const targetFile = path.join(dlDir, filename);
-    if (!fs.existsSync(targetFile)) {
-      fs.writeFileSync(targetFile, Buffer.from(b64, 'base64'));
-      console.log(`[DOWNLOADS] Extracted package: ${filename}`);
-    }
-  }
 } catch (e) {
-  console.log('[DOWNLOADS] embedded_downloads note:', e.message);
+  console.log('[DOWNLOADS] Note:', e.message);
 }
 
 // In-memory server state
