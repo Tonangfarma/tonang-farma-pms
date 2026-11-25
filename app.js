@@ -18,295 +18,29 @@
       { id: 'KBJ', name: 'Cabang Kembang Janggut', location: 'Kutai Kartanegara, Kalimantan Timur' }
     ],
 
-    medicines: [
-      {
-        id: 'MED-001',
-        code: 'MED-001',
-        barcode: '8999909001',
-        name: 'Paracetamol 500mg',
-        category: 'Bebas',
-        dosageForm: 'Tablet',
-        baseUnit: 'Tablet',
-        buyUnit: 'Box',
-        conversionRate: 100, // 1 Box = 100 Tablet
-        buyPrice: 350,       // HPP per tablet
-        sellPrice: 600,      // per tablet
-        minStock: 200,
-        active: true
-      },
-      {
-        id: 'MED-002',
-        code: 'MED-002',
-        barcode: '8999909002',
-        name: 'Amoxicillin 500mg',
-        category: 'Obat Keras',
-        dosageForm: 'Kapsul',
-        baseUnit: 'Kapsul',
-        buyUnit: 'Box',
-        conversionRate: 100,
-        buyPrice: 650,
-        sellPrice: 1200,
-        minStock: 150,
-        active: true
-      },
-      {
-        id: 'MED-003',
-        code: 'MED-003',
-        barcode: '8999909003',
-        name: 'Cefixime 100mg',
-        category: 'Obat Keras',
-        dosageForm: 'Kapsul',
-        baseUnit: 'Kapsul',
-        buyUnit: 'Box',
-        conversionRate: 30,
-        buyPrice: 2800,
-        sellPrice: 4500,
-        minStock: 60,
-        active: true
-      },
-      {
-        id: 'MED-004',
-        code: 'MED-004',
-        barcode: '8999909004',
-        name: 'Antasida Doen',
-        category: 'Bebas',
-        dosageForm: 'Tablet',
-        baseUnit: 'Tablet',
-        buyUnit: 'Strip',
-        conversionRate: 10,
-        buyPrice: 300,
-        sellPrice: 500,
-        minStock: 100,
-        active: true
-      },
-      {
-        id: 'MED-005',
-        code: 'MED-005',
-        barcode: '8999909005',
-        name: 'Amlodipine 10mg',
-        category: 'Obat Keras',
-        dosageForm: 'Tablet',
-        baseUnit: 'Tablet',
-        buyUnit: 'Strip',
-        conversionRate: 10,
-        buyPrice: 550,
-        sellPrice: 1000,
-        minStock: 120,
-        active: true
-      },
-      {
-        id: 'MED-006',
-        code: 'MED-006',
-        barcode: '8999909006',
-        name: 'Cetirizine 10mg',
-        category: 'Bebas Terbatas',
-        dosageForm: 'Tablet',
-        baseUnit: 'Tablet',
-        buyUnit: 'Strip',
-        conversionRate: 10,
-        buyPrice: 400,
-        sellPrice: 800,
-        minStock: 80,
-        active: true
-      },
-      {
-        id: 'MED-007',
-        code: 'MED-007',
-        barcode: '8999909007',
-        name: 'Vitamin C 500mg IPI',
-        category: 'Suplemen',
-        dosageForm: 'Tablet',
-        baseUnit: 'Botol',
-        buyUnit: 'Dus',
-        conversionRate: 12,
-        buyPrice: 5500,
-        sellPrice: 8500,
-        minStock: 30,
-        active: true
-      },
-      {
-        id: 'MED-008',
-        code: 'MED-008',
-        barcode: '8999909008',
-        name: 'Minyak Kayu Putih 60ml',
-        category: 'Bebas',
-        dosageForm: 'Botol',
-        baseUnit: 'Botol',
-        buyUnit: 'Karton',
-        conversionRate: 24,
-        buyPrice: 18000,
-        sellPrice: 24500,
-        minStock: 25,
-        active: true
-      },
-      {
-        id: 'MED-009',
-        code: 'MED-009',
-        barcode: '8999909009',
-        name: 'Betadine Salep 10g',
-        category: 'Bebas Terbatas',
-        dosageForm: 'Salep',
-        baseUnit: 'Tube',
-        buyUnit: 'Lusin',
-        conversionRate: 12,
-        buyPrice: 12000,
-        sellPrice: 16500,
-        minStock: 20,
-        active: true
-      },
-      {
-        id: 'MED-010',
-        code: 'MED-010',
-        barcode: '8999909010',
-        name: 'Termometer Digital',
-        category: 'Alkes',
-        dosageForm: 'Pcs',
-        baseUnit: 'Pcs',
-        buyUnit: 'Box',
-        conversionRate: 10,
-        buyPrice: 22000,
-        sellPrice: 35000,
-        minStock: 10,
-        active: true
-      }
-    ],
-
-    batches: [
-      // Paracetamol TLD
-      { id: 'B-01', medicineId: 'MED-001', branchId: 'TLD', batchNo: 'PCT26A01', expiryDate: '2027-10-15', stock: 450 },
-      { id: 'B-02', medicineId: 'MED-001', branchId: 'TLD', batchNo: 'PCT26A02', expiryDate: '2026-12-10', stock: 45 }, // Critical <30 days
-      // Paracetamol KBJ
-      { id: 'B-03', medicineId: 'MED-001', branchId: 'KBJ', batchNo: 'PCT26K01', expiryDate: '2027-08-20', stock: 320 },
-      // Amoxicillin TLD
-      { id: 'B-04', medicineId: 'MED-002', branchId: 'TLD', batchNo: 'AMX26T01', expiryDate: '2027-05-10', stock: 180 },
-      // Amoxicillin KBJ
-      { id: 'B-05', medicineId: 'MED-002', branchId: 'KBJ', batchNo: 'AMX26K02', expiryDate: '2027-02-15', stock: 40 },  // Low stock & near 90 days
-      // Cefixime TLD
-      { id: 'B-06', medicineId: 'MED-003', branchId: 'TLD', batchNo: 'CFX26T01', expiryDate: '2027-12-01', stock: 90 },
-      // Cefixime KBJ
-      { id: 'B-07', medicineId: 'MED-003', branchId: 'KBJ', batchNo: 'CFX26K01', expiryDate: '2026-11-15', stock: 15 }, // EXPIRED!
-      // Antasida TLD
-      { id: 'B-08', medicineId: 'MED-004', branchId: 'TLD', batchNo: 'ATD26T01', expiryDate: '2028-01-10', stock: 300 },
-      // Antasida KBJ
-      { id: 'B-09', medicineId: 'MED-004', branchId: 'KBJ', batchNo: 'ATD26K01', expiryDate: '2027-09-12', stock: 250 },
-      // Amlodipine TLD & KBJ
-      { id: 'B-10', medicineId: 'MED-005', branchId: 'TLD', batchNo: 'AML26T01', expiryDate: '2027-04-18', stock: 220 },
-      { id: 'B-11', medicineId: 'MED-005', branchId: 'KBJ', batchNo: 'AML26K01', expiryDate: '2027-06-30', stock: 180 },
-      // Cetirizine TLD & KBJ
-      { id: 'B-12', medicineId: 'MED-006', branchId: 'TLD', batchNo: 'CTZ26T01', expiryDate: '2027-03-25', stock: 140 },
-      { id: 'B-13', medicineId: 'MED-006', branchId: 'KBJ', batchNo: 'CTZ26K01', expiryDate: '2027-11-10', stock: 110 },
-      // Vit C
-      { id: 'B-14', medicineId: 'MED-007', branchId: 'TLD', batchNo: 'VTC26T01', expiryDate: '2027-08-01', stock: 45 },
-      { id: 'B-15', medicineId: 'MED-007', branchId: 'KBJ', batchNo: 'VTC26K01', expiryDate: '2027-07-15', stock: 50 },
-      // MKP
-      { id: 'B-16', medicineId: 'MED-008', branchId: 'TLD', batchNo: 'MKP26T01', expiryDate: '2028-05-20', stock: 35 },
-      { id: 'B-17', medicineId: 'MED-008', branchId: 'KBJ', batchNo: 'MKP26K01', expiryDate: '2028-06-01', stock: 40 },
-      // Betadine & Termometer
-      { id: 'B-18', medicineId: 'MED-009', branchId: 'TLD', batchNo: 'BTD26T01', expiryDate: '2027-10-10', stock: 28 },
-      { id: 'B-19', medicineId: 'MED-010', branchId: 'KBJ', batchNo: 'THM26K01', expiryDate: '2029-12-31', stock: 14 }
-    ],
+    // Clean initial state (no dummy/seed data)
+    medicines: [],
+    deletedMedicineCodes: [],
+    batches: [],
+    sales: [],
+    transfers: [],
+    expenses: [],
+    deletedExpenseIds: [],
 
     suppliers: [
-      { id: 'SUP-01', name: 'PT Kimia Farma Trading & Distribution', contact: '0811-2345-6789', apBalance: 12500000 },
-      { id: 'SUP-02', name: 'PT Enseval Putera Megatrading (Kalbe Group)', contact: '0812-9876-5432', apBalance: 8400000 },
-      { id: 'SUP-03', name: 'PT Anugrah Argon Medica (AAM)', contact: '0813-4455-6677', apBalance: 4200000 }
+      { id: 'SUP-01', name: 'PT. Kimia Farma Trading & Distribution', phone: '021-3847709', address: 'Manado / Balikpapan' },
+      { id: 'SUP-02', name: 'PT. Enseval Putera Megatrading', phone: '021-4609042', address: 'Samarinda / Manado' },
+      { id: 'SUP-03', name: 'PT. Anugrah Argon Medica (AAM)', phone: '021-6593000', address: 'Balikpapan' },
+      { id: 'SUP-04', name: 'PT. Mensa Bina Sukses (MBS)', phone: '021-4701234', address: 'Manado' }
     ],
-
-    purchases: [
-      {
-        id: 'PO-202611-01',
-        invoiceNo: 'FAK-KF-88210',
-        date: '2026-11-18',
-        supplierId: 'SUP-01',
-        branchId: 'TLD',
-        subtotal: 18500000,
-        discount: 0,
-        total: 18500000,
-        status: 'PAID',
-        dueDate: '2026-12-18',
-        topDays: 30,
-        paidDate: '2026-11-20',
-        paidMethod: 'BANK_TRANSFER',
-        items: [
-          { medicineId: 'MED-001', medicineName: 'Paracetamol 500mg', inputUnit: 'Box', inputQty: 200, buyPrice: 35000, baseUnit: 'Tablet', baseQty: 20000, batchNo: 'PCT26A01', expiryDate: '2027-12-31', subtotalCost: 7000000 },
-          { medicineId: 'MED-002', medicineName: 'Amoxicillin 500mg', inputUnit: 'Box', inputQty: 150, buyPrice: 50000, baseUnit: 'Kaplet', baseQty: 15000, batchNo: 'AMX26B01', expiryDate: '2028-06-30', subtotalCost: 7500000 },
-          { medicineId: 'MED-004', medicineName: 'Antasida Doen', inputUnit: 'Box', inputQty: 160, buyPrice: 25000, baseUnit: 'Tablet', baseQty: 16000, batchNo: 'ATD26T01', expiryDate: '2028-01-10', subtotalCost: 4000000 }
-        ]
-      },
-      {
-        id: 'PO-202611-02',
-        invoiceNo: 'FAK-ENS-44192',
-        date: '2026-11-19',
-        supplierId: 'SUP-02',
-        branchId: 'KBJ',
-        subtotal: 14200000,
-        discount: 0,
-        total: 14200000,
-        status: 'UNPAID',
-        dueDate: '2026-12-03',
-        topDays: 14,
-        items: [
-          { medicineId: 'MED-005', medicineName: 'Amlodipine 10mg', inputUnit: 'Box', inputQty: 200, buyPrice: 45000, baseUnit: 'Tablet', baseQty: 6000, batchNo: 'AML26K01', expiryDate: '2027-06-30', subtotalCost: 9000000 },
-          { medicineId: 'MED-006', medicineName: 'Cetirizine 10mg', inputUnit: 'Box', inputQty: 130, buyPrice: 40000, baseUnit: 'Kapsul', baseQty: 3900, batchNo: 'CTZ26K01', expiryDate: '2027-11-10', subtotalCost: 5200000 }
-        ]
-      }
-    ],
-
-    expenses: [
-      { id: 'EXP-01', branchId: 'TLD', date: '2026-11-05', category: 'Gaji & Uang Makan', amount: 3500000, notes: 'Gaji 2 staf kasir Talaud' },
-      { id: 'EXP-02', branchId: 'TLD', date: '2026-11-08', category: 'Listrik & Air', amount: 650000, notes: 'PLN & Genset Talaud' },
-      { id: 'EXP-03', branchId: 'TLD', date: '2026-11-10', category: 'Internet & Pulsa', amount: 850000, notes: 'Starlink Cabang Talaud' },
-      { id: 'EXP-04', branchId: 'TLD', date: '2026-11-12', category: 'Transport & Logistik', amount: 1200000, notes: 'Ongkir kapal laut ekspedisi Manado-Talaud' },
-      { id: 'EXP-05', branchId: 'KBJ', date: '2026-11-05', category: 'Gaji & Uang Makan', amount: 3200000, notes: 'Gaji staf kasir Kembang Janggut' },
-      { id: 'EXP-06', branchId: 'KBJ', date: '2026-11-08', category: 'Listrik & Air', amount: 550000, notes: 'PLN Kembang Janggut' },
-      { id: 'EXP-07', branchId: 'KBJ', date: '2026-11-11', category: 'Internet & Pulsa', amount: 450000, notes: 'WiFi Telkomsel Orbit' },
-      { id: 'EXP-08', branchId: 'KBJ', date: '2026-11-14', category: 'Transport & Logistik', amount: 800000, notes: 'Logistik darat Samarinda-Kembang Janggut' }
-    ],
-
-    sales: [
-      // Seeded recent sales for realistic reporting
-      {
-        id: 'TF-TLD-20261122-0001',
-        branchId: 'TLD',
-        date: '2026-11-22T08:30:00',
-        cashier: 'Siti Aminah',
-        items: [
-          { medicineId: 'MED-001', batchId: 'B-02', qty: 10, unit: 'Tablet', price: 600, hpp: 350, subtotal: 6000 },
-          { medicineId: 'MED-004', batchId: 'B-08', qty: 10, unit: 'Tablet', price: 500, hpp: 300, subtotal: 5000 }
-        ],
-        subtotal: 11000,
-        discount: 0,
-        total: 11000,
-        paid: 20000,
-        change: 9000,
-        paymentMethod: 'CASH',
-        synced: true
-      },
-      {
-        id: 'TF-KBJ-20261122-0001',
-        branchId: 'KBJ',
-        date: '2026-11-22T09:15:00',
-        cashier: 'Budi Santoso',
-        items: [
-          { medicineId: 'MED-002', batchId: 'B-05', qty: 10, unit: 'Kapsul', price: 1200, hpp: 650, subtotal: 12000 },
-          { medicineId: 'MED-007', batchId: 'B-15', qty: 1, unit: 'Botol', price: 8500, hpp: 5500, subtotal: 8500 }
-        ],
-        subtotal: 20500,
-        discount: 500,
-        total: 20000,
-        paid: 50000,
-        change: 30000,
-        paymentMethod: 'CASH',
-        synced: true
-      }
-    ],
+    purchases: [],
 
     users: [
       {
         id: 'USR-01',
         username: 'owner',
         password: 'owner123',
-        fullName: 'Bpk. Tonang',
+        fullName: 'Bpk. Tonang (Owner)',
         role: 'OWNER',
         branchId: 'ALL',
         active: true
@@ -315,43 +49,34 @@
         id: 'USR-02',
         username: 'admin',
         password: 'admin123',
-        fullName: 'Reza Pratama',
+        fullName: 'Admin Pusat',
         role: 'ADMIN',
         branchId: 'ALL',
         active: true
       },
       {
         id: 'USR-03',
-        username: 'apt.tonang',
+        username: 'apoteker.tld',
         password: 'apoteker123',
-        fullName: 'apt. Tonang, S.Farm',
+        fullName: 'apt. Sarah, S.Farm (Talaud)',
         role: 'APOTEKER',
-        branchId: 'ALL',
-        active: true
-      },
-      {
-        id: 'USR-04',
-        username: 'gudang.tld',
-        password: 'gudang123',
-        fullName: 'Rian (Gudang Talaud)',
-        role: 'GUDANG',
         branchId: 'TLD',
         active: true
       },
       {
-        id: 'USR-05',
-        username: 'gudang.kbj',
-        password: 'gudang123',
-        fullName: 'Joko (Gudang Kembang)',
-        role: 'GUDANG',
+        id: 'USR-04',
+        username: 'apoteker.kbj',
+        password: 'apoteker123',
+        fullName: 'apt. Hendra, S.Farm (Kembang Janggut)',
+        role: 'APOTEKER',
         branchId: 'KBJ',
         active: true
       },
       {
-        id: 'USR-06',
+        id: 'USR-05',
         username: 'kasir.tld',
         password: 'kasir123',
-        fullName: 'Siti Aminah (Kasir Talaud)',
+        fullName: 'Rina Marlina (Kasir Talaud)',
         role: 'KASIR',
         branchId: 'TLD',
         active: true
@@ -371,16 +96,20 @@
     cart: []
   };
 
-  // Load from LocalStorage or seed
+  // Load from LocalStorage (V2 Clean) or seed
   let appState = (function() {
     try {
-      const saved = localStorage.getItem('TONANG_FARMA_STATE_V1');
+      // Clear legacy V1 cache that held dummy demo medicines/batches
+      localStorage.removeItem('TONANG_FARMA_STATE_V1');
+
+      const saved = localStorage.getItem('TONANG_FARMA_STATE_V2');
       if (saved) {
         const parsed = JSON.parse(saved);
-        parsed.deletedMedicineCodes = []; // Always wipe tombstones on boot
-        if (!parsed.medicines || !Array.isArray(parsed.medicines) || parsed.medicines.length === 0) {
-          parsed.medicines = JSON.parse(JSON.stringify(DEFAULT_STATE.medicines));
-        }
+        parsed.deletedMedicineCodes = parsed.deletedMedicineCodes || [];
+        parsed.medicines = parsed.medicines || [];
+        parsed.batches = parsed.batches || [];
+        parsed.sales = parsed.sales || [];
+        parsed.expenses = parsed.expenses || [];
         if (!parsed.users || parsed.users.length === 0) {
           parsed.users = DEFAULT_STATE.users;
           parsed.currentUserId = DEFAULT_STATE.currentUserId;
@@ -1118,15 +847,17 @@
 
   function renderDashboardAlerts() {
     const listEl = document.getElementById('inventory-alerts-list');
+    if (!listEl) return;
     listEl.innerHTML = '';
 
     const branch = appState.currentBranch;
-    const relevantBatches = branch === 'ALL' ? appState.batches : appState.batches.filter(b => b.branchId === branch);
+    const relevantBatches = branch === 'ALL' ? (appState.batches || []) : (appState.batches || []).filter(b => b.branchId === branch);
 
     let alertCount = 0;
 
+    // 1. Expiry alerts from active batches
     relevantBatches.forEach(b => {
-      const med = appState.medicines.find(m => m.id === b.medicineId);
+      const med = (appState.medicines || []).find(m => m.id === b.medicineId);
       if (!med) return;
       const days = getDaysUntilExpiry(b.expiryDate);
 
@@ -1137,9 +868,9 @@
           <div class="p-2.5 rounded-lg badge-expired flex items-center justify-between text-xs">
             <div>
               <div class="font-bold">[KADALUWARSA] ${med.name}</div>
-              <div class="text-[10px]">Batch ${b.batchNo} (${b.branchId}) • Telah Expired ${Math.abs(days)} hari lalu!</div>
+              <div class="text-[10px]">Batch ${b.batchNo} (${b.branchId === 'TLD' ? 'Talaud' : 'Kembang Janggut'}) • Telah Expired ${Math.abs(days)} hari lalu!</div>
             </div>
-            <span class="font-bold mono text-xs">${b.stock} unit</span>
+            <span class="font-bold mono text-xs">${b.stock} ${med.baseUnit || 'unit'}</span>
           </div>`;
       } else if (days <= 30) {
         alertCount++;
@@ -1147,17 +878,7 @@
           <div class="p-2.5 rounded-lg badge-critical flex items-center justify-between text-xs">
             <div>
               <div class="font-bold">[KRITIS &lt;30 HARI] ${med.name}</div>
-              <div class="text-[10px]">Batch ${b.batchNo} (${b.branchId}) • Sisa ${days} hari (Exp: ${b.expiryDate})</div>
-            </div>
-            <span class="font-bold mono text-xs">${b.stock} unit</span>
-          </div>`;
-      } else if (b.stock <= med.minStock / 2) {
-        alertCount++;
-        alertHTML = `
-          <div class="p-2.5 rounded-lg badge-warning flex items-center justify-between text-xs">
-            <div>
-              <div class="font-bold">[STOK KRITIS] ${med.name}</div>
-              <div class="text-[10px]">Stok tersisa di bawah minimum buffer (${b.stock}/${med.minStock} ${med.baseUnit || 'unit'})</div>
+              <div class="text-[10px]">Batch ${b.batchNo} (${b.branchId === 'TLD' ? 'Talaud' : 'Kembang Janggut'}) • Sisa ${days} hari (Exp: ${b.expiryDate})</div>
             </div>
             <span class="font-bold mono text-xs">${b.stock} ${med.baseUnit || 'unit'}</span>
           </div>`;
@@ -1168,7 +889,67 @@
       }
     });
 
-    document.getElementById('badge-total-alerts').textContent = `${alertCount} Peringatan`;
+    // 2. Minimum Buffer Stock Alerts (calculated per branch in flexible units: Strip, Botol, Box)
+    const branchesToCheck = branch === 'ALL' ? ['TLD', 'KBJ'] : [branch];
+    branchesToCheck.forEach(bId => {
+      (appState.medicines || []).forEach(med => {
+        const bCfg = (med.branchConfigs && med.branchConfigs[bId]) || {};
+        if (bCfg.active === false) return;
+
+        const targetMin = bCfg.minStock !== undefined ? bCfg.minStock : (med.minStock || 10);
+        const targetUnit = bCfg.minStockUnit || med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.baseUnit || 'Tablet')));
+
+        // Sum non-expired stock in base units
+        const branchBatches = (appState.batches || []).filter(b => b.medicineId === med.id && b.branchId === bId && getDaysUntilExpiry(b.expiryDate) >= 0);
+        const totalBaseStock = branchBatches.reduce((acc, b) => acc + (Number(b.stock) || 0), 0);
+
+        // Convert totalBaseStock to targetUnit
+        let stockInUnit = totalBaseStock;
+        let rateToUnit = 1;
+        if (targetUnit === med.stripUnit && Number(med.stripConversion) > 1) {
+          rateToUnit = Number(med.stripConversion);
+          stockInUnit = totalBaseStock / rateToUnit;
+        } else if (targetUnit === med.buyUnit && Number(med.conversionRate) > 1) {
+          rateToUnit = Number(med.conversionRate);
+          stockInUnit = totalBaseStock / rateToUnit;
+        }
+
+        if (stockInUnit <= targetMin) {
+          alertCount++;
+          const branchName = bId === 'TLD' ? 'Talaud' : 'Kembang Janggut';
+          const displayStock = Math.round(stockInUnit * 10) / 10;
+          const isOut = displayStock <= 0;
+          const alertClass = isOut ? 'badge-expired' : 'badge-warning';
+          const alertTitle = isOut ? `[STOK HABIS (${branchName})] ${med.name}` : `[STOK MENIPIS (${branchName})] ${med.name}`;
+          const alertSub = isOut 
+            ? `Stok kosong di rak ${branchName}! Batas buffer: ${targetMin} ${targetUnit}`
+            : `Sisa ${displayStock} ${targetUnit} • Di bawah batas minimum ${targetMin} ${targetUnit}`;
+
+          const alertHTML = `
+            <div class="p-2.5 rounded-lg ${alertClass} flex items-center justify-between text-xs">
+              <div>
+                <div class="font-bold">${alertTitle}</div>
+                <div class="text-[10px]">${alertSub}</div>
+              </div>
+              <span class="font-bold mono text-xs">${displayStock} ${targetUnit}</span>
+            </div>`;
+          listEl.insertAdjacentHTML('beforeend', alertHTML);
+        }
+      });
+    });
+
+    if (alertCount === 0) {
+      listEl.innerHTML = `
+        <div class="p-4 text-center text-slate-400 text-xs">
+          <i data-lucide="shield-check" class="w-6 h-6 mx-auto mb-1 text-emerald-500"></i>
+          <span class="font-semibold text-slate-600">Semua Persediaan Aman</span>
+          <p class="text-[10px] text-slate-400 mt-0.5">Tidak ada obat kedaluwarsa atau di bawah batas buffer.</p>
+        </div>`;
+    }
+
+    const badgeTotal = document.getElementById('badge-total-alerts');
+    if (badgeTotal) badgeTotal.textContent = `${alertCount} Peringatan`;
+    if (window.lucide) lucide.createIcons();
   }
 
   function renderTopLists() {
@@ -2859,6 +2640,27 @@
         bLocation.includes(searchClean);
     });
 
+    if ((appState.medicines || []).length === 0) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td colspan="8" class="text-center py-12 px-4 text-slate-400">
+          <div class="max-w-md mx-auto space-y-2.5">
+            <div class="w-12 h-12 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <i data-lucide="package-plus" class="w-6 h-6"></i>
+            </div>
+            <div class="text-sm font-bold text-slate-800">Master Obat Bersih & Siap Diisi</div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Semua data contoh lama telah dibersihkan total. Silakan klik tombol 
+              <b class="text-emerald-700 font-bold">+ Tambah Obat Baru</b> di kanan atas untuk mulai menginput obat riil Apotek Tonang Farma dengan batas buffer fleksibel (Botol / Strip).
+            </p>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+      if (window.lucide) lucide.createIcons();
+      return;
+    }
+
     if (filtered.length === 0) {
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -2886,7 +2688,8 @@
       const sellPriceDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.sellPrice || 0) : (med.sellPrice || bCfg.sellPrice || 0);
       const stripPriceDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.stripPrice || 0) : (med.stripPrice || bCfg.stripPrice || 0);
       const boxPriceDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.boxPrice || 0) : (med.boxPrice || bCfg.boxPrice || 0);
-      const minStockDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.minStock || 0) : (med.minStock || bCfg.minStock || 0);
+      const minStockDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.minStock !== undefined ? bCfg.minStock : (med.minStock || 10)) : (med.minStock !== undefined ? med.minStock : 10);
+      const minStockUnitDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.minStockUnit || med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.buyUnit || 'Box')))) : (med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.buyUnit || 'Box'))));
 
       const tldActive = med.branchConfigs?.TLD?.active !== false;
       const kbjActive = med.branchConfigs?.KBJ?.active !== false;
@@ -2945,7 +2748,7 @@
         </td>
         <td class="py-3 px-4 text-center">
           <span class="mono font-bold text-slate-800">${minStockDisplay}</span>
-          <span class="text-[10px] text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded font-semibold ml-1">${med.buyUnit || 'Box'}</span>
+          <span class="text-[10px] text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-bold ml-1">${minStockUnitDisplay}</span>
         </td>
         <td class="py-3 px-4 text-center">
           <div class="flex items-center justify-center space-x-1.5">
@@ -3261,6 +3064,14 @@
     if (suffixStripBase) suffixStripBase.textContent = baseName;
     if (suffixBoxBase) suffixBoxBase.textContent = baseName;
 
+    const minStockInput = document.getElementById('new-med-min-stock');
+    const minStockUnitSelect = document.getElementById('new-med-min-stock-unit');
+    if (minStockInput) minStockInput.value = med.minStock !== undefined ? med.minStock : 10;
+    if (minStockUnitSelect) {
+      const defUnit = med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.baseUnit || 'Tablet')));
+      minStockUnitSelect.value = defUnit;
+    }
+
     validateMedicineUniqueness();
 
     if (modal) modal.classList.remove('hidden');
@@ -3450,7 +3261,40 @@
     const kbjBox = document.getElementById('bp-kbj-box-price');
     if (kbjBox) kbjBox.value = kbjCfg.boxPrice > 0 ? kbjCfg.boxPrice : '';
     const kbjMin = document.getElementById('bp-kbj-min-stock');
-    if (kbjMin) kbjMin.value = kbjCfg.minStock ?? 50;
+    if (kbjMin) kbjMin.value = kbjCfg.minStock ?? 10;
+
+    // Helper to populate buffer unit dropdown based on packaging
+    function populateBufferUnitSelect(selectId, chosenUnit) {
+      const sel = document.getElementById(selectId);
+      if (!sel) return;
+      sel.innerHTML = '';
+      const options = [];
+      if (hasStrip) {
+        options.push({ val: stripUnit, label: `${stripUnit} (Rekomendasi Strip)` });
+      }
+      if (baseUnit && baseUnit !== stripUnit) {
+        options.push({ val: baseUnit, label: `${baseUnit} (${baseUnit === 'Botol' ? 'Rekomendasi Sirup' : 'Satuan Dasar'})` });
+      }
+      if (buyUnit && buyUnit !== baseUnit && buyUnit !== stripUnit) {
+        options.push({ val: buyUnit, label: `${buyUnit} (Kemasan Besar)` });
+      }
+      if (options.length === 0) {
+        options.push({ val: 'Botol', label: 'Botol' }, { val: 'Strip', label: 'Strip' }, { val: 'Box', label: 'Box' }, { val: 'Tablet', label: 'Tablet' }, { val: 'Pcs', label: 'Pcs' });
+      }
+      options.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = opt.val;
+        o.textContent = opt.label;
+        sel.appendChild(o);
+      });
+      if (chosenUnit && options.some(o => o.val === chosenUnit)) {
+        sel.value = chosenUnit;
+      } else if (options.length > 0) {
+        sel.value = options[0].val;
+      }
+    }
+    populateBufferUnitSelect('bp-tld-min-stock-unit', tldCfg.minStockUnit || med.minStockUnit);
+    populateBufferUnitSelect('bp-kbj-min-stock-unit', kbjCfg.minStockUnit || med.minStockUnit);
 
     modal.classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
@@ -3599,7 +3443,8 @@
         const tldSell = Number(document.getElementById('bp-tld-sell-price')?.value) || 0;
         const tldStrip = hasStrip ? (Number(document.getElementById('bp-tld-strip-price')?.value) || 0) : 0;
         const tldBox = Number(document.getElementById('bp-tld-box-price')?.value) || 0;
-        const tldMin = Number(document.getElementById('bp-tld-min-stock')?.value) || 50;
+        const tldMin = Number(document.getElementById('bp-tld-min-stock')?.value) || 10;
+        const tldMinUnit = document.getElementById('bp-tld-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? stripUnit : baseUnit);
 
         const kbjActive = document.getElementById('bp-kbj-active')?.checked ?? true;
         const kbjLoc = (document.getElementById('bp-kbj-location')?.value || 'Rak B-01').trim();
@@ -3612,7 +3457,8 @@
         const kbjSell = Number(document.getElementById('bp-kbj-sell-price')?.value) || 0;
         const kbjStrip = hasStrip ? (Number(document.getElementById('bp-kbj-strip-price')?.value) || 0) : 0;
         const kbjBox = Number(document.getElementById('bp-kbj-box-price')?.value) || 0;
-        const kbjMin = Number(document.getElementById('bp-kbj-min-stock')?.value) || 50;
+        const kbjMin = Number(document.getElementById('bp-kbj-min-stock')?.value) || 10;
+        const kbjMinUnit = document.getElementById('bp-kbj-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? stripUnit : baseUnit);
 
         med.branchConfigs = {
           TLD: {
@@ -3623,7 +3469,8 @@
             sellPrice: tldSell,
             stripPrice: tldStrip,
             boxPrice: tldBox,
-            minStock: tldMin
+            minStock: tldMin,
+            minStockUnit: tldMinUnit
           },
           KBJ: {
             active: kbjActive,
@@ -3633,7 +3480,8 @@
             sellPrice: kbjSell,
             stripPrice: kbjStrip,
             boxPrice: kbjBox,
-            minStock: kbjMin
+            minStock: kbjMin,
+            minStockUnit: kbjMinUnit
           }
         };
 
@@ -3644,6 +3492,7 @@
         med.stripPrice = tldStrip;
         med.boxPrice = tldBox;
         med.minStock = tldMin;
+        med.minStockUnit = tldMinUnit;
 
         saveState();
         pushMedicineToServer(med);
@@ -3737,6 +3586,10 @@
           if (convRateInputEl) convRateInputEl.value = 24;
           if (suffixStrip) suffixStrip.textContent = 'Btl';
           if (suffixBox) suffixBox.textContent = 'Btl';
+          const minStockInput = document.getElementById('new-med-min-stock');
+          const minStockUnitSelect = document.getElementById('new-med-min-stock-unit');
+          if (minStockInput) minStockInput.value = 5;
+          if (minStockUnitSelect) minStockUnitSelect.value = 'Botol';
         } else if (val === 'Salep') {
           if (baseUnitInput) baseUnitInput.value = 'Tube';
           if (buyUnitInput) buyUnitInput.value = 'Lusin';
@@ -3745,6 +3598,10 @@
           if (convRateInputEl) convRateInputEl.value = 12;
           if (suffixStrip) suffixStrip.textContent = 'Tub';
           if (suffixBox) suffixBox.textContent = 'Tub';
+          const minStockInput = document.getElementById('new-med-min-stock');
+          const minStockUnitSelect = document.getElementById('new-med-min-stock-unit');
+          if (minStockInput) minStockInput.value = 5;
+          if (minStockUnitSelect) minStockUnitSelect.value = 'Tube';
         }
       });
     }
@@ -3775,6 +3632,11 @@
           if (stripConvInp) stripConvInp.value = 10;
           if (suffixStrip) suffixStrip.textContent = 'Tab';
           if (suffixBox) suffixBox.textContent = 'Tab';
+
+          const minStockInput = document.getElementById('new-med-min-stock');
+          const minStockUnitSelect = document.getElementById('new-med-min-stock-unit');
+          if (minStockInput) minStockInput.value = 10;
+          if (minStockUnitSelect) minStockUnitSelect.value = 'Strip';
 
           validateMedicineUniqueness();
         } catch (err) {
@@ -3828,6 +3690,8 @@
         const chosenConv = Number(document.getElementById('new-med-conv-rate').value) || 1;
         const chosenStripUnit = document.getElementById('new-med-strip-unit')?.value.trim() || 'Strip';
         const chosenStripConv = Number(document.getElementById('new-med-strip-conv')?.value) || 0;
+        const chosenMinStock = Number(document.getElementById('new-med-min-stock')?.value) || 10;
+        const chosenMinStockUnit = document.getElementById('new-med-min-stock-unit')?.value || (chosenDosage === 'Sirup' || chosenDosage === 'Drop' ? 'Botol' : (chosenStripConv > 1 ? 'Strip' : chosenBaseUnit));
 
         if (editId) {
           // UPDATE EXISTING MEDICINE (EDIT MODE)
@@ -3843,7 +3707,9 @@
               buyUnit: chosenBuyUnit,
               conversionRate: chosenConv,
               stripUnit: chosenStripUnit,
-              stripConversion: chosenStripConv
+              stripConversion: chosenStripConv,
+              minStock: chosenMinStock,
+              minStockUnit: chosenMinStockUnit
             };
             appState.deletedMedicineCodes = (appState.deletedMedicineCodes || []).filter(c => c !== editId && c !== codeVal);
             saveState();
@@ -3875,7 +3741,8 @@
           sellPrice: 0,
           stripPrice: 0,
           boxPrice: 0,
-          minStock: 20,
+          minStock: chosenMinStock,
+          minStockUnit: chosenMinStockUnit,
           active: true,
           branchConfigs: {
             TLD: {
@@ -3886,7 +3753,8 @@
               sellPrice: 0,
               stripPrice: 0,
               boxPrice: 0,
-              minStock: 20
+              minStock: chosenMinStock,
+              minStockUnit: chosenMinStockUnit
             },
             KBJ: {
               active: true,
@@ -3896,7 +3764,8 @@
               sellPrice: 0,
               stripPrice: 0,
               boxPrice: 0,
-              minStock: 20
+              minStock: chosenMinStock,
+              minStockUnit: chosenMinStockUnit
             }
           }
         };
@@ -3984,10 +3853,33 @@
   // ==========================================
   function renderInventoryBatches() {
     const tbody = document.getElementById('inventory-batch-table-body');
+    if (!tbody) return;
     tbody.innerHTML = '';
 
     const branch = appState.currentBranch;
-    const relevantBatches = branch === 'ALL' ? appState.batches : appState.batches.filter(b => b.branchId === branch);
+    const relevantBatches = branch === 'ALL' ? (appState.batches || []) : (appState.batches || []).filter(b => b.branchId === branch);
+
+    if (relevantBatches.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="8" class="text-center py-12 px-4 text-slate-400">
+            <div class="max-w-md mx-auto space-y-2.5">
+              <div class="w-12 h-12 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <i data-lucide="package-check" class="w-6 h-6"></i>
+              </div>
+              <div class="font-bold text-sm text-slate-800">Belum Ada Batch / Stok Obat Masuk</div>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Obat yang terdaftar di Master Obat belum memiliki fisik stok di rak. Silakan klik tombol 
+                <b class="text-emerald-700 font-bold">+ Input Penerimaan Faktur PBF / Obat Masuk</b> di kanan atas 
+                atau lakukan <b>Stok Opname</b> untuk mencatat nomor batch asli dan tanggal expired dari distributor PBF.
+              </p>
+            </div>
+          </td>
+        </tr>
+      `;
+      if (window.lucide) lucide.createIcons();
+      return;
+    }
 
     // Sort by Expiry Date ascending (FEFO)
     relevantBatches.sort((a, b) => new Date(a.expiryDate) - new Date(b.expiryDate));

@@ -1798,6 +1798,37 @@
           </div>
         </div>
 
+        <!-- Default Stok Minimum Buffer -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-amber-900 text-xs flex items-center space-x-1.5">
+              <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-amber-600"></i>
+              <span>Stok Minimum Buffer (Peringatan Stok Menipis)</span>
+            </span>
+            <span class="text-[10px] text-amber-700 font-medium">Bisa disesuaikan per cabang</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="text-[10px] font-bold text-slate-700">Jumlah Minimum Buffer *</label>
+              <input type="number" id="new-med-min-stock" value="10" min="1" class="w-full mt-0.5 px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 mono">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-700">Satuan Buffer *</label>
+              <select id="new-med-min-stock-unit" class="w-full mt-0.5 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 bg-white">
+                <option value="Botol">Botol (Sirup / Drop)</option>
+                <option value="Strip" selected>Strip (Tablet / Kapsul)</option>
+                <option value="Box">Box / Dus (Kemasan Beli)</option>
+                <option value="Tablet">Tablet / Kapsul (Butiran)</option>
+                <option value="Tube">Tube (Salep / Krim)</option>
+                <option value="Pcs">Pcs / Buah</option>
+              </select>
+            </div>
+          </div>
+          <p id="med-buffer-hint" class="text-[10px] text-amber-800/80 leading-relaxed">
+            💡 <b>Fleksibel:</b> Untuk <b>Sirup</b> otomatis <b>Botol</b> (misal: min 5 Botol). Untuk <b>Tablet/Kapsul</b> bisa <b>Strip</b> (misal: min 10 Strip).
+          </p>
+        </div>
+
         <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-lg text-[11px] text-blue-800 flex items-start space-x-2">
           <i data-lucide="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
           <div>
@@ -1959,10 +1990,21 @@
               </div>
             </div>
 
-            <div>
-              <label class="text-[10px] font-bold text-slate-600">Stok Minimum Buffer Talaud *</label>
-              <input type="number" id="bp-tld-min-stock" value="50" min="1" class="w-32 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
-              <span class="text-[10px] text-slate-400 ml-1">Satuan kemasan</span>
+            <div class="flex items-center space-x-2">
+              <div class="flex-1">
+                <label class="text-[10px] font-bold text-slate-700">Stok Min Buffer Talaud *</label>
+                <input type="number" id="bp-tld-min-stock" value="10" min="1" class="w-full mt-0.5 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
+              </div>
+              <div class="w-36">
+                <label class="text-[10px] font-bold text-slate-700">Satuan Buffer</label>
+                <select id="bp-tld-min-stock-unit" class="w-full mt-0.5 px-2 py-1 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 bg-white">
+                  <option value="Botol">Botol</option>
+                  <option value="Strip">Strip</option>
+                  <option value="Box">Box</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Pcs">Pcs</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -2067,10 +2109,21 @@
               </div>
             </div>
 
-            <div>
-              <label class="text-[10px] font-bold text-slate-600">Stok Minimum Buffer Kembang Janggut *</label>
-              <input type="number" id="bp-kbj-min-stock" value="50" min="1" class="w-32 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
-              <span class="text-[10px] text-slate-400 ml-1">Satuan kemasan</span>
+            <div class="flex items-center space-x-2">
+              <div class="flex-1">
+                <label class="text-[10px] font-bold text-slate-700">Stok Min Buffer KBJ *</label>
+                <input type="number" id="bp-kbj-min-stock" value="10" min="1" class="w-full mt-0.5 px-2.5 py-1 border border-slate-300 rounded-lg font-bold text-slate-800 mono">
+              </div>
+              <div class="w-36">
+                <label class="text-[10px] font-bold text-slate-700">Satuan Buffer</label>
+                <select id="bp-kbj-min-stock-unit" class="w-full mt-0.5 px-2 py-1 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 bg-white">
+                  <option value="Botol">Botol</option>
+                  <option value="Strip">Strip</option>
+                  <option value="Box">Box</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Pcs">Pcs</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,152 @@
+{
+  "version": 504,
+  "lastUpdated": 1795594800988,
+  "medicines": [
+    {
+      "id": "MED-001",
+      "code": "MED-001",
+      "barcode": "8999909001",
+      "name": "Zimuno 200ml Sirup",
+      "category": "Suplemen",
+      "dosageForm": "Sirup",
+      "baseUnit": "Botol",
+      "buyUnit": "Karton",
+      "conversionRate": 24,
+      "stripUnit": "Strip",
+      "stripConversion": 0,
+      "location": "Rak A-01",
+      "buyPrice": 0,
+      "sellPrice": 0,
+      "stripPrice": 0,
+      "boxPrice": 0,
+      "minStock": 5,
+      "minStockUnit": "Botol",
+      "active": true,
+      "branchConfigs": {
+        "TLD": {
+          "active": true,
+          "location": "Rak A-01",
+          "barcode": "8999909001",
+          "buyPrice": 0,
+          "sellPrice": 0,
+          "stripPrice": 0,
+          "boxPrice": 0,
+          "minStock": 5,
+          "minStockUnit": "Botol"
+        },
+        "KBJ": {
+          "active": true,
+          "location": "Rak B-01",
+          "barcode": "8999909001",
+          "buyPrice": 0,
+          "sellPrice": 0,
+          "stripPrice": 0,
+          "boxPrice": 0,
+          "minStock": 5,
+          "minStockUnit": "Botol"
+        }
+      }
+    }
+  ],
+  "deletedMedicineCodes": [],
+  "branches": [
+    {
+      "id": "TLD",
+      "name": "Cabang Kepulauan Talaud",
+      "location": "Kab. Kepulauan Talaud, Sulawesi Utara"
+    },
+    {
+      "id": "KBJ",
+      "name": "Cabang Kembang Janggut",
+      "location": "Kutai Kartanegara, Kalimantan Timur"
+    }
+  ],
+  "batches": [],
+  "sales": [],
+  "transfers": [],
+  "expenses": [],
+  "deletedExpenseIds": [],
+  "users": [
+    {
+      "id": "USR-01",
+      "username": "owner",
+      "fullName": "Bpk. Tonang (Owner)",
+      "role": "OWNER",
+      "branchId": "ALL",
+      "active": true,
+      "password": "owner123"
+    },
+    {
+      "id": "USR-02",
+      "username": "admin",
+      "fullName": "Admin Pusat",
+      "role": "ADMIN",
+      "branchId": "ALL",
+      "active": true,
+      "password": "admin123"
+    },
+    {
+      "id": "USR-03",
+      "username": "apoteker.tld",
+      "fullName": "apt. Sarah, S.Farm (Talaud)",
+      "role": "APOTEKER",
+      "branchId": "TLD",
+      "active": true,
+      "password": "apoteker123"
+    },
+    {
+      "id": "USR-04",
+      "username": "apoteker.kbj",
+      "fullName": "apt. Hendra, S.Farm (Kembang Janggut)",
+      "role": "APOTEKER",
+      "branchId": "KBJ",
+      "active": true,
+      "password": "apoteker123"
+    },
+    {
+      "id": "USR-05",
+      "username": "kasir.tld",
+      "fullName": "Rina Marlina (Kasir Talaud)",
+      "role": "KASIR",
+      "branchId": "TLD",
+      "active": true,
+      "password": "kasir123"
+    },
+    {
+      "id": "USR-07",
+      "username": "kasir.kbj",
+      "fullName": "Budi Santoso (Kasir Kembang)",
+      "role": "KASIR",
+      "branchId": "KBJ",
+      "active": true,
+      "password": "kasir123"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-01",
+      "name": "PT. Kimia Farma Trading & Distribution",
+      "phone": "021-3847709",
+      "address": "Manado / Balikpapan"
+    },
+    {
+      "id": "SUP-02",
+      "name": "PT. Enseval Putera Megatrading",
+      "phone": "021-4609042",
+      "address": "Samarinda / Manado"
+    },
+    {
+      "id": "SUP-03",
+      "name": "PT. Anugrah Argon Medica (AAM)",
+      "phone": "021-6593000",
+      "address": "Balikpapan"
+    },
+    {
+      "id": "SUP-04",
+      "name": "PT. Mensa Bina Sukses (MBS)",
+      "phone": "021-4701234",
+      "address": "Manado"
+    }
+  ],
+  "purchases": []
+}
