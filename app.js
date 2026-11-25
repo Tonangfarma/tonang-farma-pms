@@ -660,6 +660,13 @@
       }
     });
 
+    const dashPeriodEl = document.getElementById('dash-period');
+    if (dashPeriodEl) {
+      dashPeriodEl.addEventListener('change', () => {
+        renderDashboard();
+      });
+    }
+
     updateNetworkUI();
   }
 
@@ -797,52 +804,158 @@
   // ==========================================
   let salesChartInstance = null;
 
+  // Helper for Dashboard Period Date Range
+  function getDashboardDateRange(periodVal) {
+    const now = new Date();
+    let startDate = null;
+    let endDate = null;
+
+    if (periodVal === 'today') {
+      startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+      endDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+    } else if (periodVal === 'week') {
+      startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6, 0, 0, 0);
+      endDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+    } else if (periodVal === 'last_month') {
+      startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1, 0, 0, 0);
+      endDate = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59, 999);
+    } else if (periodVal === 'year') {
+      startDate = new Date(now.getFullYear(), 0, 1, 0, 0, 0);
+      endDate = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+    } else if (periodVal === 'all') {
+      startDate = null;
+      endDate = null;
+    } else {
+      // default 'month' (Bulan Ini)
+      startDate = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0);
+      endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
+    }
+
+    return { startDate, endDate };
+  }
+
   function renderDashboard() {
     const branch = appState.currentBranch;
+    const periodSelect = document.getElementById('dash-period');
+    const periodVal = periodSelect ? periodSelect.value : 'month';
+    const { startDate, endDate } = getDashboardDateRange(periodVal);
 
-    // Filter Sales & Expenses by Branch
-    const filteredSales = branch === 'ALL' ? appState.sales : appState.sales.filter(s => s.branchId === branch);
-    const filteredExpenses = branch === 'ALL' ? appState.expenses : appState.expenses.filter(e => e.branchId === branch);
+    // Filter Sales by Date & Status (non-VOID)
+    const allValidSales = (appState.sales || []).filter(s => {
+      if (s.status === 'VOID') return false;
+      if (!s.date) return true;
+      const d = new Date(s.date);
+      if (startDate && d < startDate) return false;
+      if (endDate && d > endDate) return false;
+      return true;
+    });
 
-    // Compute Metrics: Base seed + sales
-    const baseRevenue = branch === 'ALL' ? 128450000 : branch === 'TLD' ? 68200000 : 60250000;
-    const baseHPP = branch === 'ALL' ? 89915000 : branch === 'TLD' ? 47740000 : 42175000;
-    
-    // Add real POS sales (exclude VOID / cancelled transactions)
-    const validSales = filteredSales.filter(s => s.status !== 'VOID');
-    const additionalSales = validSales.reduce((acc, s) => acc + s.total, 0);
-    const additionalHPP = validSales.reduce((acc, s) => {
-      const sHPP = s.items.reduce((sum, it) => sum + (it.hpp * it.qty), 0);
-      return acc + sHPP;
+    // Filter Expenses by Date
+    const allValidExpenses = (appState.expenses || []).filter(e => {
+      if (!e.date) return true;
+      const d = new Date(e.date);
+      if (startDate && d < startDate) return false;
+      if (endDate && d > endDate) return false;
+      return true;
+    });
+
+    // Branch specific filtering for KPI
+    const currentSales = branch === 'ALL' ? allValidSales : allValidSales.filter(s => s.branchId === branch);
+    const currentExpenses = branch === 'ALL' ? allValidExpenses : allValidExpenses.filter(e => e.branchId === branch);
+
+    // Calculate Actual Metrics (100% Real from Data)
+    const totalRevenue = currentSales.reduce((acc, s) => acc + (Number(s.total) || 0), 0);
+    const totalHPP = currentSales.reduce((acc, s) => {
+      const saleHpp = (s.items || []).reduce((sum, it) => sum + ((Number(it.hpp) || 0) * (Number(it.qty) || 1)), 0);
+      return acc + saleHpp;
     }, 0);
-
-    const totalRevenue = baseRevenue + additionalSales;
-    const totalHPP = baseHPP + additionalHPP;
     const grossProfit = totalRevenue - totalHPP;
-    
-    const operationalExpenses = filteredExpenses.reduce((acc, e) => acc + e.amount, 0);
+    const operationalExpenses = currentExpenses.reduce((acc, e) => acc + (Number(e.amount) || 0), 0);
     const netProfit = grossProfit - operationalExpenses;
 
+    const totalItemsSold = currentSales.reduce((acc, s) => acc + (s.items || []).reduce((iSum, it) => iSum + (Number(it.qty) || 1), 0), 0);
+    const hppRatio = totalRevenue > 0 ? ((totalHPP / totalRevenue) * 100).toFixed(1) : '0.0';
+    const netMargin = totalRevenue > 0 ? ((netProfit / totalRevenue) * 100).toFixed(1) : '0.0';
+
     // Update KPI Elements
-    document.getElementById('kpi-omzet').textContent = formatIDR(totalRevenue);
-    document.getElementById('kpi-hpp').textContent = formatIDR(totalHPP);
-    document.getElementById('kpi-operasional').textContent = formatIDR(operationalExpenses);
-    document.getElementById('kpi-laba-bersih').textContent = formatIDR(netProfit);
+    const elOmzet = document.getElementById('kpi-omzet');
+    if (elOmzet) elOmzet.textContent = formatIDR(totalRevenue);
+
+    const elSubOmzet = document.getElementById('kpi-sub-omzet');
+    if (elSubOmzet) {
+      elSubOmzet.innerHTML = `<i data-lucide="shopping-cart" class="w-3.5 h-3.5 mr-1"></i><span>${currentSales.length} transaksi (${totalItemsSold} item terjual)</span>`;
+    }
+
+    const elHpp = document.getElementById('kpi-hpp');
+    if (elHpp) elHpp.textContent = formatIDR(totalHPP);
+
+    const elSubHpp = document.getElementById('kpi-sub-hpp');
+    if (elSubHpp) elSubHpp.textContent = `Rasio HPP: ${hppRatio}% dari omzet`;
+
+    const elOperasional = document.getElementById('kpi-operasional');
+    if (elOperasional) elOperasional.textContent = formatIDR(operationalExpenses);
+
+    const elSubOperasional = document.getElementById('kpi-sub-operasional');
+    if (elSubOperasional) elSubOperasional.textContent = `${currentExpenses.length} pos beban operasional`;
+
+    const elNet = document.getElementById('kpi-laba-bersih');
+    if (elNet) elNet.textContent = formatIDR(netProfit);
+
+    const elSubNet = document.getElementById('kpi-sub-net');
+    if (elSubNet) elSubNet.textContent = `Margin Bersih: ${netMargin}%`;
+
+    // Branch Comparison Breakdown (Talaud vs Kembang Janggut)
+    const tldSales = allValidSales.filter(s => s.branchId === 'TLD');
+    const tldRevenue = tldSales.reduce((acc, s) => acc + (Number(s.total) || 0), 0);
+    const tldHpp = tldSales.reduce((acc, s) => acc + (s.items || []).reduce((sum, it) => sum + ((Number(it.hpp) || 0) * (Number(it.qty) || 1)), 0), 0);
+    const tldExp = allValidExpenses.filter(e => e.branchId === 'TLD').reduce((acc, e) => acc + (Number(e.amount) || 0), 0);
+    const tldNet = (tldRevenue - tldHpp) - tldExp;
+
+    const kbjSales = allValidSales.filter(s => s.branchId === 'KBJ');
+    const kbjRevenue = kbjSales.reduce((acc, s) => acc + (Number(s.total) || 0), 0);
+    const kbjHpp = kbjSales.reduce((acc, s) => acc + (s.items || []).reduce((sum, it) => sum + ((Number(it.hpp) || 0) * (Number(it.qty) || 1)), 0), 0);
+    const kbjExp = allValidExpenses.filter(e => e.branchId === 'KBJ').reduce((acc, e) => acc + (Number(e.amount) || 0), 0);
+    const kbjNet = (kbjRevenue - kbjHpp) - kbjExp;
+
+    const maxBranchRev = Math.max(tldRevenue, kbjRevenue, 1);
+    const tldBarPct = tldRevenue > 0 ? Math.min(100, Math.round((tldRevenue / maxBranchRev) * 100)) : 0;
+    const kbjBarPct = kbjRevenue > 0 ? Math.min(100, Math.round((kbjRevenue / maxBranchRev) * 100)) : 0;
+
+    const elTldOmzet = document.getElementById('branch-tld-omzet');
+    if (elTldOmzet) elTldOmzet.textContent = formatIDR(tldRevenue);
+    const elTldNet = document.getElementById('branch-tld-net');
+    if (elTldNet) elTldNet.textContent = formatIDR(tldNet);
+    const elTldCount = document.getElementById('branch-tld-count');
+    if (elTldCount) elTldCount.textContent = `${tldSales.length} Struk`;
+    const elTldBar = document.getElementById('branch-tld-bar');
+    if (elTldBar) elTldBar.style.width = `${tldBarPct}%`;
+
+    const elKbjOmzet = document.getElementById('branch-kbj-omzet');
+    if (elKbjOmzet) elKbjOmzet.textContent = formatIDR(kbjRevenue);
+    const elKbjNet = document.getElementById('branch-kbj-net');
+    if (elKbjNet) elKbjNet.textContent = formatIDR(kbjNet);
+    const elKbjCount = document.getElementById('branch-kbj-count');
+    if (elKbjCount) elKbjCount.textContent = `${kbjSales.length} Struk`;
+    const elKbjBar = document.getElementById('branch-kbj-bar');
+    if (elKbjBar) elKbjBar.style.width = `${kbjBarPct}%`;
 
     // Subtitle & Header
     const subtitle = document.getElementById('dash-subtitle');
-    if (branch === 'ALL') {
-      subtitle.textContent = 'Pemantauan konsolidasi performa finansial seluruh cabang Tonang Farma.';
-    } else if (branch === 'TLD') {
-      subtitle.textContent = 'Data operasional & keuangan khusus Cabang Kepulauan Talaud (Sulut).';
-    } else {
-      subtitle.textContent = 'Data operasional & keuangan khusus Cabang Kembang Janggut (Kaltim).';
+    if (subtitle) {
+      if (branch === 'ALL') {
+        subtitle.textContent = 'Pemantauan konsolidasi performa finansial seluruh cabang Tonang Farma.';
+      } else if (branch === 'TLD') {
+        subtitle.textContent = 'Data operasional & keuangan khusus Cabang Kepulauan Talaud (Sulut).';
+      } else {
+        subtitle.textContent = 'Data operasional & keuangan khusus Cabang Kembang Janggut (Kaltim).';
+      }
     }
 
-    // Render Alerts
+    // Render Alerts, Top Lists, and Chart
     renderDashboardAlerts();
-    renderTopLists();
+    renderTopLists(currentSales);
     renderDashboardChart();
+    if (window.lucide) lucide.createIcons();
   }
 
   function renderDashboardAlerts() {
@@ -952,55 +1065,75 @@
     if (window.lucide) lucide.createIcons();
   }
 
-  function renderTopLists() {
+  function renderTopLists(salesList) {
     const topSellingEl = document.getElementById('top-selling-list');
     const topProfitEl = document.getElementById('top-profit-list');
-    
-    topSellingEl.innerHTML = `
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
-        <div><span class="font-bold text-slate-800">1. Paracetamol 500mg</span><div class="text-[10px] text-slate-500">Fast-moving OTC</div></div>
-        <span class="mono font-extrabold text-slate-900">1.420 Tab</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
-        <div><span class="font-bold text-slate-800">2. Amoxicillin 500mg</span><div class="text-[10px] text-slate-500">Antibiotik Resep</div></div>
-        <span class="mono font-extrabold text-slate-900">890 Kap</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
-        <div><span class="font-bold text-slate-800">3. Antasida Doen</span><div class="text-[10px] text-slate-500">Obat Maag Lambung</div></div>
-        <span class="mono font-extrabold text-slate-900">760 Tab</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
-        <div><span class="font-bold text-slate-800">4. Vitamin C 500mg IPI</span><div class="text-[10px] text-slate-500">Suplemen Harian</div></div>
-        <span class="mono font-extrabold text-slate-900">410 Btl</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
-        <div><span class="font-bold text-slate-800">5. Minyak Kayu Putih 60ml</span><div class="text-[10px] text-slate-500">Produk Herbal</div></div>
-        <span class="mono font-extrabold text-slate-900">320 Btl</span>
-      </div>
-    `;
+    if (!topSellingEl || !topProfitEl) return;
 
-    topProfitEl.innerHTML = `
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-emerald-50/50 border border-emerald-100">
-        <div><span class="font-bold text-slate-800">1. Cefixime 100mg</span><div class="text-[10px] text-slate-500">Margin Rp 1.700/unit</div></div>
-        <span class="mono font-extrabold text-emerald-700">Rp 5.270.000</span>
+    const list = salesList || (appState.sales || []).filter(s => s.status !== 'VOID');
+    if (list.length === 0) {
+      const emptyHtml = `
+        <div class="py-6 text-center text-slate-400 col-span-full">
+          <i data-lucide="inbox" class="w-7 h-7 mx-auto mb-1 text-slate-300"></i>
+          <p class="text-xs font-semibold text-slate-600">Belum Ada Transaksi Penjualan</p>
+          <p class="text-[10px] text-slate-400">Peringkat produk akan muncul otomatis setelah kasir mencatat penjualan aktual.</p>
+        </div>
+      `;
+      topSellingEl.innerHTML = emptyHtml;
+      topProfitEl.innerHTML = emptyHtml;
+      if (window.lucide) lucide.createIcons();
+      return;
+    }
+
+    // Aggregate by medicine
+    const medMap = {};
+    list.forEach(sale => {
+      (sale.items || []).forEach(it => {
+        const key = it.medicineId || it.name;
+        if (!medMap[key]) {
+          medMap[key] = {
+            id: it.medicineId,
+            name: it.name,
+            unit: it.unit || it.baseUnit || 'Unit',
+            qty: 0,
+            revenue: 0,
+            profit: 0
+          };
+        }
+        const qty = Number(it.qty) || 1;
+        const price = Number(it.price) || 0;
+        const hpp = Number(it.hpp) || 0;
+        medMap[key].qty += qty;
+        medMap[key].revenue += (price * qty);
+        medMap[key].profit += ((price - hpp) * qty);
+      });
+    });
+
+    const items = Object.values(medMap);
+    const byQty = [...items].sort((a, b) => b.qty - a.qty).slice(0, 5);
+    const byProfit = [...items].sort((a, b) => b.profit - a.profit).slice(0, 5);
+
+    topSellingEl.innerHTML = byQty.map((item, idx) => `
+      <div class="flex items-center justify-between text-xs p-2 rounded bg-slate-50 border border-slate-100">
+        <div>
+          <span class="font-bold text-slate-800">${idx + 1}. ${item.name}</span>
+          <div class="text-[10px] text-slate-500">Omzet: ${formatIDR(item.revenue)}</div>
+        </div>
+        <span class="mono font-extrabold text-slate-900">${item.qty} ${item.unit}</span>
       </div>
+    `).join('');
+
+    topProfitEl.innerHTML = byProfit.map((item, idx) => `
       <div class="flex items-center justify-between text-xs p-2 rounded bg-emerald-50/50 border border-emerald-100">
-        <div><span class="font-bold text-slate-800">2. Termometer Digital</span><div class="text-[10px] text-slate-500">Margin Rp 13.000/pcs</div></div>
-        <span class="mono font-extrabold text-emerald-700">Rp 3.900.000</span>
+        <div>
+          <span class="font-bold text-slate-800">${idx + 1}. ${item.name}</span>
+          <div class="text-[10px] text-slate-500">Terjual ${item.qty} ${item.unit}</div>
+        </div>
+        <span class="mono font-extrabold text-emerald-700">${formatIDR(item.profit)}</span>
       </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-emerald-50/50 border border-emerald-100">
-        <div><span class="font-bold text-slate-800">3. Amoxicillin 500mg</span><div class="text-[10px] text-slate-500">Margin Rp 550/unit</div></div>
-        <span class="mono font-extrabold text-emerald-700">Rp 3.410.000</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-emerald-50/50 border border-emerald-100">
-        <div><span class="font-bold text-slate-800">4. Minyak Kayu Putih</span><div class="text-[10px] text-slate-500">Margin Rp 6.500/btl</div></div>
-        <span class="mono font-extrabold text-emerald-700">Rp 2.080.000</span>
-      </div>
-      <div class="flex items-center justify-between text-xs p-2 rounded bg-emerald-50/50 border border-emerald-100">
-        <div><span class="font-bold text-slate-800">5. Vitamin C 500mg</span><div class="text-[10px] text-slate-500">Margin Rp 3.000/btl</div></div>
-        <span class="mono font-extrabold text-emerald-700">Rp 1.230.000</span>
-      </div>
-    `;
+    `).join('');
+
+    if (window.lucide) lucide.createIcons();
   }
 
   function renderDashboardChart() {
@@ -1011,9 +1144,43 @@
       salesChartInstance.destroy();
     }
 
-    const labels = ['16 Nov', '17 Nov', '18 Nov', '19 Nov', '20 Nov', '21 Nov', '22 Nov (Hari Ini)'];
-    const dataTalaud = [8400000, 9100000, 8900000, 10200000, 9800000, 11400000, 10400000];
-    const dataKembang = [7600000, 8200000, 7900000, 8800000, 8500000, 9600000, 9650000];
+    // Build last 7 calendar days labels and aggregate real sales per branch
+    const labels = [];
+    const dataTalaud = [];
+    const dataKembang = [];
+    const now = new Date();
+
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+      const dayStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0);
+      const dayEnd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59, 999);
+
+      const dayStr = `${d.getDate()} ${monthNames[d.getMonth()]}${i === 0 ? ' (Hari Ini)' : ''}`;
+      labels.push(dayStr);
+
+      const tldDaySum = (appState.sales || [])
+        .filter(s => s.status !== 'VOID' && s.branchId === 'TLD')
+        .filter(s => {
+          if (!s.date) return false;
+          const sd = new Date(s.date);
+          return sd >= dayStart && sd <= dayEnd;
+        })
+        .reduce((sum, s) => sum + (Number(s.total) || 0), 0);
+
+      const kbjDaySum = (appState.sales || [])
+        .filter(s => s.status !== 'VOID' && s.branchId === 'KBJ')
+        .filter(s => {
+          if (!s.date) return false;
+          const sd = new Date(s.date);
+          return sd >= dayStart && sd <= dayEnd;
+        })
+        .reduce((sum, s) => sum + (Number(s.total) || 0), 0);
+
+      dataTalaud.push(tldDaySum);
+      dataKembang.push(kbjDaySum);
+    }
 
     salesChartInstance = new Chart(ctx, {
       type: 'line',
@@ -1056,8 +1223,11 @@
         },
         scales: {
           y: {
+            beginAtZero: true,
+            suggestedMin: 0,
+            suggestedMax: 5000000,
             ticks: {
-              callback: (val) => 'Rp ' + (val / 1000000) + ' Jt',
+              callback: (val) => val === 0 ? 'Rp 0' : 'Rp ' + (val >= 1000000 ? (val / 1000000) + ' Jt' : (val / 1000) + ' Rb'),
               font: { family: 'JetBrains Mono', size: 10 }
             },
             grid: { color: '#f1f5f9' }
@@ -1334,6 +1504,15 @@
       return;
     }
 
+    let actualItemHpp = 0;
+    if (tier === 'box' && (branchCfg.pkgBuyPrice > 0 || medicine.pkgBuyPrice > 0)) {
+      actualItemHpp = branchCfg.pkgBuyPrice || medicine.pkgBuyPrice;
+    } else if (tier === 'strip' && (branchCfg.stripBuyPrice > 0 || medicine.stripBuyPrice > 0)) {
+      actualItemHpp = branchCfg.stripBuyPrice || medicine.stripBuyPrice;
+    } else {
+      actualItemHpp = (branchCfg.buyPrice || medicine.buyPrice || 0) * multiplier;
+    }
+
     const existingIndex = appState.cart.findIndex(i => i.medicineId === medicine.id && i.tier === tier);
     if (existingIndex > -1) {
       appState.cart[existingIndex].qty += 1;
@@ -1347,7 +1526,7 @@
         baseUnit: medicine.baseUnit,
         multiplier: multiplier,
         price: unitPrice,
-        hpp: (branchCfg.buyPrice || medicine.buyPrice || 0) * multiplier,
+        hpp: actualItemHpp,
         qty: 1,
         subtotal: unitPrice
       });
@@ -2691,6 +2870,16 @@
       const minStockDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.minStock !== undefined ? bCfg.minStock : (med.minStock || 10)) : (med.minStock !== undefined ? med.minStock : 10);
       const minStockUnitDisplay = (activeMasterBranchFilter !== 'ALL') ? (bCfg.minStockUnit || med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.buyUnit || 'Box')))) : (med.minStockUnit || (med.dosageForm === 'Sirup' || med.baseUnit === 'Botol' ? 'Botol' : (med.stripUnit ? med.stripUnit : (med.buyUnit || 'Box'))));
 
+      const hasStripMed = Boolean(med.stripUnit && (Number(med.stripConversion) || 0) > 1);
+      const pkgHppDisplay = (activeMasterBranchFilter !== 'ALL')
+        ? (bCfg.pkgBuyPrice || (bCfg.buyPrice && med.conversionRate ? Math.round(bCfg.buyPrice * med.conversionRate) : 0))
+        : (med.pkgBuyPrice || bCfg.pkgBuyPrice || (buyPriceDisplay && med.conversionRate ? Math.round(buyPriceDisplay * med.conversionRate) : 0));
+      const stripHppDisplay = hasStripMed
+        ? ((activeMasterBranchFilter !== 'ALL')
+            ? (bCfg.stripBuyPrice || (bCfg.buyPrice && med.stripConversion ? Math.round(bCfg.buyPrice * med.stripConversion) : 0))
+            : (med.stripBuyPrice || bCfg.stripBuyPrice || (buyPriceDisplay && med.stripConversion ? Math.round(buyPriceDisplay * med.stripConversion) : 0)))
+        : 0;
+
       const tldActive = med.branchConfigs?.TLD?.active !== false;
       const kbjActive = med.branchConfigs?.KBJ?.active !== false;
 
@@ -2737,9 +2926,15 @@
           <div class="font-bold text-slate-800">1 ${med.buyUnit || 'Box'} = ${med.conversionRate || 100} ${med.baseUnit || 'Tablet'}</div>
           ${med.stripUnit && med.stripConversion > 1 ? `<div class="text-[10px] text-blue-700 font-semibold">1 ${med.stripUnit} = ${med.stripConversion} ${med.baseUnit || 'Tablet'}</div>` : ''}
         </td>
-        <td class="py-3 px-4 text-right mono text-slate-700 font-semibold">
-          <div>${formatIDR(buyPriceDisplay)} <span class="text-[10px] font-normal text-slate-400">/${med.baseUnit || 'Tab'}</span></div>
-          ${(med.conversionRate || 1) > 1 && buyPriceDisplay > 0 ? `<div class="text-[9px] text-amber-700 font-semibold">(${formatIDR(Math.round(buyPriceDisplay * med.conversionRate))} / ${med.buyUnit || 'Box'})</div>` : ''}
+        <td class="py-3 px-4 text-right mono text-slate-700">
+          ${hasStripMed ? `
+            <div class="font-bold text-blue-900">${stripHppDisplay > 0 ? formatIDR(stripHppDisplay) : '-'} <span class="text-[10px] font-normal text-blue-600">/${med.stripUnit}</span></div>
+            ${pkgHppDisplay > 0 ? `<div class="text-[10px] text-purple-700 font-semibold">${formatIDR(pkgHppDisplay)} <span class="font-normal text-slate-400">/${med.buyUnit || 'Box'}</span></div>` : ''}
+            ${buyPriceDisplay > 0 ? `<div class="text-[9px] text-slate-400 font-normal">Dasar: ${formatIDR(buyPriceDisplay)}/${med.baseUnit || 'Tab'}</div>` : ''}
+          ` : `
+            <div class="font-bold text-emerald-900">${buyPriceDisplay > 0 ? formatIDR(buyPriceDisplay) : '-'} <span class="text-[10px] font-normal text-emerald-600">/${med.baseUnit || 'Botol'}</span></div>
+            ${pkgHppDisplay > 0 ? `<div class="text-[10px] text-purple-700 font-semibold">${formatIDR(pkgHppDisplay)} <span class="font-normal text-slate-400">/${med.buyUnit || 'Dus'}</span></div>` : ''}
+          `}
         </td>
         <td class="py-3 px-4 text-right">
           ${sellPriceDisplay > 0 ? `<div class="mono font-bold text-emerald-700">${formatIDR(sellPriceDisplay)} <span class="text-[10px] font-normal text-slate-500">/${med.baseUnit || 'Tab'}</span></div>` : `<div class="text-[10px] text-slate-400 italic">Eceran: -</div>`}
@@ -3096,18 +3291,23 @@
   }
 
   // Helper to update live HPP calculation badge
-  function updateBranchHPPBadge(branchKey, baseHpp, pkgHpp, med) {
+  function updateBranchHPPBadge(branchKey, baseHpp, pkgHpp, med, stripHpp) {
     const badge = document.getElementById(`bp-${branchKey}-hpp-summary-calc`);
     if (!badge || !med) return;
     const baseUnit = med.baseUnit || 'Tablet';
     const buyUnit = med.buyUnit || 'Box';
-    const convRate = Number(med.conversionRate) || 1;
+    const stripUnit = med.stripUnit || '';
+    const stripConv = Number(med.stripConversion) || 0;
+    const hasStrip = Boolean(stripUnit && stripConv > 1);
 
-    if (baseHpp > 0 || pkgHpp > 0) {
-      badge.innerHTML = `💡 1 ${buyUnit} (${convRate} ${baseUnit}) = <b>${formatIDR(pkgHpp)}</b> ➔ HPP Modal = <b>${formatIDR(baseHpp)} / ${baseUnit}</b>`;
+    if (hasStrip) {
+      badge.innerHTML = `💡 <b>Input Mandiri:</b> 1 ${buyUnit} = <b>${formatIDR(pkgHpp || 0)}</b> | 1 ${stripUnit} = <b>${formatIDR(stripHpp || 0)}</b> (Dasar: ${formatIDR(baseHpp || 0)}/${baseUnit})`;
+      badge.className = 'text-[10px] text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300';
+    } else if (baseHpp > 0 || pkgHpp > 0) {
+      badge.innerHTML = `💡 <b>Input Mandiri:</b> 1 ${baseUnit} = <b>${formatIDR(baseHpp || 0)}</b>${pkgHpp > 0 ? ` | 1 ${buyUnit} = <b>${formatIDR(pkgHpp)}</b>` : ''}`;
       badge.className = 'text-[10px] text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300';
     } else {
-      badge.textContent = `💡 Belum diisi. Masukkan HPP 1 ${buyUnit} atau per ${baseUnit}`;
+      badge.textContent = `💡 Input HPP Box & HPP Strip masing-masing secara mandiri (tidak dikali otomatis).`;
       badge.className = 'text-[10px] text-amber-800 font-bold bg-amber-100 px-2 py-0.5 rounded border border-amber-300';
     }
   }
@@ -3219,14 +3419,29 @@
     const tldBarcode = document.getElementById('bp-tld-barcode');
     if (tldBarcode) tldBarcode.value = tldCfg.barcode || '';
 
-    // Talaud HPP inputs (Package HPP vs Base HPP)
-    const tldBaseHpp = tldCfg.buyPrice ?? (med.buyPrice ?? 0);
-    const tldPkgHpp = Math.round(tldBaseHpp * convRate);
+    // Talaud HPP inputs (Pengisian Mandiri HPP Box & HPP Strip)
+    const lblTldBuyBase = document.getElementById('lbl-bp-tld-buy-base');
+    const subTldBuyBase = document.getElementById('sub-bp-tld-buy-base');
     const tldBuyPkgInp = document.getElementById('bp-tld-buy-pkg-price');
-    if (tldBuyPkgInp) tldBuyPkgInp.value = tldPkgHpp > 0 ? tldPkgHpp : '';
     const tldBuyInp = document.getElementById('bp-tld-buy-price');
-    if (tldBuyInp) tldBuyInp.value = tldBaseHpp > 0 ? tldBaseHpp : '';
-    updateBranchHPPBadge('tld', tldBaseHpp, tldPkgHpp, med);
+
+    const tldPkgHpp = tldCfg.pkgBuyPrice ?? (tldCfg.buyPrice && convRate > 0 ? Math.round(tldCfg.buyPrice * convRate) : 0);
+    if (tldBuyPkgInp) tldBuyPkgInp.value = tldPkgHpp > 0 ? tldPkgHpp : '';
+
+    let tldDisplayHpp = 0;
+    if (hasStrip) {
+      if (lblTldBuyBase) lblTldBuyBase.textContent = `HPP per 1 ${stripUnit} *`;
+      if (subTldBuyBase) subTldBuyBase.textContent = `Modal beli per 1 ${stripUnit} (${stripConv} ${baseUnit})`;
+      tldDisplayHpp = tldCfg.stripBuyPrice ?? (tldCfg.buyPrice && stripConv > 0 ? Math.round(tldCfg.buyPrice * stripConv) : 0);
+    } else {
+      if (lblTldBuyBase) lblTldBuyBase.textContent = `HPP Satuan Dasar (per 1 ${baseUnit}) *`;
+      if (subTldBuyBase) subTldBuyBase.textContent = `Modal beli per 1 ${baseUnit} (${baseUnit === 'Botol' ? 'Sirup / Drop' : 'Eceran'})`;
+      tldDisplayHpp = tldCfg.buyPrice ?? 0;
+    }
+    if (tldBuyInp) tldBuyInp.value = tldDisplayHpp > 0 ? tldDisplayHpp : '';
+
+    const tldBaseCalculated = hasStrip ? (stripConv > 0 ? Math.round(tldDisplayHpp / stripConv) : 0) : tldDisplayHpp;
+    updateBranchHPPBadge('tld', tldBaseCalculated, tldPkgHpp, med, tldDisplayHpp);
 
     const tldSell = document.getElementById('bp-tld-sell-price');
     if (tldSell) tldSell.value = tldCfg.sellPrice > 0 ? tldCfg.sellPrice : '';
@@ -3235,7 +3450,7 @@
     const tldBox = document.getElementById('bp-tld-box-price');
     if (tldBox) tldBox.value = tldCfg.boxPrice > 0 ? tldCfg.boxPrice : '';
     const tldMin = document.getElementById('bp-tld-min-stock');
-    if (tldMin) tldMin.value = tldCfg.minStock ?? 50;
+    if (tldMin) tldMin.value = tldCfg.minStock ?? 10;
 
     // Kembang Janggut (KBJ) inputs
     const kbjActive = document.getElementById('bp-kbj-active');
@@ -3245,14 +3460,29 @@
     const kbjBarcode = document.getElementById('bp-kbj-barcode');
     if (kbjBarcode) kbjBarcode.value = kbjCfg.barcode || '';
 
-    // KBJ HPP inputs (Package HPP vs Base HPP)
-    const kbjBaseHpp = kbjCfg.buyPrice ?? 0;
-    const kbjPkgHpp = Math.round(kbjBaseHpp * convRate);
+    // KBJ HPP inputs (Pengisian Mandiri HPP Box & HPP Strip)
+    const lblKbjBuyBase = document.getElementById('lbl-bp-kbj-buy-base');
+    const subKbjBuyBase = document.getElementById('sub-bp-kbj-buy-base');
     const kbjBuyPkgInp = document.getElementById('bp-kbj-buy-pkg-price');
-    if (kbjBuyPkgInp) kbjBuyPkgInp.value = kbjPkgHpp > 0 ? kbjPkgHpp : '';
     const kbjBuyInp = document.getElementById('bp-kbj-buy-price');
-    if (kbjBuyInp) kbjBuyInp.value = kbjBaseHpp > 0 ? kbjBaseHpp : '';
-    updateBranchHPPBadge('kbj', kbjBaseHpp, kbjPkgHpp, med);
+
+    const kbjPkgHpp = kbjCfg.pkgBuyPrice ?? (kbjCfg.buyPrice && convRate > 0 ? Math.round(kbjCfg.buyPrice * convRate) : 0);
+    if (kbjBuyPkgInp) kbjBuyPkgInp.value = kbjPkgHpp > 0 ? kbjPkgHpp : '';
+
+    let kbjDisplayHpp = 0;
+    if (hasStrip) {
+      if (lblKbjBuyBase) lblKbjBuyBase.textContent = `HPP per 1 ${stripUnit} *`;
+      if (subKbjBuyBase) subKbjBuyBase.textContent = `Modal beli per 1 ${stripUnit} (${stripConv} ${baseUnit})`;
+      kbjDisplayHpp = kbjCfg.stripBuyPrice ?? (kbjCfg.buyPrice && stripConv > 0 ? Math.round(kbjCfg.buyPrice * stripConv) : 0);
+    } else {
+      if (lblKbjBuyBase) lblKbjBuyBase.textContent = `HPP Satuan Dasar (per 1 ${baseUnit}) *`;
+      if (subKbjBuyBase) subKbjBuyBase.textContent = `Modal beli per 1 ${baseUnit} (${baseUnit === 'Botol' ? 'Sirup / Drop' : 'Eceran'})`;
+      kbjDisplayHpp = kbjCfg.buyPrice ?? 0;
+    }
+    if (kbjBuyInp) kbjBuyInp.value = kbjDisplayHpp > 0 ? kbjDisplayHpp : '';
+
+    const kbjBaseCalculated = hasStrip ? (stripConv > 0 ? Math.round(kbjDisplayHpp / stripConv) : 0) : kbjDisplayHpp;
+    updateBranchHPPBadge('kbj', kbjBaseCalculated, kbjPkgHpp, med, kbjDisplayHpp);
 
     const kbjSell = document.getElementById('bp-kbj-sell-price');
     if (kbjSell) kbjSell.value = kbjCfg.sellPrice > 0 ? kbjCfg.sellPrice : '';
@@ -3263,7 +3493,6 @@
     const kbjMin = document.getElementById('bp-kbj-min-stock');
     if (kbjMin) kbjMin.value = kbjCfg.minStock ?? 10;
 
-    // Helper to populate buffer unit dropdown based on packaging
     function populateBufferUnitSelect(selectId, chosenUnit) {
       const sel = document.getElementById(selectId);
       if (!sel) return;
@@ -3327,53 +3556,41 @@
       });
     }
 
-    // Two-way real-time HPP calculation for Talaud (TLD)
+    // Live badge update for Talaud (TLD) without overwriting inputs
     const tldPkgInp = document.getElementById('bp-tld-buy-pkg-price');
     const tldBaseInp = document.getElementById('bp-tld-buy-price');
 
-    if (tldPkgInp && tldBaseInp) {
-      tldPkgInp.addEventListener('input', () => {
-        const med = getActiveMed();
-        const convRate = Number(med?.conversionRate) || 1;
-        const pkgVal = parseFloat(tldPkgInp.value) || 0;
-        const baseVal = Math.round(pkgVal / convRate);
-        tldBaseInp.value = baseVal > 0 ? baseVal : '';
-        if (med) updateBranchHPPBadge('tld', baseVal, pkgVal, med);
-      });
-
-      tldBaseInp.addEventListener('input', () => {
-        const med = getActiveMed();
-        const convRate = Number(med?.conversionRate) || 1;
-        const baseVal = parseFloat(tldBaseInp.value) || 0;
-        const pkgVal = Math.round(baseVal * convRate);
-        tldPkgInp.value = pkgVal > 0 ? pkgVal : '';
-        if (med) updateBranchHPPBadge('tld', baseVal, pkgVal, med);
-      });
+    function refreshTldHppBadge() {
+      const med = getActiveMed();
+      if (!med) return;
+      const stripConv = Number(med.stripConversion) || 0;
+      const hasStrip = Boolean(med.stripUnit && stripConv > 1);
+      const pkgVal = parseFloat(tldPkgInp?.value) || 0;
+      const secondVal = parseFloat(tldBaseInp?.value) || 0;
+      const baseVal = hasStrip ? (stripConv > 0 ? Math.round(secondVal / stripConv) : 0) : secondVal;
+      updateBranchHPPBadge('tld', baseVal, pkgVal, med, secondVal);
     }
 
-    // Two-way real-time HPP calculation for Kembang Janggut (KBJ)
+    if (tldPkgInp) tldPkgInp.addEventListener('input', refreshTldHppBadge);
+    if (tldBaseInp) tldBaseInp.addEventListener('input', refreshTldHppBadge);
+
+    // Live badge update for Kembang Janggut (KBJ) without overwriting inputs
     const kbjPkgInp = document.getElementById('bp-kbj-buy-pkg-price');
     const kbjBaseInp = document.getElementById('bp-kbj-buy-price');
 
-    if (kbjPkgInp && kbjBaseInp) {
-      kbjPkgInp.addEventListener('input', () => {
-        const med = getActiveMed();
-        const convRate = Number(med?.conversionRate) || 1;
-        const pkgVal = parseFloat(kbjPkgInp.value) || 0;
-        const baseVal = Math.round(pkgVal / convRate);
-        kbjBaseInp.value = baseVal > 0 ? baseVal : '';
-        if (med) updateBranchHPPBadge('kbj', baseVal, pkgVal, med);
-      });
-
-      kbjBaseInp.addEventListener('input', () => {
-        const med = getActiveMed();
-        const convRate = Number(med?.conversionRate) || 1;
-        const baseVal = parseFloat(kbjBaseInp.value) || 0;
-        const pkgVal = Math.round(baseVal * convRate);
-        kbjPkgInp.value = pkgVal > 0 ? pkgVal : '';
-        if (med) updateBranchHPPBadge('kbj', baseVal, pkgVal, med);
-      });
+    function refreshKbjHppBadge() {
+      const med = getActiveMed();
+      if (!med) return;
+      const stripConv = Number(med.stripConversion) || 0;
+      const hasStrip = Boolean(med.stripUnit && stripConv > 1);
+      const pkgVal = parseFloat(kbjPkgInp?.value) || 0;
+      const secondVal = parseFloat(kbjBaseInp?.value) || 0;
+      const baseVal = hasStrip ? (stripConv > 0 ? Math.round(secondVal / stripConv) : 0) : secondVal;
+      updateBranchHPPBadge('kbj', baseVal, pkgVal, med, secondVal);
     }
+
+    if (kbjPkgInp) kbjPkgInp.addEventListener('input', refreshKbjHppBadge);
+    if (kbjBaseInp) kbjBaseInp.addEventListener('input', refreshKbjHppBadge);
 
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
@@ -3408,12 +3625,7 @@
         if (kbjBox) kbjBox.value = tldBox;
         if (kbjMin) kbjMin.value = tldMin;
 
-        if (med) {
-          const baseVal = parseFloat(tldBuy) || 0;
-          const pkgVal = parseFloat(tldPkg) || 0;
-          updateBranchHPPBadge('kbj', baseVal, pkgVal, med);
-        }
-
+        refreshKbjHppBadge();
         showToast('Pengaturan harga & HPP Talaud berhasil disalin ke Kembang Janggut!', 'success');
       });
     }
@@ -3435,37 +3647,37 @@
         const tldActive = document.getElementById('bp-tld-active')?.checked ?? true;
         const tldLoc = (document.getElementById('bp-tld-location')?.value || 'Rak A-01').trim();
         const tldBarcode = (document.getElementById('bp-tld-barcode')?.value || '').trim() || med.barcode;
-        let tldBuy = Number(document.getElementById('bp-tld-buy-price')?.value) || 0;
         const tldPkgBuy = Number(document.getElementById('bp-tld-buy-pkg-price')?.value) || 0;
-        if (tldBuy === 0 && tldPkgBuy > 0) {
-          tldBuy = Math.round(tldPkgBuy / convRate);
-        }
+        const tldSecondBuy = Number(document.getElementById('bp-tld-buy-price')?.value) || 0;
+        const tldStripBuy = hasStrip ? tldSecondBuy : 0;
+        const tldBaseBuy = hasStrip ? (stripConv > 0 ? Math.round(tldSecondBuy / stripConv) : 0) : tldSecondBuy;
         const tldSell = Number(document.getElementById('bp-tld-sell-price')?.value) || 0;
         const tldStrip = hasStrip ? (Number(document.getElementById('bp-tld-strip-price')?.value) || 0) : 0;
         const tldBox = Number(document.getElementById('bp-tld-box-price')?.value) || 0;
         const tldMin = Number(document.getElementById('bp-tld-min-stock')?.value) || 10;
-        const tldMinUnit = document.getElementById('bp-tld-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? stripUnit : baseUnit);
+        const tldMinUnit = document.getElementById('bp-tld-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? med.stripUnit : med.baseUnit);
 
         const kbjActive = document.getElementById('bp-kbj-active')?.checked ?? true;
         const kbjLoc = (document.getElementById('bp-kbj-location')?.value || 'Rak B-01').trim();
         const kbjBarcode = (document.getElementById('bp-kbj-barcode')?.value || '').trim() || med.barcode;
-        let kbjBuy = Number(document.getElementById('bp-kbj-buy-price')?.value) || 0;
         const kbjPkgBuy = Number(document.getElementById('bp-kbj-buy-pkg-price')?.value) || 0;
-        if (kbjBuy === 0 && kbjPkgBuy > 0) {
-          kbjBuy = Math.round(kbjPkgBuy / convRate);
-        }
+        const kbjSecondBuy = Number(document.getElementById('bp-kbj-buy-price')?.value) || 0;
+        const kbjStripBuy = hasStrip ? kbjSecondBuy : 0;
+        const kbjBaseBuy = hasStrip ? (stripConv > 0 ? Math.round(kbjSecondBuy / stripConv) : 0) : kbjSecondBuy;
         const kbjSell = Number(document.getElementById('bp-kbj-sell-price')?.value) || 0;
         const kbjStrip = hasStrip ? (Number(document.getElementById('bp-kbj-strip-price')?.value) || 0) : 0;
         const kbjBox = Number(document.getElementById('bp-kbj-box-price')?.value) || 0;
         const kbjMin = Number(document.getElementById('bp-kbj-min-stock')?.value) || 10;
-        const kbjMinUnit = document.getElementById('bp-kbj-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? stripUnit : baseUnit);
+        const kbjMinUnit = document.getElementById('bp-kbj-min-stock-unit')?.value || med.minStockUnit || (hasStrip ? med.stripUnit : med.baseUnit);
 
         med.branchConfigs = {
           TLD: {
             active: tldActive,
             location: tldLoc,
             barcode: tldBarcode,
-            buyPrice: tldBuy,
+            pkgBuyPrice: tldPkgBuy,
+            stripBuyPrice: tldStripBuy,
+            buyPrice: tldBaseBuy,
             sellPrice: tldSell,
             stripPrice: tldStrip,
             boxPrice: tldBox,
@@ -3476,7 +3688,9 @@
             active: kbjActive,
             location: kbjLoc,
             barcode: kbjBarcode,
-            buyPrice: kbjBuy,
+            pkgBuyPrice: kbjPkgBuy,
+            stripBuyPrice: kbjStripBuy,
+            buyPrice: kbjBaseBuy,
             sellPrice: kbjSell,
             stripPrice: kbjStrip,
             boxPrice: kbjBox,
@@ -3487,7 +3701,9 @@
 
         // Also update default root fields as fallback
         med.location = tldLoc;
-        med.buyPrice = tldBuy;
+        med.buyPrice = tldBaseBuy;
+        med.pkgBuyPrice = tldPkgBuy;
+        med.stripBuyPrice = tldStripBuy;
         med.sellPrice = tldSell;
         med.stripPrice = tldStrip;
         med.boxPrice = tldBox;
