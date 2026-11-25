@@ -107,10 +107,7 @@
       if (saved) {
         const parsed = JSON.parse(saved);
         parsed.deletedMedicineCodes = parsed.deletedMedicineCodes || [];
-        parsed.medicines = (parsed.medicines || []).filter(m => 
-          !m.name?.toLowerCase().includes('allofar') &&
-          !m.name?.toLowerCase().includes('fasidol')
-        );
+        parsed.medicines = parsed.medicines || [];
         parsed.batches = (parsed.batches || []).filter(b => 
           b.batchNo !== 'MED001-2611-01' && 
           b.batchNo !== 'MED001-2611-02' && 
@@ -198,12 +195,9 @@
     const savedCart = appState.cart;
     const savedOutbox = appState.outbox;
 
-    // Server data is the absolute authority for medicines (sanitize demo data)
+    // Server data is the absolute authority for medicines
     if (Array.isArray(serverData.medicines)) {
-      appState.medicines = serverData.medicines.filter(m => 
-        !m.name?.toLowerCase().includes('allofar') &&
-        !m.name?.toLowerCase().includes('fasidol')
-      );
+      appState.medicines = serverData.medicines;
       appState.deletedMedicineCodes = [];
     }
     // Batches from server (sanitize legacy demo batches)
@@ -3336,7 +3330,16 @@
 
   // Function to open modal: Atur Cabang & Harga Bertingkat
   function openBranchPricingModal(idOrCode) {
-    const med = appState.medicines.find(m => m.id === idOrCode || m.code === idOrCode);
+    const target = (idOrCode || '').toString().trim();
+    let med = appState.medicines.find(m => 
+      (m.id && m.id.toString().trim() === target) || 
+      (m.code && m.code.toString().trim().toUpperCase() === target.toUpperCase())
+    );
+
+    if (!med && target) {
+      med = appState.medicines.find(m => (m.name || '').trim().toLowerCase() === target.toLowerCase());
+    }
+
     if (!med) {
       showToast('Data obat tidak ditemukan!', 'error');
       return;
@@ -3655,8 +3658,19 @@
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const medId = document.getElementById('branch-pricing-med-id')?.value;
-        const med = appState.medicines.find(m => m.id === medId || m.code === medId);
+        const medId = (document.getElementById('branch-pricing-med-id')?.value || '').trim();
+        let med = appState.medicines.find(m => 
+          (m.id && m.id.toString().trim() === medId) || 
+          (m.code && m.code.toString().trim().toUpperCase() === medId.toUpperCase())
+        );
+
+        if (!med && medId) {
+          const medName = (document.getElementById('branch-pricing-med-name')?.textContent || '').trim().toLowerCase();
+          if (medName) {
+            med = appState.medicines.find(m => (m.name || '').trim().toLowerCase() === medName);
+          }
+        }
+
         if (!med) {
           showToast('Data obat tidak ditemukan!', 'error');
           return;

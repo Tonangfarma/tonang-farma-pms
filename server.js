@@ -58,17 +58,6 @@ if (fs.existsSync(STATE_FILE)) {
       }
     }
 
-    if (serverState.medicines && serverState.medicines.length > 0) {
-      const origMedCount = serverState.medicines.length;
-      serverState.medicines = serverState.medicines.filter(m => 
-        !m.name?.toLowerCase().includes('allofar') &&
-        !m.name?.toLowerCase().includes('fasidol')
-      );
-      if (serverState.medicines.length !== origMedCount) {
-        needsPersist = true;
-      }
-    }
-
     if ((serverState.version || 0) < 600 || needsPersist) {
       serverState.version = Math.max(serverState.version || 1, 600);
       serverState.lastUpdated = Date.now();
