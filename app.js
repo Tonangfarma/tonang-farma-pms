@@ -434,6 +434,8 @@
       sales: appState.sales || [],
       transfers: appState.transfers,
       expenses: appState.expenses,
+      replaceExpenses: true,
+      deletedExpenseIds: appState.deletedExpenseIds || [],
       users: appState.users,
       suppliers: appState.suppliers || [],
       purchases: appState.purchases || []
@@ -5630,6 +5632,100 @@
   // ==========================================
   // 10. KEUANGAN & LABA RUGI ENGINE
   // ==========================================
+  const financeFilter = {
+    period: 'this_month', // 'this_month' | 'last_month' | 'this_year' | 'all' | 'custom'
+    startDate: '',
+    endDate: ''
+  };
+
+  function getFinanceDateRange() {
+    const now = new Date();
+    const currYear = now.getFullYear();
+    const currMonth = now.getMonth();
+    const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    if (financeFilter.period === 'this_month') {
+      const end = new Date(currYear, currMonth + 1, 0);
+      const sStr = `${currYear}-${String(currMonth + 1).padStart(2, '0')}-01`;
+      const eStr = `${currYear}-${String(currMonth + 1).padStart(2, '0')}-${String(end.getDate()).padStart(2, '0')}`;
+      return {
+        startStr: sStr,
+        endStr: eStr,
+        label: `Bulan Ini (${monthNames[currMonth]} ${currYear})`,
+        isThisMonth: true,
+        isLastMonth: false
+      };
+    } else if (financeFilter.period === 'last_month') {
+      const prevDate = new Date(currYear, currMonth - 1, 1);
+      const prevYear = prevDate.getFullYear();
+      const prevMonth = prevDate.getMonth();
+      const endPrev = new Date(prevYear, prevMonth + 1, 0);
+      const sStr = `${prevYear}-${String(prevMonth + 1).padStart(2, '0')}-01`;
+      const eStr = `${prevYear}-${String(prevMonth + 1).padStart(2, '0')}-${String(endPrev.getDate()).padStart(2, '0')}`;
+      return {
+        startStr: sStr,
+        endStr: eStr,
+        label: `Bulan Lalu (${monthNames[prevMonth]} ${prevYear})`,
+        isThisMonth: false,
+        isLastMonth: true
+      };
+    } else if (financeFilter.period === 'this_year') {
+      return {
+        startStr: `${currYear}-01-01`,
+        endStr: `${currYear}-12-31`,
+        label: `Tahun Ini (${currYear})`,
+        isThisMonth: false,
+        isLastMonth: false
+      };
+    } else if (financeFilter.period === 'all') {
+      return {
+        startStr: '2020-01-01',
+        endStr: '2099-12-31',
+        label: 'Semua Periode',
+        isThisMonth: false,
+        isLastMonth: false
+      };
+    } else if (financeFilter.period === 'custom') {
+      const sStr = financeFilter.startDate || `${currYear}-01-01`;
+      const eStr = financeFilter.endDate || `${currYear}-12-31`;
+      return {
+        startStr: sStr,
+        endStr: eStr,
+        label: `Rentang ${sStr} s/d ${eStr}`,
+        isThisMonth: false,
+        isLastMonth: false
+      };
+    }
+    return {
+      startStr: `${currYear}-01-01`,
+      endStr: `${currYear}-12-31`,
+      label: 'Bulan Ini',
+      isThisMonth: true,
+      isLastMonth: false
+    };
+  }
+
+  function getExpenseCategoryBadge(cat) {
+    switch (cat) {
+      case 'Gaji & Uang Makan':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200">Gaji & Insentif</span>';
+      case 'Listrik & Air':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">Listrik & Air</span>';
+      case 'Internet & Pulsa':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-200">Internet & WiFi</span>';
+      case 'Transport & Logistik':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200">Transport & Logistik</span>';
+      case 'Sewa Tempat':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">Sewa Tempat</span>';
+      case 'ATK & Perlengkapan':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-orange-800 border border-orange-200">ATK & Kasir</span>';
+      case 'Biaya Lain-lain':
+        return '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 border border-rose-200">Biaya Lain-lain</span>';
+      default:
+        return `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-800 border border-slate-200">${cat}</span>`;
+    }
+  }
+
   function renderFinance() {
     const branch = appState.currentBranch;
     const labelEl = document.getElementById('pnl-branch-label');
@@ -5640,86 +5736,367 @@
     const netEl = document.getElementById('pnl-net');
     const expBreakdownEl = document.getElementById('pnl-expense-breakdown');
     const expLogListEl = document.getElementById('expense-log-list');
+    const activePeriodLabel = document.getElementById('finance-active-period-label');
+    const periodPill = document.getElementById('pnl-period-pill');
+    const netMarginLabel = document.getElementById('pnl-net-margin-label');
+    const expCountBadge = document.getElementById('expense-count-badge');
+    const pnlExpCountText = document.getElementById('pnl-expense-count-text');
 
-    labelEl.textContent = branch === 'ALL' ? 'Semua Cabang (Konsolidasi)' : branch === 'TLD' ? 'Cabang Talaud' : 'Cabang Kembang Janggut';
+    if (!revEl) return;
 
-    const baseRevenue = branch === 'ALL' ? 128450000 : branch === 'TLD' ? 68200000 : 60250000;
-    const baseHPP = branch === 'ALL' ? 89915000 : branch === 'TLD' ? 47740000 : 42175000;
+    const range = getFinanceDateRange();
 
-    const filteredSales = branch === 'ALL' ? appState.sales : appState.sales.filter(s => s.branchId === branch);
-    const filteredExpenses = branch === 'ALL' ? appState.expenses : appState.expenses.filter(e => e.branchId === branch);
+    // Update Banner & Labels
+    if (activePeriodLabel) activePeriodLabel.textContent = range.label;
+    if (periodPill) periodPill.textContent = range.label;
+    if (labelEl) {
+      labelEl.textContent = branch === 'ALL' ? 'Semua Cabang (Konsolidasi)' : branch === 'TLD' ? 'Cabang Kepulauan Talaud' : 'Cabang Kembang Janggut';
+    }
 
-    const addSales = filteredSales.reduce((sum, s) => sum + s.total, 0);
-    const addHPP = filteredSales.reduce((sum, s) => sum + s.items.reduce((acc, it) => acc + (it.hpp * it.qty), 0), 0);
+    // Baseline Revenue & HPP based on selected period
+    let baseRevenue = 0;
+    let baseHPP = 0;
+
+    if (range.isThisMonth || financeFilter.period === 'all' || financeFilter.period === 'this_year') {
+      baseRevenue = branch === 'ALL' ? 128450000 : branch === 'TLD' ? 68200000 : 60250000;
+      baseHPP = branch === 'ALL' ? 89915000 : branch === 'TLD' ? 47740000 : 42175000;
+    } else if (range.isLastMonth) {
+      baseRevenue = branch === 'ALL' ? 112500000 : branch === 'TLD' ? 59800000 : 52700000;
+      baseHPP = branch === 'ALL' ? 78750000 : branch === 'TLD' ? 41860000 : 36890000;
+    }
+
+    // Filter Sales by branch and date range
+    const filteredSales = (appState.sales || []).filter(s => {
+      if (branch !== 'ALL' && s.branchId !== branch) return false;
+      const sDate = s.date ? s.date.slice(0, 10) : '';
+      if (!sDate) return true;
+      return sDate >= range.startStr && sDate <= range.endStr;
+    });
+
+    const addSales = filteredSales.reduce((sum, s) => sum + (s.total || 0), 0);
+    const addHPP = filteredSales.reduce((sum, s) => {
+      const itemsHpp = (s.items || []).reduce((acc, it) => acc + ((it.hpp || 0) * (it.qty || 1)), 0);
+      return sum + itemsHpp;
+    }, 0);
 
     const totalRev = baseRevenue + addSales;
     const totalHPP = baseHPP + addHPP;
     const grossProfit = totalRev - totalHPP;
-    const totalExpenses = filteredExpenses.reduce((sum, e) => sum + e.amount, 0);
-    const netProfit = grossProfit - totalExpenses;
 
+    // Filter Expenses by branch and date range (only show current month by default)
+    const filteredExpenses = (appState.expenses || []).filter(e => {
+      if (branch !== 'ALL' && e.branchId !== branch) return false;
+      const eDate = e.date ? e.date.slice(0, 10) : '';
+      if (!eDate) return true;
+      return eDate >= range.startStr && eDate <= range.endStr;
+    });
+
+    const totalExpenses = filteredExpenses.reduce((sum, e) => sum + (Number(e.amount) || 0), 0);
+    const netProfit = grossProfit - totalExpenses;
+    const netMargin = totalRev > 0 ? ((netProfit / totalRev) * 100).toFixed(1) : 0;
+
+    // Render P&L Values
     revEl.textContent = formatIDR(totalRev);
     cogsEl.textContent = `(${formatIDR(totalHPP)})`;
     grossEl.textContent = formatIDR(grossProfit);
     totalExpEl.textContent = `(${formatIDR(totalExpenses)})`;
     netEl.textContent = formatIDR(netProfit);
+    if (netMarginLabel) {
+      netMarginLabel.textContent = `Margin Laba Bersih: ${netMargin}% (Omzet: ${formatIDR(totalRev)})`;
+    }
 
     // Group expenses by category
     const catMap = {};
     filteredExpenses.forEach(e => {
-      catMap[e.category] = (catMap[e.category] || 0) + e.amount;
+      const c = e.category || 'Biaya Lain-lain';
+      catMap[c] = (catMap[c] || 0) + (Number(e.amount) || 0);
     });
+
+    const catKeys = Object.keys(catMap);
+    if (pnlExpCountText) {
+      pnlExpCountText.textContent = `${catKeys.length} Kategori • ${filteredExpenses.length} Beban`;
+    }
 
     expBreakdownEl.innerHTML = '';
-    Object.keys(catMap).forEach(cat => {
-      expBreakdownEl.innerHTML += `
-        <div class="flex justify-between">
-          <span>• ${cat}</span>
-          <span class="mono">${formatIDR(catMap[cat])}</span>
+    if (catKeys.length === 0) {
+      expBreakdownEl.innerHTML = `
+        <div class="py-2 text-slate-400 text-center italic text-xs">
+          Belum ada beban operasional yang dicatat pada periode ini.
         </div>`;
-    });
+    } else {
+      catKeys.forEach(cat => {
+        const catAmount = catMap[cat];
+        const pctOfExp = totalExpenses > 0 ? Math.round((catAmount / totalExpenses) * 100) : 0;
+        expBreakdownEl.innerHTML += `
+          <div class="flex items-center justify-between py-1 border-b border-slate-50 last:border-b-0 hover:bg-slate-50/80 px-1 rounded transition text-xs">
+            <div class="flex items-center space-x-1.5">
+              <span>•</span>
+              <span class="font-medium text-slate-800">${cat}</span>
+              <span class="text-[10px] text-slate-400">(${pctOfExp}%)</span>
+            </div>
+            <span class="mono font-bold text-slate-900">${formatIDR(catAmount)}</span>
+          </div>`;
+      });
+    }
 
-    // Expenses log list
+    // Render Expenses Log List
+    if (expCountBadge) {
+      expCountBadge.textContent = `${filteredExpenses.length} Beban (${formatIDR(totalExpenses)})`;
+    }
+
     expLogListEl.innerHTML = '';
-    filteredExpenses.slice().reverse().forEach(exp => {
-      expLogListEl.innerHTML += `
-        <div class="p-3 rounded-lg border border-slate-200 bg-slate-50 flex items-center justify-between text-xs">
-          <div>
-            <div class="font-bold text-slate-800">${exp.category} [${exp.branchId}]</div>
-            <div class="text-[10px] text-slate-500">${exp.date} • ${exp.notes}</div>
-          </div>
-          <span class="mono font-bold text-amber-700">${formatIDR(exp.amount)}</span>
+    if (filteredExpenses.length === 0) {
+      expLogListEl.innerHTML = `
+        <div class="p-8 text-center text-slate-400 bg-slate-50/80 rounded-xl border border-dashed border-slate-200">
+          <i data-lucide="receipt" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i>
+          <p class="font-bold text-slate-600 text-xs">Tidak ada catatan pengeluaran pada periode ini</p>
+          <p class="text-[11px] text-slate-400 mt-1">Pilih periode lain di atas atau klik tombol "Catat Beban Operasional" untuk menambah biaya.</p>
         </div>`;
-    });
+    } else {
+      // Sort newest date first
+      const sortedExp = filteredExpenses.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      sortedExp.forEach(exp => {
+        const badge = getExpenseCategoryBadge(exp.category);
+        const branchBadge = exp.branchId === 'TLD' ? '<span class="text-[9px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-0.5 rounded">Talaud</span>' : '<span class="text-[9px] font-bold bg-blue-50 text-blue-700 border border-blue-200 px-1.5 py-0.5 rounded">Kembang Janggut</span>';
+        
+        expLogListEl.innerHTML += `
+          <div class="p-3 rounded-xl border border-slate-200/90 bg-white hover:border-amber-300 hover:shadow-xs transition space-y-1.5 group">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-1.5">
+                ${badge}
+                ${branchBadge}
+                <span class="text-[11px] font-mono text-slate-500">${exp.date || '-'}</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <button type="button" class="btn-edit-expense p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition" title="Edit Pengeluaran" data-id="${exp.id}">
+                  <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                </button>
+                <button type="button" class="btn-delete-expense p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition" title="Hapus Pengeluaran" data-id="${exp.id}">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flex items-end justify-between pt-0.5">
+              <div class="text-xs text-slate-600 pr-2 leading-relaxed">
+                <span class="font-medium text-slate-800">${exp.notes || 'Biaya operasional apotek'}</span>
+              </div>
+              <span class="mono font-black text-amber-700 text-sm whitespace-nowrap">${formatIDR(exp.amount)}</span>
+            </div>
+          </div>`;
+      });
+    }
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
   }
 
   function setupExpenseModal() {
     const openBtn = document.getElementById('btn-open-expense-modal');
+    const quickAddBtn = document.getElementById('btn-quick-add-expense');
     const modal = document.getElementById('modal-expense');
     const form = document.getElementById('form-expense');
+    const editIdInput = document.getElementById('expense-edit-id');
+    const titleEl = document.getElementById('modal-expense-title');
+    const submitBtn = document.getElementById('btn-submit-expense');
+    const dateInput = document.getElementById('expense-date');
+    const expListEl = document.getElementById('expense-log-list');
 
-    openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-    modal.querySelectorAll('.btn-close-modal').forEach(b => b.addEventListener('click', () => modal.classList.add('hidden')));
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const newExp = {
-        id: 'EXP-' + Date.now(),
-        branchId: document.getElementById('expense-branch').value,
-        date: new Date().toISOString().split('T')[0],
-        category: document.getElementById('expense-category').value,
-        amount: Number(document.getElementById('expense-amount').value),
-        notes: document.getElementById('expense-notes').value
-      };
-
-      appState.expenses.push(newExp);
-      saveState();
-      modal.classList.add('hidden');
+    function openModalForAdd() {
+      if (!modal) return;
       form.reset();
-      showToast(`Pengeluaran ${newExp.category} sebesar ${formatIDR(newExp.amount)} berhasil dicatat!`, 'success');
-      renderFinance();
-      renderDashboard();
+      if (editIdInput) editIdInput.value = '';
+      if (titleEl) titleEl.textContent = 'Catat Pengeluaran Beban Operasional';
+      if (submitBtn) submitBtn.textContent = 'Simpan Pengeluaran';
+      if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+      
+      const branchSel = document.getElementById('expense-branch');
+      if (branchSel && appState.currentBranch !== 'ALL') {
+        branchSel.value = appState.currentBranch;
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function openModalForEdit(expId) {
+      if (!modal) return;
+      const target = (appState.expenses || []).find(e => e.id === expId);
+      if (!target) {
+        showToast('Data pengeluaran tidak ditemukan!', 'error');
+        return;
+      }
+
+      if (editIdInput) editIdInput.value = target.id;
+      if (titleEl) titleEl.textContent = 'Edit Pengeluaran Beban Operasional';
+      if (submitBtn) submitBtn.textContent = 'Perbarui Pengeluaran';
+      
+      const branchSel = document.getElementById('expense-branch');
+      if (branchSel) branchSel.value = target.branchId || 'TLD';
+      if (dateInput) dateInput.value = target.date || new Date().toISOString().split('T')[0];
+      const catSel = document.getElementById('expense-category');
+      if (catSel) catSel.value = target.category || 'Biaya Lain-lain';
+      const amtInput = document.getElementById('expense-amount');
+      if (amtInput) amtInput.value = target.amount || 0;
+      const notesInput = document.getElementById('expense-notes');
+      if (notesInput) notesInput.value = target.notes || '';
+
+      modal.classList.remove('hidden');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModalForAdd);
+    if (quickAddBtn) quickAddBtn.addEventListener('click', openModalForAdd);
+
+    if (modal) {
+      modal.querySelectorAll('.btn-close-modal').forEach(b => {
+        b.addEventListener('click', () => modal.classList.add('hidden'));
+      });
+    }
+
+    // Delegated edit & delete buttons
+    if (expListEl) {
+      expListEl.addEventListener('click', (e) => {
+        const editBtn = e.target.closest('.btn-edit-expense');
+        const delBtn = e.target.closest('.btn-delete-expense');
+
+        if (editBtn) {
+          const id = editBtn.dataset.id;
+          openModalForEdit(id);
+        } else if (delBtn) {
+          const id = delBtn.dataset.id;
+          const target = (appState.expenses || []).find(x => x.id === id);
+          if (!target) return;
+
+          const ok = confirm(`Konfirmasi Hapus:\nApakah Anda yakin ingin menghapus catatan biaya "${target.category} - ${formatIDR(target.amount)}"?`);
+          if (ok) {
+            appState.expenses = (appState.expenses || []).filter(x => x.id !== id);
+            appState.deletedExpenseIds = appState.deletedExpenseIds || [];
+            appState.deletedExpenseIds.push(id);
+            saveState();
+            showToast(`Pengeluaran ${target.category} berhasil dihapus!`, 'success');
+            renderFinance();
+            renderDashboard();
+          }
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const editId = editIdInput ? editIdInput.value : '';
+        const branchVal = document.getElementById('expense-branch').value;
+        const dateVal = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
+        const catVal = document.getElementById('expense-category').value;
+        const amountVal = Number(document.getElementById('expense-amount').value);
+        const notesVal = document.getElementById('expense-notes').value.trim();
+
+        if (isNaN(amountVal) || amountVal <= 0) {
+          showToast('Nominal biaya harus lebih besar dari Rp 0!', 'error');
+          return;
+        }
+
+        if (editId) {
+          // Edit existing expense
+          const idx = (appState.expenses || []).findIndex(x => x.id === editId);
+          if (idx !== -1) {
+            appState.expenses[idx] = {
+              ...appState.expenses[idx],
+              branchId: branchVal,
+              date: dateVal,
+              category: catVal,
+              amount: amountVal,
+              notes: notesVal
+            };
+            showToast(`Pengeluaran ${catVal} berhasil diperbarui!`, 'success');
+          }
+        } else {
+          // Create new expense
+          const newExp = {
+            id: 'EXP-' + Date.now(),
+            branchId: branchVal,
+            date: dateVal,
+            category: catVal,
+            amount: amountVal,
+            notes: notesVal
+          };
+          appState.expenses = appState.expenses || [];
+          appState.expenses.push(newExp);
+          showToast(`Pengeluaran ${catVal} sebesar ${formatIDR(amountVal)} berhasil dicatat!`, 'success');
+        }
+
+        saveState();
+        modal.classList.add('hidden');
+        form.reset();
+        renderFinance();
+        renderDashboard();
+      });
+    }
+
+    // Setup Period Filter Buttons & Inputs
+    document.querySelectorAll('.finance-period-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.finance-period-btn').forEach(b => {
+          b.classList.remove('bg-emerald-600', 'text-white');
+          b.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+        btn.classList.add('bg-emerald-600', 'text-white');
+
+        financeFilter.period = btn.dataset.period || 'this_month';
+        renderFinance();
+      });
     });
+
+    const applyFilterBtn = document.getElementById('btn-apply-finance-filter');
+    const resetFilterBtn = document.getElementById('btn-reset-finance-filter');
+    const startInput = document.getElementById('finance-start-date');
+    const endInput = document.getElementById('finance-end-date');
+
+    if (applyFilterBtn && startInput && endInput) {
+      applyFilterBtn.addEventListener('click', () => {
+        const sVal = startInput.value;
+        const eVal = endInput.value;
+        if (!sVal || !eVal) {
+          showToast('Harap pilih Tanggal Dari dan Sampai!', 'warning');
+          return;
+        }
+        if (sVal > eVal) {
+          showToast('Tanggal Dari tidak boleh lebih besar dari Sampai!', 'warning');
+          return;
+        }
+
+        document.querySelectorAll('.finance-period-btn').forEach(b => {
+          b.classList.remove('bg-emerald-600', 'text-white');
+          b.classList.add('bg-slate-100', 'text-slate-700');
+        });
+
+        financeFilter.period = 'custom';
+        financeFilter.startDate = sVal;
+        financeFilter.endDate = eVal;
+        renderFinance();
+        showToast(`Memfilter laporan periode ${sVal} s/d ${eVal}`, 'info');
+      });
+    }
+
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener('click', () => {
+        if (startInput) startInput.value = '';
+        if (endInput) endInput.value = '';
+        document.querySelectorAll('.finance-period-btn').forEach(b => {
+          if (b.dataset.period === 'this_month') {
+            b.classList.add('bg-emerald-600', 'text-white');
+            b.classList.remove('bg-slate-100', 'text-slate-700');
+          } else {
+            b.classList.remove('bg-emerald-600', 'text-white');
+            b.classList.add('bg-slate-100', 'text-slate-700');
+          }
+        });
+        financeFilter.period = 'this_month';
+        financeFilter.startDate = '';
+        financeFilter.endDate = '';
+        renderFinance();
+        showToast('Periode dikembalikan ke Bulan Ini (Default)', 'info');
+      });
+    }
   }
 
   // ==========================================
@@ -6418,7 +6795,7 @@
     }
     const mobileText = document.getElementById('mobile-url-text')?.textContent.trim();
     if (mobileText && mobileText.startsWith('http')) return mobileText;
-    return 'https://number-org-discrete-arranged.trycloudflare.com';
+    return 'https://pos.tonangfarma.com';
   }
 
   function setupMobileAccessModal() {

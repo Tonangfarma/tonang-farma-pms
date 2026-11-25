@@ -871,77 +871,159 @@
     <!-- ======================================================== -->
     <div id="view-finance" class="tab-pane hidden animate-fade-in space-y-6">
       
+      <!-- Top Title & Action -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 class="text-xl font-bold text-slate-900">Keuangan & Laba Rugi Cabang</h1>
           <p class="text-xs text-slate-500">Pemisahan arus kas per cabang, pencatatan beban operasional, dan laporan P&L konsolidasi.</p>
         </div>
-        <button id="btn-open-expense-modal" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-sm">
-          <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+        <button id="btn-open-expense-modal" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold flex items-center space-x-2 shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i>
           <span>Catat Beban Operasional</span>
         </button>
+      </div>
+
+      <!-- KONTROL FILTER PERIODE LABA RUGI -->
+      <div class="bg-white rounded-xl card-shadow p-4 space-y-3 border border-slate-200">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+          
+          <!-- Preset Buttons -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-extrabold text-slate-700 flex items-center mr-1">
+              <i data-lucide="calendar" class="w-4 h-4 mr-1 text-emerald-600"></i>
+              Filter Periode:
+            </span>
+            <button type="button" class="finance-period-btn px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-xs bg-emerald-600 text-white" data-period="this_month">
+              Bulan Ini (Default)
+            </button>
+            <button type="button" class="finance-period-btn px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700" data-period="last_month">
+              Bulan Lalu
+            </button>
+            <button type="button" class="finance-period-btn px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700" data-period="this_year">
+              Tahun Ini
+            </button>
+            <button type="button" class="finance-period-btn px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700" data-period="all">
+              Semua Periode
+            </button>
+          </div>
+
+          <!-- Custom Date Range Form -->
+          <div class="flex flex-wrap items-center gap-2 pt-1 lg:pt-0">
+            <div class="flex items-center space-x-1.5 text-xs text-slate-600">
+              <span class="font-semibold text-slate-500">Dari:</span>
+              <input type="date" id="finance-start-date" class="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs font-medium focus:ring-1 focus:ring-emerald-500 focus:bg-white">
+            </div>
+            <div class="flex items-center space-x-1.5 text-xs text-slate-600">
+              <span class="font-semibold text-slate-500">Sampai:</span>
+              <input type="date" id="finance-end-date" class="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs font-medium focus:ring-1 focus:ring-emerald-500 focus:bg-white">
+            </div>
+            <button type="button" id="btn-apply-finance-filter" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm transition">
+              <i data-lucide="filter" class="w-3.5 h-3.5"></i>
+              <span>Terapkan</span>
+            </button>
+            <button type="button" id="btn-reset-finance-filter" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold transition" title="Kembali ke Bulan Ini (Default)">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Banner Info Periode Aktif -->
+        <div class="flex flex-wrap items-center justify-between text-xs bg-slate-50 rounded-lg px-3 py-2 border border-slate-200/70 text-slate-600">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Menampilkan data periode: <b id="finance-active-period-label" class="text-slate-900 font-extrabold">Bulan Ini (November 2026)</b></span>
+          </div>
+          <div class="text-[11px] text-slate-500 font-medium" id="finance-period-stats-badge">
+            Tersimpan di Cloud Database • Real-Time Sinkron
+          </div>
+        </div>
       </div>
 
       <!-- P&L Statement Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         <!-- Income Statement (Laporan Laba Rugi) -->
-        <div class="bg-white rounded-xl card-shadow p-5 space-y-4">
+        <div class="bg-white rounded-xl card-shadow p-5 space-y-4 border border-slate-200/80">
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
-              <h2 class="text-sm font-bold text-slate-900">Laporan Laba Rugi (P&L)</h2>
+              <h2 class="text-sm font-extrabold text-slate-900">Laporan Laba Rugi (P&L)</h2>
               <p class="text-xs text-slate-500" id="pnl-branch-label">Semua Cabang (Konsolidasi)</p>
             </div>
-            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">Bulan Ini</span>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full shadow-2xs" id="pnl-period-pill">Bulan Ini</span>
           </div>
 
-          <div class="space-y-2.5 text-xs">
-            <div class="flex justify-between py-1 border-b border-slate-100">
-              <span class="font-bold text-slate-800">1. Pendapatan Penjualan (Omzet)</span>
-              <span class="mono font-bold text-slate-900" id="pnl-revenue">Rp 128.450.000</span>
+          <div class="space-y-3 text-xs">
+            <!-- 1. Omzet -->
+            <div class="flex justify-between py-1.5 border-b border-slate-100 items-center">
+              <span class="font-extrabold text-slate-800 text-sm">1. Pendapatan Penjualan (Omzet)</span>
+              <span class="mono font-black text-slate-900 text-sm" id="pnl-revenue">Rp 128.450.000</span>
             </div>
 
-            <div class="flex justify-between py-1 text-slate-600 pl-4">
+            <!-- HPP -->
+            <div class="flex justify-between py-1 text-slate-600 pl-4 items-center">
               <span>HPP - Harga Pokok Penjualan (Moving Avg)</span>
-              <span class="mono text-red-600" id="pnl-cogs">(Rp 89.915.000)</span>
+              <span class="mono font-bold text-red-600" id="pnl-cogs">(Rp 89.915.000)</span>
             </div>
 
-            <div class="flex justify-between py-1.5 bg-slate-50 font-bold px-2 rounded text-slate-800">
+            <!-- Laba Kotor -->
+            <div class="flex justify-between py-2 bg-slate-50 font-extrabold px-3 rounded-lg text-slate-800 border border-slate-100 items-center">
               <span>LABA KOTOR (Gross Profit)</span>
-              <span class="mono text-emerald-600 font-extrabold" id="pnl-gross">Rp 38.535.000</span>
+              <span class="mono text-emerald-600 font-black text-sm" id="pnl-gross">Rp 38.535.000</span>
             </div>
 
+            <!-- 2. Beban Operasional -->
             <div class="pt-2">
-              <span class="font-bold text-slate-800">2. Beban Operasional Usaha</span>
-              <div class="space-y-1 pl-4 mt-1.5 text-slate-600" id="pnl-expense-breakdown">
+              <div class="flex justify-between items-center">
+                <span class="font-extrabold text-slate-800 text-sm">2. Beban Operasional Usaha</span>
+                <span class="text-[11px] text-slate-400" id="pnl-expense-count-text">0 Kategori</span>
+              </div>
+              <div class="space-y-1.5 pl-4 mt-2 text-slate-600" id="pnl-expense-breakdown">
                 <!-- Dynamic expenses breakdown -->
               </div>
             </div>
 
-            <div class="flex justify-between py-1 text-slate-600 pl-4 border-t border-slate-100 pt-2">
-              <span class="font-semibold">Total Beban Operasional</span>
-              <span class="mono text-amber-600 font-bold" id="pnl-total-expense">(Rp 11.200.000)</span>
+            <!-- Total Beban -->
+            <div class="flex justify-between py-1.5 text-slate-700 pl-4 border-t border-slate-100 pt-2 items-center">
+              <span class="font-bold">Total Beban Operasional</span>
+              <span class="mono text-amber-700 font-extrabold" id="pnl-total-expense">(Rp 11.200.000)</span>
             </div>
 
-            <div class="flex justify-between py-2.5 bg-emerald-50 text-emerald-900 font-extrabold px-3 rounded-lg text-sm border border-emerald-200">
-              <span>LABA BERSIH (Net Income)</span>
-              <span class="mono text-emerald-700 text-base" id="pnl-net">Rp 27.335.000</span>
+            <!-- Laba Bersih -->
+            <div class="flex justify-between py-3 bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-950 font-black px-4 rounded-xl text-sm border-2 border-emerald-300 shadow-sm items-center">
+              <div>
+                <span class="block">LABA BERSIH (Net Income)</span>
+                <span class="text-[10px] text-emerald-700 font-bold block" id="pnl-net-margin-label">Margin Laba Bersih: 21.3%</span>
+              </div>
+              <span class="mono text-emerald-700 text-lg font-black" id="pnl-net">Rp 27.335.000</span>
             </div>
           </div>
         </div>
 
         <!-- Operational Expenses Log -->
-        <div class="bg-white rounded-xl card-shadow p-5 space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-            <div>
-              <h2 class="text-sm font-bold text-slate-900">Riwayat Pengeluaran Operasional</h2>
-              <p class="text-xs text-slate-500">Gaji, listrik, internet satelit, transportasi logistik</p>
+        <div class="bg-white rounded-xl card-shadow p-5 space-y-4 border border-slate-200/80 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div>
+                <h2 class="text-sm font-extrabold text-slate-900">Riwayat Pengeluaran Operasional</h2>
+                <p class="text-xs text-slate-500">Gaji, listrik, internet, logistik, biaya lain-lain</p>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span id="expense-count-badge" class="text-xs font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-0.5 rounded-full">0 Beban</span>
+              </div>
             </div>
-            <i data-lucide="receipt" class="w-4 h-4 text-slate-400"></i>
+
+            <div class="space-y-2 mt-3 max-h-[380px] overflow-y-auto pr-1" id="expense-log-list">
+              <!-- Dynamic expense items with Edit & Delete actions -->
+            </div>
           </div>
 
-          <div class="space-y-2 max-h-[360px] overflow-y-auto pr-1" id="expense-log-list">
-            <!-- Dynamic expense items -->
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+            <span>Tip: Klik ikon pensil untuk mengedit atau tempat sampah untuk menghapus pengeluaran.</span>
+            <button id="btn-quick-add-expense" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center space-x-1">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              <span>Tambah Beban</span>
+            </button>
           </div>
         </div>
 
@@ -2278,51 +2360,64 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- MODAL: CATAT BIAYA OPERASIONAL -->
+  <!-- MODAL: CATAT & EDIT BIAYA OPERASIONAL -->
   <!-- ======================================================== -->
   <div id="modal-expense" class="fixed inset-0 bg-slate-950/70 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-xl max-w-md w-full p-6 card-shadow-lg space-y-4">
       <div class="flex justify-between items-center border-b border-slate-200 pb-3">
-        <h3 class="font-bold text-base text-slate-900">Catat Pengeluaran Beban Operasional</h3>
-        <button class="btn-close-modal text-slate-400 hover:text-slate-600">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+            <i data-lucide="receipt" class="w-4 h-4"></i>
+          </div>
+          <h3 id="modal-expense-title" class="font-extrabold text-base text-slate-900">Catat Pengeluaran Beban Operasional</h3>
+        </div>
+        <button type="button" class="btn-close-modal text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <form id="form-expense" class="space-y-3 text-xs">
+      <form id="form-expense" class="space-y-3.5 text-xs">
+        <input type="hidden" id="expense-edit-id" value="">
+
         <div>
-          <label class="font-bold text-slate-600">Cabang Pembayar *</label>
-          <select id="expense-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
-            <option value="TLD">Cabang Talaud</option>
+          <label class="font-bold text-slate-700">Cabang Pembayar *</label>
+          <select id="expense-branch" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg font-medium focus:ring-1 focus:ring-amber-500">
+            <option value="TLD">Cabang Kepulauan Talaud</option>
             <option value="KBJ">Cabang Kembang Janggut</option>
           </select>
         </div>
 
         <div>
-          <label class="font-bold text-slate-600">Kategori Biaya *</label>
-          <select id="expense-category" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded font-medium">
+          <label class="font-bold text-slate-700">Tanggal Pengeluaran *</label>
+          <input type="date" id="expense-date" required class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg font-medium focus:ring-1 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="font-bold text-slate-700">Kategori Biaya *</label>
+          <select id="expense-category" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg font-medium focus:ring-1 focus:ring-amber-500">
             <option value="Listrik & Air">Listrik PLN & PDAM</option>
             <option value="Sewa Tempat">Sewa Ruko / Tempat</option>
             <option value="Gaji & Uang Makan">Gaji & Insentif Karyawan</option>
             <option value="Internet & Pulsa">Internet Satelit / WiFi</option>
             <option value="Transport & Logistik">Ongkos Kirim Logistik / Kapal</option>
             <option value="ATK & Perlengkapan">Kertas Struk Kasir & Plastik</option>
+            <option value="Biaya Lain-lain">Biaya Lain-lain (Operasional Lainnya)</option>
           </select>
         </div>
 
         <div>
-          <label class="font-bold text-slate-600">Nominal Biaya (Rp) *</label>
-          <input type="number" id="expense-amount" required placeholder="500000" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded text-right mono font-bold">
+          <label class="font-bold text-slate-700">Nominal Biaya (Rp) *</label>
+          <input type="number" id="expense-amount" required placeholder="500000" min="1" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg text-right mono font-extrabold focus:ring-1 focus:ring-amber-500">
         </div>
 
         <div>
-          <label class="font-bold text-slate-600">Keterangan / Nomor Bukti</label>
-          <input type="text" id="expense-notes" placeholder="Tagihan PLN bulan berjalan" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded">
+          <label class="font-bold text-slate-700">Keterangan / Rincian Biaya</label>
+          <input type="text" id="expense-notes" placeholder="Contoh: Beli bensin genset / servis printer / biaya tak terduga" class="w-full mt-1 px-3 py-1.5 border border-slate-300 rounded-lg focus:ring-1 focus:ring-amber-500">
         </div>
 
         <div class="flex justify-end space-x-2 pt-3 border-t border-slate-200">
-          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Batal</button>
-          <button type="submit" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold">Simpan Pengeluaran</button>
+          <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold transition">Batal</button>
+          <button type="submit" id="btn-submit-expense" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-bold shadow-sm transition">Simpan Pengeluaran</button>
         </div>
       </form>
     </div>
@@ -2688,16 +2783,25 @@
             <div>5. Tekan <b>"Instal"</b>. Ikon Tonang Farma akan langsung terpasang di menu HP Anda!</div>
           </div>
 
-          <div class="space-y-1.5 pt-1 border-t border-slate-100">
-            <button type="button" id="btn-copy-android-url" class="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm transition">
+          <div class="space-y-2 pt-1 border-t border-slate-100">
+            <!-- Tombol Download APK Langsung -->
+            <a href="/downloads/TonangFarma.apk" download="TonangFarma.apk" class="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center justify-center space-x-2 shadow-sm transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download File APK Android (.apk)</span>
+            </a>
+
+            <!-- Tombol Salin Link -->
+            <button type="button" id="btn-copy-android-url" class="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Salin Link Buka di Chrome HP Android</span>
+              <span>Salin Link Buka di Chrome HP</span>
             </button>
-            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-1">
-              <span>Ingin download file paket mentah?</span>
-              <a href="/downloads/TonangFarma-Android.zip" download class="text-emerald-700 font-semibold hover:underline flex items-center space-x-0.5">
+
+            <!-- Opsi Paket Zip Mentah -->
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pt-0.5">
+              <span>Paket ZIP lengkap + panduan:</span>
+              <a href="/downloads/TonangFarma-Android.zip" download="TonangFarma-Android.zip" class="text-emerald-700 font-semibold hover:underline flex items-center space-x-0.5">
                 <i data-lucide="download" class="w-3 h-3"></i>
-                <span>Download Paket Installer (.zip)</span>
+                <span>Download Paket (.zip)</span>
               </a>
             </div>
           </div>
@@ -2805,7 +2909,7 @@
         <div class="bg-emerald-50 border-2 border-emerald-300 rounded-xl p-3.5 space-y-1.5 text-center">
           <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">1. Tautan Online Publik (Bisa dari Internet/Wi-Fi Mana Saja):</span>
           <div class="text-sm font-extrabold text-emerald-950 font-mono select-all py-1.5 px-2 bg-white rounded-lg border border-emerald-300 flex items-center justify-center space-x-2">
-            <span id="mobile-url-text">https://number-org-discrete-arranged.trycloudflare.com</span>
+            <span id="mobile-url-text">https://pos.tonangfarma.com</span>
             <button id="btn-copy-mobile-url" class="p-1 hover:bg-slate-100 rounded text-emerald-700" title="Salin URL">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
@@ -2826,7 +2930,7 @@
       <!-- QR Code -->
       <div class="p-3 bg-white border border-slate-200 rounded-xl space-y-2 text-center">
         <span class="text-xs font-bold text-slate-700 block">Scan QR Code dengan Kamera iPad / HP:</span>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://number-org-discrete-arranged.trycloudflare.com" alt="QR Code Akses HP" class="w-48 h-48 mx-auto rounded-lg border border-slate-200 p-2 shadow-sm">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://pos.tonangfarma.com" alt="QR Code Akses HP" class="w-48 h-48 mx-auto rounded-lg border border-slate-200 p-2 shadow-sm">
         <span class="text-[11px] text-slate-500 block">Buka aplikasi Kamera di iPad Anda lalu arahkan ke QR Code di atas.</span>
       </div>
 

@@ -13,6 +13,25 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
+// Ensure downloads directory & packages exist
+let embeddedDownloads = {};
+try {
+  embeddedDownloads = require('./embedded_downloads');
+  const dlDir = path.join(PUBLIC_DIR, 'downloads');
+  if (!fs.existsSync(dlDir)) {
+    fs.mkdirSync(dlDir, { recursive: true });
+  }
+  for (const [filename, b64] of Object.entries(embeddedDownloads)) {
+    const targetFile = path.join(dlDir, filename);
+    if (!fs.existsSync(targetFile)) {
+      fs.writeFileSync(targetFile, Buffer.from(b64, 'base64'));
+      console.log(`[DOWNLOADS] Extracted package: ${filename}`);
+    }
+  }
+} catch (e) {
+  console.log('[DOWNLOADS] embedded_downloads note:', e.message);
+}
+
 // In-memory server state
 let serverState = {
   version: 1,
@@ -452,7 +471,16 @@ function requestHandler(req, res) {
         }
 
         if (incoming.expenses && Array.isArray(incoming.expenses)) {
-          serverState.expenses = mergeArrayById(serverState.expenses, incoming.expenses, 'id');
+          if (incoming.replaceExpenses) {
+            serverState.expenses = incoming.expenses;
+          } else {
+            serverState.expenses = mergeArrayById(serverState.expenses, incoming.expenses, 'id');
+          }
+          hasChanges = true;
+        }
+
+        if (incoming.deletedExpenseIds && Array.isArray(incoming.deletedExpenseIds)) {
+          serverState.expenses = (serverState.expenses || []).filter(e => !incoming.deletedExpenseIds.includes(e.id));
           hasChanges = true;
         }
 
@@ -504,6 +532,25 @@ function requestHandler(req, res) {
       }
     });
     return;
+  }
+
+  // ==========================================
+  // DOWNLOAD ENDPOINTS (GUARANTEED SERVE)
+  // ==========================================
+  if (pathname.startsWith('/downloads/')) {
+    const dlName = path.basename(pathname);
+    if (embeddedDownloads && embeddedDownloads[dlName]) {
+      const buf = Buffer.from(embeddedDownloads[dlName], 'base64');
+      const ext = path.extname(dlName).toLowerCase();
+      res.writeHead(200, {
+        'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
+        'Content-Length': buf.length,
+        'Content-Disposition': `attachment; filename="${dlName}"`,
+        'Cache-Control': 'public, max-age=86400'
+      });
+      res.end(buf);
+      return;
+    }
   }
 
   // ==========================================
