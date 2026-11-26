@@ -496,7 +496,7 @@
       deletedMedicineCodes: [],
       branches: appState.branches,
       batches: appState.batches,
-      replaceBatches: true,
+      replaceBatches: false,
       deletedBatchIds: appState.deletedBatchIds || [],
       sales: appState.sales || [],
       transfers: appState.transfers,
@@ -514,6 +514,80 @@
     if (icon) {
       icon.classList.add('animate-spin');
       setTimeout(() => icon.classList.remove('animate-spin'), 600);
+    }
+  }
+
+  // Self-Healing Engine: Reconstruct missing batches from purchase records
+  function reconstructBatchesFromPurchases() {
+    if (!Array.isArray(appState.purchases) || appState.purchases.length === 0) return;
+    appState.batches = appState.batches || [];
+    let addedCount = 0;
+
+    appState.purchases.forEach(po => {
+      if (!Array.isArray(po.items)) return;
+      const branchId = po.branchId || 'TLD';
+
+      po.items.forEach(item => {
+        if (!item || !item.batchNo) return;
+
+        // Find or link medicine
+        let med = (appState.medicines || []).find(m => 
+          m.id === item.medicineId || 
+          (m.code && m.code.toUpperCase() === (item.medicineId || '').toUpperCase()) ||
+          (m.name && m.name.toLowerCase() === (item.medicineName || '').toLowerCase())
+        );
+
+        // If medicine was missing, auto-restore the medicine into Master Obat!
+        if (!med && item.medicineName) {
+          med = {
+            id: item.medicineId || ('MED-' + Math.floor(Math.random() * 10000)),
+            code: item.medicineId || ('MED-' + Math.floor(Math.random() * 10000)),
+            name: item.medicineName,
+            category: 'Bebas',
+            dosageForm: 'Tablet',
+            baseUnit: item.baseUnit || 'Tablet',
+            buyUnit: item.inputUnit || 'Box',
+            conversionRate: item.multiplier || 1,
+            stripUnit: 'Strip',
+            stripConversion: 10,
+            location: 'Rak A-01',
+            buyPrice: item.buyPrice || 0,
+            sellPrice: 0,
+            stripPrice: 0,
+            boxPrice: 0,
+            minStock: 10,
+            minStockUnit: item.baseUnit || 'Tablet',
+            active: true
+          };
+          appState.medicines.push(med);
+        }
+
+        const effectiveMedId = med ? med.id : item.medicineId;
+
+        // Check if batch already exists in appState.batches
+        const exists = appState.batches.some(b => 
+          (b.medicineId === effectiveMedId || (med && b.medicineId === med.code)) &&
+          b.branchId === branchId &&
+          b.batchNo === item.batchNo
+        );
+
+        if (!exists) {
+          appState.batches.push({
+            id: 'B-' + (po.date ? new Date(po.date).getTime() : Date.now()) + '-' + Math.floor(Math.random() * 10000),
+            medicineId: effectiveMedId,
+            branchId: branchId,
+            batchNo: item.batchNo,
+            expiryDate: item.expiryDate,
+            stock: item.baseQty || (item.inputQty * (item.multiplier || 1)) || 0
+          });
+          addedCount++;
+        }
+      });
+    });
+
+    if (addedCount > 0) {
+      console.log(`[SELF-HEALING] Reconstructed ${addedCount} missing batches from purchases!`);
+      saveStateLocalOnly();
     }
   }
 
@@ -558,13 +632,21 @@
         setTimeout(() => pushStateToServer(), 500);
       }
     }
-    // Batches from server (sanitize legacy demo batches)
+    // Batches from server (smart merge: local batches are preserved!)
     if (Array.isArray(serverData.batches)) {
-      appState.batches = serverData.batches.filter(b => 
+      const cleanServerBatches = serverData.batches.filter(b => 
+        b && 
         b.batchNo !== 'MED001-2611-01' && 
         b.batchNo !== 'MED001-2611-02' && 
         !b.batchNo?.startsWith('MED001-2611')
       );
+      const cleanLocalBatches = (appState.batches || []).filter(b => 
+        b && 
+        b.batchNo !== 'MED001-2611-01' && 
+        b.batchNo !== 'MED001-2611-02' && 
+        !b.batchNo?.startsWith('MED001-2611')
+      );
+      appState.batches = mergeArrayById(cleanLocalBatches, cleanServerBatches, 'id');
     }
     // Sales from server are merged
     if (Array.isArray(serverData.sales)) {
@@ -588,6 +670,9 @@
     if (Array.isArray(serverData.purchases)) {
       appState.purchases = mergeArrayById(appState.purchases || [], serverData.purchases, 'id');
     }
+
+    // Self-Healing: Automatically reconstruct missing batches from purchases
+    reconstructBatchesFromPurchases();
 
     appState.currentUserId = savedUserId;
     appState.currentBranch = savedBranch;
@@ -4471,8 +4556,12 @@
     relevantBatches.sort((a, b) => new Date(a.expiryDate) - new Date(b.expiryDate));
 
     relevantBatches.forEach(b => {
-      const med = appState.medicines.find(m => m.id === b.medicineId);
-      if (!med) return;
+      let med = (appState.medicines || []).find(m => m.id === b.medicineId || m.code === b.medicineId);
+      if (!med && b.medicineId) {
+        med = (appState.medicines || []).find(m => (m.name || '').toLowerCase() === (b.medicineId || '').toLowerCase());
+      }
+      const medDisplayName = med ? med.name : (b.medicineName || `Obat (Batch: ${b.batchNo})`);
+      const medDisplayUnit = med ? med.baseUnit : 'Unit';
       const days = getDaysUntilExpiry(b.expiryDate);
 
       let statusBadge = '';
@@ -4489,7 +4578,7 @@
       const tr = document.createElement('tr');
       tr.className = 'hover:bg-slate-50 transition';
       tr.innerHTML = `
-        <td class="py-3 px-4 font-bold text-slate-900">${med.name}</td>
+        <td class="py-3 px-4 font-bold text-slate-900">${medDisplayName}</td>
         <td class="py-3 px-4">
           <span class="px-2 py-0.5 rounded font-semibold text-[10px] ${b.branchId === 'TLD' ? 'bg-blue-100 text-blue-700' : 'bg-emerald-100 text-emerald-700'}">
             ${b.branchId === 'TLD' ? 'Cabang Talaud' : 'Kembang Janggut'}
@@ -4500,14 +4589,14 @@
         <td class="py-3 px-4 font-bold ${days < 0 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-slate-600'}">
           ${days < 0 ? `Lewat ${Math.abs(days)} hari` : `${days} hari lagi`}
         </td>
-        <td class="py-3 px-4 text-right mono font-extrabold text-slate-900">${b.stock} ${med.baseUnit}</td>
+        <td class="py-3 px-4 text-right mono font-extrabold text-slate-900">${b.stock} ${medDisplayUnit}</td>
         <td class="py-3 px-4 text-center">${statusBadge}</td>
         <td class="py-3 px-4 text-center">
           <div class="flex items-center justify-center space-x-1.5">
             <button type="button" class="btn-edit-batch p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition" data-batch-id="${b.id}" title="Edit Rincian Batch">
               <i data-lucide="edit" class="w-3.5 h-3.5"></i>
             </button>
-            <button type="button" class="btn-delete-batch p-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition" data-batch-id="${b.id}" data-batch-no="${b.batchNo}" data-med-name="${(med.name || '').replace(/"/g, '&quot;')}" title="Hapus Batch Ini">
+            <button type="button" class="btn-delete-batch p-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition" data-batch-id="${b.id}" data-batch-no="${b.batchNo}" data-med-name="${(medDisplayName || '').replace(/"/g, '&quot;')}" title="Hapus Batch Ini">
               <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -7485,6 +7574,9 @@
     setupMobileAccessModal();
     setupDownloadModal();
     setupBackupRestoreModal();
+
+    // Auto-heal: Ensure all purchase invoice items have their corresponding FEFO batches
+    reconstructBatchesFromPurchases();
 
     // Initialize user permissions & active role
     if (appState.isLoggedIn === false) {

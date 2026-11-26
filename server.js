@@ -489,12 +489,11 @@ function requestHandler(req, res) {
             b.batchNo !== 'MED001-2611-02' && 
             !b.batchNo?.startsWith('MED001-2611')
           );
-          if (incoming.replaceBatches) {
-            serverState.batches = cleanBatches;
-          } else {
+          // Smart merge: Never allow an empty batches array to wipe server batches
+          if (cleanBatches.length > 0) {
             serverState.batches = mergeArrayById(serverState.batches || [], cleanBatches, 'id');
+            hasChanges = true;
           }
-          hasChanges = true;
         }
 
         if (incoming.deletedBatchIds && Array.isArray(incoming.deletedBatchIds)) {
@@ -539,6 +538,34 @@ function requestHandler(req, res) {
         if (incoming.purchases && Array.isArray(incoming.purchases)) {
           serverState.purchases = mergeArrayById(serverState.purchases, incoming.purchases, 'id');
           hasChanges = true;
+        }
+
+        // Self-Healing: Automatically reconstruct missing batches from purchases
+        if (serverState.purchases && Array.isArray(serverState.purchases) && serverState.purchases.length > 0) {
+          serverState.batches = serverState.batches || [];
+          serverState.purchases.forEach(po => {
+            if (!Array.isArray(po.items)) return;
+            const branchId = po.branchId || 'TLD';
+            po.items.forEach(it => {
+              if (!it || !it.batchNo) return;
+              const exists = serverState.batches.some(b => 
+                (b.medicineId === it.medicineId) && 
+                b.branchId === branchId && 
+                b.batchNo === it.batchNo
+              );
+              if (!exists) {
+                serverState.batches.push({
+                  id: 'B-' + (po.date ? new Date(po.date).getTime() : Date.now()) + '-' + Math.floor(Math.random() * 10000),
+                  medicineId: it.medicineId,
+                  branchId: branchId,
+                  batchNo: it.batchNo,
+                  expiryDate: it.expiryDate,
+                  stock: it.baseQty || (it.inputQty * (it.multiplier || 1)) || 0
+                });
+                hasChanges = true;
+              }
+            });
+          });
         }
 
         if (hasChanges) {
