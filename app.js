@@ -24043,7 +24043,6904 @@
     }
 ],
     deletedMedicineCodes: [],
-    batches: [],
+    batches: [
+  {
+    "id": "B-20261127-5000-001",
+    "medicineId": "MED-300",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-001",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-002",
+    "medicineId": "MED-301",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-002",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-003",
+    "medicineId": "MED-302",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-003",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-004",
+    "medicineId": "MED-303",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-004",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-005",
+    "medicineId": "MED-304",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-005",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-006",
+    "medicineId": "MED-305",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-006",
+    "expiryDate": "2028-11-27",
+    "stock": 15
+  },
+  {
+    "id": "B-20261127-5000-007",
+    "medicineId": "MED-306",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-007",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-008",
+    "medicineId": "MED-307",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-008",
+    "expiryDate": "2028-11-27",
+    "stock": 41
+  },
+  {
+    "id": "B-20261127-5000-009",
+    "medicineId": "MED-308",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-009",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-010",
+    "medicineId": "MED-309",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-010",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-011",
+    "medicineId": "MED-310",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-011",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-012",
+    "medicineId": "MED-311",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-012",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-013",
+    "medicineId": "MED-312",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-013",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-014",
+    "medicineId": "MED-313",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-014",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-015",
+    "medicineId": "MED-314",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-015",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-016",
+    "medicineId": "MED-315",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-016",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-017",
+    "medicineId": "MED-316",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-017",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5000-018",
+    "medicineId": "MED-317",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-018",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-019",
+    "medicineId": "MED-318",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-019",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-020",
+    "medicineId": "MED-319",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-020",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-021",
+    "medicineId": "MED-320",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-021",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-022",
+    "medicineId": "MED-321",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-022",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-023",
+    "medicineId": "MED-322",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-023",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-024",
+    "medicineId": "MED-323",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-024",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-025",
+    "medicineId": "MED-324",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-025",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-026",
+    "medicineId": "MED-325",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-026",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-027",
+    "medicineId": "MED-326",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-027",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-028",
+    "medicineId": "MED-327",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-028",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-029",
+    "medicineId": "MED-328",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-029",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-030",
+    "medicineId": "MED-329",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-030",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-031",
+    "medicineId": "MED-330",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-031",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-032",
+    "medicineId": "MED-331",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-032",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-033",
+    "medicineId": "MED-332",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-033",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-034",
+    "medicineId": "MED-333",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-034",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-035",
+    "medicineId": "MED-334",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-035",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-036",
+    "medicineId": "MED-335",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-036",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-037",
+    "medicineId": "MED-336",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-037",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-038",
+    "medicineId": "MED-337",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-038",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-039",
+    "medicineId": "MED-338",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-039",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-040",
+    "medicineId": "MED-339",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-040",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-041",
+    "medicineId": "MED-340",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-041",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-042",
+    "medicineId": "MED-341",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-042",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-043",
+    "medicineId": "MED-342",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-043",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5000-044",
+    "medicineId": "MED-343",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-044",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5000-045",
+    "medicineId": "MED-344",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-045",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-046",
+    "medicineId": "MED-345",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-046",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5000-047",
+    "medicineId": "MED-346",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-047",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5000-048",
+    "medicineId": "MED-347",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-048",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5000-049",
+    "medicineId": "MED-348",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-049",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-050",
+    "medicineId": "MED-349",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-050",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-051",
+    "medicineId": "MED-350",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-051",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-052",
+    "medicineId": "MED-351",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-052",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-053",
+    "medicineId": "MED-352",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-053",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-054",
+    "medicineId": "MED-353",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-054",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-055",
+    "medicineId": "MED-354",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-055",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-056",
+    "medicineId": "MED-355",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-056",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-057",
+    "medicineId": "MED-356",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-057",
+    "expiryDate": "2028-11-27",
+    "stock": 193
+  },
+  {
+    "id": "B-20261127-5000-058",
+    "medicineId": "MED-357",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-058",
+    "expiryDate": "2028-11-27",
+    "stock": 31
+  },
+  {
+    "id": "B-20261127-5000-059",
+    "medicineId": "MED-358",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-059",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-060",
+    "medicineId": "MED-359",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-060",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-061",
+    "medicineId": "MED-360",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-061",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-062",
+    "medicineId": "MED-361",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-062",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-063",
+    "medicineId": "MED-362",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-063",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5000-064",
+    "medicineId": "MED-363",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-064",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-065",
+    "medicineId": "MED-364",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-065",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-066",
+    "medicineId": "MED-365",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-066",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5000-067",
+    "medicineId": "MED-366",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-067",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5000-068",
+    "medicineId": "MED-367",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-068",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-069",
+    "medicineId": "MED-368",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-069",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5000-070",
+    "medicineId": "MED-369",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-070",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-071",
+    "medicineId": "MED-370",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-071",
+    "expiryDate": "2028-11-27",
+    "stock": 30
+  },
+  {
+    "id": "B-20261127-5000-072",
+    "medicineId": "MED-371",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-072",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-073",
+    "medicineId": "MED-372",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-073",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-074",
+    "medicineId": "MED-373",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-074",
+    "expiryDate": "2028-11-27",
+    "stock": 26
+  },
+  {
+    "id": "B-20261127-5000-075",
+    "medicineId": "MED-374",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-075",
+    "expiryDate": "2028-11-27",
+    "stock": 27
+  },
+  {
+    "id": "B-20261127-5000-076",
+    "medicineId": "MED-375",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-076",
+    "expiryDate": "2028-11-27",
+    "stock": 19
+  },
+  {
+    "id": "B-20261127-5000-077",
+    "medicineId": "MED-376",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-077",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-078",
+    "medicineId": "MED-377",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-078",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-079",
+    "medicineId": "MED-378",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-079",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-080",
+    "medicineId": "MED-379",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-080",
+    "expiryDate": "2028-11-27",
+    "stock": 22
+  },
+  {
+    "id": "B-20261127-5000-081",
+    "medicineId": "MED-380",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-081",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-082",
+    "medicineId": "MED-381",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-082",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-083",
+    "medicineId": "MED-382",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-083",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-084",
+    "medicineId": "MED-383",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-084",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-085",
+    "medicineId": "MED-384",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-085",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-086",
+    "medicineId": "MED-385",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-086",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5000-087",
+    "medicineId": "MED-386",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-087",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-088",
+    "medicineId": "MED-387",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-088",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-089",
+    "medicineId": "MED-388",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-089",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-090",
+    "medicineId": "MED-389",
+    "branchId": "TLD",
+    "batchNo": "BT-5000-090",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-091",
+    "medicineId": "MED-390",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-091",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-092",
+    "medicineId": "MED-391",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-092",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-093",
+    "medicineId": "MED-392",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-093",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-094",
+    "medicineId": "MED-393",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-094",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-095",
+    "medicineId": "MED-394",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-095",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-096",
+    "medicineId": "MED-395",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-096",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-097",
+    "medicineId": "MED-396",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-097",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-098",
+    "medicineId": "MED-397",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-098",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-099",
+    "medicineId": "MED-398",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-099",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-100",
+    "medicineId": "MED-399",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-100",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5001-101",
+    "medicineId": "MED-400",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-101",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-102",
+    "medicineId": "MED-401",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-102",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-103",
+    "medicineId": "MED-402",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-103",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-104",
+    "medicineId": "MED-403",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-104",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-105",
+    "medicineId": "MED-404",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-105",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5001-106",
+    "medicineId": "MED-405",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-106",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-107",
+    "medicineId": "MED-406",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-107",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-108",
+    "medicineId": "MED-407",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-108",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5001-109",
+    "medicineId": "MED-408",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-109",
+    "expiryDate": "2028-11-27",
+    "stock": 49
+  },
+  {
+    "id": "B-20261127-5001-110",
+    "medicineId": "MED-409",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-110",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-111",
+    "medicineId": "MED-410",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-111",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-112",
+    "medicineId": "MED-411",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-112",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-113",
+    "medicineId": "MED-412",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-113",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5001-114",
+    "medicineId": "MED-413",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-114",
+    "expiryDate": "2028-11-27",
+    "stock": 82
+  },
+  {
+    "id": "B-20261127-5001-115",
+    "medicineId": "MED-414",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-115",
+    "expiryDate": "2028-11-27",
+    "stock": 63
+  },
+  {
+    "id": "B-20261127-5001-116",
+    "medicineId": "MED-415",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-116",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-117",
+    "medicineId": "MED-416",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-117",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-118",
+    "medicineId": "MED-417",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-118",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5001-119",
+    "medicineId": "MED-418",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-119",
+    "expiryDate": "2028-11-27",
+    "stock": 19
+  },
+  {
+    "id": "B-20261127-5001-120",
+    "medicineId": "MED-419",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-120",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-121",
+    "medicineId": "MED-420",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-121",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-122",
+    "medicineId": "MED-421",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-122",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-123",
+    "medicineId": "MED-422",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-123",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-124",
+    "medicineId": "MED-423",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-124",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-125",
+    "medicineId": "MED-424",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-125",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-126",
+    "medicineId": "MED-425",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-126",
+    "expiryDate": "2028-11-27",
+    "stock": 28
+  },
+  {
+    "id": "B-20261127-5001-127",
+    "medicineId": "MED-426",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-127",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-128",
+    "medicineId": "MED-427",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-128",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-129",
+    "medicineId": "MED-428",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-129",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-130",
+    "medicineId": "MED-429",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-130",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-131",
+    "medicineId": "MED-430",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-131",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5001-132",
+    "medicineId": "MED-431",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-132",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-133",
+    "medicineId": "MED-432",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-133",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5001-134",
+    "medicineId": "MED-433",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-134",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-135",
+    "medicineId": "MED-434",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-135",
+    "expiryDate": "2028-11-27",
+    "stock": 33
+  },
+  {
+    "id": "B-20261127-5001-136",
+    "medicineId": "MED-435",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-136",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5001-137",
+    "medicineId": "MED-436",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-137",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5001-138",
+    "medicineId": "MED-437",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-138",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-139",
+    "medicineId": "MED-438",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-139",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-140",
+    "medicineId": "MED-439",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-140",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-141",
+    "medicineId": "MED-440",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-141",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-142",
+    "medicineId": "MED-441",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-142",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-143",
+    "medicineId": "MED-442",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-143",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-144",
+    "medicineId": "MED-443",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-144",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-145",
+    "medicineId": "MED-444",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-145",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-146",
+    "medicineId": "MED-445",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-146",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-147",
+    "medicineId": "MED-446",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-147",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-148",
+    "medicineId": "MED-447",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-148",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-149",
+    "medicineId": "MED-448",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-149",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-150",
+    "medicineId": "MED-449",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-150",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-151",
+    "medicineId": "MED-450",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-151",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-152",
+    "medicineId": "MED-451",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-152",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-153",
+    "medicineId": "MED-452",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-153",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-154",
+    "medicineId": "MED-453",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-154",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-155",
+    "medicineId": "MED-454",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-155",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-156",
+    "medicineId": "MED-455",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-156",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-157",
+    "medicineId": "MED-456",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-157",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-158",
+    "medicineId": "MED-457",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-158",
+    "expiryDate": "2028-11-27",
+    "stock": 25
+  },
+  {
+    "id": "B-20261127-5001-159",
+    "medicineId": "MED-458",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-159",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-160",
+    "medicineId": "MED-459",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-160",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-161",
+    "medicineId": "MED-460",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-161",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5001-162",
+    "medicineId": "MED-461",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-162",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-163",
+    "medicineId": "MED-462",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-163",
+    "expiryDate": "2028-11-27",
+    "stock": 423
+  },
+  {
+    "id": "B-20261127-5001-164",
+    "medicineId": "MED-463",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-164",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-165",
+    "medicineId": "MED-464",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-165",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-166",
+    "medicineId": "MED-465",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-166",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-167",
+    "medicineId": "MED-466",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-167",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5001-168",
+    "medicineId": "MED-467",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-168",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-169",
+    "medicineId": "MED-468",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-169",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5001-170",
+    "medicineId": "MED-469",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-170",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-171",
+    "medicineId": "MED-470",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-171",
+    "expiryDate": "2028-11-27",
+    "stock": 47
+  },
+  {
+    "id": "B-20261127-5001-172",
+    "medicineId": "MED-471",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-172",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-173",
+    "medicineId": "MED-472",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-173",
+    "expiryDate": "2028-11-27",
+    "stock": 40
+  },
+  {
+    "id": "B-20261127-5001-174",
+    "medicineId": "MED-473",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-174",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-175",
+    "medicineId": "MED-474",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-175",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-176",
+    "medicineId": "MED-475",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-176",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-177",
+    "medicineId": "MED-476",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-177",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5001-178",
+    "medicineId": "MED-477",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-178",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-179",
+    "medicineId": "MED-478",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-179",
+    "expiryDate": "2028-11-27",
+    "stock": 45
+  },
+  {
+    "id": "B-20261127-5001-180",
+    "medicineId": "MED-479",
+    "branchId": "TLD",
+    "batchNo": "BT-5001-180",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5002-181",
+    "medicineId": "MED-480",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-181",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5002-182",
+    "medicineId": "MED-481",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-182",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-183",
+    "medicineId": "MED-482",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-183",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-184",
+    "medicineId": "MED-483",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-184",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-185",
+    "medicineId": "MED-484",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-185",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-186",
+    "medicineId": "MED-485",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-186",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-187",
+    "medicineId": "MED-486",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-187",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-188",
+    "medicineId": "MED-487",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-188",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-189",
+    "medicineId": "MED-488",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-189",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5002-190",
+    "medicineId": "MED-489",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-190",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-191",
+    "medicineId": "MED-490",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-191",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-192",
+    "medicineId": "MED-491",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-192",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5002-193",
+    "medicineId": "MED-492",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-193",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-194",
+    "medicineId": "MED-493",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-194",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-195",
+    "medicineId": "MED-494",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-195",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-196",
+    "medicineId": "MED-495",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-196",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5002-197",
+    "medicineId": "MED-496",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-197",
+    "expiryDate": "2028-11-27",
+    "stock": 31
+  },
+  {
+    "id": "B-20261127-5002-198",
+    "medicineId": "MED-497",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-198",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-199",
+    "medicineId": "MED-498",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-199",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-200",
+    "medicineId": "MED-499",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-200",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-201",
+    "medicineId": "MED-500",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-201",
+    "expiryDate": "2028-11-27",
+    "stock": 46
+  },
+  {
+    "id": "B-20261127-5002-202",
+    "medicineId": "MED-501",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-202",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-203",
+    "medicineId": "MED-502",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-203",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-204",
+    "medicineId": "MED-503",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-204",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-205",
+    "medicineId": "MED-504",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-205",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-206",
+    "medicineId": "MED-505",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-206",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-207",
+    "medicineId": "MED-506",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-207",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-208",
+    "medicineId": "MED-507",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-208",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-209",
+    "medicineId": "MED-508",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-209",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-210",
+    "medicineId": "MED-509",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-210",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-211",
+    "medicineId": "MED-510",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-211",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-212",
+    "medicineId": "MED-511",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-212",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5002-213",
+    "medicineId": "MED-512",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-213",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-214",
+    "medicineId": "MED-513",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-214",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-215",
+    "medicineId": "MED-514",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-215",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-216",
+    "medicineId": "MED-515",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-216",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-217",
+    "medicineId": "MED-516",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-217",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5002-218",
+    "medicineId": "MED-517",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-218",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-219",
+    "medicineId": "MED-518",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-219",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-220",
+    "medicineId": "MED-519",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-220",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-221",
+    "medicineId": "MED-520",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-221",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-222",
+    "medicineId": "MED-521",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-222",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-223",
+    "medicineId": "MED-522",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-223",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-224",
+    "medicineId": "MED-523",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-224",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-225",
+    "medicineId": "MED-524",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-225",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-226",
+    "medicineId": "MED-525",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-226",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-227",
+    "medicineId": "MED-526",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-227",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-228",
+    "medicineId": "MED-527",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-228",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-229",
+    "medicineId": "MED-528",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-229",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-230",
+    "medicineId": "MED-529",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-230",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-231",
+    "medicineId": "MED-530",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-231",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-232",
+    "medicineId": "MED-531",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-232",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-233",
+    "medicineId": "MED-532",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-233",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-234",
+    "medicineId": "MED-533",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-234",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-235",
+    "medicineId": "MED-534",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-235",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-236",
+    "medicineId": "MED-535",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-236",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-237",
+    "medicineId": "MED-536",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-237",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-238",
+    "medicineId": "MED-537",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-238",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-239",
+    "medicineId": "MED-538",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-239",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-240",
+    "medicineId": "MED-539",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-240",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-241",
+    "medicineId": "MED-540",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-241",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5002-242",
+    "medicineId": "MED-541",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-242",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-243",
+    "medicineId": "MED-542",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-243",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-244",
+    "medicineId": "MED-543",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-244",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-245",
+    "medicineId": "MED-544",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-245",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-246",
+    "medicineId": "MED-545",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-246",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-247",
+    "medicineId": "MED-546",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-247",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-248",
+    "medicineId": "MED-547",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-248",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-249",
+    "medicineId": "MED-548",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-249",
+    "expiryDate": "2028-11-27",
+    "stock": 34
+  },
+  {
+    "id": "B-20261127-5002-250",
+    "medicineId": "MED-549",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-250",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-251",
+    "medicineId": "MED-550",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-251",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-252",
+    "medicineId": "MED-551",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-252",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-253",
+    "medicineId": "MED-552",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-253",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-254",
+    "medicineId": "MED-553",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-254",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-255",
+    "medicineId": "MED-554",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-255",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-256",
+    "medicineId": "MED-555",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-256",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-257",
+    "medicineId": "MED-556",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-257",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-258",
+    "medicineId": "MED-557",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-258",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-259",
+    "medicineId": "MED-558",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-259",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-260",
+    "medicineId": "MED-559",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-260",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-261",
+    "medicineId": "MED-560",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-261",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-262",
+    "medicineId": "MED-561",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-262",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-263",
+    "medicineId": "MED-562",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-263",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-264",
+    "medicineId": "MED-563",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-264",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-265",
+    "medicineId": "MED-564",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-265",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-266",
+    "medicineId": "MED-565",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-266",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-267",
+    "medicineId": "MED-566",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-267",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-268",
+    "medicineId": "MED-567",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-268",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-269",
+    "medicineId": "MED-568",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-269",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-270",
+    "medicineId": "MED-569",
+    "branchId": "TLD",
+    "batchNo": "BT-5002-270",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-271",
+    "medicineId": "MED-570",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-271",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-272",
+    "medicineId": "MED-571",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-272",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-273",
+    "medicineId": "MED-572",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-273",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5003-274",
+    "medicineId": "MED-573",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-274",
+    "expiryDate": "2028-11-27",
+    "stock": 30
+  },
+  {
+    "id": "B-20261127-5003-275",
+    "medicineId": "MED-574",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-275",
+    "expiryDate": "2028-11-27",
+    "stock": 37
+  },
+  {
+    "id": "B-20261127-5003-276",
+    "medicineId": "MED-575",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-276",
+    "expiryDate": "2028-11-27",
+    "stock": 430
+  },
+  {
+    "id": "B-20261127-5003-277",
+    "medicineId": "MED-576",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-277",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-278",
+    "medicineId": "MED-577",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-278",
+    "expiryDate": "2028-11-27",
+    "stock": 28
+  },
+  {
+    "id": "B-20261127-5003-279",
+    "medicineId": "MED-578",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-279",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-280",
+    "medicineId": "MED-579",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-280",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5003-281",
+    "medicineId": "MED-580",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-281",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-282",
+    "medicineId": "MED-581",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-282",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-283",
+    "medicineId": "MED-582",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-283",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-284",
+    "medicineId": "MED-583",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-284",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-285",
+    "medicineId": "MED-584",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-285",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-286",
+    "medicineId": "MED-585",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-286",
+    "expiryDate": "2028-11-27",
+    "stock": 15
+  },
+  {
+    "id": "B-20261127-5003-287",
+    "medicineId": "MED-586",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-287",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-288",
+    "medicineId": "MED-587",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-288",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5003-289",
+    "medicineId": "MED-588",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-289",
+    "expiryDate": "2028-11-27",
+    "stock": 54
+  },
+  {
+    "id": "B-20261127-5003-290",
+    "medicineId": "MED-589",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-290",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-291",
+    "medicineId": "MED-590",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-291",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-292",
+    "medicineId": "MED-591",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-292",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-293",
+    "medicineId": "MED-592",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-293",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-294",
+    "medicineId": "MED-593",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-294",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-295",
+    "medicineId": "MED-594",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-295",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-296",
+    "medicineId": "MED-595",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-296",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-297",
+    "medicineId": "MED-596",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-297",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-298",
+    "medicineId": "MED-597",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-298",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-299",
+    "medicineId": "MED-598",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-299",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-300",
+    "medicineId": "MED-599",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-300",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-301",
+    "medicineId": "MED-600",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-301",
+    "expiryDate": "2028-11-27",
+    "stock": 60
+  },
+  {
+    "id": "B-20261127-5003-302",
+    "medicineId": "MED-601",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-302",
+    "expiryDate": "2028-11-27",
+    "stock": 121
+  },
+  {
+    "id": "B-20261127-5003-303",
+    "medicineId": "MED-602",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-303",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-304",
+    "medicineId": "MED-603",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-304",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-305",
+    "medicineId": "MED-604",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-305",
+    "expiryDate": "2028-11-27",
+    "stock": 41
+  },
+  {
+    "id": "B-20261127-5003-306",
+    "medicineId": "MED-605",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-306",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-307",
+    "medicineId": "MED-606",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-307",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-308",
+    "medicineId": "MED-607",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-308",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-309",
+    "medicineId": "MED-608",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-309",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-310",
+    "medicineId": "MED-609",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-310",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-311",
+    "medicineId": "MED-610",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-311",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-312",
+    "medicineId": "MED-611",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-312",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-313",
+    "medicineId": "MED-612",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-313",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-314",
+    "medicineId": "MED-613",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-314",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-315",
+    "medicineId": "MED-614",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-315",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5003-316",
+    "medicineId": "MED-615",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-316",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5003-317",
+    "medicineId": "MED-616",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-317",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-318",
+    "medicineId": "MED-617",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-318",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-319",
+    "medicineId": "MED-618",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-319",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5003-320",
+    "medicineId": "MED-619",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-320",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5003-321",
+    "medicineId": "MED-620",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-321",
+    "expiryDate": "2028-11-27",
+    "stock": 37
+  },
+  {
+    "id": "B-20261127-5003-322",
+    "medicineId": "MED-621",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-322",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-323",
+    "medicineId": "MED-622",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-323",
+    "expiryDate": "2028-11-27",
+    "stock": 42
+  },
+  {
+    "id": "B-20261127-5003-324",
+    "medicineId": "MED-623",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-324",
+    "expiryDate": "2028-11-27",
+    "stock": 21
+  },
+  {
+    "id": "B-20261127-5003-325",
+    "medicineId": "MED-624",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-325",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-326",
+    "medicineId": "MED-625",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-326",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-327",
+    "medicineId": "MED-626",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-327",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-328",
+    "medicineId": "MED-627",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-328",
+    "expiryDate": "2028-11-27",
+    "stock": 157
+  },
+  {
+    "id": "B-20261127-5003-329",
+    "medicineId": "MED-628",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-329",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5003-330",
+    "medicineId": "MED-629",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-330",
+    "expiryDate": "2028-11-27",
+    "stock": 83
+  },
+  {
+    "id": "B-20261127-5003-331",
+    "medicineId": "MED-630",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-331",
+    "expiryDate": "2028-11-27",
+    "stock": 99
+  },
+  {
+    "id": "B-20261127-5003-332",
+    "medicineId": "MED-631",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-332",
+    "expiryDate": "2028-11-27",
+    "stock": 98
+  },
+  {
+    "id": "B-20261127-5003-333",
+    "medicineId": "MED-632",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-333",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-334",
+    "medicineId": "MED-633",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-334",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-335",
+    "medicineId": "MED-634",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-335",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-336",
+    "medicineId": "MED-635",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-336",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-337",
+    "medicineId": "MED-636",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-337",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-338",
+    "medicineId": "MED-637",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-338",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5003-339",
+    "medicineId": "MED-638",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-339",
+    "expiryDate": "2028-11-27",
+    "stock": 65
+  },
+  {
+    "id": "B-20261127-5003-340",
+    "medicineId": "MED-639",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-340",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5003-341",
+    "medicineId": "MED-640",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-341",
+    "expiryDate": "2028-11-27",
+    "stock": 24
+  },
+  {
+    "id": "B-20261127-5003-342",
+    "medicineId": "MED-641",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-342",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-343",
+    "medicineId": "MED-642",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-343",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-344",
+    "medicineId": "MED-643",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-344",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-345",
+    "medicineId": "MED-644",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-345",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-346",
+    "medicineId": "MED-645",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-346",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-347",
+    "medicineId": "MED-646",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-347",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5003-348",
+    "medicineId": "MED-647",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-348",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-349",
+    "medicineId": "MED-648",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-349",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-350",
+    "medicineId": "MED-649",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-350",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-351",
+    "medicineId": "MED-650",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-351",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-352",
+    "medicineId": "MED-651",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-352",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-353",
+    "medicineId": "MED-652",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-353",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-354",
+    "medicineId": "MED-653",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-354",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-355",
+    "medicineId": "MED-654",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-355",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5003-356",
+    "medicineId": "MED-655",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-356",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-357",
+    "medicineId": "MED-656",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-357",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-358",
+    "medicineId": "MED-657",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-358",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5003-359",
+    "medicineId": "MED-658",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-359",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5003-360",
+    "medicineId": "MED-659",
+    "branchId": "TLD",
+    "batchNo": "BT-5003-360",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-361",
+    "medicineId": "MED-660",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-361",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5004-362",
+    "medicineId": "MED-661",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-362",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-363",
+    "medicineId": "MED-662",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-363",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-364",
+    "medicineId": "MED-663",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-364",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-365",
+    "medicineId": "MED-664",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-365",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-366",
+    "medicineId": "MED-665",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-366",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-367",
+    "medicineId": "MED-666",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-367",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-368",
+    "medicineId": "MED-667",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-368",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-369",
+    "medicineId": "MED-668",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-369",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-370",
+    "medicineId": "MED-669",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-370",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-371",
+    "medicineId": "MED-670",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-371",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-372",
+    "medicineId": "MED-671",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-372",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-373",
+    "medicineId": "MED-672",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-373",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5004-374",
+    "medicineId": "MED-673",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-374",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5004-375",
+    "medicineId": "MED-674",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-375",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-376",
+    "medicineId": "MED-675",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-376",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-377",
+    "medicineId": "MED-676",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-377",
+    "expiryDate": "2028-11-27",
+    "stock": 42
+  },
+  {
+    "id": "B-20261127-5004-378",
+    "medicineId": "MED-677",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-378",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5004-379",
+    "medicineId": "MED-678",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-379",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5004-380",
+    "medicineId": "MED-679",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-380",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5004-381",
+    "medicineId": "MED-680",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-381",
+    "expiryDate": "2028-11-27",
+    "stock": 52
+  },
+  {
+    "id": "B-20261127-5004-382",
+    "medicineId": "MED-681",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-382",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5004-383",
+    "medicineId": "MED-682",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-383",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-384",
+    "medicineId": "MED-683",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-384",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5004-385",
+    "medicineId": "MED-684",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-385",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-386",
+    "medicineId": "MED-685",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-386",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-387",
+    "medicineId": "MED-686",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-387",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-388",
+    "medicineId": "MED-687",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-388",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-389",
+    "medicineId": "MED-688",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-389",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-390",
+    "medicineId": "MED-689",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-390",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-391",
+    "medicineId": "MED-690",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-391",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-392",
+    "medicineId": "MED-691",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-392",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-393",
+    "medicineId": "MED-692",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-393",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-394",
+    "medicineId": "MED-693",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-394",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-395",
+    "medicineId": "MED-694",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-395",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-396",
+    "medicineId": "MED-695",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-396",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-397",
+    "medicineId": "MED-696",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-397",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-398",
+    "medicineId": "MED-697",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-398",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5004-399",
+    "medicineId": "MED-698",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-399",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-400",
+    "medicineId": "MED-699",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-400",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-401",
+    "medicineId": "MED-700",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-401",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5004-402",
+    "medicineId": "MED-701",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-402",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-403",
+    "medicineId": "MED-702",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-403",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-404",
+    "medicineId": "MED-703",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-404",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-405",
+    "medicineId": "MED-704",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-405",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-406",
+    "medicineId": "MED-705",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-406",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-407",
+    "medicineId": "MED-706",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-407",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-408",
+    "medicineId": "MED-707",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-408",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-409",
+    "medicineId": "MED-708",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-409",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-410",
+    "medicineId": "MED-709",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-410",
+    "expiryDate": "2028-11-27",
+    "stock": 25
+  },
+  {
+    "id": "B-20261127-5004-411",
+    "medicineId": "MED-710",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-411",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-412",
+    "medicineId": "MED-711",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-412",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5004-413",
+    "medicineId": "MED-712",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-413",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5004-414",
+    "medicineId": "MED-713",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-414",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-415",
+    "medicineId": "MED-714",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-415",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-416",
+    "medicineId": "MED-715",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-416",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-417",
+    "medicineId": "MED-716",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-417",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5004-418",
+    "medicineId": "MED-717",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-418",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-419",
+    "medicineId": "MED-718",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-419",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-420",
+    "medicineId": "MED-719",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-420",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-421",
+    "medicineId": "MED-720",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-421",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-422",
+    "medicineId": "MED-721",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-422",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-423",
+    "medicineId": "MED-722",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-423",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-424",
+    "medicineId": "MED-723",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-424",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5004-425",
+    "medicineId": "MED-724",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-425",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-426",
+    "medicineId": "MED-725",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-426",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-427",
+    "medicineId": "MED-726",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-427",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5004-428",
+    "medicineId": "MED-727",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-428",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5004-429",
+    "medicineId": "MED-728",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-429",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-430",
+    "medicineId": "MED-729",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-430",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-431",
+    "medicineId": "MED-730",
+    "branchId": "TLD",
+    "batchNo": "BT-5004-431",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5000-001-KBJ",
+    "medicineId": "MED-300",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-001",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-002-KBJ",
+    "medicineId": "MED-301",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-002",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-003-KBJ",
+    "medicineId": "MED-302",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-003",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-004-KBJ",
+    "medicineId": "MED-303",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-004",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-005-KBJ",
+    "medicineId": "MED-304",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-005",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-006-KBJ",
+    "medicineId": "MED-305",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-006",
+    "expiryDate": "2028-11-27",
+    "stock": 15
+  },
+  {
+    "id": "B-20261127-5000-007-KBJ",
+    "medicineId": "MED-306",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-007",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-008-KBJ",
+    "medicineId": "MED-307",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-008",
+    "expiryDate": "2028-11-27",
+    "stock": 41
+  },
+  {
+    "id": "B-20261127-5000-009-KBJ",
+    "medicineId": "MED-308",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-009",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-010-KBJ",
+    "medicineId": "MED-309",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-010",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-011-KBJ",
+    "medicineId": "MED-310",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-011",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-012-KBJ",
+    "medicineId": "MED-311",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-012",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-013-KBJ",
+    "medicineId": "MED-312",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-013",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-014-KBJ",
+    "medicineId": "MED-313",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-014",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-015-KBJ",
+    "medicineId": "MED-314",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-015",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-016-KBJ",
+    "medicineId": "MED-315",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-016",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-017-KBJ",
+    "medicineId": "MED-316",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-017",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5000-018-KBJ",
+    "medicineId": "MED-317",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-018",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-019-KBJ",
+    "medicineId": "MED-318",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-019",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-020-KBJ",
+    "medicineId": "MED-319",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-020",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-021-KBJ",
+    "medicineId": "MED-320",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-021",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-022-KBJ",
+    "medicineId": "MED-321",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-022",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-023-KBJ",
+    "medicineId": "MED-322",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-023",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-024-KBJ",
+    "medicineId": "MED-323",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-024",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-025-KBJ",
+    "medicineId": "MED-324",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-025",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-026-KBJ",
+    "medicineId": "MED-325",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-026",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-027-KBJ",
+    "medicineId": "MED-326",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-027",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-028-KBJ",
+    "medicineId": "MED-327",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-028",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-029-KBJ",
+    "medicineId": "MED-328",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-029",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-030-KBJ",
+    "medicineId": "MED-329",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-030",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-031-KBJ",
+    "medicineId": "MED-330",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-031",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-032-KBJ",
+    "medicineId": "MED-331",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-032",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-033-KBJ",
+    "medicineId": "MED-332",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-033",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-034-KBJ",
+    "medicineId": "MED-333",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-034",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-035-KBJ",
+    "medicineId": "MED-334",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-035",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-036-KBJ",
+    "medicineId": "MED-335",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-036",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-037-KBJ",
+    "medicineId": "MED-336",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-037",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-038-KBJ",
+    "medicineId": "MED-337",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-038",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5000-039-KBJ",
+    "medicineId": "MED-338",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-039",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-040-KBJ",
+    "medicineId": "MED-339",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-040",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-041-KBJ",
+    "medicineId": "MED-340",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-041",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-042-KBJ",
+    "medicineId": "MED-341",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-042",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-043-KBJ",
+    "medicineId": "MED-342",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-043",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5000-044-KBJ",
+    "medicineId": "MED-343",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-044",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5000-045-KBJ",
+    "medicineId": "MED-344",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-045",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5000-046-KBJ",
+    "medicineId": "MED-345",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-046",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5000-047-KBJ",
+    "medicineId": "MED-346",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-047",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5000-048-KBJ",
+    "medicineId": "MED-347",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-048",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5000-049-KBJ",
+    "medicineId": "MED-348",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-049",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-050-KBJ",
+    "medicineId": "MED-349",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-050",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-051-KBJ",
+    "medicineId": "MED-350",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-051",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-052-KBJ",
+    "medicineId": "MED-351",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-052",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-053-KBJ",
+    "medicineId": "MED-352",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-053",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-054-KBJ",
+    "medicineId": "MED-353",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-054",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-055-KBJ",
+    "medicineId": "MED-354",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-055",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-056-KBJ",
+    "medicineId": "MED-355",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-056",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-057-KBJ",
+    "medicineId": "MED-356",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-057",
+    "expiryDate": "2028-11-27",
+    "stock": 193
+  },
+  {
+    "id": "B-20261127-5000-058-KBJ",
+    "medicineId": "MED-357",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-058",
+    "expiryDate": "2028-11-27",
+    "stock": 31
+  },
+  {
+    "id": "B-20261127-5000-059-KBJ",
+    "medicineId": "MED-358",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-059",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-060-KBJ",
+    "medicineId": "MED-359",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-060",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-061-KBJ",
+    "medicineId": "MED-360",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-061",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-062-KBJ",
+    "medicineId": "MED-361",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-062",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-063-KBJ",
+    "medicineId": "MED-362",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-063",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5000-064-KBJ",
+    "medicineId": "MED-363",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-064",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-065-KBJ",
+    "medicineId": "MED-364",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-065",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-066-KBJ",
+    "medicineId": "MED-365",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-066",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5000-067-KBJ",
+    "medicineId": "MED-366",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-067",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5000-068-KBJ",
+    "medicineId": "MED-367",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-068",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-069-KBJ",
+    "medicineId": "MED-368",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-069",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5000-070-KBJ",
+    "medicineId": "MED-369",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-070",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-071-KBJ",
+    "medicineId": "MED-370",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-071",
+    "expiryDate": "2028-11-27",
+    "stock": 30
+  },
+  {
+    "id": "B-20261127-5000-072-KBJ",
+    "medicineId": "MED-371",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-072",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-073-KBJ",
+    "medicineId": "MED-372",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-073",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5000-074-KBJ",
+    "medicineId": "MED-373",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-074",
+    "expiryDate": "2028-11-27",
+    "stock": 26
+  },
+  {
+    "id": "B-20261127-5000-075-KBJ",
+    "medicineId": "MED-374",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-075",
+    "expiryDate": "2028-11-27",
+    "stock": 27
+  },
+  {
+    "id": "B-20261127-5000-076-KBJ",
+    "medicineId": "MED-375",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-076",
+    "expiryDate": "2028-11-27",
+    "stock": 19
+  },
+  {
+    "id": "B-20261127-5000-077-KBJ",
+    "medicineId": "MED-376",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-077",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-078-KBJ",
+    "medicineId": "MED-377",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-078",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-079-KBJ",
+    "medicineId": "MED-378",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-079",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5000-080-KBJ",
+    "medicineId": "MED-379",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-080",
+    "expiryDate": "2028-11-27",
+    "stock": 22
+  },
+  {
+    "id": "B-20261127-5000-081-KBJ",
+    "medicineId": "MED-380",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-081",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5000-082-KBJ",
+    "medicineId": "MED-381",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-082",
+    "expiryDate": "2028-11-27",
+    "stock": 13
+  },
+  {
+    "id": "B-20261127-5000-083-KBJ",
+    "medicineId": "MED-382",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-083",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-084-KBJ",
+    "medicineId": "MED-383",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-084",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-085-KBJ",
+    "medicineId": "MED-384",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-085",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5000-086-KBJ",
+    "medicineId": "MED-385",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-086",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5000-087-KBJ",
+    "medicineId": "MED-386",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-087",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-088-KBJ",
+    "medicineId": "MED-387",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-088",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5000-089-KBJ",
+    "medicineId": "MED-388",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-089",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5000-090-KBJ",
+    "medicineId": "MED-389",
+    "branchId": "KBJ",
+    "batchNo": "BT-5000-090",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-091-KBJ",
+    "medicineId": "MED-390",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-091",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-092-KBJ",
+    "medicineId": "MED-391",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-092",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-093-KBJ",
+    "medicineId": "MED-392",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-093",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-094-KBJ",
+    "medicineId": "MED-393",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-094",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-095-KBJ",
+    "medicineId": "MED-394",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-095",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-096-KBJ",
+    "medicineId": "MED-395",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-096",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-097-KBJ",
+    "medicineId": "MED-396",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-097",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-098-KBJ",
+    "medicineId": "MED-397",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-098",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-099-KBJ",
+    "medicineId": "MED-398",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-099",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-100-KBJ",
+    "medicineId": "MED-399",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-100",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5001-101-KBJ",
+    "medicineId": "MED-400",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-101",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-102-KBJ",
+    "medicineId": "MED-401",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-102",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-103-KBJ",
+    "medicineId": "MED-402",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-103",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-104-KBJ",
+    "medicineId": "MED-403",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-104",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-105-KBJ",
+    "medicineId": "MED-404",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-105",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5001-106-KBJ",
+    "medicineId": "MED-405",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-106",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-107-KBJ",
+    "medicineId": "MED-406",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-107",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-108-KBJ",
+    "medicineId": "MED-407",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-108",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5001-109-KBJ",
+    "medicineId": "MED-408",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-109",
+    "expiryDate": "2028-11-27",
+    "stock": 49
+  },
+  {
+    "id": "B-20261127-5001-110-KBJ",
+    "medicineId": "MED-409",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-110",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-111-KBJ",
+    "medicineId": "MED-410",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-111",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-112-KBJ",
+    "medicineId": "MED-411",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-112",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-113-KBJ",
+    "medicineId": "MED-412",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-113",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5001-114-KBJ",
+    "medicineId": "MED-413",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-114",
+    "expiryDate": "2028-11-27",
+    "stock": 82
+  },
+  {
+    "id": "B-20261127-5001-115-KBJ",
+    "medicineId": "MED-414",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-115",
+    "expiryDate": "2028-11-27",
+    "stock": 63
+  },
+  {
+    "id": "B-20261127-5001-116-KBJ",
+    "medicineId": "MED-415",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-116",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-117-KBJ",
+    "medicineId": "MED-416",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-117",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-118-KBJ",
+    "medicineId": "MED-417",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-118",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5001-119-KBJ",
+    "medicineId": "MED-418",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-119",
+    "expiryDate": "2028-11-27",
+    "stock": 19
+  },
+  {
+    "id": "B-20261127-5001-120-KBJ",
+    "medicineId": "MED-419",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-120",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-121-KBJ",
+    "medicineId": "MED-420",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-121",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-122-KBJ",
+    "medicineId": "MED-421",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-122",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-123-KBJ",
+    "medicineId": "MED-422",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-123",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-124-KBJ",
+    "medicineId": "MED-423",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-124",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-125-KBJ",
+    "medicineId": "MED-424",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-125",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-126-KBJ",
+    "medicineId": "MED-425",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-126",
+    "expiryDate": "2028-11-27",
+    "stock": 28
+  },
+  {
+    "id": "B-20261127-5001-127-KBJ",
+    "medicineId": "MED-426",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-127",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-128-KBJ",
+    "medicineId": "MED-427",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-128",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-129-KBJ",
+    "medicineId": "MED-428",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-129",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-130-KBJ",
+    "medicineId": "MED-429",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-130",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-131-KBJ",
+    "medicineId": "MED-430",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-131",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5001-132-KBJ",
+    "medicineId": "MED-431",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-132",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5001-133-KBJ",
+    "medicineId": "MED-432",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-133",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5001-134-KBJ",
+    "medicineId": "MED-433",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-134",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-135-KBJ",
+    "medicineId": "MED-434",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-135",
+    "expiryDate": "2028-11-27",
+    "stock": 33
+  },
+  {
+    "id": "B-20261127-5001-136-KBJ",
+    "medicineId": "MED-435",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-136",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5001-137-KBJ",
+    "medicineId": "MED-436",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-137",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5001-138-KBJ",
+    "medicineId": "MED-437",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-138",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-139-KBJ",
+    "medicineId": "MED-438",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-139",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-140-KBJ",
+    "medicineId": "MED-439",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-140",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-141-KBJ",
+    "medicineId": "MED-440",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-141",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-142-KBJ",
+    "medicineId": "MED-441",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-142",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-143-KBJ",
+    "medicineId": "MED-442",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-143",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-144-KBJ",
+    "medicineId": "MED-443",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-144",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5001-145-KBJ",
+    "medicineId": "MED-444",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-145",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-146-KBJ",
+    "medicineId": "MED-445",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-146",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-147-KBJ",
+    "medicineId": "MED-446",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-147",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-148-KBJ",
+    "medicineId": "MED-447",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-148",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-149-KBJ",
+    "medicineId": "MED-448",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-149",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-150-KBJ",
+    "medicineId": "MED-449",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-150",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-151-KBJ",
+    "medicineId": "MED-450",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-151",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-152-KBJ",
+    "medicineId": "MED-451",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-152",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-153-KBJ",
+    "medicineId": "MED-452",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-153",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-154-KBJ",
+    "medicineId": "MED-453",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-154",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-155-KBJ",
+    "medicineId": "MED-454",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-155",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-156-KBJ",
+    "medicineId": "MED-455",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-156",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-157-KBJ",
+    "medicineId": "MED-456",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-157",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-158-KBJ",
+    "medicineId": "MED-457",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-158",
+    "expiryDate": "2028-11-27",
+    "stock": 25
+  },
+  {
+    "id": "B-20261127-5001-159-KBJ",
+    "medicineId": "MED-458",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-159",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-160-KBJ",
+    "medicineId": "MED-459",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-160",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-161-KBJ",
+    "medicineId": "MED-460",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-161",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5001-162-KBJ",
+    "medicineId": "MED-461",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-162",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-163-KBJ",
+    "medicineId": "MED-462",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-163",
+    "expiryDate": "2028-11-27",
+    "stock": 423
+  },
+  {
+    "id": "B-20261127-5001-164-KBJ",
+    "medicineId": "MED-463",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-164",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-165-KBJ",
+    "medicineId": "MED-464",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-165",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-166-KBJ",
+    "medicineId": "MED-465",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-166",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-167-KBJ",
+    "medicineId": "MED-466",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-167",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5001-168-KBJ",
+    "medicineId": "MED-467",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-168",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-169-KBJ",
+    "medicineId": "MED-468",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-169",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5001-170-KBJ",
+    "medicineId": "MED-469",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-170",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5001-171-KBJ",
+    "medicineId": "MED-470",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-171",
+    "expiryDate": "2028-11-27",
+    "stock": 47
+  },
+  {
+    "id": "B-20261127-5001-172-KBJ",
+    "medicineId": "MED-471",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-172",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5001-173-KBJ",
+    "medicineId": "MED-472",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-173",
+    "expiryDate": "2028-11-27",
+    "stock": 40
+  },
+  {
+    "id": "B-20261127-5001-174-KBJ",
+    "medicineId": "MED-473",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-174",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5001-175-KBJ",
+    "medicineId": "MED-474",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-175",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5001-176-KBJ",
+    "medicineId": "MED-475",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-176",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5001-177-KBJ",
+    "medicineId": "MED-476",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-177",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5001-178-KBJ",
+    "medicineId": "MED-477",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-178",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5001-179-KBJ",
+    "medicineId": "MED-478",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-179",
+    "expiryDate": "2028-11-27",
+    "stock": 45
+  },
+  {
+    "id": "B-20261127-5001-180-KBJ",
+    "medicineId": "MED-479",
+    "branchId": "KBJ",
+    "batchNo": "BT-5001-180",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5002-181-KBJ",
+    "medicineId": "MED-480",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-181",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5002-182-KBJ",
+    "medicineId": "MED-481",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-182",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-183-KBJ",
+    "medicineId": "MED-482",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-183",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-184-KBJ",
+    "medicineId": "MED-483",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-184",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-185-KBJ",
+    "medicineId": "MED-484",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-185",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-186-KBJ",
+    "medicineId": "MED-485",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-186",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-187-KBJ",
+    "medicineId": "MED-486",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-187",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-188-KBJ",
+    "medicineId": "MED-487",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-188",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-189-KBJ",
+    "medicineId": "MED-488",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-189",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5002-190-KBJ",
+    "medicineId": "MED-489",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-190",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-191-KBJ",
+    "medicineId": "MED-490",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-191",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-192-KBJ",
+    "medicineId": "MED-491",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-192",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5002-193-KBJ",
+    "medicineId": "MED-492",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-193",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-194-KBJ",
+    "medicineId": "MED-493",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-194",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-195-KBJ",
+    "medicineId": "MED-494",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-195",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-196-KBJ",
+    "medicineId": "MED-495",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-196",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5002-197-KBJ",
+    "medicineId": "MED-496",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-197",
+    "expiryDate": "2028-11-27",
+    "stock": 31
+  },
+  {
+    "id": "B-20261127-5002-198-KBJ",
+    "medicineId": "MED-497",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-198",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-199-KBJ",
+    "medicineId": "MED-498",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-199",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-200-KBJ",
+    "medicineId": "MED-499",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-200",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-201-KBJ",
+    "medicineId": "MED-500",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-201",
+    "expiryDate": "2028-11-27",
+    "stock": 46
+  },
+  {
+    "id": "B-20261127-5002-202-KBJ",
+    "medicineId": "MED-501",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-202",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-203-KBJ",
+    "medicineId": "MED-502",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-203",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-204-KBJ",
+    "medicineId": "MED-503",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-204",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-205-KBJ",
+    "medicineId": "MED-504",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-205",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-206-KBJ",
+    "medicineId": "MED-505",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-206",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-207-KBJ",
+    "medicineId": "MED-506",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-207",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-208-KBJ",
+    "medicineId": "MED-507",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-208",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-209-KBJ",
+    "medicineId": "MED-508",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-209",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-210-KBJ",
+    "medicineId": "MED-509",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-210",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-211-KBJ",
+    "medicineId": "MED-510",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-211",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-212-KBJ",
+    "medicineId": "MED-511",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-212",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5002-213-KBJ",
+    "medicineId": "MED-512",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-213",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-214-KBJ",
+    "medicineId": "MED-513",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-214",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-215-KBJ",
+    "medicineId": "MED-514",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-215",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-216-KBJ",
+    "medicineId": "MED-515",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-216",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-217-KBJ",
+    "medicineId": "MED-516",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-217",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5002-218-KBJ",
+    "medicineId": "MED-517",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-218",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-219-KBJ",
+    "medicineId": "MED-518",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-219",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-220-KBJ",
+    "medicineId": "MED-519",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-220",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-221-KBJ",
+    "medicineId": "MED-520",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-221",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-222-KBJ",
+    "medicineId": "MED-521",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-222",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-223-KBJ",
+    "medicineId": "MED-522",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-223",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-224-KBJ",
+    "medicineId": "MED-523",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-224",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-225-KBJ",
+    "medicineId": "MED-524",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-225",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5002-226-KBJ",
+    "medicineId": "MED-525",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-226",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-227-KBJ",
+    "medicineId": "MED-526",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-227",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-228-KBJ",
+    "medicineId": "MED-527",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-228",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-229-KBJ",
+    "medicineId": "MED-528",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-229",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-230-KBJ",
+    "medicineId": "MED-529",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-230",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-231-KBJ",
+    "medicineId": "MED-530",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-231",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-232-KBJ",
+    "medicineId": "MED-531",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-232",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-233-KBJ",
+    "medicineId": "MED-532",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-233",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-234-KBJ",
+    "medicineId": "MED-533",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-234",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-235-KBJ",
+    "medicineId": "MED-534",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-235",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-236-KBJ",
+    "medicineId": "MED-535",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-236",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5002-237-KBJ",
+    "medicineId": "MED-536",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-237",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-238-KBJ",
+    "medicineId": "MED-537",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-238",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-239-KBJ",
+    "medicineId": "MED-538",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-239",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-240-KBJ",
+    "medicineId": "MED-539",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-240",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-241-KBJ",
+    "medicineId": "MED-540",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-241",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5002-242-KBJ",
+    "medicineId": "MED-541",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-242",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-243-KBJ",
+    "medicineId": "MED-542",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-243",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-244-KBJ",
+    "medicineId": "MED-543",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-244",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-245-KBJ",
+    "medicineId": "MED-544",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-245",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-246-KBJ",
+    "medicineId": "MED-545",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-246",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-247-KBJ",
+    "medicineId": "MED-546",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-247",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-248-KBJ",
+    "medicineId": "MED-547",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-248",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5002-249-KBJ",
+    "medicineId": "MED-548",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-249",
+    "expiryDate": "2028-11-27",
+    "stock": 34
+  },
+  {
+    "id": "B-20261127-5002-250-KBJ",
+    "medicineId": "MED-549",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-250",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-251-KBJ",
+    "medicineId": "MED-550",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-251",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-252-KBJ",
+    "medicineId": "MED-551",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-252",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-253-KBJ",
+    "medicineId": "MED-552",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-253",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-254-KBJ",
+    "medicineId": "MED-553",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-254",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-255-KBJ",
+    "medicineId": "MED-554",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-255",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-256-KBJ",
+    "medicineId": "MED-555",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-256",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-257-KBJ",
+    "medicineId": "MED-556",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-257",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5002-258-KBJ",
+    "medicineId": "MED-557",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-258",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-259-KBJ",
+    "medicineId": "MED-558",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-259",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-260-KBJ",
+    "medicineId": "MED-559",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-260",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-261-KBJ",
+    "medicineId": "MED-560",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-261",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-262-KBJ",
+    "medicineId": "MED-561",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-262",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-263-KBJ",
+    "medicineId": "MED-562",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-263",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-264-KBJ",
+    "medicineId": "MED-563",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-264",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-265-KBJ",
+    "medicineId": "MED-564",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-265",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-266-KBJ",
+    "medicineId": "MED-565",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-266",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-267-KBJ",
+    "medicineId": "MED-566",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-267",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-268-KBJ",
+    "medicineId": "MED-567",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-268",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5002-269-KBJ",
+    "medicineId": "MED-568",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-269",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5002-270-KBJ",
+    "medicineId": "MED-569",
+    "branchId": "KBJ",
+    "batchNo": "BT-5002-270",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-271-KBJ",
+    "medicineId": "MED-570",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-271",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-272-KBJ",
+    "medicineId": "MED-571",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-272",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-273-KBJ",
+    "medicineId": "MED-572",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-273",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5003-274-KBJ",
+    "medicineId": "MED-573",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-274",
+    "expiryDate": "2028-11-27",
+    "stock": 30
+  },
+  {
+    "id": "B-20261127-5003-275-KBJ",
+    "medicineId": "MED-574",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-275",
+    "expiryDate": "2028-11-27",
+    "stock": 37
+  },
+  {
+    "id": "B-20261127-5003-276-KBJ",
+    "medicineId": "MED-575",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-276",
+    "expiryDate": "2028-11-27",
+    "stock": 430
+  },
+  {
+    "id": "B-20261127-5003-277-KBJ",
+    "medicineId": "MED-576",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-277",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-278-KBJ",
+    "medicineId": "MED-577",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-278",
+    "expiryDate": "2028-11-27",
+    "stock": 28
+  },
+  {
+    "id": "B-20261127-5003-279-KBJ",
+    "medicineId": "MED-578",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-279",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-280-KBJ",
+    "medicineId": "MED-579",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-280",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5003-281-KBJ",
+    "medicineId": "MED-580",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-281",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-282-KBJ",
+    "medicineId": "MED-581",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-282",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-283-KBJ",
+    "medicineId": "MED-582",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-283",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-284-KBJ",
+    "medicineId": "MED-583",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-284",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-285-KBJ",
+    "medicineId": "MED-584",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-285",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-286-KBJ",
+    "medicineId": "MED-585",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-286",
+    "expiryDate": "2028-11-27",
+    "stock": 15
+  },
+  {
+    "id": "B-20261127-5003-287-KBJ",
+    "medicineId": "MED-586",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-287",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-288-KBJ",
+    "medicineId": "MED-587",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-288",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5003-289-KBJ",
+    "medicineId": "MED-588",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-289",
+    "expiryDate": "2028-11-27",
+    "stock": 54
+  },
+  {
+    "id": "B-20261127-5003-290-KBJ",
+    "medicineId": "MED-589",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-290",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-291-KBJ",
+    "medicineId": "MED-590",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-291",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-292-KBJ",
+    "medicineId": "MED-591",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-292",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-293-KBJ",
+    "medicineId": "MED-592",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-293",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-294-KBJ",
+    "medicineId": "MED-593",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-294",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-295-KBJ",
+    "medicineId": "MED-594",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-295",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-296-KBJ",
+    "medicineId": "MED-595",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-296",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-297-KBJ",
+    "medicineId": "MED-596",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-297",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-298-KBJ",
+    "medicineId": "MED-597",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-298",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-299-KBJ",
+    "medicineId": "MED-598",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-299",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-300-KBJ",
+    "medicineId": "MED-599",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-300",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-301-KBJ",
+    "medicineId": "MED-600",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-301",
+    "expiryDate": "2028-11-27",
+    "stock": 60
+  },
+  {
+    "id": "B-20261127-5003-302-KBJ",
+    "medicineId": "MED-601",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-302",
+    "expiryDate": "2028-11-27",
+    "stock": 121
+  },
+  {
+    "id": "B-20261127-5003-303-KBJ",
+    "medicineId": "MED-602",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-303",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-304-KBJ",
+    "medicineId": "MED-603",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-304",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-305-KBJ",
+    "medicineId": "MED-604",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-305",
+    "expiryDate": "2028-11-27",
+    "stock": 41
+  },
+  {
+    "id": "B-20261127-5003-306-KBJ",
+    "medicineId": "MED-605",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-306",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-307-KBJ",
+    "medicineId": "MED-606",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-307",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-308-KBJ",
+    "medicineId": "MED-607",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-308",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-309-KBJ",
+    "medicineId": "MED-608",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-309",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-310-KBJ",
+    "medicineId": "MED-609",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-310",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-311-KBJ",
+    "medicineId": "MED-610",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-311",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-312-KBJ",
+    "medicineId": "MED-611",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-312",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-313-KBJ",
+    "medicineId": "MED-612",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-313",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-314-KBJ",
+    "medicineId": "MED-613",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-314",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-315-KBJ",
+    "medicineId": "MED-614",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-315",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5003-316-KBJ",
+    "medicineId": "MED-615",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-316",
+    "expiryDate": "2028-11-27",
+    "stock": 35
+  },
+  {
+    "id": "B-20261127-5003-317-KBJ",
+    "medicineId": "MED-616",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-317",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-318-KBJ",
+    "medicineId": "MED-617",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-318",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-319-KBJ",
+    "medicineId": "MED-618",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-319",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5003-320-KBJ",
+    "medicineId": "MED-619",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-320",
+    "expiryDate": "2028-11-27",
+    "stock": 32
+  },
+  {
+    "id": "B-20261127-5003-321-KBJ",
+    "medicineId": "MED-620",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-321",
+    "expiryDate": "2028-11-27",
+    "stock": 37
+  },
+  {
+    "id": "B-20261127-5003-322-KBJ",
+    "medicineId": "MED-621",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-322",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-323-KBJ",
+    "medicineId": "MED-622",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-323",
+    "expiryDate": "2028-11-27",
+    "stock": 42
+  },
+  {
+    "id": "B-20261127-5003-324-KBJ",
+    "medicineId": "MED-623",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-324",
+    "expiryDate": "2028-11-27",
+    "stock": 21
+  },
+  {
+    "id": "B-20261127-5003-325-KBJ",
+    "medicineId": "MED-624",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-325",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-326-KBJ",
+    "medicineId": "MED-625",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-326",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-327-KBJ",
+    "medicineId": "MED-626",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-327",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  },
+  {
+    "id": "B-20261127-5003-328-KBJ",
+    "medicineId": "MED-627",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-328",
+    "expiryDate": "2028-11-27",
+    "stock": 157
+  },
+  {
+    "id": "B-20261127-5003-329-KBJ",
+    "medicineId": "MED-628",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-329",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5003-330-KBJ",
+    "medicineId": "MED-629",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-330",
+    "expiryDate": "2028-11-27",
+    "stock": 83
+  },
+  {
+    "id": "B-20261127-5003-331-KBJ",
+    "medicineId": "MED-630",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-331",
+    "expiryDate": "2028-11-27",
+    "stock": 99
+  },
+  {
+    "id": "B-20261127-5003-332-KBJ",
+    "medicineId": "MED-631",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-332",
+    "expiryDate": "2028-11-27",
+    "stock": 98
+  },
+  {
+    "id": "B-20261127-5003-333-KBJ",
+    "medicineId": "MED-632",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-333",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-334-KBJ",
+    "medicineId": "MED-633",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-334",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-335-KBJ",
+    "medicineId": "MED-634",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-335",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-336-KBJ",
+    "medicineId": "MED-635",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-336",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-337-KBJ",
+    "medicineId": "MED-636",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-337",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-338-KBJ",
+    "medicineId": "MED-637",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-338",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5003-339-KBJ",
+    "medicineId": "MED-638",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-339",
+    "expiryDate": "2028-11-27",
+    "stock": 65
+  },
+  {
+    "id": "B-20261127-5003-340-KBJ",
+    "medicineId": "MED-639",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-340",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5003-341-KBJ",
+    "medicineId": "MED-640",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-341",
+    "expiryDate": "2028-11-27",
+    "stock": 24
+  },
+  {
+    "id": "B-20261127-5003-342-KBJ",
+    "medicineId": "MED-641",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-342",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-343-KBJ",
+    "medicineId": "MED-642",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-343",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5003-344-KBJ",
+    "medicineId": "MED-643",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-344",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5003-345-KBJ",
+    "medicineId": "MED-644",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-345",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-346-KBJ",
+    "medicineId": "MED-645",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-346",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-347-KBJ",
+    "medicineId": "MED-646",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-347",
+    "expiryDate": "2028-11-27",
+    "stock": 36
+  },
+  {
+    "id": "B-20261127-5003-348-KBJ",
+    "medicineId": "MED-647",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-348",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5003-349-KBJ",
+    "medicineId": "MED-648",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-349",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-350-KBJ",
+    "medicineId": "MED-649",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-350",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-351-KBJ",
+    "medicineId": "MED-650",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-351",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5003-352-KBJ",
+    "medicineId": "MED-651",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-352",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5003-353-KBJ",
+    "medicineId": "MED-652",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-353",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5003-354-KBJ",
+    "medicineId": "MED-653",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-354",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5003-355-KBJ",
+    "medicineId": "MED-654",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-355",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5003-356-KBJ",
+    "medicineId": "MED-655",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-356",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5003-357-KBJ",
+    "medicineId": "MED-656",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-357",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5003-358-KBJ",
+    "medicineId": "MED-657",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-358",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5003-359-KBJ",
+    "medicineId": "MED-658",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-359",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5003-360-KBJ",
+    "medicineId": "MED-659",
+    "branchId": "KBJ",
+    "batchNo": "BT-5003-360",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-361-KBJ",
+    "medicineId": "MED-660",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-361",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5004-362-KBJ",
+    "medicineId": "MED-661",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-362",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-363-KBJ",
+    "medicineId": "MED-662",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-363",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-364-KBJ",
+    "medicineId": "MED-663",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-364",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-365-KBJ",
+    "medicineId": "MED-664",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-365",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-366-KBJ",
+    "medicineId": "MED-665",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-366",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-367-KBJ",
+    "medicineId": "MED-666",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-367",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-368-KBJ",
+    "medicineId": "MED-667",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-368",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-369-KBJ",
+    "medicineId": "MED-668",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-369",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-370-KBJ",
+    "medicineId": "MED-669",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-370",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-371-KBJ",
+    "medicineId": "MED-670",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-371",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-372-KBJ",
+    "medicineId": "MED-671",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-372",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-373-KBJ",
+    "medicineId": "MED-672",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-373",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5004-374-KBJ",
+    "medicineId": "MED-673",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-374",
+    "expiryDate": "2028-11-27",
+    "stock": 16
+  },
+  {
+    "id": "B-20261127-5004-375-KBJ",
+    "medicineId": "MED-674",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-375",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-376-KBJ",
+    "medicineId": "MED-675",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-376",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-377-KBJ",
+    "medicineId": "MED-676",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-377",
+    "expiryDate": "2028-11-27",
+    "stock": 42
+  },
+  {
+    "id": "B-20261127-5004-378-KBJ",
+    "medicineId": "MED-677",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-378",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5004-379-KBJ",
+    "medicineId": "MED-678",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-379",
+    "expiryDate": "2028-11-27",
+    "stock": 14
+  },
+  {
+    "id": "B-20261127-5004-380-KBJ",
+    "medicineId": "MED-679",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-380",
+    "expiryDate": "2028-11-27",
+    "stock": 20
+  },
+  {
+    "id": "B-20261127-5004-381-KBJ",
+    "medicineId": "MED-680",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-381",
+    "expiryDate": "2028-11-27",
+    "stock": 52
+  },
+  {
+    "id": "B-20261127-5004-382-KBJ",
+    "medicineId": "MED-681",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-382",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5004-383-KBJ",
+    "medicineId": "MED-682",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-383",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-384-KBJ",
+    "medicineId": "MED-683",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-384",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5004-385-KBJ",
+    "medicineId": "MED-684",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-385",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-386-KBJ",
+    "medicineId": "MED-685",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-386",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-387-KBJ",
+    "medicineId": "MED-686",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-387",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-388-KBJ",
+    "medicineId": "MED-687",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-388",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-389-KBJ",
+    "medicineId": "MED-688",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-389",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-390-KBJ",
+    "medicineId": "MED-689",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-390",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-391-KBJ",
+    "medicineId": "MED-690",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-391",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-392-KBJ",
+    "medicineId": "MED-691",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-392",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-393-KBJ",
+    "medicineId": "MED-692",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-393",
+    "expiryDate": "2028-11-27",
+    "stock": 8
+  },
+  {
+    "id": "B-20261127-5004-394-KBJ",
+    "medicineId": "MED-693",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-394",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-395-KBJ",
+    "medicineId": "MED-694",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-395",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-396-KBJ",
+    "medicineId": "MED-695",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-396",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-397-KBJ",
+    "medicineId": "MED-696",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-397",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-398-KBJ",
+    "medicineId": "MED-697",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-398",
+    "expiryDate": "2028-11-27",
+    "stock": 23
+  },
+  {
+    "id": "B-20261127-5004-399-KBJ",
+    "medicineId": "MED-698",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-399",
+    "expiryDate": "2028-11-27",
+    "stock": 5
+  },
+  {
+    "id": "B-20261127-5004-400-KBJ",
+    "medicineId": "MED-699",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-400",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-401-KBJ",
+    "medicineId": "MED-700",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-401",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5004-402-KBJ",
+    "medicineId": "MED-701",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-402",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-403-KBJ",
+    "medicineId": "MED-702",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-403",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-404-KBJ",
+    "medicineId": "MED-703",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-404",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-405-KBJ",
+    "medicineId": "MED-704",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-405",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-406-KBJ",
+    "medicineId": "MED-705",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-406",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-407-KBJ",
+    "medicineId": "MED-706",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-407",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-408-KBJ",
+    "medicineId": "MED-707",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-408",
+    "expiryDate": "2028-11-27",
+    "stock": 18
+  },
+  {
+    "id": "B-20261127-5004-409-KBJ",
+    "medicineId": "MED-708",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-409",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-410-KBJ",
+    "medicineId": "MED-709",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-410",
+    "expiryDate": "2028-11-27",
+    "stock": 25
+  },
+  {
+    "id": "B-20261127-5004-411-KBJ",
+    "medicineId": "MED-710",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-411",
+    "expiryDate": "2028-11-27",
+    "stock": 9
+  },
+  {
+    "id": "B-20261127-5004-412-KBJ",
+    "medicineId": "MED-711",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-412",
+    "expiryDate": "2028-11-27",
+    "stock": 12
+  },
+  {
+    "id": "B-20261127-5004-413-KBJ",
+    "medicineId": "MED-712",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-413",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5004-414-KBJ",
+    "medicineId": "MED-713",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-414",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-415-KBJ",
+    "medicineId": "MED-714",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-415",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-416-KBJ",
+    "medicineId": "MED-715",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-416",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-417-KBJ",
+    "medicineId": "MED-716",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-417",
+    "expiryDate": "2028-11-27",
+    "stock": 17
+  },
+  {
+    "id": "B-20261127-5004-418-KBJ",
+    "medicineId": "MED-717",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-418",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-419-KBJ",
+    "medicineId": "MED-718",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-419",
+    "expiryDate": "2028-11-27",
+    "stock": 1
+  },
+  {
+    "id": "B-20261127-5004-420-KBJ",
+    "medicineId": "MED-719",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-420",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-421-KBJ",
+    "medicineId": "MED-720",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-421",
+    "expiryDate": "2028-11-27",
+    "stock": 0
+  },
+  {
+    "id": "B-20261127-5004-422-KBJ",
+    "medicineId": "MED-721",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-422",
+    "expiryDate": "2028-11-27",
+    "stock": 4
+  },
+  {
+    "id": "B-20261127-5004-423-KBJ",
+    "medicineId": "MED-722",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-423",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-424-KBJ",
+    "medicineId": "MED-723",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-424",
+    "expiryDate": "2028-11-27",
+    "stock": 6
+  },
+  {
+    "id": "B-20261127-5004-425-KBJ",
+    "medicineId": "MED-724",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-425",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-426-KBJ",
+    "medicineId": "MED-725",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-426",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-427-KBJ",
+    "medicineId": "MED-726",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-427",
+    "expiryDate": "2028-11-27",
+    "stock": 10
+  },
+  {
+    "id": "B-20261127-5004-428-KBJ",
+    "medicineId": "MED-727",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-428",
+    "expiryDate": "2028-11-27",
+    "stock": 11
+  },
+  {
+    "id": "B-20261127-5004-429-KBJ",
+    "medicineId": "MED-728",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-429",
+    "expiryDate": "2028-11-27",
+    "stock": 3
+  },
+  {
+    "id": "B-20261127-5004-430-KBJ",
+    "medicineId": "MED-729",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-430",
+    "expiryDate": "2028-11-27",
+    "stock": 2
+  },
+  {
+    "id": "B-20261127-5004-431-KBJ",
+    "medicineId": "MED-730",
+    "branchId": "KBJ",
+    "batchNo": "BT-5004-431",
+    "expiryDate": "2028-11-27",
+    "stock": 7
+  }
+],
     sales: [],
     transfers: [],
     expenses: [],
@@ -24056,7 +30953,5696 @@
       { id: 'SUP-03', name: 'PT. Anugrah Argon Medica (AAM)', phone: '021-6593000', address: 'Balikpapan' },
       { id: 'SUP-04', name: 'PT. Mensa Bina Sukses (MBS)', phone: '021-4701234', address: 'Manado' }
     ],
-    purchases: [],
+    purchases: [
+  {
+    "id": "PO-20261127-5000",
+    "invoiceNo": "FAK-20261127-5000",
+    "date": "2026-11-27",
+    "supplierId": "SUP-TONANG",
+    "branchId": "TLD",
+    "subtotal": 4124032,
+    "discount": 0,
+    "total": 4124032,
+    "items": [
+      {
+        "medicineId": "MED-300",
+        "medicineName": "Balpirik Merah",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 11400,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5000-001",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 68400
+      },
+      {
+        "medicineId": "MED-301",
+        "medicineName": "Balsem Geliga - 20gram",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 8300,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5000-002",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 33200
+      },
+      {
+        "medicineId": "MED-302",
+        "medicineName": "Balsem Geliga 10gram",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 4700,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5000-003",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 23500
+      },
+      {
+        "medicineId": "MED-303",
+        "medicineName": "Balsem Geliga 40g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 15800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-004",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-304",
+        "medicineName": "Balsem Lang 10g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 9,
+        "buyPrice": 4700,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5000-005",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 42300
+      },
+      {
+        "medicineId": "MED-305",
+        "medicineName": "Balsem Lang 20g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 15,
+        "buyPrice": 8300,
+        "multiplier": 1,
+        "baseQty": 15,
+        "batchNo": "BT-5000-006",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 124500
+      },
+      {
+        "medicineId": "MED-306",
+        "medicineName": "Balsem Lang 40g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 16000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-007",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-307",
+        "medicineName": "Baterai",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 41,
+        "buyPrice": 7500,
+        "multiplier": 1,
+        "baseQty": 41,
+        "batchNo": "BT-5000-008",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 307500
+      },
+      {
+        "medicineId": "MED-308",
+        "medicineName": "Baterai Panasonic",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 12000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-009",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-309",
+        "medicineName": "Batugin",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-010",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-310",
+        "medicineName": "Batugin 300 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 60000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-011",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 180000
+      },
+      {
+        "medicineId": "MED-311",
+        "medicineName": "Bebelove 1 0-6 Bulan",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 0,
+        "buyPrice": 43000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-012",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-312",
+        "medicineName": "Bebelove 2 6-12 Bulan 200 GR",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 0,
+        "buyPrice": 43000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-013",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-313",
+        "medicineName": "Bebithen Dexpanthenol",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-014",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-314",
+        "medicineName": "Becom-c",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 1,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-015",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 20000
+      },
+      {
+        "medicineId": "MED-315",
+        "medicineName": "Becom-zet",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 6,
+        "buyPrice": 26000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5000-016",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 156000
+      },
+      {
+        "medicineId": "MED-316",
+        "medicineName": "Bedak Happy Orange",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 8,
+        "buyPrice": 7000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5000-017",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 56000
+      },
+      {
+        "medicineId": "MED-317",
+        "medicineName": "Bedak Marcks",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 16700,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5000-018",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 83500
+      },
+      {
+        "medicineId": "MED-318",
+        "medicineName": "Bedak My Baby 50g",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 3200,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-019",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 3200
+      },
+      {
+        "medicineId": "MED-319",
+        "medicineName": "Bedak Rodeca",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 13000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-020",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-320",
+        "medicineName": "Bedak Salicyl Hijau",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5000-021",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-321",
+        "medicineName": "Bedak Salicyl Hijau Amore",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5000-022",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-322",
+        "medicineName": "Bedak Salicyl Menthol Gajah",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-023",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-323",
+        "medicineName": "Bedak Salisil 19 Plastik",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 7900,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-024",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-324",
+        "medicineName": "Bedak Salisil Dragon",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-025",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-325",
+        "medicineName": "Bedak Salisil Menthol",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5000-026",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 32000
+      },
+      {
+        "medicineId": "MED-326",
+        "medicineName": "Bedak Salisil Orange",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-027",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-327",
+        "medicineName": "Bedak Talk",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5000-028",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 10000
+      },
+      {
+        "medicineId": "MED-328",
+        "medicineName": "Benecol",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-029",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-329",
+        "medicineName": "Beneuron",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 4800,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5000-030",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 9600
+      },
+      {
+        "medicineId": "MED-330",
+        "medicineName": "Benzolac 2 1/2 %",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 17000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5000-031",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 34000
+      },
+      {
+        "medicineId": "MED-331",
+        "medicineName": "Benzolac Gel 5%",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 22500,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-032",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 22500
+      },
+      {
+        "medicineId": "MED-332",
+        "medicineName": "Bepanthen Baby 10 GR",
+        "baseUnit": "Tube",
+        "inputUnit": "Tube",
+        "inputQty": 0,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-033",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-333",
+        "medicineName": "Bepanthen Baby 20 GR",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 67000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-034",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-334",
+        "medicineName": "Berotec10ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 135000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-035",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-335",
+        "medicineName": "Betadine 5ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 6200,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-036",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 18600
+      },
+      {
+        "medicineId": "MED-336",
+        "medicineName": "Betadine Antiseptic",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 50000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-037",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 50000
+      },
+      {
+        "medicineId": "MED-337",
+        "medicineName": "Betadine Antiseptic Solution 5 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 6,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5000-038",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-338",
+        "medicineName": "Betadine Cina",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 28000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-039",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 28000
+      },
+      {
+        "medicineId": "MED-339",
+        "medicineName": "Betadine Feminim 60ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 42000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-040",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-340",
+        "medicineName": "Betadine Mouthwash And Gangle",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 36000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-041",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-341",
+        "medicineName": "Betadine Obat Kumur 100 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 23900,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-042",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-342",
+        "medicineName": "Betadine Povidone 10 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 17,
+        "buyPrice": 3000,
+        "multiplier": 1,
+        "baseQty": 17,
+        "batchNo": "BT-5000-043",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 51000
+      },
+      {
+        "medicineId": "MED-343",
+        "medicineName": "Betadine Povidone 15ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 12,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 12,
+        "batchNo": "BT-5000-044",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-344",
+        "medicineName": "Betadine Solution",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5000-045",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-345",
+        "medicineName": "Betahistin Tablet 10 Strip",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 35,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 35,
+        "batchNo": "BT-5000-046",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-346",
+        "medicineName": "Betamethasone Valerate Salep",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 14,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 14,
+        "batchNo": "BT-5000-047",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-347",
+        "medicineName": "Bimacyl",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 8,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5000-048",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 32000
+      },
+      {
+        "medicineId": "MED-348",
+        "medicineName": "Biocombin Injeksi",
+        "baseUnit": "Ampul",
+        "inputUnit": "Ampul",
+        "inputQty": 5,
+        "buyPrice": 6000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5000-049",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-349",
+        "medicineName": "Biolysin Kids Jeruk",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-050",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-350",
+        "medicineName": "Biolysin Kids Strawberry",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-051",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-351",
+        "medicineName": "Biolysin Smart",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 13800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-052",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-352",
+        "medicineName": "Biomega",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 9,
+        "buyPrice": 7800,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5000-053",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 70200
+      },
+      {
+        "medicineId": "MED-353",
+        "medicineName": "Bionick Mild Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-054",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-354",
+        "medicineName": "Bioplacenton",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 33000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-055",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 99000
+      },
+      {
+        "medicineId": "MED-355",
+        "medicineName": "Biosanbe Drops Baby Syrup 15ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 37700,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-056",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 113100
+      },
+      {
+        "medicineId": "MED-356",
+        "medicineName": "Biothicol 500mg",
+        "baseUnit": "Tablet",
+        "inputUnit": "Tablet",
+        "inputQty": 193,
+        "buyPrice": 4700,
+        "multiplier": 1,
+        "baseQty": 193,
+        "batchNo": "BT-5000-057",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 907100
+      },
+      {
+        "medicineId": "MED-357",
+        "medicineName": "Bisacodyl Tablet",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 31,
+        "buyPrice": 5600,
+        "multiplier": 1,
+        "baseQty": 31,
+        "batchNo": "BT-5000-058",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 173600
+      },
+      {
+        "medicineId": "MED-358",
+        "medicineName": "Bisolvon Extra Syrup 125ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 80100,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-059",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-359",
+        "medicineName": "Bisolvon Kids",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 44000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-060",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-360",
+        "medicineName": "Bisolvon Syrup 60ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 49700,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-061",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-361",
+        "medicineName": "Bisoporolol 2,5 MG",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 3,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-062",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 15000
+      },
+      {
+        "medicineId": "MED-362",
+        "medicineName": "Bisoporolol 5mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 14,
+        "buyPrice": 3488,
+        "multiplier": 1,
+        "baseQty": 14,
+        "batchNo": "BT-5000-063",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 48832
+      },
+      {
+        "medicineId": "MED-363",
+        "medicineName": "Bisoprolol 2.5mg OGB DEXA",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 5500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-064",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-364",
+        "medicineName": "Bodrein Flu Batuk Pe",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 12000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-065",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-365",
+        "medicineName": "Bodrex",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 11,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5000-066",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 55000
+      },
+      {
+        "medicineId": "MED-366",
+        "medicineName": "Bodrex Extraa",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 11,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5000-067",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-367",
+        "medicineName": "Bodrex Flu Batuk Berdahak",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 13,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 13,
+        "batchNo": "BT-5000-068",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 26000
+      },
+      {
+        "medicineId": "MED-368",
+        "medicineName": "Bodrex Flu Batuk Pe",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 12,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 12,
+        "batchNo": "BT-5000-069",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 24000
+      },
+      {
+        "medicineId": "MED-369",
+        "medicineName": "Bodrex Migra",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 13,
+        "buyPrice": 2200,
+        "multiplier": 1,
+        "baseQty": 13,
+        "batchNo": "BT-5000-070",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 28600
+      },
+      {
+        "medicineId": "MED-370",
+        "medicineName": "Bodrexin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 30,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 30,
+        "batchNo": "BT-5000-071",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 45000
+      },
+      {
+        "medicineId": "MED-371",
+        "medicineName": "Bodrexin Flu Batuk Tidak Berdahak Dph",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 12000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-072",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 12000
+      },
+      {
+        "medicineId": "MED-372",
+        "medicineName": "Bodrexin Pilek Alergi Pe",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 11000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5000-073",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 44000
+      },
+      {
+        "medicineId": "MED-373",
+        "medicineName": "Brochifar Plus Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 26,
+        "buyPrice": 7100,
+        "multiplier": 1,
+        "baseQty": 26,
+        "batchNo": "BT-5000-074",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 184600
+      },
+      {
+        "medicineId": "MED-374",
+        "medicineName": "Brochifar Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 27,
+        "buyPrice": 5500,
+        "multiplier": 1,
+        "baseQty": 27,
+        "batchNo": "BT-5000-075",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 148500
+      },
+      {
+        "medicineId": "MED-375",
+        "medicineName": "Bromhexine",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 19,
+        "buyPrice": 1800,
+        "multiplier": 1,
+        "baseQty": 19,
+        "batchNo": "BT-5000-076",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 34200
+      },
+      {
+        "medicineId": "MED-376",
+        "medicineName": "Bromifar",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 1600,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-077",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-377",
+        "medicineName": "Bromifar Plus",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 9,
+        "buyPrice": 1900,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5000-078",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 17100
+      },
+      {
+        "medicineId": "MED-378",
+        "medicineName": "Bromifar Plus Sirup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 9,
+        "buyPrice": 6600,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5000-079",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 59400
+      },
+      {
+        "medicineId": "MED-379",
+        "medicineName": "Bufacaryl",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 22,
+        "buyPrice": 3500,
+        "multiplier": 1,
+        "baseQty": 22,
+        "batchNo": "BT-5000-080",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 77000
+      },
+      {
+        "medicineId": "MED-380",
+        "medicineName": "Bufacetine",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 19500,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5000-081",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 58500
+      },
+      {
+        "medicineId": "MED-381",
+        "medicineName": "Bundavin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 13,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 13,
+        "batchNo": "BT-5000-082",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 104000
+      },
+      {
+        "medicineId": "MED-382",
+        "medicineName": "Bunga Merah",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 19000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-083",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-383",
+        "medicineName": "Bye Bye Fever Anak Anak",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 5,
+        "buyPrice": 9200,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5000-084",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 46000
+      },
+      {
+        "medicineId": "MED-384",
+        "medicineName": "Bye Bye Fever Bayi",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 6500,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5000-085",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 6500
+      },
+      {
+        "medicineId": "MED-385",
+        "medicineName": "Bye Bye Fever Dewasa",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 10,
+        "buyPrice": 10600,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5000-086",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 106000
+      },
+      {
+        "medicineId": "MED-386",
+        "medicineName": "Bysocodyl",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-087",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-387",
+        "medicineName": "Caladine Baby 55gr",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8200,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-088",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-388",
+        "medicineName": "Caladine Baby 100 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 23000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5000-089",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 115000
+      },
+      {
+        "medicineId": "MED-389",
+        "medicineName": "Caladine Lotion 95 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 22900,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5000-090",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      }
+    ],
+    "status": "PAID",
+    "dueDate": "2026-11-27",
+    "topDays": 0,
+    "paidDate": "2026-11-27",
+    "paidMethod": "CASH"
+  },
+  {
+    "id": "PO-20261127-5001",
+    "invoiceNo": "FAK-20261127-5001",
+    "date": "2026-11-27",
+    "supplierId": "SUP-TONANG",
+    "branchId": "TLD",
+    "subtotal": 7928600,
+    "discount": 0,
+    "total": 7928600,
+    "items": [
+      {
+        "medicineId": "MED-390",
+        "medicineName": "Caladine Lotion 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 16300,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-091",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 32600
+      },
+      {
+        "medicineId": "MED-391",
+        "medicineName": "Caladine Powder Biru 100gr ( Soft Comfort)",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-092",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-392",
+        "medicineName": "Caladine Powder Biru 220gr (soft Comfort)",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-093",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-393",
+        "medicineName": "Caladine Powder Hijau 100mg",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 11700,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-094",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 35100
+      },
+      {
+        "medicineId": "MED-394",
+        "medicineName": "Caladine Powder Hijau 220gr",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-095",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-395",
+        "medicineName": "Caladine Powder Pink 220gr (active Fresh)",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-096",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-396",
+        "medicineName": "Caladine Powder100mg Active Fresh",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-097",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-397",
+        "medicineName": "Calcifar",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2100,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-098",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-398",
+        "medicineName": "Calcifar Plus",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2400,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-099",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-399",
+        "medicineName": "Calcium Gluconate Isi 24 Vials",
+        "baseUnit": "Vial",
+        "inputUnit": "Vial",
+        "inputQty": 23,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 23,
+        "batchNo": "BT-5001-100",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 460000
+      },
+      {
+        "medicineId": "MED-400",
+        "medicineName": "Calcium Ipi",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-101",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-401",
+        "medicineName": "Calcium Lactat",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 16,
+        "buyPrice": 1900,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5001-102",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30400
+      },
+      {
+        "medicineId": "MED-402",
+        "medicineName": "Calcix",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2700,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-103",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-403",
+        "medicineName": "Callusol 10ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 31100,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-104",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 31100
+      },
+      {
+        "medicineId": "MED-404",
+        "medicineName": "Calortusin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 7,
+        "buyPrice": 7000,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5001-105",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 49000
+      },
+      {
+        "medicineId": "MED-405",
+        "medicineName": "Candesartan 16 (isi 10)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-106",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-406",
+        "medicineName": "Candesartan 16 Hj",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 9600,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-107",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-407",
+        "medicineName": "Candesartan 16 Isi 3",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 36,
+        "buyPrice": 8600,
+        "multiplier": 1,
+        "baseQty": 36,
+        "batchNo": "BT-5001-108",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 309600
+      },
+      {
+        "medicineId": "MED-408",
+        "medicineName": "Candesartan 8 (isi 3)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 49,
+        "buyPrice": 5100,
+        "multiplier": 1,
+        "baseQty": 49,
+        "batchNo": "BT-5001-109",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 249900
+      },
+      {
+        "medicineId": "MED-409",
+        "medicineName": "Candesartan 8mg Dos Biru",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 5600,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-110",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-410",
+        "medicineName": "Canesten",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 28000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-111",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-411",
+        "medicineName": "Canesten Pro",
+        "baseUnit": "Tube",
+        "inputUnit": "Tube",
+        "inputQty": 2,
+        "buyPrice": 36000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-112",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 72000
+      },
+      {
+        "medicineId": "MED-412",
+        "medicineName": "Cap Burung Kakatua",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 4,
+        "buyPrice": 13000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5001-113",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 52000
+      },
+      {
+        "medicineId": "MED-413",
+        "medicineName": "Captopril 12.5 MG OGB DEXA (merah)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 82,
+        "buyPrice": 1000,
+        "multiplier": 1,
+        "baseQty": 82,
+        "batchNo": "BT-5001-114",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 82000
+      },
+      {
+        "medicineId": "MED-414",
+        "medicineName": "Captopril 25 MG",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 63,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 63,
+        "batchNo": "BT-5001-115",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 126000
+      },
+      {
+        "medicineId": "MED-415",
+        "medicineName": "Captoprl 12.5 MG",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 8,
+        "buyPrice": 3000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5001-116",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 24000
+      },
+      {
+        "medicineId": "MED-416",
+        "medicineName": "Caranal Forte",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 16,
+        "buyPrice": 7100,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5001-117",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 113600
+      },
+      {
+        "medicineId": "MED-417",
+        "medicineName": "Carbidu 0,5",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 18,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5001-118",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27000
+      },
+      {
+        "medicineId": "MED-418",
+        "medicineName": "Carbidu 0,75",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 19,
+        "buyPrice": 1800,
+        "multiplier": 1,
+        "baseQty": 19,
+        "batchNo": "BT-5001-119",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 34200
+      },
+      {
+        "medicineId": "MED-419",
+        "medicineName": "Cardio Aspirin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 21000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-120",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-420",
+        "medicineName": "Carsida",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 6,
+        "buyPrice": 3100,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5001-121",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 18600
+      },
+      {
+        "medicineId": "MED-421",
+        "medicineName": "Carsida Sirup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8900,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-122",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-422",
+        "medicineName": "Cataflam 50mg",
+        "baseUnit": "Tablet",
+        "inputUnit": "Tablet",
+        "inputQty": 10,
+        "buyPrice": 6820,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5001-123",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 68200
+      },
+      {
+        "medicineId": "MED-423",
+        "medicineName": "Cavicur Syrup 60ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 18000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-124",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 36000
+      },
+      {
+        "medicineId": "MED-424",
+        "medicineName": "Cavicur Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 10,
+        "buyPrice": 7500,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5001-125",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 75000
+      },
+      {
+        "medicineId": "MED-425",
+        "medicineName": "Caviplex",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 28,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 28,
+        "batchNo": "BT-5001-126",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 224000
+      },
+      {
+        "medicineId": "MED-426",
+        "medicineName": "Caviplex Syrup 60ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 8,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5001-127",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 120000
+      },
+      {
+        "medicineId": "MED-427",
+        "medicineName": "Caviplex Tab Cdez",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-128",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-428",
+        "medicineName": "Cdr Botol",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 70000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-129",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 140000
+      },
+      {
+        "medicineId": "MED-429",
+        "medicineName": "Cefadroxil OGB DEXA",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 11000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-130",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-430",
+        "medicineName": "Cefadroxil OGB Pharma",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 11000,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5001-131",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 220000
+      },
+      {
+        "medicineId": "MED-431",
+        "medicineName": "Cefadroxil Syrp",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 16,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5001-132",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-432",
+        "medicineName": "Cefixme 100 OGB DEXA",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 32,
+        "buyPrice": 8600,
+        "multiplier": 1,
+        "baseQty": 32,
+        "batchNo": "BT-5001-133",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 275200
+      },
+      {
+        "medicineId": "MED-433",
+        "medicineName": "Cefixme 200 OGB DEXA",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 13000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-134",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 26000
+      },
+      {
+        "medicineId": "MED-434",
+        "medicineName": "Cefradoxil",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 33,
+        "buyPrice": 9600,
+        "multiplier": 1,
+        "baseQty": 33,
+        "batchNo": "BT-5001-135",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 316800
+      },
+      {
+        "medicineId": "MED-435",
+        "medicineName": "Ceftriaxone Sodium Isi 10 Vial",
+        "baseUnit": "Vial",
+        "inputUnit": "Vial",
+        "inputQty": 11,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5001-136",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 110000
+      },
+      {
+        "medicineId": "MED-436",
+        "medicineName": "Celecoxib",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 5,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5001-137",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 125000
+      },
+      {
+        "medicineId": "MED-437",
+        "medicineName": "Celestra Sirup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 7700,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-138",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-438",
+        "medicineName": "Cellestar Sirup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-139",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-439",
+        "medicineName": "Cendo Asthenof",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-140",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-440",
+        "medicineName": "Cendo Carpine",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 21500,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-141",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 64500
+      },
+      {
+        "medicineId": "MED-441",
+        "medicineName": "Cendo Lyteers 15 ML",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-142",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-442",
+        "medicineName": "Cendo Tobroson 5 ML",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 66250,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5001-143",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 397500
+      },
+      {
+        "medicineId": "MED-443",
+        "medicineName": "Cendo Tropin",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 12500,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5001-144",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 25000
+      },
+      {
+        "medicineId": "MED-444",
+        "medicineName": "Cendo Xitrol",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 8,
+        "buyPrice": 35000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5001-145",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 280000
+      },
+      {
+        "medicineId": "MED-445",
+        "medicineName": "Cenfresh 5ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 38800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-146",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-446",
+        "medicineName": "Cerebroford Gold 100ml Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 19500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-147",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-447",
+        "medicineName": "Cerebroford Gold 200ml Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 33000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-148",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 33000
+      },
+      {
+        "medicineId": "MED-448",
+        "medicineName": "Cesa Kuning 8ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-149",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27000
+      },
+      {
+        "medicineId": "MED-449",
+        "medicineName": "Cessa 8ml Merah",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-150",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 81000
+      },
+      {
+        "medicineId": "MED-450",
+        "medicineName": "Cessa Biru 8ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-151",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 81000
+      },
+      {
+        "medicineId": "MED-451",
+        "medicineName": "Cessa Biru Happy Nose",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 19000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-152",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 57000
+      },
+      {
+        "medicineId": "MED-452",
+        "medicineName": "Cessa Hijau 8 ML",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-153",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27000
+      },
+      {
+        "medicineId": "MED-453",
+        "medicineName": "Cessa Merah Fedro",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 19000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-154",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 57000
+      },
+      {
+        "medicineId": "MED-454",
+        "medicineName": "Cessa Ungu 8ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-155",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27000
+      },
+      {
+        "medicineId": "MED-455",
+        "medicineName": "Cessa Ungu Bofit",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 19000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-156",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 19000
+      },
+      {
+        "medicineId": "MED-456",
+        "medicineName": "Ceterizin Hcl",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-157",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-457",
+        "medicineName": "Cetirizine",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 25,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 25,
+        "batchNo": "BT-5001-158",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 50000
+      },
+      {
+        "medicineId": "MED-458",
+        "medicineName": "Charm Isi 10",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-159",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-459",
+        "medicineName": "Charm Night Isi 8",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-160",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-460",
+        "medicineName": "Chlorampenicol",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 9,
+        "buyPrice": 7000,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5001-161",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 63000
+      },
+      {
+        "medicineId": "MED-461",
+        "medicineName": "Chlorampenicol Botol",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-162",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-462",
+        "medicineName": "Chloramphenicol",
+        "baseUnit": "Tablet",
+        "inputUnit": "Tablet",
+        "inputQty": 423,
+        "buyPrice": 700,
+        "multiplier": 1,
+        "baseQty": 423,
+        "batchNo": "BT-5001-163",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 296100
+      },
+      {
+        "medicineId": "MED-463",
+        "medicineName": "Cincau Balsem 20g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-164",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-464",
+        "medicineName": "Cincau Balsem 36g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 22000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-165",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-465",
+        "medicineName": "Ciprofloxacin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 4500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-166",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-466",
+        "medicineName": "Ciprofloxacin (pt Fm)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 36,
+        "buyPrice": 5600,
+        "multiplier": 1,
+        "baseQty": 36,
+        "batchNo": "BT-5001-167",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 201600
+      },
+      {
+        "medicineId": "MED-467",
+        "medicineName": "Ciprofloxacin Trifa",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-168",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-468",
+        "medicineName": "Citicoline",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 12,
+        "buyPrice": 43000,
+        "multiplier": 1,
+        "baseQty": 12,
+        "batchNo": "BT-5001-169",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 516000
+      },
+      {
+        "medicineId": "MED-469",
+        "medicineName": "Citicoline 250mg Isi 10 Ampul",
+        "baseUnit": "Vial",
+        "inputUnit": "Vial",
+        "inputQty": 0,
+        "buyPrice": 12500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5001-170",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-470",
+        "medicineName": "Clindamycin 150mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 47,
+        "buyPrice": 7800,
+        "multiplier": 1,
+        "baseQty": 47,
+        "batchNo": "BT-5001-171",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 366600
+      },
+      {
+        "medicineId": "MED-471",
+        "medicineName": "Clindamycin 150mg Tropica",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 10,
+        "buyPrice": 9000,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5001-172",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 90000
+      },
+      {
+        "medicineId": "MED-472",
+        "medicineName": "Clindamycin 300mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 40,
+        "buyPrice": 14000,
+        "multiplier": 1,
+        "baseQty": 40,
+        "batchNo": "BT-5001-173",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 560000
+      },
+      {
+        "medicineId": "MED-473",
+        "medicineName": "Clinmas",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 3,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5001-174",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-474",
+        "medicineName": "Clopidogrel",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 1,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5001-175",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 10000
+      },
+      {
+        "medicineId": "MED-475",
+        "medicineName": "Co-amoxiclav Isi 5",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 8,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5001-176",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 200000
+      },
+      {
+        "medicineId": "MED-476",
+        "medicineName": "Codela",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 20,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5001-177",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-477",
+        "medicineName": "Colchicine",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 6,
+        "buyPrice": 27800,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5001-178",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 166800
+      },
+      {
+        "medicineId": "MED-478",
+        "medicineName": "Colidium",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 45,
+        "buyPrice": 2800,
+        "multiplier": 1,
+        "baseQty": 45,
+        "batchNo": "BT-5001-179",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 126000
+      },
+      {
+        "medicineId": "MED-479",
+        "medicineName": "Combantrin 125mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 32,
+        "buyPrice": 17600,
+        "multiplier": 1,
+        "baseQty": 32,
+        "batchNo": "BT-5001-180",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 563200
+      }
+    ],
+    "status": "PAID",
+    "dueDate": "2026-11-27",
+    "topDays": 0,
+    "paidDate": "2026-11-27",
+    "paidMethod": "CASH"
+  },
+  {
+    "id": "PO-20261127-5002",
+    "invoiceNo": "FAK-20261127-5002",
+    "date": "2026-11-27",
+    "supplierId": "SUP-TONANG",
+    "branchId": "TLD",
+    "subtotal": 3923350,
+    "discount": 0,
+    "total": 3923350,
+    "items": [
+      {
+        "medicineId": "MED-480",
+        "medicineName": "Combantrin 250mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 11,
+        "buyPrice": 17600,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5002-181",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 193600
+      },
+      {
+        "medicineId": "MED-481",
+        "medicineName": "Combantrin Syrup Orange",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-182",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 75000
+      },
+      {
+        "medicineId": "MED-482",
+        "medicineName": "Combivent",
+        "baseUnit": "Vial",
+        "inputUnit": "Vial",
+        "inputQty": 6,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-183",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-483",
+        "medicineName": "Compyrantel Sirup",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-184",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-484",
+        "medicineName": "Confidenc L-7",
+        "baseUnit": "Pack",
+        "inputUnit": "Pack",
+        "inputQty": 0,
+        "buyPrice": 46500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-185",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-485",
+        "medicineName": "Confidence L-16",
+        "baseUnit": "Pack",
+        "inputUnit": "Pack",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-186",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-486",
+        "medicineName": "Confidence M-8",
+        "baseUnit": "Pack",
+        "inputUnit": "Pack",
+        "inputQty": 0,
+        "buyPrice": 45000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-187",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-487",
+        "medicineName": "Confidence Xl-6",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 46500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-188",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-488",
+        "medicineName": "Contrimokzazole",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5002-189",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 80000
+      },
+      {
+        "medicineId": "MED-489",
+        "medicineName": "Cool Max Spray 100ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 90000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-190",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-490",
+        "medicineName": "Coparcetin Sirup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-191",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 10000
+      },
+      {
+        "medicineId": "MED-491",
+        "medicineName": "Coparcetin Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 5,
+        "buyPrice": 6200,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5002-192",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 31000
+      },
+      {
+        "medicineId": "MED-492",
+        "medicineName": "Copercetin Kid Cough",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 6,
+        "buyPrice": 9000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-193",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 54000
+      },
+      {
+        "medicineId": "MED-493",
+        "medicineName": "Cordema-n",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-194",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 48000
+      },
+      {
+        "medicineId": "MED-494",
+        "medicineName": "Coridex",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-195",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-495",
+        "medicineName": "Cortidex",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 17,
+        "buyPrice": 4200,
+        "multiplier": 1,
+        "baseQty": 17,
+        "batchNo": "BT-5002-196",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 71400
+      },
+      {
+        "medicineId": "MED-496",
+        "medicineName": "Cotrimoksazole",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 31,
+        "buyPrice": 2700,
+        "multiplier": 1,
+        "baseQty": 31,
+        "batchNo": "BT-5002-197",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 83700
+      },
+      {
+        "medicineId": "MED-497",
+        "medicineName": "Cotton Buds 100 Sticks",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-198",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 10000
+      },
+      {
+        "medicineId": "MED-498",
+        "medicineName": "Counterpain 15 GR",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 25900,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-199",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-499",
+        "medicineName": "Counterpain 30g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 40100,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-200",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-500",
+        "medicineName": "Ctm",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 46,
+        "buyPrice": 900,
+        "multiplier": 1,
+        "baseQty": 46,
+        "batchNo": "BT-5002-201",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 41400
+      },
+      {
+        "medicineId": "MED-501",
+        "medicineName": "Cucrcuma Grow Emulsion 200ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 28400,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-202",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 85200
+      },
+      {
+        "medicineId": "MED-502",
+        "medicineName": "Cuka Apel Best Honey Besar",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 43750,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-203",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 43750
+      },
+      {
+        "medicineId": "MED-503",
+        "medicineName": "Cuka Apel Besar Cider",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 43750,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-204",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 87500
+      },
+      {
+        "medicineId": "MED-504",
+        "medicineName": "Cuka Apel Kecil Best Honey",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-205",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-505",
+        "medicineName": "Cuka Apel Kecil Cider",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-206",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-506",
+        "medicineName": "Curcuma Force",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 1,
+        "buyPrice": 17000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-207",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 17000
+      },
+      {
+        "medicineId": "MED-507",
+        "medicineName": "Curcuma Grow Emulsion 100ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 22000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-208",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-508",
+        "medicineName": "Curcuma Plus Grow Emulsion 200ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 30000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-209",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-509",
+        "medicineName": "Curcuma Plus Grow Emulsion 400ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-210",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-510",
+        "medicineName": "Curcuma Plus Sharphy Biru",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 15300,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-211",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30600
+      },
+      {
+        "medicineId": "MED-511",
+        "medicineName": "Curcuma Plus Sharphy Orange",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 7,
+        "buyPrice": 15300,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5002-212",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 107100
+      },
+      {
+        "medicineId": "MED-512",
+        "medicineName": "Curlysine Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 17800,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-213",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 17800
+      },
+      {
+        "medicineId": "MED-513",
+        "medicineName": "Curvit 60ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 30000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-214",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 90000
+      },
+      {
+        "medicineId": "MED-514",
+        "medicineName": "Curvit Cl Emulsion 175ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 66000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-215",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-515",
+        "medicineName": "Curvit Syrup 120ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 45000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-216",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 135000
+      },
+      {
+        "medicineId": "MED-516",
+        "medicineName": "Curvit Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 10,
+        "buyPrice": 21000,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5002-217",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 210000
+      },
+      {
+        "medicineId": "MED-517",
+        "medicineName": "Cuson Baby Nwborn",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-218",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 20000
+      },
+      {
+        "medicineId": "MED-518",
+        "medicineName": "Cusson B Aby Biru",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 4,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5002-219",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 40000
+      },
+      {
+        "medicineId": "MED-519",
+        "medicineName": "Cusson Baby Hijau",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-220",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-520",
+        "medicineName": "Cusson Baby Pink",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-221",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 20000
+      },
+      {
+        "medicineId": "MED-521",
+        "medicineName": "Cusson Baby Ungu",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-222",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-522",
+        "medicineName": "Cussons Baby 100 ML + 100 ML Biru",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 21000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-223",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 21000
+      },
+      {
+        "medicineId": "MED-523",
+        "medicineName": "Cussons Baby 100 ML + 100 ML Pink",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 21000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5002-224",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 84000
+      },
+      {
+        "medicineId": "MED-524",
+        "medicineName": "Cussons Baby 50 + 50 ML Biru",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5002-225",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-525",
+        "medicineName": "Cussons Baby 50 + 50 ML Pink",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-226",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-526",
+        "medicineName": "Cussons Baby Biru 100 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 264000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-227",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 792000
+      },
+      {
+        "medicineId": "MED-527",
+        "medicineName": "Cussons Baby Cologne",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-228",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-528",
+        "medicineName": "Cussons Baby Cream Biru 50 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 15500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-229",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-529",
+        "medicineName": "Cussons Baby Cream Hijau",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-230",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-530",
+        "medicineName": "Cussons Baby Cream Newborn",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 20500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-231",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-531",
+        "medicineName": "Cussons Baby Cream Pink 50 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 16500,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-232",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 49500
+      },
+      {
+        "medicineId": "MED-532",
+        "medicineName": "Cussons Baby Cream Putih",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-233",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-533",
+        "medicineName": "Cussons Baby Cream Ungu 50 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 15500,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-234",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 31000
+      },
+      {
+        "medicineId": "MED-534",
+        "medicineName": "Cussons Baby Cutton Buds",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 4900,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-235",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 14700
+      },
+      {
+        "medicineId": "MED-535",
+        "medicineName": "Cussons Baby Hair & Body Wash 100+100ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 6,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-236",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 120000
+      },
+      {
+        "medicineId": "MED-536",
+        "medicineName": "Cussons Baby New Born Hair & Body Wash 300ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-237",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-537",
+        "medicineName": "Cussons Baby Oil 30ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 11000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-238",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-538",
+        "medicineName": "Cussons Baby Oil 50ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 13500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-239",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-539",
+        "medicineName": "Cussons Baby Pink 100 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 26400,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-240",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 79200
+      },
+      {
+        "medicineId": "MED-540",
+        "medicineName": "Cussons Baby Pink 35 + 15 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5002-241",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 50000
+      },
+      {
+        "medicineId": "MED-541",
+        "medicineName": "Cussons Baby Powder Soft & Smooth 100+30g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 6500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-242",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-542",
+        "medicineName": "Cyanocobalamin Injeksi",
+        "baseUnit": "Vial",
+        "inputUnit": "Vial",
+        "inputQty": 0,
+        "buyPrice": 12000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-243",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-543",
+        "medicineName": "D3-more 5000",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 45000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-244",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-544",
+        "medicineName": "Dacow 1+(750gr) Madu",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 90000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-245",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 180000
+      },
+      {
+        "medicineId": "MED-545",
+        "medicineName": "Daily Vitamin C",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 7500,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-246",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 15000
+      },
+      {
+        "medicineId": "MED-546",
+        "medicineName": "Daktarin 10g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 42900,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-247",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 128700
+      },
+      {
+        "medicineId": "MED-547",
+        "medicineName": "Daktarin 5g",
+        "baseUnit": "Tube",
+        "inputUnit": "Tube",
+        "inputQty": 2,
+        "buyPrice": 27200,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5002-248",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 54400
+      },
+      {
+        "medicineId": "MED-548",
+        "medicineName": "Danasone",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 34,
+        "buyPrice": 2300,
+        "multiplier": 1,
+        "baseQty": 34,
+        "batchNo": "BT-5002-249",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 78200
+      },
+      {
+        "medicineId": "MED-549",
+        "medicineName": "Dancow 1+ 1 KG Madu Asli",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 115000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-250",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-550",
+        "medicineName": "Dancow 1+ 1 KG Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 120000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-251",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-551",
+        "medicineName": "Dancow 1+ 350 GR Madu Asli",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 1,
+        "buyPrice": 43000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-252",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 43000
+      },
+      {
+        "medicineId": "MED-552",
+        "medicineName": "Dancow 1+ 350gr Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 43000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-253",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-553",
+        "medicineName": "Dancow 1+ 750gr Madu",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 90000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-254",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-554",
+        "medicineName": "Dancow 3+ 1 KG Madu Asli",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 110000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-255",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-555",
+        "medicineName": "Dancow 3+ 1 KG Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 110000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-256",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-556",
+        "medicineName": "Dancow 3+ 350gr Madu",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5002-257",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 120000
+      },
+      {
+        "medicineId": "MED-557",
+        "medicineName": "Dancow 3+ 350gr Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-258",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-558",
+        "medicineName": "Dancow 3+ 750gr Coklat",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 95000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-259",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 95000
+      },
+      {
+        "medicineId": "MED-559",
+        "medicineName": "Dancow 3+ 750gr Madu Asli",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 95000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-260",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-560",
+        "medicineName": "Dancow 3+ 750gr Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 85000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-261",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-561",
+        "medicineName": "Dancow 3+750g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-262",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-562",
+        "medicineName": "Dancow 5+ 1 KG Rasa Madu",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 108000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-263",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-563",
+        "medicineName": "Dancow 5+ 350gr Madu Asli",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-264",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-564",
+        "medicineName": "Dancow 5+ 350gr Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 40000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-265",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-565",
+        "medicineName": "Dancow 5+ 750gr Cokelat",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 95000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-266",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-566",
+        "medicineName": "Dancow 5+ 750gr Madu Asli",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 85000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-267",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-567",
+        "medicineName": "Dancow 5+ 750gr Vanila",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 95000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5002-268",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 95000
+      },
+      {
+        "medicineId": "MED-568",
+        "medicineName": "Dancow Fortigro Cokelat 780 GR",
+        "baseUnit": "Dus",
+        "inputUnit": "Dus",
+        "inputQty": 0,
+        "buyPrice": 103800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5002-269",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-569",
+        "medicineName": "Daneuron",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 5100,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5002-270",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30600
+      }
+    ],
+    "status": "PAID",
+    "dueDate": "2026-11-27",
+    "topDays": 0,
+    "paidDate": "2026-11-27",
+    "paidMethod": "CASH"
+  },
+  {
+    "id": "PO-20261127-5003",
+    "invoiceNo": "FAK-20261127-5003",
+    "date": "2026-11-27",
+    "supplierId": "SUP-TONANG",
+    "branchId": "TLD",
+    "subtotal": 7307967,
+    "discount": 0,
+    "total": 7307967,
+    "items": [
+      {
+        "medicineId": "MED-570",
+        "medicineName": "Decadryl 120 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 31700,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-271",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 63400
+      },
+      {
+        "medicineId": "MED-571",
+        "medicineName": "Decadryl 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 17205,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-272",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 51615
+      },
+      {
+        "medicineId": "MED-572",
+        "medicineName": "Decolgen",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 18,
+        "buyPrice": 1980,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5003-273",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 35640
+      },
+      {
+        "medicineId": "MED-573",
+        "medicineName": "Decolsin Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 30,
+        "buyPrice": 1980,
+        "multiplier": 1,
+        "baseQty": 30,
+        "batchNo": "BT-5003-274",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 59400
+      },
+      {
+        "medicineId": "MED-574",
+        "medicineName": "Decotan",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 37,
+        "buyPrice": 2600,
+        "multiplier": 1,
+        "baseQty": 37,
+        "batchNo": "BT-5003-275",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 96200
+      },
+      {
+        "medicineId": "MED-575",
+        "medicineName": "Decyclin Kapsul",
+        "baseUnit": "Tablet",
+        "inputUnit": "Tablet",
+        "inputQty": 430,
+        "buyPrice": 364,
+        "multiplier": 1,
+        "baseQty": 430,
+        "batchNo": "BT-5003-276",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 156520
+      },
+      {
+        "medicineId": "MED-576",
+        "medicineName": "Degirol",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 4,
+        "buyPrice": 12800,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5003-277",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 51200
+      },
+      {
+        "medicineId": "MED-577",
+        "medicineName": "Demacolin Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 28,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 28,
+        "batchNo": "BT-5003-278",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 140000
+      },
+      {
+        "medicineId": "MED-578",
+        "medicineName": "Demifar Cream 5g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 10,
+        "buyPrice": 6000,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5003-279",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 60000
+      },
+      {
+        "medicineId": "MED-579",
+        "medicineName": "Denicam 20mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 18,
+        "buyPrice": 3450,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5003-280",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 62100
+      },
+      {
+        "medicineId": "MED-580",
+        "medicineName": "Derma Plast",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-281",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-581",
+        "medicineName": "Derma Plast 10 X 1",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 10,
+        "buyPrice": 22000,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5003-282",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 220000
+      },
+      {
+        "medicineId": "MED-582",
+        "medicineName": "Derma Plast 15 X 5",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 35000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-283",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-583",
+        "medicineName": "Dermafix 10 X 10",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 9,
+        "buyPrice": 1400,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5003-284",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 12600
+      },
+      {
+        "medicineId": "MED-584",
+        "medicineName": "Dermafix 10 X 15",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 9,
+        "buyPrice": 7000,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5003-285",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 63000
+      },
+      {
+        "medicineId": "MED-585",
+        "medicineName": "Dermafix 10x12",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 15,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 15,
+        "batchNo": "BT-5003-286",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 120000
+      },
+      {
+        "medicineId": "MED-586",
+        "medicineName": "Dermafix 10x20",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 20,
+        "buyPrice": 13000,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5003-287",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 260000
+      },
+      {
+        "medicineId": "MED-587",
+        "medicineName": "Dermafix 10x25",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 16,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5003-288",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 240000
+      },
+      {
+        "medicineId": "MED-588",
+        "medicineName": "Dermafix 5x7 One Med",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 54,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 54,
+        "batchNo": "BT-5003-289",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 81000
+      },
+      {
+        "medicineId": "MED-589",
+        "medicineName": "Dermatix 5gr",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 115000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-290",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 230000
+      },
+      {
+        "medicineId": "MED-590",
+        "medicineName": "Dermifar",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-291",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-591",
+        "medicineName": "Dermifar 5g",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5003-292",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30000
+      },
+      {
+        "medicineId": "MED-592",
+        "medicineName": "Detol 45ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 13800,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5003-293",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 13800
+      },
+      {
+        "medicineId": "MED-593",
+        "medicineName": "Detol Cair Antiseptik 245ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 59400,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-294",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-594",
+        "medicineName": "Detol Cair Antiseptik 95ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-295",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 75000
+      },
+      {
+        "medicineId": "MED-595",
+        "medicineName": "Detol Sabun 60 GR",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 4100,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-296",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-596",
+        "medicineName": "Dettol Cair Antiseptik 45 ML",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-297",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-597",
+        "medicineName": "Dettol Sabun 100gr",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 7,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5003-298",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 56000
+      },
+      {
+        "medicineId": "MED-598",
+        "medicineName": "Dexaharsen 0,5",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 1470,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-299",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 2940
+      },
+      {
+        "medicineId": "MED-599",
+        "medicineName": "Dexaharsen 0,75",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 4,
+        "buyPrice": 2458,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5003-300",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 9832
+      },
+      {
+        "medicineId": "MED-600",
+        "medicineName": "Dexamethason 0,5",
+        "baseUnit": "Sachet",
+        "inputUnit": "Sachet",
+        "inputQty": 60,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 60,
+        "batchNo": "BT-5003-301",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 90000
+      },
+      {
+        "medicineId": "MED-601",
+        "medicineName": "Dexamethason Injek Isi 100",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 121,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 121,
+        "batchNo": "BT-5003-302",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 242000
+      },
+      {
+        "medicineId": "MED-602",
+        "medicineName": "Dexamethasone 0,75",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 1760,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-303",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-603",
+        "medicineName": "Dextamine 60ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 30500,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5003-304",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30500
+      },
+      {
+        "medicineId": "MED-604",
+        "medicineName": "Dextem Plus",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 41,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 41,
+        "batchNo": "BT-5003-305",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 164000
+      },
+      {
+        "medicineId": "MED-605",
+        "medicineName": "Dextrose 40%",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 7,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5003-306",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-606",
+        "medicineName": "Diabetasol Isi 50",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 35500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-307",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-607",
+        "medicineName": "Diabetasol Rasa Coklat 170 GR",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 0,
+        "buyPrice": 50000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-308",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-608",
+        "medicineName": "Diabetasol Rasa Vanila 170gr",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 50000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-309",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-609",
+        "medicineName": "Diabetasol Sweetener Isi 100",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 64000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-310",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-610",
+        "medicineName": "Diabetasol Sweetener Isi 25",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 0,
+        "buyPrice": 23500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-311",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-611",
+        "medicineName": "Diapet",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 5100,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-312",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-612",
+        "medicineName": "Diatabs",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-313",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-613",
+        "medicineName": "Diclofenac Diethylamine",
+        "baseUnit": "Tablet",
+        "inputUnit": "Tablet",
+        "inputQty": 1,
+        "buyPrice": 28000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5003-314",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 28000
+      },
+      {
+        "medicineId": "MED-614",
+        "medicineName": "Diclofenac Erela",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 35,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 35,
+        "batchNo": "BT-5003-315",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 70000
+      },
+      {
+        "medicineId": "MED-615",
+        "medicineName": "Diclofenac Novel",
+        "baseUnit": "Blister",
+        "inputUnit": "Blister",
+        "inputQty": 35,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 35,
+        "batchNo": "BT-5003-316",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 140000
+      },
+      {
+        "medicineId": "MED-616",
+        "medicineName": "Diclofenac Pota",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 6,
+        "buyPrice": 6500,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5003-317",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 39000
+      },
+      {
+        "medicineId": "MED-617",
+        "medicineName": "Diclofenac Potassium Hj",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 5550,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-318",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-618",
+        "medicineName": "Diclofenac Sodium Fm (isi 5)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 8,
+        "buyPrice": 3400,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5003-319",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27200
+      },
+      {
+        "medicineId": "MED-619",
+        "medicineName": "Diclofenac Sodium OGB DEXA (merah)",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 32,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 32,
+        "batchNo": "BT-5003-320",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 64000
+      },
+      {
+        "medicineId": "MED-620",
+        "medicineName": "Diclofenat Sodium",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 37,
+        "buyPrice": 2500,
+        "multiplier": 1,
+        "baseQty": 37,
+        "batchNo": "BT-5003-321",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 92500
+      },
+      {
+        "medicineId": "MED-621",
+        "medicineName": "Diclofernac Bernofac",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 2700,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-322",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 8100
+      },
+      {
+        "medicineId": "MED-622",
+        "medicineName": "Digoxin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 42,
+        "buyPrice": 3400,
+        "multiplier": 1,
+        "baseQty": 42,
+        "batchNo": "BT-5003-323",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 142800
+      },
+      {
+        "medicineId": "MED-623",
+        "medicineName": "Dimenhydrinate",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 21,
+        "buyPrice": 2200,
+        "multiplier": 1,
+        "baseQty": 21,
+        "batchNo": "BT-5003-324",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 46200
+      },
+      {
+        "medicineId": "MED-624",
+        "medicineName": "Dionicol",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 14300,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5003-325",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 286000
+      },
+      {
+        "medicineId": "MED-625",
+        "medicineName": "Disfatyl",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-326",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-626",
+        "medicineName": "Dispo 10ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 7,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5003-327",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 35000
+      },
+      {
+        "medicineId": "MED-627",
+        "medicineName": "Dispo 1ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 157,
+        "buyPrice": 500,
+        "multiplier": 1,
+        "baseQty": 157,
+        "batchNo": "BT-5003-328",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 78500
+      },
+      {
+        "medicineId": "MED-628",
+        "medicineName": "Dispo 20ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 17,
+        "buyPrice": 7500,
+        "multiplier": 1,
+        "baseQty": 17,
+        "batchNo": "BT-5003-329",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 127500
+      },
+      {
+        "medicineId": "MED-629",
+        "medicineName": "Dispo 3ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 83,
+        "buyPrice": 800,
+        "multiplier": 1,
+        "baseQty": 83,
+        "batchNo": "BT-5003-330",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 66400
+      },
+      {
+        "medicineId": "MED-630",
+        "medicineName": "Dispo 50ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 99,
+        "buyPrice": 10000,
+        "multiplier": 1,
+        "baseQty": 99,
+        "batchNo": "BT-5003-331",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 990000
+      },
+      {
+        "medicineId": "MED-631",
+        "medicineName": "Dispo 5ml",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 98,
+        "buyPrice": 2500,
+        "multiplier": 1,
+        "baseQty": 98,
+        "batchNo": "BT-5003-332",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 245000
+      },
+      {
+        "medicineId": "MED-632",
+        "medicineName": "Divoltar",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-333",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 8000
+      },
+      {
+        "medicineId": "MED-633",
+        "medicineName": "Dobrisol",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 9500,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5003-334",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 190000
+      },
+      {
+        "medicineId": "MED-634",
+        "medicineName": "Dodo Cotton Buds 100pcs",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 12000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-335",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-635",
+        "medicineName": "Dodo Cotton Buds 150 Pcs",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 7500,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-336",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 15000
+      },
+      {
+        "medicineId": "MED-636",
+        "medicineName": "Dodo Cotton Buds 50pcs",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 3500,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-337",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 7000
+      },
+      {
+        "medicineId": "MED-637",
+        "medicineName": "Dohixat",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 23,
+        "buyPrice": 5400,
+        "multiplier": 1,
+        "baseQty": 23,
+        "batchNo": "BT-5003-338",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 124200
+      },
+      {
+        "medicineId": "MED-638",
+        "medicineName": "Domperidon",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 65,
+        "buyPrice": 1200,
+        "multiplier": 1,
+        "baseQty": 65,
+        "batchNo": "BT-5003-339",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 78000
+      },
+      {
+        "medicineId": "MED-639",
+        "medicineName": "Domperidon Novel",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 5,
+        "buyPrice": 4100,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5003-340",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 20500
+      },
+      {
+        "medicineId": "MED-640",
+        "medicineName": "Domperidon Syr",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 24,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 24,
+        "batchNo": "BT-5003-341",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 192000
+      },
+      {
+        "medicineId": "MED-641",
+        "medicineName": "Dompheridone 1omg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-342",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-642",
+        "medicineName": "Dopamet 250mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 9,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5003-343",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 243000
+      },
+      {
+        "medicineId": "MED-643",
+        "medicineName": "Doris Bedak 100 GR",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5003-344",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 100000
+      },
+      {
+        "medicineId": "MED-644",
+        "medicineName": "Double Spike Infusion Onemed/transofix",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-345",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-645",
+        "medicineName": "Dulcolactol Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 72000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-346",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-646",
+        "medicineName": "Dulcolax Tab Isi 10",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 36,
+        "buyPrice": 18500,
+        "multiplier": 1,
+        "baseQty": 36,
+        "batchNo": "BT-5003-347",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 666000
+      },
+      {
+        "medicineId": "MED-647",
+        "medicineName": "Dulcolax Tab Isi 4",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 9400,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5003-348",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 56400
+      },
+      {
+        "medicineId": "MED-648",
+        "medicineName": "Elastis Bandage 10 Cm",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-349",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-649",
+        "medicineName": "Elastis Bandage 15 Cm",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-350",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-650",
+        "medicineName": "Elastis Bandage 7,5 Cm",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5003-351",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-651",
+        "medicineName": "Elastis Bandage Biru",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5003-352",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-652",
+        "medicineName": "Elkana Syrup",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 27000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5003-353",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 27000
+      },
+      {
+        "medicineId": "MED-653",
+        "medicineName": "Elomox Cream",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 9200,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-354",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-654",
+        "medicineName": "Eltamine Sirup 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 12,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 12,
+        "batchNo": "BT-5003-355",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-655",
+        "medicineName": "Eltazon",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 2500,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5003-356",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 50000
+      },
+      {
+        "medicineId": "MED-656",
+        "medicineName": "Em Kapsul",
+        "baseUnit": "Box",
+        "inputUnit": "Box",
+        "inputQty": 10,
+        "buyPrice": 22240,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5003-357",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 222400
+      },
+      {
+        "medicineId": "MED-657",
+        "medicineName": "Enbatic",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 8,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5003-358",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-658",
+        "medicineName": "Enervon C",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 16,
+        "buyPrice": 4720,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5003-359",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 75520
+      },
+      {
+        "medicineId": "MED-659",
+        "medicineName": "Entrostop Tablet",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 7800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5003-360",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      }
+    ],
+    "status": "PAID",
+    "dueDate": "2026-11-27",
+    "topDays": 0,
+    "paidDate": "2026-11-27",
+    "paidMethod": "CASH"
+  },
+  {
+    "id": "PO-20261127-5004",
+    "invoiceNo": "FAK-20261127-5004",
+    "date": "2026-11-27",
+    "supplierId": "SUP-TONANG",
+    "branchId": "TLD",
+    "subtotal": 5690946,
+    "discount": 0,
+    "total": 5690946,
+    "items": [
+      {
+        "medicineId": "MED-660",
+        "medicineName": "Eperison",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 9500,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5004-361",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 190000
+      },
+      {
+        "medicineId": "MED-661",
+        "medicineName": "Epexol Drops Ambroxol Sryup 20ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-362",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-662",
+        "medicineName": "Epexol Syrup Ambroxol 120 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-363",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-663",
+        "medicineName": "Episan 100 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 9,
+        "buyPrice": 63000,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5004-364",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 567000
+      },
+      {
+        "medicineId": "MED-664",
+        "medicineName": "Episan 200 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 100000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-365",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-665",
+        "medicineName": "Erladerm G",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 18,
+        "buyPrice": 8000,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5004-366",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 144000
+      },
+      {
+        "medicineId": "MED-666",
+        "medicineName": "Erladerm N",
+        "baseUnit": "Tube",
+        "inputUnit": "Tube",
+        "inputQty": 9,
+        "buyPrice": 5400,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5004-367",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 48600
+      },
+      {
+        "medicineId": "MED-667",
+        "medicineName": "Erlamol",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 15300,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-368",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 45900
+      },
+      {
+        "medicineId": "MED-668",
+        "medicineName": "Erlamol Drops",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 14000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5004-369",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 70000
+      },
+      {
+        "medicineId": "MED-669",
+        "medicineName": "Erlamycetin Plus Tetes Mata",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 8,
+        "buyPrice": 21867,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5004-370",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 174936
+      },
+      {
+        "medicineId": "MED-670",
+        "medicineName": "Erlamycetin Salep Mata",
+        "baseUnit": "Tube",
+        "inputUnit": "Tube",
+        "inputQty": 0,
+        "buyPrice": 9000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-371",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-671",
+        "medicineName": "Erlamycetin Tetes Telinga",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 8,
+        "buyPrice": 13800,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5004-372",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 110400
+      },
+      {
+        "medicineId": "MED-672",
+        "medicineName": "Erlapect",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 16,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5004-373",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-673",
+        "medicineName": "Ermethason 0.75",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 16,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 16,
+        "batchNo": "BT-5004-374",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 24000
+      },
+      {
+        "medicineId": "MED-674",
+        "medicineName": "Ermethasone 0,5",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 1500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-375",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-675",
+        "medicineName": "Erpepsa (sucrlfate)",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 30500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-376",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-676",
+        "medicineName": "Erphaflam",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 42,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 42,
+        "batchNo": "BT-5004-377",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 210000
+      },
+      {
+        "medicineId": "MED-677",
+        "medicineName": "Erphakaf",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 23,
+        "buyPrice": 4200,
+        "multiplier": 1,
+        "baseQty": 23,
+        "batchNo": "BT-5004-378",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 96600
+      },
+      {
+        "medicineId": "MED-678",
+        "medicineName": "Ersolon 4mg (isi 10)",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 14,
+        "buyPrice": 6800,
+        "multiplier": 1,
+        "baseQty": 14,
+        "batchNo": "BT-5004-379",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 95200
+      },
+      {
+        "medicineId": "MED-679",
+        "medicineName": "Erytromycin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 20,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 20,
+        "batchNo": "BT-5004-380",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-680",
+        "medicineName": "Esemag Cair",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 52,
+        "buyPrice": 2000,
+        "multiplier": 1,
+        "baseQty": 52,
+        "batchNo": "BT-5004-381",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 104000
+      },
+      {
+        "medicineId": "MED-681",
+        "medicineName": "Esemag Tablet",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 11,
+        "buyPrice": 5000,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5004-382",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 55000
+      },
+      {
+        "medicineId": "MED-682",
+        "medicineName": "Eskulin 125ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 5,
+        "buyPrice": 15000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5004-383",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 75000
+      },
+      {
+        "medicineId": "MED-683",
+        "medicineName": "Etabion",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 10,
+        "buyPrice": 2900,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5004-384",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 29000
+      },
+      {
+        "medicineId": "MED-684",
+        "medicineName": "Etadexta",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 18,
+        "buyPrice": 3500,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5004-385",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 63000
+      },
+      {
+        "medicineId": "MED-685",
+        "medicineName": "Etafen",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-386",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-686",
+        "medicineName": "Etawaku",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 2,
+        "buyPrice": 80000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-387",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 160000
+      },
+      {
+        "medicineId": "MED-687",
+        "medicineName": "Etawalin",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 3,
+        "buyPrice": 78400,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-388",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 235200
+      },
+      {
+        "medicineId": "MED-688",
+        "medicineName": "Etawalin Kecil",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5004-389",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-689",
+        "medicineName": "Etoricoxib",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 55500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-390",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-690",
+        "medicineName": "Ett Plus",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 30600,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5004-391",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 30600
+      },
+      {
+        "medicineId": "MED-691",
+        "medicineName": "Etyl Magicode 250ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 38000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-392",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-692",
+        "medicineName": "Eyebost Pro",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 8,
+        "buyPrice": 30000,
+        "multiplier": 1,
+        "baseQty": 8,
+        "batchNo": "BT-5004-393",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 240000
+      },
+      {
+        "medicineId": "MED-693",
+        "medicineName": "Eyebost Syrup 160ml",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 85500,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5004-394",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 342000
+      },
+      {
+        "medicineId": "MED-694",
+        "medicineName": "Eyefit",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 35000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-395",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-695",
+        "medicineName": "Eyefresh 5 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 32100,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-396",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 96300
+      },
+      {
+        "medicineId": "MED-696",
+        "medicineName": "Faridexon 0,75",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-397",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-697",
+        "medicineName": "Farizol",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 23,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 23,
+        "batchNo": "BT-5004-398",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 92000
+      },
+      {
+        "medicineId": "MED-698",
+        "medicineName": "Farnirex",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 5,
+        "buyPrice": 3000,
+        "multiplier": 1,
+        "baseQty": 5,
+        "batchNo": "BT-5004-399",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 15000
+      },
+      {
+        "medicineId": "MED-699",
+        "medicineName": "Farsifen",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 6850,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-400",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-700",
+        "medicineName": "Farsifen 200mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 17,
+        "buyPrice": 2900,
+        "multiplier": 1,
+        "baseQty": 17,
+        "batchNo": "BT-5004-401",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 49300
+      },
+      {
+        "medicineId": "MED-701",
+        "medicineName": "Farsifen 400",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-402",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-702",
+        "medicineName": "Farsifen Forte",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 0,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5004-403",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-703",
+        "medicineName": "Farsiretic",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 6500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-404",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-704",
+        "medicineName": "Faryscool",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 4,
+        "buyPrice": 5600,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5004-405",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 22400
+      },
+      {
+        "medicineId": "MED-705",
+        "medicineName": "Fasidol 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 7000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-406",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-706",
+        "medicineName": "Fasidol Drops",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 13300,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-407",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 26600
+      },
+      {
+        "medicineId": "MED-707",
+        "medicineName": "Fasidol Forte",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 18,
+        "buyPrice": 4000,
+        "multiplier": 1,
+        "baseQty": 18,
+        "batchNo": "BT-5004-408",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 72000
+      },
+      {
+        "medicineId": "MED-708",
+        "medicineName": "Fasidol Forte 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 0,
+        "buyPrice": 8800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-409",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-709",
+        "medicineName": "Fasidol Tab 500mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 25,
+        "buyPrice": 3350,
+        "multiplier": 1,
+        "baseQty": 25,
+        "batchNo": "BT-5004-410",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 83750
+      },
+      {
+        "medicineId": "MED-710",
+        "medicineName": "Faspirim Forte",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 9,
+        "buyPrice": 64000,
+        "multiplier": 1,
+        "baseQty": 9,
+        "batchNo": "BT-5004-411",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 576000
+      },
+      {
+        "medicineId": "MED-711",
+        "medicineName": "Fatigon Putih",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 12,
+        "buyPrice": 7100,
+        "multiplier": 1,
+        "baseQty": 12,
+        "batchNo": "BT-5004-412",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 85200
+      },
+      {
+        "medicineId": "MED-712",
+        "medicineName": "Fatigon Spirit",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 6,
+        "buyPrice": 9950,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5004-413",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 59700
+      },
+      {
+        "medicineId": "MED-713",
+        "medicineName": "Faxiden 10mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 2400,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-414",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-714",
+        "medicineName": "Faxiden 20mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 3800,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-415",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-715",
+        "medicineName": "Faxiden Gel",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 0,
+        "buyPrice": 9500,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-416",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-716",
+        "medicineName": "Feminax",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 17,
+        "buyPrice": 2950,
+        "multiplier": 1,
+        "baseQty": 17,
+        "batchNo": "BT-5004-417",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 50150
+      },
+      {
+        "medicineId": "MED-717",
+        "medicineName": "Fenidryl",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 1,
+        "buyPrice": 5600,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5004-418",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 5600
+      },
+      {
+        "medicineId": "MED-718",
+        "medicineName": "Fenofibrate 300",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 1,
+        "buyPrice": 25000,
+        "multiplier": 1,
+        "baseQty": 1,
+        "batchNo": "BT-5004-419",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 25000
+      },
+      {
+        "medicineId": "MED-719",
+        "medicineName": "Fermia",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 3,
+        "buyPrice": 3400,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-420",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 10200
+      },
+      {
+        "medicineId": "MED-720",
+        "medicineName": "Fibumin",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 0,
+        "buyPrice": 50000,
+        "multiplier": 1,
+        "baseQty": 0,
+        "batchNo": "BT-5004-421",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 0
+      },
+      {
+        "medicineId": "MED-721",
+        "medicineName": "Figeon Facial Foam",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 4,
+        "buyPrice": 18000,
+        "multiplier": 1,
+        "baseQty": 4,
+        "batchNo": "BT-5004-422",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 72000
+      },
+      {
+        "medicineId": "MED-722",
+        "medicineName": "Fitkom Tab",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 15600,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-423",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 46800
+      },
+      {
+        "medicineId": "MED-723",
+        "medicineName": "Fladystin",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 6,
+        "buyPrice": 20000,
+        "multiplier": 1,
+        "baseQty": 6,
+        "batchNo": "BT-5004-424",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 120000
+      },
+      {
+        "medicineId": "MED-724",
+        "medicineName": "Floxifar 500mg",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 6400,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-425",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 12800
+      },
+      {
+        "medicineId": "MED-725",
+        "medicineName": "Flucadex Tab",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 2,
+        "buyPrice": 6600,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-426",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 13200
+      },
+      {
+        "medicineId": "MED-726",
+        "medicineName": "Flunadin",
+        "baseUnit": "Pcs",
+        "inputUnit": "Pcs",
+        "inputQty": 10,
+        "buyPrice": 6200,
+        "multiplier": 1,
+        "baseQty": 10,
+        "batchNo": "BT-5004-427",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 62000
+      },
+      {
+        "medicineId": "MED-727",
+        "medicineName": "Flutop-c 60 ML",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 11,
+        "buyPrice": 9900,
+        "multiplier": 1,
+        "baseQty": 11,
+        "batchNo": "BT-5004-428",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 108900
+      },
+      {
+        "medicineId": "MED-728",
+        "medicineName": "Folamil Genio Kapsul",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 3,
+        "buyPrice": 150000,
+        "multiplier": 1,
+        "baseQty": 3,
+        "batchNo": "BT-5004-429",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 450000
+      },
+      {
+        "medicineId": "MED-729",
+        "medicineName": "Folamil Gold Kapsul",
+        "baseUnit": "Botol",
+        "inputUnit": "Botol",
+        "inputQty": 2,
+        "buyPrice": 170000,
+        "multiplier": 1,
+        "baseQty": 2,
+        "batchNo": "BT-5004-430",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 340000
+      },
+      {
+        "medicineId": "MED-730",
+        "medicineName": "Folavit 400",
+        "baseUnit": "Strip",
+        "inputUnit": "Strip",
+        "inputQty": 7,
+        "buyPrice": 12230,
+        "multiplier": 1,
+        "baseQty": 7,
+        "batchNo": "BT-5004-431",
+        "expiryDate": "2028-11-27",
+        "subtotalCost": 85610
+      }
+    ],
+    "status": "PAID",
+    "dueDate": "2026-11-27",
+    "topDays": 0,
+    "paidDate": "2026-11-27",
+    "paidMethod": "CASH"
+  }
+],
 
     users: [
       {
