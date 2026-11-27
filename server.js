@@ -37,50 +37,55 @@ let serverState = {
   purchases: []
 };
 
-// Load existing state if present
-if (fs.existsSync(STATE_FILE)) {
-  try {
-    const raw = fs.readFileSync(STATE_FILE, 'utf8');
-    serverState = JSON.parse(raw);
-    serverState.deletedMedicineCodes = serverState.deletedMedicineCodes || [];
+function loadStateFromDisk() {
+  if (fs.existsSync(STATE_FILE)) {
+    try {
+      const raw = fs.readFileSync(STATE_FILE, 'utf8');
+      const loaded = JSON.parse(raw);
+      loaded.deletedMedicineCodes = loaded.deletedMedicineCodes || [];
 
-    // Auto-clean any legacy demo batches and demo medicines permanently
-    let needsPersist = false;
-    if (serverState.medicines && serverState.medicines.length > 0) {
-      const origMedCount = serverState.medicines.length;
-      serverState.medicines = serverState.medicines.filter(m => {
-        const n = (m.name || '').toLowerCase();
-        return !n.includes('zimuno') && !n.includes('paracetamol');
-      });
-      if (serverState.medicines.length !== origMedCount) {
-        needsPersist = true;
+      // Auto-clean any legacy demo batches and demo medicines permanently
+      let needsPersist = false;
+      if (loaded.medicines && loaded.medicines.length > 0) {
+        const origMedCount = loaded.medicines.length;
+        loaded.medicines = loaded.medicines.filter(m => {
+          const n = (m.name || '').toLowerCase();
+          return !n.includes('zimuno') && !n.includes('paracetamol');
+        });
+        if (loaded.medicines.length !== origMedCount) {
+          needsPersist = true;
+        }
       }
-    }
 
-    if (serverState.batches && serverState.batches.length > 0) {
-      const origBatchCount = serverState.batches.length;
-      serverState.batches = serverState.batches.filter(b => 
-        b.batchNo !== 'MED001-2611-01' && 
-        b.batchNo !== 'MED001-2611-02' && 
-        !b.batchNo?.startsWith('MED001-2611')
-      );
-      if (serverState.batches.length !== origBatchCount) {
-        needsPersist = true;
+      if (loaded.batches && loaded.batches.length > 0) {
+        const origBatchCount = loaded.batches.length;
+        loaded.batches = loaded.batches.filter(b => 
+          b.batchNo !== 'MED001-2611-01' && 
+          b.batchNo !== 'MED001-2611-02' && 
+          !b.batchNo?.startsWith('MED001-2611')
+        );
+        if (loaded.batches.length !== origBatchCount) {
+          needsPersist = true;
+        }
       }
-    }
 
-    if ((serverState.version || 0) < 700 || needsPersist) {
-      serverState.version = Math.max(serverState.version || 1, 700);
-      serverState.lastUpdated = Date.now();
-      persistState();
-      console.log(`[STATE] Auto-cleaned legacy demo data. State upgraded to v${serverState.version}.`);
-    } else {
-      console.log(`[STATE] Loaded server state v${serverState.version} with ${serverState.medicines?.length || 0} medicines, ${serverState.batches?.length || 0} batches.`);
+      serverState = loaded;
+
+      if ((serverState.version || 0) < 700 || needsPersist) {
+        serverState.version = Math.max(serverState.version || 1, 700);
+        serverState.lastUpdated = Date.now();
+        persistState();
+        console.log(`[STATE] Auto-cleaned legacy demo data. State upgraded to v${serverState.version}.`);
+      }
+    } catch (err) {
+      console.error('[STATE] Error reading state file:', err.message);
     }
-  } catch (err) {
-    console.error('[STATE] Error reading state file:', err.message);
   }
 }
+
+// Load existing state if present
+loadStateFromDisk();
+console.log(`[STATE] Loaded server state v${serverState.version} with ${serverState.medicines?.length || 0} medicines, ${serverState.batches?.length || 0} batches.`);
 
 function persistState() {
   try {
@@ -235,6 +240,7 @@ function requestHandler(req, res) {
   // API: GET FULL CENTRAL STATE
   // ==========================================
   if (pathname === '/api/state' && req.method === 'GET') {
+    loadStateFromDisk();
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store, no-cache, must-revalidate' });
     res.end(JSON.stringify({
       status: 'ok',
