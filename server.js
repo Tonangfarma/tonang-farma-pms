@@ -50,7 +50,7 @@ function loadStateFromDisk() {
         const origMedCount = loaded.medicines.length;
         loaded.medicines = loaded.medicines.filter(m => {
           const n = (m.name || '').toLowerCase();
-          return !n.includes('zimuno') && !n.includes('paracetamol');
+          return !n.includes('(demo)');
         });
         if (loaded.medicines.length !== origMedCount) {
           needsPersist = true;
@@ -472,13 +472,13 @@ function requestHandler(req, res) {
           // Filter out demo medicines and merge incoming into server medicines
           const cleanIncoming = incoming.medicines.filter(m => {
             const n = (m.name || '').toLowerCase();
-            return !n.includes('zimuno') && !n.includes('paracetamol');
+            return !n.includes('(demo)');
           });
           serverState.medicines = deduplicateMedicines(mergeArrayById(serverState.medicines, cleanIncoming, 'code'));
           // Ensure no demo medicines linger in serverState
           serverState.medicines = serverState.medicines.filter(m => {
             const n = (m.name || '').toLowerCase();
-            return !n.includes('zimuno') && !n.includes('paracetamol');
+            return !n.includes('(demo)');
           });
           hasChanges = true;
         }
