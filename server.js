@@ -145,6 +145,18 @@ function mergeArrayById(targetArr, sourceArr, idKey = 'id') {
   return Array.from(map.values());
 }
 
+// Natural Numeric Comparator for Medicine Codes (e.g. MED-1, MED-2, MED-3, MED-4, MED-5, MED-10, MED-100...)
+function compareMedicineCodesNumerically(a, b) {
+  const numA = parseInt(String((a && a.code) || "").replace(/\D/g, ""), 10);
+  const numB = parseInt(String((b && b.code) || "").replace(/\D/g, ""), 10);
+  const validA = !isNaN(numA);
+  const validB = !isNaN(numB);
+  if (validA && validB && numA !== numB) {
+    return numA - numB;
+  }
+  return String((a && a.code) || "").localeCompare(String((b && b.code) || ""), undefined, { numeric: true, sensitivity: "base" });
+}
+
 // Ensure no duplicate medicine code, barcode, or name exists in server state
 function deduplicateMedicines(medicines) {
   if (!Array.isArray(medicines)) return [];
@@ -166,7 +178,7 @@ function deduplicateMedicines(medicines) {
     if (name) seenNames.add(name);
     result.push(med);
   }
-  return result;
+  return result.sort(compareMedicineCodesNumerically);
 }
 
 const MIME_TYPES = {

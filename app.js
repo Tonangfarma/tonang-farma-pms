@@ -61253,6 +61253,23 @@
     cart: []
   };
 
+  // Natural Numeric Comparator for Medicine Codes (e.g. MED-1, MED-2, MED-3, MED-4, MED-5, MED-10, MED-100...)
+  function compareMedicineCodesNumerically(a, b) {
+    const numA = parseInt(String((a && a.code) || "").replace(/\D/g, ""), 10);
+    const numB = parseInt(String((b && b.code) || "").replace(/\D/g, ""), 10);
+    const validA = !isNaN(numA);
+    const validB = !isNaN(numB);
+    if (validA && validB && numA !== numB) {
+      return numA - numB;
+    }
+    return String((a && a.code) || "").localeCompare(String((b && b.code) || ""), undefined, { numeric: true, sensitivity: "base" });
+  }
+
+  function sortMedicinesNumerically(arr) {
+    if (!Array.isArray(arr)) return arr;
+    return arr.sort(compareMedicineCodesNumerically);
+  }
+
   // Load from LocalStorage (V2 Clean) or seed
   let appState = (function() {
     try {
@@ -61366,6 +61383,10 @@
     }
     return JSON.parse(JSON.stringify(DEFAULT_STATE));
   })();
+
+  if (appState && Array.isArray(appState.medicines)) {
+    sortMedicinesNumerically(appState.medicines);
+  }
 
   // ==========================================
   // REAL-TIME MULTI-DEVICE & CENTRAL SYNC ENGINE
@@ -61526,6 +61547,7 @@
       // 3. Smart Non-Destructive Merge: Combine local and server medicines by code & ID
       // Incoming server changes update matches, but local additions are NEVER deleted
       const mergedMeds = mergeArrayById(cleanLocalMeds, cleanServerMeds, 'code');
+      sortMedicinesNumerically(mergedMeds);
       appState.medicines = mergedMeds;
       appState.deletedMedicineCodes = [];
 
@@ -64147,6 +64169,24 @@
 
   let activeMasterBranchFilter = 'ALL';
 
+  
+  // Natural Numeric Comparator for Medicine Codes (e.g. MED-1, MED-2, MED-4, MED-5, MED-10, MED-100...)
+  function compareMedicineCodesNumerically(a, b) {
+    const numA = parseInt(String(a.code || "").replace(/\D/g, ""), 10);
+    const numB = parseInt(String(b.code || "").replace(/\D/g, ""), 10);
+    const validA = !isNaN(numA);
+    const validB = !isNaN(numB);
+    if (validA && validB && numA !== numB) {
+      return numA - numB;
+    }
+    return String(a.code || "").localeCompare(String(b.code || ""), undefined, { numeric: true, sensitivity: "base" });
+  }
+
+  function sortMedicinesNumerically(arr) {
+    if (!Array.isArray(arr)) return arr;
+    return arr.sort(compareMedicineCodesNumerically);
+  }
+
   function renderMedicinesTable() {
     const tbody = document.getElementById('medicine-table-body');
     const searchVal = (document.getElementById('medicine-search-table').value || '').toLowerCase();
@@ -64193,6 +64233,9 @@
         location.includes(searchClean) ||
         bLocation.includes(searchClean);
     });
+
+    // Auto-sort strictly by numeric medicine code (MED-1, MED-2, MED-3, MED-4, MED-5, ...)
+    filtered.sort(compareMedicineCodesNumerically);
 
     if ((appState.medicines || []).length === 0) {
       const tr = document.createElement('tr');
@@ -65283,6 +65326,7 @@
               minStockUnit: chosenMinStockUnit
             };
             appState.deletedMedicineCodes = (appState.deletedMedicineCodes || []).filter(c => c !== editId && c !== codeVal);
+            sortMedicinesNumerically(appState.medicines);
             saveState();
             pushMedicineToServer(appState.medicines[targetIdx]);
             if (modal) modal.classList.add('hidden');
@@ -65343,6 +65387,7 @@
 
         appState.deletedMedicineCodes = (appState.deletedMedicineCodes || []).filter(c => c !== newMed.code && c !== newMed.id);
         appState.medicines.push(newMed);
+        sortMedicinesNumerically(appState.medicines);
         saveState();
         pushMedicineToServer(newMed);
         if (modal) modal.classList.add('hidden');
